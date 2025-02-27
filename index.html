@@ -20,7 +20,7 @@
             margin-bottom: 30px;
             border-bottom: 2px solid #8b4513;
             padding-bottom: 20px;
-            background-image: background-color: #8b4513;
+            background-color: #8b4513; /* Fixed syntax error */
             background-position: center;
             background-size: cover;
             color: white;
@@ -1639,86 +1639,96 @@
         }
 
         function saveContentToLocalStorage() {
-            const type = document.getElementById('admin-type').value;
-            const title = document.getElementById('admin-title').value;
-            const summary = document.getElementById('admin-summary').value;
-            const details = document.getElementById('admin-details').value;
-            
-            if (!title || !summary) {
-                alert('Title and summary are required!');
-                return;
-            }
-            
-            if (type === 'character') {
-                // Add new character
-                const newChar = {
-                    id: 'char-' + (CHARACTERS.length + 1),
-                    name: title,
-                    race: 'Unknown',
-                    class: 'Unknown',
-                    level: 1,
-                    stats: {
-                        str: 10, dex: 10, con: 10,
-                        int: 10, wis: 10, cha: 10
-                    },
-                    bio: summary,
-                    player: 'Unknown'
-                };
-                
-                CHARACTERS.push(newChar);
-                localStorage.setItem('greyhawk-characters', JSON.stringify(CHARACTERS));
-            } else {
-                // Add new event
-                const year = parseInt(document.getElementById('admin-year').value);
-                const month = parseInt(document.getElementById('admin-month').value);
-                const day = parseInt(document.getElementById('admin-day').value);
-                
-                const newEvent = {
-                    id: 'event-' + (CAMPAIGN_EVENTS.length + 1),
-                    title: title,
-                    type: type,
-                    date: { year, month, day },
-                    summary: summary,
-                    details: details,
-                    characters: []
-                };
-                
-                CAMPAIGN_EVENTS.push(newEvent);
-                localStorage.setItem('greyhawk-events', JSON.stringify(CAMPAIGN_EVENTS));
-            }
+    try {
+        const type = document.getElementById('admin-type').value;
+        const title = document.getElementById('admin-title').value;
+        const summary = document.getElementById('admin-summary').value;
+        const details = document.getElementById('admin-details').value;
+        
+        if (!title || !summary) {
+            alert('Title and summary are required!');
+            return;
         }
+        
+        if (type === 'character') {
+            // Add new character
+            const newChar = {
+                id: 'char-' + (CHARACTERS.length + 1),
+                name: title,
+                race: 'Unknown',
+                class: 'Unknown',
+                level: 1,
+                stats: {
+                    str: 10, dex: 10, con: 10,
+                    int: 10, wis: 10, cha: 10
+                },
+                bio: summary,
+                player: 'Unknown'
+            };
+            
+            CHARACTERS.push(newChar);
+            safeLocalStorage('set', 'greyhawk-characters', JSON.stringify(CHARACTERS));
+        } else {
+            // Add new event
+            const year = parseInt(document.getElementById('admin-year').value);
+            const month = parseInt(document.getElementById('admin-month').value);
+            const day = parseInt(document.getElementById('admin-day').value);
+            
+            const newEvent = {
+                id: 'event-' + (CAMPAIGN_EVENTS.length + 1),
+                title: title,
+                type: type,
+                date: { year, month, day },
+                summary: summary,
+                details: details,
+                characters: []
+            };
+            
+            CAMPAIGN_EVENTS.push(newEvent);
+            safeLocalStorage('set', 'greyhawk-events', JSON.stringify(CAMPAIGN_EVENTS));
+        }
+    } catch (error) {
+        console.error("Error saving to localStorage:", error);
+        alert("There was an error saving your data. This might be due to browser restrictions.");
+    }
+}
 
         function loadContentFromLocalStorage() {
-            const savedEvents = localStorage.getItem('greyhawk-events');
-            if (savedEvents) {
-                // Merge with existing events
-                const parsedEvents = JSON.parse(savedEvents);
+            try {
+                const savedEvents = safeLocalStorage('get', 'greyhawk-events');
+                if (savedEvents) {
+                    // Merge with existing events
+                    const parsedEvents = JSON.parse(savedEvents);
+                    
+                    // Check for duplicates by ID
+                    parsedEvents.forEach(event => {
+                        if (!CAMPAIGN_EVENTS.some(e => e.id === event.id)) {
+                            CAMPAIGN_EVENTS.push(event);
+                        }
+                    });
+                }
                 
-                // Check for duplicates by ID
-                parsedEvents.forEach(event => {
-                    if (!CAMPAIGN_EVENTS.some(e => e.id === event.id)) {
-                        CAMPAIGN_EVENTS.push(event);
-                    }
-                });
-            }
-            
-            const savedCharacters = localStorage.getItem('greyhawk-characters');
-            if (savedCharacters) {
-                // Merge with existing characters
-                const parsedCharacters = JSON.parse(savedCharacters);
+                const savedCharacters = safeLocalStorage('get', 'greyhawk-characters');
+                if (savedCharacters) {
+                    // Merge with existing characters
+                    const parsedCharacters = JSON.parse(savedCharacters);
+                    
+                    // Check for duplicates by ID
+                    parsedCharacters.forEach(character => {
+                        if (!CHARACTERS.some(c => c.id === character.id)) {
+                            CHARACTERS.push(character);
+                        }
+                    });
+                }
                 
-                // Check for duplicates by ID
-                parsedCharacters.forEach(character => {
-                    if (!CHARACTERS.some(c => c.id === character.id)) {
-                        CHARACTERS.push(character);
-                    }
-                });
-            }
-            
-            // Load saved campaign date
-            const savedDate = localStorage.getItem('greyhawk-campaign-date');
-            if (savedDate) {
-                CAMPAIGN_DATE = JSON.parse(savedDate);
+                // Load saved campaign date
+                const savedDate = safeLocalStorage('get', 'greyhawk-campaign-date');
+                if (savedDate) {
+                    CAMPAIGN_DATE = JSON.parse(savedDate);
+                }
+            } catch (error) {
+                console.error("Error loading from localStorage:", error);
+                // Continue with default data if localStorage fails
             }
         }
 
@@ -1743,7 +1753,64 @@
             setupAdminPanel();
             
             // Save current campaign date to local storage when page closes
-            window.addEventListener('beforeunload', function() {
-                localStorage.setItem('greyhawk-campaign-date', JSON.stringify(CAMPAIGN_DATE));
+            window.addEventListener('DOMContentLoaded', function() {
+                try {
+                    // Load saved content first
+                    loadContentFromLocalStorage();
+                    
+                    // Initialize UI
+                    updateCurrentDate();
+                    populateAdminMonthSelect();
+                    buildCalendarYear(CAMPAIGN_DATE.year);
+                    buildTimeline();
+                    buildCharacterList();
+                    buildHolidayList();
+                    
+                    setupTabButtons();
+                    setupEventTabs();
+                    setupModal();
+                    setupEventFilters();
+                    setupYearNavigation();
+                    setupAdminPanel();
+                    
+                    // Save current campaign date to local storage when page closes
+                    window.addEventListener('beforeunload', function() {
+                        safeLocalStorage('set', 'greyhawk-campaign-date', JSON.stringify(CAMPAIGN_DATE));
+                    });
+                } catch (error) {
+                    console.error("Error initializing application:", error);
+                    document.body.innerHTML = `
+                        <div style="max-width: 800px; margin: 50px auto; padding: 20px; background-color: #f5f1e6; border: 2px solid #8b4513; border-radius: 5px;">
+                            <h1 style="color: #8b4513;">Oops! Something went wrong</h1>
+                            <p>There was an error loading the Greyhawk Wars Calendar. Please try refreshing the page.</p>
+                            <p>Error details: ${error.message}</p>
+                        </div>
+                    `;
+                }
             });
         });
+
+        // Add this function to safely handle DOM elements that might not exist
+        function safeQuerySelector(selector) {
+            const element = document.querySelector(selector);
+            if (!element) {
+                console.warn(`Element not found: ${selector}`);
+                return null;
+            }
+            return element;
+        }
+
+        // Add this function to safely handle localStorage
+        function safeLocalStorage(action, key, data = null) {
+            try {
+                if (action === 'get') {
+                    return localStorage.getItem(key);
+                } else if (action === 'set') {
+                    localStorage.setItem(key, data);
+                    return true;
+                }
+            } catch (error) {
+                console.warn(`localStorage error: ${error.message}`);
+                return action === 'get' ? null : false;
+            }
+        }
