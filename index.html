@@ -1489,7 +1489,7 @@
                 // Use proper relative path to your images folder, or external placeholders
                 mapsHtml += `<div class="event-map">
                     <h4>${map.title || 'Map'}</h4>
-                    <img src="images/${map.filename}" alt="${map.title || 'Map'}" style="max-width: 100%; height: auto;">
+                    <img src="${map.filename.startsWith('/') ? map.filename : 'images/' + map.filename}" alt="${map.title || 'Map'}" style="max-width: 100%; height: auto;">
                 </div>`;
                 });
                 mapsContainer.innerHTML = mapsHtml;
