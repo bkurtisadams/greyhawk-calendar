@@ -1707,7 +1707,6 @@
         console.error("Error saving to localStorage:", error);
         alert("There was an error saving your data. This might be due to browser restrictions.");
     }
-}
 
         function loadContentFromLocalStorage() {
             try {
@@ -1783,7 +1782,7 @@
                     </div>
                 `;
             }
-        });;
+        });
 
         // Add this function to safely handle DOM elements that might not exist
         function safeQuerySelector(selector) {
@@ -1830,7 +1829,7 @@
             
             return img;
         }
-    };
+    });
 
     // Override createElement to catch image creation
   const originalCreateElement = document.createElement;
@@ -1874,4 +1873,70 @@
       }
     });
   }, 1000);
-});
+};
+
+// Add this code at the END of your script section, AFTER all your other code
+// This will help identify where placeholder images are being used
+
+(function() {
+    console.log('Running placeholder image debug script...');
+    
+    // Wait for the page to fully load
+    window.addEventListener('load', function() {
+        console.log('Checking for placeholder images...');
+        
+        // Find all image elements
+        const images = document.querySelectorAll('img');
+        console.log(`Checking ${images.length} image elements...`);
+        images.forEach(img => {
+            if (img.src && img.src.includes('/api/placeholder')) {
+                console.error('Found placeholder URL in image.src:', img.src);
+                console.log('Image element:', img);
+            }
+        });
+        
+        // Check inline styles for background images
+        const allElements = document.querySelectorAll('*');
+        console.log(`Checking ${allElements.length} elements for background images...`);
+        allElements.forEach(el => {
+            const style = window.getComputedStyle(el);
+            const bgImage = style.backgroundImage;
+            if (bgImage && bgImage.includes('/api/placeholder')) {
+                console.error('Found placeholder URL in background-image:', bgImage);
+                console.log('Element with placeholder background:', el);
+            }
+        });
+        
+        // Add a hook to detect dynamically created elements
+        const observer = new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                if (mutation.addedNodes && mutation.addedNodes.length > 0) {
+                    mutation.addedNodes.forEach(node => {
+                        if (node.nodeType === 1) { // Element node
+                            // Check if it's an image
+                            if (node.tagName === 'IMG' && node.src && node.src.includes('/api/placeholder')) {
+                                console.error('Found dynamically added image with placeholder:', node.src);
+                                console.log('Image element:', node);
+                            }
+                            
+                            // Check its background
+                            const style = window.getComputedStyle(node);
+                            const bgImage = style.backgroundImage;
+                            if (bgImage && bgImage.includes('/api/placeholder')) {
+                                console.error('Found dynamically added element with placeholder background:', bgImage);
+                                console.log('Element:', node);
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+        
+        console.log('Placeholder image debug script running. Check console for any errors.');
+    });
+})();
