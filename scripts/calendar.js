@@ -38,6 +38,10 @@ const GREYHAWK_HOLIDAYS = [
     { name: "Night of Long Shadows", month: 15, day: 11, type: "holiday", description: "Solemn night when the undead are said to walk more freely. Many stay indoors with protective candles lit." }
 ];
 
+const GREYHAWK_DAYS = [
+    "Starday", "Sunday", "Moonday", "Godsday", "Waterday", "Earthday", "Freeday"
+];
+
 // Days of the week
 const WEEKDAYS = ["Starday", "Sunday", "Moonday", "Godsday", "Waterday", "Earthday", "Freeday"];
 
@@ -716,7 +720,8 @@ function showEventModal(event) {
     title.textContent = event.title;
 
     // Format the date
-    const month = GREYHAWK_MONTHS.find(m => m.id === event.month);
+    const month = GREYHAWK_MONTHS[event.month];
+
     date.textContent = `${event.day} ${month.name}, ${event.year} CY`;
 
     // Set summary and details
