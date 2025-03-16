@@ -561,3 +561,34 @@ footer {
     box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     z-index: 100;
 }
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-item {
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+
+.skill-img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.skill-description {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+}
+
+.skill-ability {
+    font-weight: bold;
+    color: #007bff;
+}

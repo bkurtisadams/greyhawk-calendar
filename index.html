@@ -845,21 +845,24 @@
 <script src="scripts/calendar.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        updateCurrentDate();
-        populateAdminMonthSelect();
-        buildCalendarYear(CAMPAIGN_DATE.year);
-        buildTimeline();
-        buildCharacterList();
-        buildHolidayList();
+    document.addEventListener('DOMContentLoaded', async function () {
+    await loadCampaignCharacters(); // ensure this is done first!
 
-        setupTabButtons();
-        setupEventTabs();
-        setupModal();
-        setupEventFilters();
-        setupYearNavigation();
-        setupAdminPanel();
-    });
+    generateCharacterSheets();
+    updateCurrentDate();
+    populateAdminMonthSelect();
+    buildCalendarYear(CAMPAIGN_DATE.year);
+    buildTimeline();
+    buildHolidayList();
+
+    setupTabButtons();
+    setupEventTabs();
+    setupModal();
+    setupEventFilters();
+    setupYearNavigation();
+    setupAdminPanel();
+});
+
 </script>
 
 </body>

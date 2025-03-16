@@ -63,6 +63,20 @@ function calculateDayOfWeek(year, month, day) {
     return totalDays % 7;
 }
 
+async function loadCampaignCharacters() {
+    try {
+        const response = await fetch('data/campaign-characters.json');
+        if (response.ok) {
+            CHARACTERS = await response.json();
+            console.log('Characters loaded successfully');
+        } else {
+            throw new Error('Network response was not ok');
+        }
+    } catch (error) {
+        console.error('Failed to load characters:', error);
+    }
+}
+
 function updateCurrentDate() {
     const dateObj = {
         year: CAMPAIGN_DATE.year,
@@ -169,63 +183,140 @@ function updateCurrentDateDisplay() {
 }
 
 // Function to generate character sheets
-function generateCharacterSheets() {
-    const container = document.getElementById('character-container');
-    container.innerHTML = ''; // Clear existing content
+function generateCharacterSheets(characterData) {
+    return `
+    <div class="character-sheet">
+        <h2>${characterData.name} (Level ${characterData.level} ${characterData.class})</h2>
+        <img src="${characterData.img}" alt="${characterData.name}" class="character-img"/>
+        
+        <div class="attributes">
+            <h3>Attributes</h3>
+            <ul>
+                <li>Strength: ${characterData.abilities.str.value}</li>
+                <li>Dexterity: ${characterData.abilities.dex.value}</li>
+                <li>Constitution: ${characterData.abilities.con.value}</li>
+                <li>Intelligence: ${characterData.abilities.int.value}</li>
+                <li>Wisdom: ${characterData.abilities.wis.value}</li>
+                <li>Charisma: ${characterData.abilities.cha.value}</li>
+                <li>Comeliness: ${characterData.abilities.com.value}</li>
+            </ul>
+        </div>
 
-    CHARACTERS.forEach(character => {
-        const charCard = document.createElement('div');
-        charCard.className = `character-card ${character.type}`;
+        <div class="combat-stats">
+            <h3>Combat Stats</h3>
+            <ul>
+                <li>Armor Class: ${characterData.attributes.ac.value}</li>
+                <li>THAC0: ${characterData.attributes.thaco.value}</li>
+                <li>HP: ${characterData.attributes.hp.value}/${characterData.attributes.hp.max}</li>
+                <li>Movement: ${characterData.attributes.movement.value} ft.</li>
+            </ul>
+        </div>
 
-        // Build inner HTML clearly in parts
-        charCard.innerHTML = `
-            <div class="character-header">
-                <h3>${character.name}</h3>
-                <p class="character-type">${character.type === 'pc' ? 'Player Character' : 'NPC'}</p>
-            </div>
-            <div class="character-body">
-                <div class="character-portrait">
-                    ${character.portrait ? `<img src="images/${character.portrait}" alt="${character.name}">` : '<div class="placeholder-portrait"></div>'}
-                </div>
-                <div class="character-bio">
-                    <p>${character.shortDescription}</p>
-                </div>
-                <div class="character-details">
-                    ${character.race ? `<p><strong>Race:</strong> ${character.race}</p>` : ''}
-                    ${character.class ? `<p><strong>Class:</strong> ${character.class}</p>` : ''}
-                    ${character.affiliation ? `<p><strong>Affiliation:</strong> ${character.affiliation}</p>` : ''}
-                </div>
-            </div>
-        `;
+        <div class="saving-throws">
+            <h3>Saving Throws</h3>
+            <ul>
+                <li>Paralyzation/Poison/Death: ${characterData.saves.paralyzation.value}</li>
+                <li>Rod/Staff/Wand: ${characterData.saves.rod.value}</li>
+                <li>Petrification/Polymorph: ${characterData.saves.petrification.value}</li>
+                <li>Breath Weapon: ${characterData.saves.breath.value}</li>
+                <li>Spell: ${characterData.saves.spell.value}</li>
+            </ul>
+        </div>
 
-        // Optional "expand bio" clearly separated
-        if (character.fullBio) {
-            const expandDiv = document.createElement('div');
-            expandDiv.className = 'character-expand';
-
-            const expandButton = document.createElement('button');
-            expandButton.className = 'expand-bio';
-            expandButton.textContent = 'Show Full Bio';
-
-            const fullBioDiv = document.createElement('div');
-            fullBio.className = 'full-bio hidden';
-            fullBioDiv.innerHTML = character.fullBio;
-
-            // Add event listener clearly
-            expandDiv.appendChild(expandButton);
-            expandDiv.appendChild(fullBioDiv);
-
-            expandButton.addEventListener('click', () => {
-                fullBioDiv.classList.toggle('hidden');
-                expandButton.textContent = fullBioDiv.classList.contains('hidden') ? 'Show Full Bio' : 'Hide Full Bio';
-            });
-
-            charCard.appendChild(expandDiv);
-        }
-
-        container.appendChild(charCard);
-    });
+        <div class="details">
+            <h3>Character Details</h3>
+            <ul>
+                <li>Alignment: ${characterData.details.alignment.toUpperCase()}</li>
+                <li>Deity: ${characterData.details.deity}</li>
+                <li>Age: ${characterData.details.age}</li>
+                <li>Sex: ${characterData.details.sex}</li>
+                <li>Height: ${characterData.details.height}</li>
+                <li>Weight: ${characterData.details.weight}</li>
+            </ul>
+        </div>
+    </div>
+    `;
 }
+
+// Usage example with parsed JSON:
+fetch("kris.json").then(res => res.json()).then(characterData => {
+    const container = document.getElementById('character-container');
+    container.innerHTML = `
+        ${generateARSCharacterHTML({...})}
+        ${generateInventoryHTML(characterData.items)}
+        <h3>Skills & Proficiencies</h3>
+        ${generateSkillsHTML(characterData.items)}
+    `;
+});
+
+function generateSkillsHTML(items) {
+    const skills = items.filter(item => item.type === 'skill' || item.type === 'proficiency');
+
+    if (skills.length === 0) return '<div>No skills or proficiencies listed.</div>';
+
+    let html = '<div class="skills">';
+
+    skills.forEach(skill => {
+        html += `
+        <div class="skill-item">
+            ${skill.img ? `<img src="${skill.img}" alt="${skill.name}" class="skill-img">` : ''}
+            <strong>${skill.name}</strong>
+            ${skill.system.proficiency ? ` - (${skill.system.proficiency.charAt(0).toUpperCase() + skill.system.proficiency.slice(1)})` : ''}
+            ${skill.system.ability ? `<span class="skill-ability"> [${skill.system.ability.toUpperCase()}]</span>` : ''}
+            ${skill.system.description?.value ? `<div class="skill-description">${skill.system.description.value}</div>` : ''}
+        </div>
+        `;
+    });
+
+    html += '</div>';
+
+    return html;
+}
+
+function generateInventoryHTML(items) {
+    const categories = {
+        weapon: [],
+        armor: [],
+        equipment: [],
+        consumable: [],
+        treasure: [],
+        container: [],
+        other: []
+    };
+
+    items.forEach(item => {
+        const category = categories[item.type] ? item.type : 'other';
+        categories[category].push(item);
+    });
+
+    let html = '<div class="inventory">';
+
+    for (const [category, itemsList] of Object.entries(categories)) {
+        if (itemsList.length === 0) continue;
+
+        html += `<h4>${category.charAt(0).toUpperCase() + category.slice(1)}</h4><ul>`;
+
+        itemsList.forEach(item => {
+            html += `
+            <li>
+                ${item.img ? `<img src="${item.img}" alt="${item.name}" class="item-img">` : ''}
+                <strong>${item.name}</strong> 
+                ${item.system.quantity ? `(x${item.system.quantity})` : ''}
+                ${item.system.weight ? `- Weight: ${item.system.weight}` : ''}
+                ${item.system.equipped ? '<span class="equipped"> [Equipped]</span>' : ''}
+                ${item.system.description?.value ? `<div class="item-description">${item.system.description.value}</div>` : ''}
+            </li>`;
+        });
+
+        html += '</ul>';
+    }
+
+    html += '</div>';
+
+    return html;
+}
+
+
 
 // Function to generate the holidays list
 function generateHolidaysList() {
