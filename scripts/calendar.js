@@ -931,28 +931,21 @@ function generateTimeline() {
     }
 
     /**
-     * Calculate day of week for a Greyhawk date
-     * Returns 0-6 (0 = Starday, 6 = Freeday)
+     * Calculate the day of week for a Greyhawk date.
+     * Returns 0-6 (0 = Starday, 6 = Freeday).
      */
     function calculateDayOfWeek(year, month, day) {
-        // Calculate days since a reference date
-        // For simplicity, let's say 1 Needfest 560 CY was a Starday (0)
-
-        const referenceYear = 560;
-        const daysPerYear = 364; // Greyhawk year has exactly 364 days
-
-        // Days from year
+        const referenceYear = 560;  // Reference year (Starday on Needfest 1, 560 CY)
+        const daysPerYear = 364;    // Greyhawk year has exactly 364 days
+        
         let totalDays = (year - referenceYear) * daysPerYear;
 
-        // Days from months
         for (let m = 0; m < month; m++) {
             totalDays += GREYHAWK_MONTHS[m].isFestival ? 7 : 28;
         }
 
-        // Days from day of month (1-based to 0-based)
-        totalDays += (day - 1);
+        totalDays = totalDays + (day - 1);
 
-        // Return day of week (mod 7)
         return totalDays % 7;
     }
 
