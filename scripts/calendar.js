@@ -475,9 +475,17 @@ function deleteSelectedContent() {
 }
 
 // Initialize the calendar when the page loads
-document.addEventListener('DOMContentLoaded', initializeCalendar);
-
-}
+document.addEventListener('DOMContentLoaded', () => {
+    loadCampaignData().then(() => {
+        updateCurrentDateDisplay();
+        generateCalendarGrid(activeYear);
+        generateTimeline();
+        generateCharacterSheets();
+        generateHolidaysList();
+        setupEventListeners();
+        populateAdminDateSelectors();
+    });
+});
 
 // Function to generate the calendar grid for a given year
 function generateCalendarGrid(year) {
@@ -727,42 +735,37 @@ function showEventModal(event) {
 }
 
 // Function to generate the timeline view
+// Function to generate the timeline view
 function generateTimeline() {
     const container = document.getElementById('timeline-container');
     container.innerHTML = ''; // Clear existing content
-    
+
     // Sort events chronologically
-    const sortedEvents = [...CAMPAIGN_EVENTS].sort((a, b) => {
-        if (a.year !== b.year) return a.year - b.year;
-        if (a.month !== b.month) return a.month - b.month;
-        return a.day - b.day;
-    });
-    
+    const sortedEvents = CAMPAIGN_EVENTS.slice().sort((a,b) => (a.year - b.year) || (a.month - b.month) || (a.day - b.day));
+
     // Group events by year
     const eventsByYear = {};
     sortedEvents.forEach(event => {
-        if (!eventsByYear[event.year]) {
-            eventsByYear[event.year] = [];
-        }
+        if (!eventsByYear[event.year]) eventsByYear[event.year] = [];
         eventsByYear[event.year].push(event);
     });
-    
+
     // Create timeline entries by year
     Object.keys(eventsByYear).sort().forEach(year => {
         const yearContainer = document.createElement('div');
         yearContainer.className = 'timeline-year';
         yearContainer.innerHTML = `<h3>${year} CY</h3>`;
-        
+
         const eventsList = document.createElement('div');
         eventsList.className = 'timeline-events';
-        
+
         // Add events for this year
         eventsByYear[year].forEach(event => {
             const eventItem = document.createElement('div');
             eventItem.className = `timeline-event ${event.type}`;
-            
+
             const month = GREYHAWK_MONTHS.find(m => m.id === event.month);
-            
+
             eventItem.innerHTML = `
                 <div class="timeline-date">${event.day} ${month.name}</div>
                 <div class="timeline-content">
@@ -770,3 +773,16 @@ function generateTimeline() {
                     <p>${event.description}</p>
                 </div>
             `;
+
+            eventsList.appendChild(eventItem);
+        });
+
+        const yearContainer = document.createElement('div');
+        yearContainer.className = 'timeline-year';
+        yearContainer.innerHTML = `<h3>${year} CY</h3>`;
+        yearContainer.appendChild(eventsList);
+
+        container.appendChild(yearContainer);
+    });
+}
+
