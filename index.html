@@ -846,13 +846,7 @@
 <script src="scripts/calendar.js"></script>
 
 <script>
-    let CAMPAIGN_DATE = {
-        year: 569,
-        month: 1, // Fireseek
-        day: 15
-    };
-
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         updateCurrentDate();
         populateAdminMonthSelect();
         buildCalendarYear(CAMPAIGN_DATE.year);

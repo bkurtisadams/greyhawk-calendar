@@ -47,18 +47,19 @@ let currentDay = 1; // 1st day of the month
 let activeView = "calendar-view";
 let activeYear = currentYear;
 
+/**
+ * Calculate day of week for a Greyhawk date.
+ * Returns 0-6 (0 = Starday, 6 = Freeday)
+ */
 function calculateDayOfWeek(year, month, day) {
-    const referenceYear = 560;  // Reference year (Starday on Needfest 1, 560 CY)
-    const daysPerYear = 364;    // Greyhawk year has exactly 364 days
-
+    const referenceYear = 560;
+    const daysPerYear = 364;
     let totalDays = (year - referenceYear) * daysPerYear;
 
     for (let m = 0; m < month; m++) {
         totalDays += GREYHAWK_MONTHS[m].isFestival ? 7 : 28;
     }
-
-    totalDays = totalDays + (day - 1);
-
+    totalDays += (day - 1);
     return totalDays % 7;
 }
 
