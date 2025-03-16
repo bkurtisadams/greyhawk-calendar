@@ -54,6 +54,32 @@ let currentDay = 1; // 1st day of the month
 let activeView = "calendar-view";
 let activeYear = currentYear;
 
+function updateCurrentDate() {
+    const dateObj = {
+        year: CAMPAIGN_DATE.year,
+        month: CAMPAIGN_DATE.month,
+        day: CAMPAIGN_DATE.day
+    };
+
+    const monthName = GREYHAWK_MONTHS[dateObj.month].name;
+    const dayOfWeek = calculateDayOfWeek(dateObj.year, dateObj.month, dateObj.day);
+    const weekdayName = GREYHAWK_DAYS[dayOfWeek];
+
+    let dateString = `Current Campaign Date: ${weekdayName}, ${monthName} ${dateObj.day}, ${dateObj.year} CY`;
+
+    const holidays = GREYHAWK_HOLIDAYS.filter(h => h.month === dateObj.month && h.day === dateObj.day);
+    if (holidays.length > 0) {
+        dateString += ` - ${holidays.map(h => h.name).join(", ")}`;
+    }
+
+    const events = getEventsForDate(dateObj.year, dateObj.month, dateObj.day);
+    if (events.length > 0) {
+        dateString += ` | Active Events: ${events.length}`;
+    }
+
+    document.getElementById('current-date').innerHTML = dateString;
+}
+
 // Function to load campaign data from JSON files
 async function loadCampaignData() {
     try {
@@ -720,7 +746,7 @@ function showEventModal(event) {
     title.textContent = event.title;
 
     // Format the date
-    const month = GREYHAWK_MONTHS[event.month];
+    const month = GREYHAWK_MONTHS[event.date.month];
 
     date.textContent = `${event.day} ${month.name}, ${event.year} CY`;
 
@@ -802,7 +828,8 @@ function generateTimeline() {
             const eventItem = document.createElement('div');
             eventItem.className = `timeline-event ${event.type}`;
 
-            const month = GREYHAWK_MONTHS[event.month];
+            const month = GREYHAWK_MONTHS[event.date.month];
+
 
             eventItem.innerHTML = `
                 <div class="timeline-date">${event.day} ${month.name}</div>
