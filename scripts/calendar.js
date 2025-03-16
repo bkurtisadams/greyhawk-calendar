@@ -134,61 +134,58 @@ function updateCurrentDateDisplay() {
 function generateCharacterSheets() {
     const container = document.getElementById('character-container');
     container.innerHTML = ''; // Clear existing content
-    
-    // Create character cards
+
     CHARACTERS.forEach(character => {
         const charCard = document.createElement('div');
         charCard.className = `character-card ${character.type}`;
-        
+
+        // Build inner HTML clearly in parts
         charCard.innerHTML = `
             <div class="character-header">
                 <h3>${character.name}</h3>
                 <p class="character-type">${character.type === 'pc' ? 'Player Character' : 'NPC'}</p>
             </div>
-            
             <div class="character-body">
                 <div class="character-portrait">
                     ${character.portrait ? `<img src="images/${character.portrait}" alt="${character.name}">` : '<div class="placeholder-portrait"></div>'}
                 </div>
-                
                 <div class="character-bio">
                     <p>${character.shortDescription}</p>
                 </div>
-                
                 <div class="character-details">
                     ${character.race ? `<p><strong>Race:</strong> ${character.race}</p>` : ''}
                     ${character.class ? `<p><strong>Class:</strong> ${character.class}</p>` : ''}
                     ${character.affiliation ? `<p><strong>Affiliation:</strong> ${character.affiliation}</p>` : ''}
                 </div>
             </div>
-            
-            ${character.fullBio ? `
-            <div class="character-expand">
-                <button class="expand-bio">Show Full Bio</button>
-                <div class="full-bio hidden">
-                    ${character.fullBio}
-                </div>
-            </div>
-            ` : ''}
         `;
-        
-        container.appendChild(charCard);
-        
-        // Add event listener to expand bio if it exists
+
+        // Optional "expand bio" clearly separated
         if (character.fullBio) {
-            const expandButton = charCard.querySelector('.expand-bio');
-            const fullBio = charCard.querySelector('.full-bio');
-            
+            const expandDiv = document.createElement('div');
+            expandDiv.className = 'character-expand';
+
+            const expandButton = document.createElement('button');
+            expandButton.className = 'expand-bio';
+            expandButton.textContent = 'Show Full Bio';
+
+            const fullBioDiv = document.createElement('div');
+            fullBio.className = 'full-bio hidden';
+            fullBioDiv.innerHTML = character.fullBio;
+
+            // Add event listener clearly
+            expandDiv.appendChild(expandButton);
+            expandDiv.appendChild(fullBioDiv);
+
             expandButton.addEventListener('click', () => {
-                if (fullBio.classList.contains('hidden')) {
-                    fullBio.classList.remove('hidden');
-                    expandButton.textContent = 'Hide Full Bio';
-                } else {
-                    fullBio.classList.add('hidden');
-                    expandButton.textContent = 'Show Full Bio';
-                }
+                fullBioDiv.classList.toggle('hidden');
+                expandButton.textContent = fullBioDiv.classList.contains('hidden') ? 'Show Full Bio' : 'Hide Full Bio';
             });
+
+            charCard.appendChild(expandDiv);
         }
+
+        container.appendChild(charCard);
     });
 }
 
