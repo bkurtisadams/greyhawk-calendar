@@ -61,7 +61,7 @@ async function loadCampaignData() {
             CAMPAIGN_EVENTS.length = 0; // Clear existing array
             events.forEach(event => CAMPAIGN_EVENTS.push(event));
         }
-        
+
         // Load characters
         const charactersResponse = await fetch('data/campaign-characters.json');
         if (charactersResponse.ok) {
@@ -70,7 +70,7 @@ async function loadCampaignData() {
             CHARACTERS.length = 0; // Clear existing array
             characters.forEach(character => CHARACTERS.push(character));
         }
-        
+
         // Optionally load custom holidays if you have them
         // const holidaysResponse = await fetch('data/campaign-holidays.json');
         // if (holidaysResponse.ok) {
@@ -78,9 +78,9 @@ async function loadCampaignData() {
         //     GREYHAWK_HOLIDAYS.length = 0;
         //     holidays.forEach(holiday => GREYHAWK_HOLIDAYS.push(holiday));
         // }
-        
+
         console.log('Campaign data loaded successfully');
-        
+
     } catch (error) {
         console.error('Error loading campaign data:', error);
         // Fall back to sample data which is already defined
@@ -92,22 +92,22 @@ function initializeCalendar() {
     loadCampaignData().then(() => {
         // Update the display with the current campaign date
         updateCurrentDateDisplay();
-        
+
         // Generate the calendar for the active year
         generateCalendarGrid(activeYear);
-        
+
         // Populate the timeline view
         generateTimeline();
-        
+
         // Populate the character sheets
         generateCharacterSheets();
-        
+
         // Populate the holidays list
         generateHolidaysList();
-        
+
         // Set up event listeners
         setupEventListeners();
-        
+
         // Populate admin month/day selectors
         populateAdminDateSelectors();
     });
@@ -193,13 +193,13 @@ function generateCharacterSheets() {
 function generateHolidaysList() {
     const container = document.getElementById('holiday-container');
     container.innerHTML = ''; // Clear existing content
-    
+
     // Sort holidays by month and day
     const sortedHolidays = [...GREYHAWK_HOLIDAYS].sort((a, b) => {
         if (a.month !== b.month) return a.month - b.month;
         return a.day - b.day;
     });
-    
+
     // Group holidays by season
     const seasons = [
         { name: "Winter", months: [0, 1, 2, 3] },
@@ -207,37 +207,82 @@ function generateHolidaysList() {
         { name: "Summer", months: [8, 9, 10, 11] },
         { name: "Autumn", months: [12, 13, 14, 15] }
     ];
-    
+
     seasons.forEach(season => {
         const seasonHolidays = sortedHolidays.filter(h => season.months.includes(h.month));
-        
+
         if (seasonHolidays.length > 0) {
             const seasonContainer = document.createElement('div');
             seasonContainer.className = 'holiday-season';
             seasonContainer.innerHTML = `<h3>${season.name} Holidays</h3>`;
-            
+
             const holidaysList = document.createElement('div');
             holidaysList.className = 'holiday-items';
-            
+
             seasonHolidays.forEach(holiday => {
                 const holidayItem = document.createElement('div');
                 holidayItem.className = 'holiday-item';
-                
+
                 const month = GREYHAWK_MONTHS.find(m => m.id === holiday.month);
-                
+
                 holidayItem.innerHTML = `
                     <h4>${holiday.name}</h4>
                     <p class="holiday-date">${month.name} ${holiday.day}</p>
                     <p>${holiday.description}</p>
                 `;
-                
+
                 holidaysList.appendChild(holidayItem);
             });
-            
+
             seasonContainer.appendChild(holidaysList);
             container.appendChild(seasonContainer);
         }
     });
+}
+
+function gregorianToGreyhawk(date) {
+    // Get day of year (0-365)
+    const start = new Date(date.getFullYear(), 0, 0);
+    const diff = date - start;
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(diff / oneDay) - 1; // 0-based day of year
+
+    // Calculate Greyhawk date components
+    let dayCount = dayOfYear;
+    let monthIndex = 0;
+
+    // Determine month and day
+    while (dayCount >= 0) {
+        const daysInMonth = (GREYHAWK_MONTHS[monthIndex].isFestival) ? 7 : 28;
+        if (dayCount < daysInMonth) {
+            break;
+        }
+        dayCount -= daysInMonth;
+        monthIndex++;
+
+        // Handle year overflow
+        if (monthIndex >= GREYHAWK_MONTHS.length) {
+            return {
+                error: "Date out of range",
+                gregorianDate: date
+            };
+        }
+    }
+
+    // Calculate day of week (0-6)
+    const dayOfWeek = Math.floor(dayOfYear % 7);
+
+    return {
+        year: date.getFullYear(), // Keep the same year number
+        month: monthIndex,
+        monthName: GREYHAWK_MONTHS[monthIndex].name,
+        day: dayCount + 1, // Convert to 1-based day
+        dayOfWeek: dayOfWeek,
+        weekdayName: GREYHAWK_DAYS[dayOfWeek],
+        dayOfYear: dayOfYear,
+        isFestival: GREYHAWK_MONTHS[monthIndex].isFestival,
+        gregorianDate: date
+    };
 }
 
 // Function to set up all event listeners
@@ -247,61 +292,61 @@ function setupEventListeners() {
         button.addEventListener('click', () => {
             // Get view ID from button ID
             const viewId = button.id.replace('btn-', '') + '-view';
-            
+
             // Hide current view and show selected view
             document.getElementById(activeView).classList.remove('active');
             document.getElementById(viewId).classList.add('active');
-            
+
             // Update active button styling
             document.querySelector('.toggle-view button.active').classList.remove('active');
             button.classList.add('active');
-            
+
             // Update active view tracking
             activeView = viewId;
         });
     });
-    
+
     // Year navigation buttons
     document.getElementById('prev-year').addEventListener('click', () => {
         activeYear--;
         generateCalendarGrid(activeYear);
     });
-    
+
     document.getElementById('next-year').addEventListener('click', () => {
         activeYear++;
         generateCalendarGrid(activeYear);
     });
-    
+
     // Event filter checkboxes
     document.querySelectorAll('.event-filter input[type="checkbox"]').forEach(checkbox => {
         checkbox.addEventListener('change', updateEventFilters);
     });
-    
+
     // Modal close button
     document.querySelector('.modal .close').addEventListener('click', () => {
         document.getElementById('event-modal').style.display = 'none';
     });
-    
+
     // Modal tab navigation
     document.querySelectorAll('.event-tab').forEach(tab => {
         tab.addEventListener('click', () => {
             // Hide current tab content
             document.querySelector('.tab-content.active').classList.remove('active');
-            
+
             // Show selected tab content
             const tabId = 'tab-' + tab.dataset.tab;
             document.getElementById(tabId).classList.add('active');
-            
+
             // Update active tab styling
             document.querySelector('.event-tab.active').classList.remove('active');
             tab.classList.add('active');
         });
     });
-    
+
     // Admin panel toggle
     document.getElementById('admin-toggle').addEventListener('click', () => {
         const adminPanel = document.getElementById('admin-panel');
-        
+
         if (adminPanel.classList.contains('active')) {
             adminPanel.classList.remove('active');
             document.getElementById('admin-toggle').textContent = '+';
@@ -310,12 +355,12 @@ function setupEventListeners() {
             document.getElementById('admin-toggle').textContent = 'X';
         }
     });
-    
+
     // Admin panel buttons
     document.getElementById('admin-save').addEventListener('click', saveAdminContent);
     document.getElementById('admin-cancel').addEventListener('click', clearAdminForm);
     document.getElementById('admin-delete').addEventListener('click', deleteSelectedContent);
-    
+
     // Close modal when clicking outside of it
     window.addEventListener('click', event => {
         const modal = document.getElementById('event-modal');
@@ -333,19 +378,19 @@ function updateEventFilters() {
         battle: document.getElementById('filter-battle').checked,
         'npc-event': document.getElementById('filter-npc').checked
     };
-    
+
     // Update visibility of event markers
     document.querySelectorAll('.event-marker').forEach(marker => {
         const eventType = marker.classList[1]; // Second class is the event type
         marker.style.display = filters[eventType] ? 'block' : 'none';
     });
-    
+
     // Update visibility of festival events
     document.querySelectorAll('.festival-event').forEach(event => {
         const eventType = event.classList[1]; // Second class is the event type
         event.style.display = filters[eventType] ? 'block' : 'none';
     });
-    
+
     // Update timeline events
     document.querySelectorAll('.timeline-event').forEach(event => {
         const eventType = event.classList[1]; // Second class is the event type
@@ -357,7 +402,7 @@ function updateEventFilters() {
 function populateAdminDateSelectors() {
     const monthSelect = document.getElementById('admin-month');
     const daySelect = document.getElementById('admin-day');
-    
+
     // Populate months
     monthSelect.innerHTML = '';
     GREYHAWK_MONTHS.forEach(month => {
@@ -366,12 +411,12 @@ function populateAdminDateSelectors() {
         option.textContent = month.name;
         monthSelect.appendChild(option);
     });
-    
+
     // Set up event listener to update days when month changes
     monthSelect.addEventListener('change', () => {
         updateAdminDayOptions(parseInt(monthSelect.value));
     });
-    
+
     // Initial population of days
     updateAdminDayOptions(parseInt(monthSelect.value));
 }
@@ -380,9 +425,9 @@ function populateAdminDateSelectors() {
 function updateAdminDayOptions(monthId) {
     const daySelect = document.getElementById('admin-day');
     const month = GREYHAWK_MONTHS.find(m => m.id === monthId);
-    
+
     daySelect.innerHTML = '';
-    
+
     for (let day = 1; day <= month.days; day++) {
         const option = document.createElement('option');
         option.value = day;
@@ -395,13 +440,13 @@ function updateAdminDayOptions(monthId) {
 function saveAdminContent() {
     const type = document.getElementById('admin-type').value;
     const title = document.getElementById('admin-title').value;
-    
+
     // Validate required fields
     if (!title) {
         alert('Please enter a title.');
         return;
     }
-    
+
     if (type === 'character') {
         // Save character
         const character = {
@@ -411,7 +456,7 @@ function saveAdminContent() {
             shortDescription: document.getElementById('admin-summary').value,
             fullBio: document.getElementById('admin-details').value
         };
-        
+
         CHARACTERS.push(character);
         generateCharacterSheets();
     } else {
@@ -419,7 +464,7 @@ function saveAdminContent() {
         const year = parseInt(document.getElementById('admin-year').value);
         const month = parseInt(document.getElementById('admin-month').value);
         const day = parseInt(document.getElementById('admin-day').value);
-        
+
         const event = {
             id: 'event-' + Date.now(), // Generate a unique ID
             title: title,
@@ -430,17 +475,17 @@ function saveAdminContent() {
             description: document.getElementById('admin-summary').value,
             fullDetails: document.getElementById('admin-details').value
         };
-        
+
         CAMPAIGN_EVENTS.push(event);
-        
+
         // Refresh displays
         generateCalendarGrid(activeYear);
         generateTimeline();
     }
-    
+
     // Clear the form
     clearAdminForm();
-    
+
     // TODO: Add functionality to save to JSON files
     console.log('Content saved. Note: Persistent storage to JSON files not yet implemented.');
 }
@@ -450,7 +495,7 @@ function clearAdminForm() {
     document.getElementById('admin-title').value = '';
     document.getElementById('admin-summary').value = '';
     document.getElementById('admin-details').value = '';
-    
+
     // Close the admin panel
     document.getElementById('admin-panel').classList.remove('active');
     document.getElementById('admin-toggle').textContent = '+';
@@ -479,53 +524,53 @@ document.addEventListener('DOMContentLoaded', () => {
 function generateCalendarGrid(year) {
     const container = document.getElementById('calendar-container');
     container.innerHTML = ''; // Clear existing content
-    
+
     // Create each month
     GREYHAWK_MONTHS.forEach(month => {
         // Create month container
         const monthContainer = document.createElement('div');
         monthContainer.className = 'month-container';
         monthContainer.innerHTML = `<h3 class="${month.isFestival ? 'festival-title' : ''}">${month.name}</h3>`;
-        
+
         // Create days grid for non-festivals
         if (!month.isFestival) {
             // Add day headers (Starday through Freeday)
             const daysHeader = document.createElement('div');
             daysHeader.className = 'days-header';
-            
+
             WEEKDAYS.forEach(day => {
                 const dayHeader = document.createElement('div');
                 dayHeader.className = 'day-name';
                 dayHeader.textContent = day.substring(0, 2); // Abbreviate to 2 chars
                 daysHeader.appendChild(dayHeader);
             });
-            
+
             monthContainer.appendChild(daysHeader);
-            
+
             // Create the days grid
             const daysGrid = document.createElement('div');
             daysGrid.className = 'days-grid';
-            
+
             // Calculate the day of the week for the 1st of the month
             let yearStartDay = calculateYearStartDay(year);
             let monthStartDay = calculateMonthStartDay(month.id, yearStartDay);
-            
+
             // Add blank cells for days before the 1st of the month
             for (let i = 0; i < monthStartDay; i++) {
                 const blankDay = document.createElement('div');
                 blankDay.className = 'day empty';
                 daysGrid.appendChild(blankDay);
             }
-            
+
             // Add the days of the month
             for (let day = 1; day <= month.days; day++) {
                 const dayCell = document.createElement('div');
                 dayCell.className = 'day';
                 dayCell.textContent = day;
-                
+
                 // Check for events on this day
                 const events = findEvents(year, month.id, day);
-                
+
                 if (events.length > 0) {
                     // Create event markers
                     events.forEach(event => {
@@ -536,43 +581,43 @@ function generateCalendarGrid(year) {
                         marker.addEventListener('click', () => showEventModal(event));
                         dayCell.appendChild(marker);
                     });
-                    
+
                     // Add an event class to the day
                     dayCell.classList.add('has-events');
                 }
-                
+
                 // Check if this is the current campaign date
                 if (year === currentYear && month.id === currentMonth && day === currentDay) {
                     dayCell.classList.add('current-day');
                 }
-                
+
                 daysGrid.appendChild(dayCell);
             }
-            
+
             monthContainer.appendChild(daysGrid);
         } else {
             // For festivals, display a special layout
             const festivalContainer = document.createElement('div');
             festivalContainer.className = 'festival-container';
-            
+
             // Find events during this festival
             for (let day = 1; day <= month.days; day++) {
                 const events = findEvents(year, month.id, day);
-                
+
                 const dayDiv = document.createElement('div');
                 dayDiv.className = 'festival-day';
-                
+
                 const dayHeader = document.createElement('div');
                 dayHeader.className = 'festival-day-header';
-                
+
                 // Calculate the weekday
                 let yearStartDay = calculateYearStartDay(year);
                 let monthStartDay = calculateMonthStartDay(month.id, yearStartDay);
                 let weekdayIndex = (monthStartDay + day - 1) % 7;
-                
+
                 dayHeader.textContent = `${WEEKDAYS[weekdayIndex]}, Day ${day}`;
                 dayDiv.appendChild(dayHeader);
-                
+
                 if (events.length > 0) {
                     // Create event entries
                     events.forEach(event => {
@@ -582,24 +627,24 @@ function generateCalendarGrid(year) {
                         eventDiv.addEventListener('click', () => showEventModal(event));
                         dayDiv.appendChild(eventDiv);
                     });
-                    
+
                     dayDiv.classList.add('has-events');
                 }
-                
+
                 // Check if this is the current campaign date
                 if (year === currentYear && month.id === currentMonth && day === currentDay) {
                     dayDiv.classList.add('current-day');
                 }
-                
+
                 festivalContainer.appendChild(dayDiv);
             }
-            
+
             monthContainer.appendChild(festivalContainer);
         }
-        
+
         container.appendChild(monthContainer);
     });
-    
+
     // Update the displayed year
     document.getElementById('display-year').textContent = `${year} CY`;
 }
@@ -610,7 +655,7 @@ function calculateYearStartDay(year) {
     // Each year advances by 1 day (standard years) or 2 days (leap years)
     // Note: Oerth does not have leap years in the Greyhawk calendar,
     // as each month has a fixed number of days
-    
+
     // Each year has 364 days total, which is 52 weeks exactly
     // So the start day doesn't change from year to year
     return 0; // Starday
@@ -619,12 +664,12 @@ function calculateYearStartDay(year) {
 // Function to calculate the start day of a given month
 function calculateMonthStartDay(monthId, yearStartDay) {
     let totalDays = 0;
-    
+
     // Sum up the days in all months before this one
     for (let i = 0; i < monthId; i++) {
         totalDays += GREYHAWK_MONTHS[i].days;
     }
-    
+
     // Return the day of week (0-6)
     return (yearStartDay + totalDays) % 7;
 }
@@ -633,7 +678,7 @@ function calculateMonthStartDay(monthId, yearStartDay) {
 function findEvents(year, month, day) {
     // Combine campaign events and holidays
     const allEvents = [...CAMPAIGN_EVENTS];
-    
+
     // Add relevant holiday events
     GREYHAWK_HOLIDAYS.forEach(holiday => {
         if (holiday.month === month && holiday.day === day) {
@@ -648,11 +693,11 @@ function findEvents(year, month, day) {
             });
         }
     });
-    
+
     // Filter for events on this specific date
-    return allEvents.filter(event => 
-        event.year === year && 
-        event.month === month && 
+    return allEvents.filter(event =>
+        event.year === year &&
+        event.month === month &&
         event.day === day
     );
 }
@@ -666,24 +711,24 @@ function showEventModal(event) {
     const details = document.getElementById('modal-details');
     const characters = document.getElementById('modal-characters');
     const maps = document.getElementById('modal-maps');
-    
+
     // Populate modal content
     title.textContent = event.title;
-    
+
     // Format the date
     const month = GREYHAWK_MONTHS.find(m => m.id === event.month);
     date.textContent = `${event.day} ${month.name}, ${event.year} CY`;
-    
+
     // Set summary and details
     summary.innerHTML = event.description || 'No summary available.';
     details.innerHTML = event.fullDetails || event.description || 'No details available.';
-    
+
     // Populate characters involved
     characters.innerHTML = '';
     if (event.characters && event.characters.length > 0) {
         const charList = document.createElement('ul');
         charList.className = 'character-list';
-        
+
         event.characters.forEach(charId => {
             const character = CHARACTERS.find(c => c.id === charId);
             if (character) {
@@ -692,12 +737,12 @@ function showEventModal(event) {
                 charList.appendChild(charItem);
             }
         });
-        
+
         characters.appendChild(charList);
     } else {
         characters.textContent = 'No character information available.';
     }
-    
+
     // Populate maps and images
     maps.innerHTML = '';
     if (event.images && event.images.length > 0) {
@@ -711,10 +756,10 @@ function showEventModal(event) {
     } else {
         maps.textContent = 'No maps or images available.';
     }
-    
+
     // Show the modal
     modal.style.display = 'block';
-    
+
     // Default to the summary tab
     document.querySelector('.event-tab.active').classList.remove('active');
     document.getElementById('tab-summary').classList.remove('active');
@@ -729,7 +774,7 @@ function generateTimeline() {
     container.innerHTML = ''; // Clear existing content
 
     // Sort events chronologically
-    const sortedEvents = CAMPAIGN_EVENTS.slice().sort((a,b) => (a.year - b.year) || (a.month - b.month) || (a.day - b.day));
+    const sortedEvents = CAMPAIGN_EVENTS.slice().sort((a, b) => (a.year - b.year) || (a.month - b.month) || (a.day - b.day));
 
     // Group events by year
     const eventsByYear = {};
@@ -771,5 +816,650 @@ function generateTimeline() {
 
         container.appendChild(yearContainer);
     });
+
+    /**
+ * Converts a Greyhawk date to a Gregorian date
+ */
+    function greyhawkToGregorian(year, month, day) {
+        // Validate inputs
+        if (month < 0 || month >= GREYHAWK_MONTHS.length) {
+            throw new Error("Invalid Greyhawk month");
+        }
+
+        const maxDays = GREYHAWK_MONTHS[month].isFestival ? 7 : 28;
+        if (day < 1 || day > maxDays) {
+            throw new Error("Invalid day for specified Greyhawk month");
+        }
+
+        // Calculate day of year
+        let dayOfYear = 0;
+        for (let m = 0; m < month; m++) {
+            dayOfYear += GREYHAWK_MONTHS[m].isFestival ? 7 : 28;
+        }
+        dayOfYear += (day - 1); // Convert from 1-based to 0-based
+
+        // Create Gregorian date
+        const date = new Date(year, 0, 1);
+        date.setDate(date.getDate() + dayOfYear);
+        return date;
+    }
+
+    /**
+     * Finds Greyhawk holidays for a specified date
+     */
+    function getHolidaysForDate(greyhawkDate) {
+        return GREYHAWK_HOLIDAYS.filter(holiday => {
+            return (
+                holiday.month === greyhawkDate.month &&
+                holiday.day === greyhawkDate.day
+            );
+        });
+    }
+
+    /**
+     * Gets campaign events for a specified date
+     */
+    function getEventsForDate(year, month, day) {
+        return CAMPAIGN_EVENTS.filter(event => {
+            return (
+                event.date.year === year &&
+                event.date.month === month &&
+                event.date.day === day
+            );
+        });
+    }
+
+    // UI Functions
+    function updateCurrentDate() {
+        const dateObj = {
+            year: CAMPAIGN_DATE.year,
+            month: CAMPAIGN_DATE.month,
+            day: CAMPAIGN_DATE.day
+        };
+
+        const monthName = GREYHAWK_MONTHS[dateObj.month].name;
+        const dayOfWeek = calculateDayOfWeek(dateObj.year, dateObj.month, dateObj.day);
+        const weekdayName = GREYHAWK_DAYS[dayOfWeek];
+
+        let dateString = `Current Campaign Date: ${weekdayName}, ${monthName} ${dateObj.day}, ${dateObj.year} CY`;
+
+        // Check for holidays
+        const holidays = GREYHAWK_HOLIDAYS.filter(h => h.month === dateObj.month && h.day === dateObj.day);
+        if (holidays.length > 0) {
+            dateString += ` - ${holidays.map(h => h.name).join(", ")}`;
+        }
+
+        // Check for campaign events
+        const events = getEventsForDate(dateObj.year, dateObj.month, dateObj.day);
+        if (events.length > 0) {
+            dateString += ` | Active Events: ${events.length}`;
+        }
+
+        document.getElementById('current-date').innerHTML = dateString;
+    }
+
+    /**
+     * Calculate day of week for a Greyhawk date
+     * Returns 0-6 (0 = Starday, 6 = Freeday)
+     */
+    function calculateDayOfWeek(year, month, day) {
+        // Calculate days since a reference date
+        // For simplicity, let's say 1 Needfest 560 CY was a Starday (0)
+
+        const referenceYear = 560;
+        const daysPerYear = 364; // Greyhawk year has exactly 364 days
+
+        // Days from year
+        let totalDays = (year - referenceYear) * daysPerYear;
+
+        // Days from months
+        for (let m = 0; m < month; m++) {
+            totalDays += GREYHAWK_MONTHS[m].isFestival ? 7 : 28;
+        }
+
+        // Days from day of month (1-based to 0-based)
+        totalDays += (day - 1);
+
+        // Return day of week (mod 7)
+        return totalDays % 7;
+    }
+
+    function buildCalendarYear(year) {
+        const container = document.getElementById('calendar-container');
+        container.innerHTML = ''; // Clear previous content
+
+        // Update displayed year
+        document.getElementById('display-year').textContent = year + ' CY';
+
+        // Create a month card for each Greyhawk month
+        GREYHAWK_MONTHS.forEach((month, monthIndex) => {
+            const monthCard = document.createElement('div');
+            monthCard.className = `month-card ${month.isFestival ? 'festival' : ''}`;
+
+            const monthTitle = document.createElement('h3');
+            monthTitle.textContent = month.name;
+            monthCard.appendChild(monthTitle);
+
+            // Add weekday headers
+            const calendarGrid = document.createElement('div');
+            calendarGrid.className = 'calendar-grid';
+
+            GREYHAWK_DAYS.forEach(day => {
+                const dayHeader = document.createElement('div');
+                dayHeader.className = 'day-header';
+                dayHeader.textContent = day.substring(0, 3); // Abbreviate
+                calendarGrid.appendChild(dayHeader);
+            });
+
+            // Calculate first day of week for this month
+            const firstDayOfWeek = calculateDayOfWeek(year, monthIndex, 1);
+
+            // Add empty cells for days before the first of the month
+            for (let i = 0; i < firstDayOfWeek; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'calendar-day';
+                calendarGrid.appendChild(emptyDay);
+            }
+
+            // Add actual days
+            const daysInMonth = month.isFestival ? 7 : 28;
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayCell = document.createElement('div');
+                dayCell.className = 'calendar-day';
+
+                // Check if this is the current campaign date
+                if (year === CAMPAIGN_DATE.year &&
+                    monthIndex === CAMPAIGN_DATE.month &&
+                    day === CAMPAIGN_DATE.day) {
+                    dayCell.classList.add('current-day');
+                }
+
+                // Add the day number
+                dayCell.textContent = day;
+
+                // Check for holidays
+                const holidays = GREYHAWK_HOLIDAYS.filter(h =>
+                    h.month === monthIndex && h.day === day);
+
+                if (holidays.length > 0 && document.getElementById('filter-holiday').checked) {
+                    dayCell.classList.add('holiday');
+                    dayCell.title = holidays.map(h => h.name).join(', ');
+                }
+
+                // Check for campaign events
+                const events = getEventsForDate(year, monthIndex, day);
+
+                if (events.length > 0) {
+                    // Add markers for each event type
+                    const eventsByType = {
+                        'adventure': 0,
+                        'battle': 0,
+                        'npc-event': 0
+                    };
+
+                    events.forEach(event => {
+                        eventsByType[event.type]++;
+                    });
+
+                    // Add event markers
+                    if (eventsByType.adventure > 0 && document.getElementById('filter-adventure').checked) {
+                        dayCell.classList.add('adventure');
+                        const marker = document.createElement('div');
+                        marker.className = 'day-marker adventure-marker';
+                        dayCell.appendChild(marker);
+                    }
+
+                    if (eventsByType.battle > 0 && document.getElementById('filter-battle').checked) {
+                        dayCell.classList.add('battle');
+                        const marker = document.createElement('div');
+                        marker.className = 'day-marker battle-marker';
+                        dayCell.appendChild(marker);
+                    }
+
+                    if (eventsByType['npc-event'] > 0 && document.getElementById('filter-npc').checked) {
+                        dayCell.classList.add('npc-event');
+                        const marker = document.createElement('div');
+                        marker.className = 'day-marker npc-marker';
+                        dayCell.appendChild(marker);
+                    }
+
+                    // Add click handler to open event details
+                    dayCell.addEventListener('click', function () {
+                        showEventDetails(events[0]); // Show first event for simplicity
+                    });
+                }
+
+                calendarGrid.appendChild(dayCell);
+            }
+
+            monthCard.appendChild(calendarGrid);
+            container.appendChild(monthCard);
+        });
+    }
+
+    function buildTimeline() {
+        const container = document.getElementById('timeline-container');
+        container.innerHTML = ''; // Clear previous content
+
+        // Sort events by date
+        const sortedEvents = [...CAMPAIGN_EVENTS].sort((a, b) => {
+            if (a.date.year !== b.date.year) {
+                return a.date.year - b.date.year;
+            }
+            if (a.date.month !== b.date.month) {
+                return a.date.month - b.date.month;
+            }
+            return a.date.day - b.date.day;
+        });
+
+        // Create timeline items
+        sortedEvents.forEach((event, index) => {
+            const timelineItem = document.createElement('div');
+            timelineItem.className = `timeline-container ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}`;
+
+            const content = document.createElement('div');
+            content.className = 'timeline-content';
+
+            const title = document.createElement('h3');
+            title.textContent = event.title;
+
+            const dateStr = document.createElement('div');
+            dateStr.className = 'event-date';
+            dateStr.textContent = `${GREYHAWK_MONTHS[event.date.month].name} ${event.date.day}, ${event.date.year} CY`;
+
+            const summary = document.createElement('p');
+            summary.textContent = event.summary;
+
+            // Add visual indicator for event type
+            content.classList.add(event.type);
+
+            content.appendChild(title);
+            content.appendChild(dateStr);
+            content.appendChild(summary);
+
+            // Add click handler
+            content.addEventListener('click', function () {
+                showEventDetails(event);
+            });
+
+            timelineItem.appendChild(content);
+            container.appendChild(timelineItem);
+        });
+    }
+
+    function buildCharacterList() {
+        const container = document.getElementById('character-container');
+        container.innerHTML = ''; // Clear previous content
+
+        // Create character cards
+        CHARACTERS.forEach(character => {
+            const charCard = document.createElement('div');
+            charCard.className = 'character-card';
+
+            const header = document.createElement('h3');
+            header.textContent = character.name;
+
+            const raceCls = document.createElement('p');
+            raceCls.textContent = `${character.race} ${character.class} (Level ${character.level})`;
+
+            const stats = document.createElement('div');
+            stats.className = 'character-stats';
+
+            // Add ability scores
+            for (const [key, value] of Object.entries(character.stats)) {
+                const stat = document.createElement('div');
+                stat.className = 'character-stat';
+
+                const statName = document.createElement('span');
+                statName.textContent = key.toUpperCase();
+
+                const statValue = document.createElement('span');
+                statValue.textContent = value;
+
+                stat.appendChild(statName);
+                stat.appendChild(statValue);
+                stats.appendChild(stat);
+            }
+
+            const bio = document.createElement('p');
+            bio.className = 'character-bio';
+            bio.textContent = character.bio;
+
+            const player = document.createElement('p');
+            player.textContent = `Player: ${character.player}`;
+
+            charCard.appendChild(header);
+            charCard.appendChild(raceCls);
+            charCard.appendChild(stats);
+            charCard.appendChild(bio);
+            charCard.appendChild(player);
+
+            container.appendChild(charCard);
+        });
+    }
+
+    function buildHolidayList() {
+        const container = document.getElementById('holiday-container');
+        container.innerHTML = ''; // Clear previous content
+
+        // Sort holidays by date
+        const sortedHolidays = [...GREYHAWK_HOLIDAYS].sort((a, b) => {
+            if (a.month !== b.month) {
+                return a.month - b.month;
+            }
+            return a.day - b.day;
+        });
+
+        // Create list of holidays
+        sortedHolidays.forEach(holiday => {
+            const holidayItem = document.createElement('div');
+            holidayItem.className = 'holiday-item';
+
+            const holidayTitle = document.createElement('h3');
+            holidayTitle.textContent = holiday.name;
+
+            const holidayDate = document.createElement('p');
+            holidayDate.className = 'holiday-date';
+            holidayDate.textContent = `${GREYHAWK_MONTHS[holiday.month].name} ${holiday.day}`;
+
+            const holidayDescription = document.createElement('p');
+            holidayDescription.textContent = holiday.description;
+
+            holidayItem.appendChild(holidayTitle);
+            holidayItem.appendChild(holidayDate);
+            holidayItem.appendChild(holidayDescription);
+            container.appendChild(holidayItem);
+        });
+    }
+
+    // Modal functions
+    function showEventDetails(event) {
+        // Update modal content
+        document.getElementById('modal-title').textContent = event.title;
+        document.getElementById('modal-date').textContent =
+            `${GREYHAWK_MONTHS[event.date.month].name} ${event.date.day}, ${event.date.year} CY`;
+
+        document.getElementById('modal-summary').innerHTML = `<p>${event.summary}</p>`;
+        document.getElementById('modal-details').innerHTML = `<p>${event.details}</p>`;
+
+        // Update characters tab
+        const charContent = document.getElementById('modal-characters');
+        charContent.innerHTML = '';
+
+        if (event.characters && event.characters.length > 0) {
+            event.characters.forEach(charName => {
+                const character = CHARACTERS.find(c => c.name === charName);
+                if (character) {
+                    const charCard = document.createElement('div');
+                    charCard.className = 'character-card';
+
+                    const header = document.createElement('h3');
+                    header.textContent = character.name;
+
+                    const raceCls = document.createElement('p');
+                    raceCls.textContent = `${character.race} ${character.class} (Level ${character.level})`;
+
+                    charCard.appendChild(header);
+                    charCard.appendChild(raceCls);
+                    charContent.appendChild(charCard);
+                } else {
+                    const charItem = document.createElement('p');
+                    charItem.textContent = charName;
+                    charContent.appendChild(charItem);
+                }
+            });
+        } else {
+            charContent.innerHTML = '<p>No character information available for this event.</p>';
+        }
+
+        // Update maps tab
+        document.getElementById('modal-maps').innerHTML =
+            '<p>No maps or images available for this event.</p>';
+
+        // Show the modal
+        document.getElementById('event-modal').style.display = 'block';
+    }
+
+    function populateAdminMonthSelect() {
+        const select = document.getElementById('admin-month');
+        select.innerHTML = ''; // Clear existing options
+
+        GREYHAWK_MONTHS.forEach((month, index) => {
+            const option = document.createElement('option');
+            option.value = index;
+            option.textContent = month.name;
+            select.appendChild(option);
+        });
+
+        // Update days when month changes
+        select.addEventListener('change', updateAdminDaySelect);
+
+        // Initialize days
+        updateAdminDaySelect();
+    }
+
+    function updateAdminDaySelect() {
+        const monthSelect = document.getElementById('admin-month');
+        const daySelect = document.getElementById('admin-day');
+        const selectedMonth = parseInt(monthSelect.value);
+
+        daySelect.innerHTML = ''; // Clear existing options
+
+        const daysInMonth = GREYHAWK_MONTHS[selectedMonth].isFestival ? 7 : 28;
+        for (let day = 1; day <= daysInMonth; day++) {
+            const option = document.createElement('option');
+            option.value = day;
+            option.textContent = day;
+            daySelect.appendChild(option);
+        }
+    }
+
+    // Toggle between views
+    function setupTabButtons() {
+        const buttons = [
+            { id: 'btn-calendar', view: 'calendar-view' },
+            { id: 'btn-timeline', view: 'timeline-view' },
+            { id: 'btn-characters', view: 'characters-view' },
+            { id: 'btn-months', view: 'months-view' },
+            { id: 'btn-holidays', view: 'holidays-view' }
+        ];
+
+        buttons.forEach(button => {
+            document.getElementById(button.id).addEventListener('click', function () {
+                // Update button states
+                buttons.forEach(b => {
+                    document.getElementById(b.id).classList.remove('active');
+                    document.getElementById(b.view).classList.remove('active');
+                });
+
+                this.classList.add('active');
+                document.getElementById(button.view).classList.add('active');
+            });
+        });
+    }
+
+    function setupEventTabs() {
+        const tabs = document.querySelectorAll('.event-tab');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+                // Update tab states
+                document.querySelectorAll('.event-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+
+                document.querySelectorAll('.tab-content').forEach(c => {
+                    c.classList.remove('active');
+                });
+
+                // Activate selected tab
+                this.classList.add('active');
+                const tabName = this.getAttribute('data-tab');
+                document.getElementById(`tab-${tabName}`).classList.add('active');
+            });
+        });
+    }
+
+    function setupModal() {
+        const modal = document.getElementById('event-modal');
+        const closeBtn = document.querySelector('.close');
+
+        closeBtn.addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+
+    function setupEventFilters() {
+        const filters = [
+            'filter-holiday',
+            'filter-adventure',
+            'filter-battle',
+            'filter-npc'
+        ];
+
+        filters.forEach(filter => {
+            document.getElementById(filter).addEventListener('change', function () {
+                buildCalendarYear(parseInt(document.getElementById('display-year').textContent));
+            });
+        });
+    }
+
+    function setupYearNavigation() {
+        document.getElementById('prev-year').addEventListener('click', function () {
+            const currentYear = parseInt(document.getElementById('display-year').textContent);
+            buildCalendarYear(currentYear - 1);
+        });
+
+        document.getElementById('next-year').addEventListener('click', function () {
+            const currentYear = parseInt(document.getElementById('display-year').textContent);
+            buildCalendarYear(currentYear + 1);
+        });
+    }
+
+    function setupAdminPanel() {
+        const adminToggle = document.getElementById('admin-toggle');
+        const adminPanel = document.getElementById('admin-panel');
+
+        adminToggle.addEventListener('click', function () {
+            adminPanel.classList.toggle('visible');
+            adminToggle.textContent = adminPanel.classList.contains('visible') ? '×' : '+';
+        });
+
+        document.getElementById('admin-type').addEventListener('change', function () {
+            const type = this.value;
+            const dateSection = document.getElementById('date-section');
+
+            // Show date section for events, hide for characters
+            dateSection.style.display = type === 'character' ? 'none' : 'block';
+        });
+
+        document.getElementById('admin-save').addEventListener('click', function () {
+            saveContentToLocalStorage();
+            adminPanel.classList.remove('visible');
+            adminToggle.textContent = '+';
+
+            // Refresh displayed data
+            buildCalendarYear(parseInt(document.getElementById('display-year').textContent));
+            buildTimeline();
+            buildCharacterList();
+        });
+
+        document.getElementById('admin-cancel').addEventListener('click', function () {
+            adminPanel.classList.remove('visible');
+            adminToggle.textContent = '+';
+        });
+    }
+
+    function saveContentToLocalStorage() {
+        const type = document.getElementById('admin-type').value;
+        const title = document.getElementById('admin-title').value;
+        const summary = document.getElementById('admin-summary').value;
+        const details = document.getElementById('admin-details').value;
+
+        if (!title || !summary) {
+            alert('Title and summary are required!');
+            return;
+        }
+
+        if (type === 'character') {
+            // Add new character
+            const newChar = {
+                id: 'char-' + (CHARACTERS.length + 1),
+                name: title,
+                race: 'Unknown',
+                class: 'Unknown',
+                level: 1,
+                stats: {
+                    str: 10, dex: 10, con: 10,
+                    int: 10, wis: 10, cha: 10
+                },
+                bio: summary,
+                player: 'Unknown'
+            };
+
+            CHARACTERS.push(newChar);
+            localStorage.setItem('greyhawk-characters', JSON.stringify(CHARACTERS));
+        } else {
+            // Add new event
+            const year = parseInt(document.getElementById('admin-year').value);
+            const month = parseInt(document.getElementById('admin-month').value);
+            const day = parseInt(document.getElementById('admin-day').value);
+
+            const newEvent = {
+                id: 'event-' + (CAMPAIGN_EVENTS.length + 1),
+                title: title,
+                type: type,
+                date: { year, month, day },
+                summary: summary,
+                details: details,
+                characters: []
+            };
+
+            CAMPAIGN_EVENTS.push(newEvent);
+            localStorage.setItem('greyhawk-events', JSON.stringify(CAMPAIGN_EVENTS));
+        }
+    }
+
+    function loadContentFromLocalStorage() {
+        const savedEvents = localStorage.getItem('greyhawk-events');
+        if (savedEvents) {
+            // Merge with existing events
+            const parsedEvents = JSON.parse(savedEvents);
+
+            // Check for duplicates by ID
+            parsedEvents.forEach(event => {
+                if (!CAMPAIGN_EVENTS.some(e => e.id === event.id)) {
+                    CAMPAIGN_EVENTS.push(event);
+                }
+            });
+        }
+
+        const savedCharacters = localStorage.getItem('greyhawk-characters');
+        if (savedCharacters) {
+            // Merge with existing characters
+            const parsedCharacters = JSON.parse(savedCharacters);
+
+            // Check for duplicates by ID
+            parsedCharacters.forEach(character => {
+                if (!CHARACTERS.some(c => c.id === character.id)) {
+                    CHARACTERS.push(character);
+                }
+            });
+        }
+
+        // Load saved campaign date
+        const savedDate = localStorage.getItem('greyhawk-campaign-date');
+        if (savedDate) {
+            CAMPAIGN_DATE = JSON.parse(savedDate);
+        }
+    }
+
+
 }
 
