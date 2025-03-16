@@ -1,0 +1,363 @@
+[
+    {
+        "id": "event-1",
+        "title": "Party Forms in Narwell",
+        "type": "adventure",
+        "date": { "year": 567, "month": 0, "day": 1 },
+        "summary": "The adventurers meet at the Sundered Spear Inn in Narwell and agree to escort a merchant caravan to Hommlet.",
+        "details": "The party met at the Sundered Spear Inn in Narwell, where they heard a town crier announcing that merchants Godwin and Cwinhild were offering a reward of 500 gold pieces to anyone willing to guard their caravan for a journey from Narwell to the village of Hommlet. Intrigued, they met the merchants and their four drovers: Esgylth, Rolf, Bertram, and Grimbold. The PCs agreed to escort the caravan and were paid half the money upfront.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-2",
+        "title": "Bandit Ambush",
+        "type": "battle",
+        "date": { "year": 567, "month": 0, "day": 6 },
+        "summary": "The party successfully fends off bandits while escorting a merchant caravan through the Gnarley Forest.",
+        "details": "After a few hours on the trail from Dunmarsh, the party was ambushed by a group of bandits. They were not surprised, however, because Mavis heard a noise and spotted the bandits lurking in the forest. The PCs easily dealt with the bandits, killing all but one of them, who was knocked unconscious by Jules. It started to rain, though it was cold but not freezing.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-3",
+        "title": "Battle with the Erinyes",
+        "type": "battle",
+        "date": { "year": 567, "month": 0, "day": 7 },
+        "summary": "The party defeats an Erinyes devil that had been stalking a group of pilgrims.",
+        "details": "The party encountered a group of pilgrims of St. Cuthbert, led by Brother Devenson and his assistant, Acolyte Nara. The priests had heard rumors of strange happenings in the forest, as well as whispers of war. The pilgrims seemed uneasy and eventually admitted to the PCs that a devil, an Erinyes, had been stalking them for several days. The PCs stood watch throughout the night, but nothing happened until the next morning, when the creature suddenly appeared and attacked. It immediately killed one of the pilgrims. Despite its power, the party defeated the Erinyes.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Brother Devenson", "Acolyte Nara"]
+    },
+    {
+        "id": "event-4",
+        "title": "Arrival at Hommlet",
+        "type": "adventure",
+        "date": { "year": 567, "month": 1, "day": 6 },
+        "summary": "The adventurers complete their escort mission, arriving in Hommlet with the merchant caravan.",
+        "details": "The party arrived in Hommlet around 4:30 PM. They checked into the Welcome Wench Inn and met several new characters, including the innkeeper, Arthur Gundigoot, and his son, Ostler. Val was surprised to find her cousin Liriadis at the inn. Most of the party purchased horses, ponies, and riding equipment at the Traders Establishment, owned by Tarnum Goldweaver. Merchant Godwin paid the PCs the rest of their money, 250gp.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Arthur Gundigoot", "Ostler", "Liriadis", "Tarnum Goldweaver"]
+    },
+    {
+        "id": "event-5",
+        "title": "Assault on the Bandit Abbey",
+        "type": "battle",
+        "date": { "year": 567, "month": 1, "day": 10 },
+        "summary": "The party raids a bandit hideout in an abandoned abbey, defeating the bandits and rescuing three prisoners.",
+        "details": "Mavis found a trail that she suspected belonged to the bandits. The party followed the trail for half a day, finally arriving at an abandoned abbey just before sunset. The group attacked, catching the bandits by surprise, and killed all of them. They freed three prisoners: two sisters from Verbobonc and a mysterious young woman 'from the mountains'. Snej Bloodfist, the half-orc leader of the bandits, was captured thanks to Val's Sleep spell. In the abbey, Jules and Max were attacked by a giant spider, whose nest was in the locked room in the tower. Jules was almost killed and would bear the scar for the rest of his life. The party later discovered that the mysterious young woman, Aergreth, was actually a young silver dragon.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Snej Bloodfist", "Aergreth", "Eam", "Nira"]
+    },
+    {
+        "id": "event-6",
+        "title": "Troll Hunt",
+        "type": "adventure",
+        "date": { "year": 567, "month": 1, "day": 25 },
+        "summary": "The adventurers track and defeat two trolls that had been terrorizing the area near Hommlet.",
+        "details": "After hearing about missing soldiers and stolen sheep, the party investigated and found a trail leading to a cave system. With the help of three volunteer soldiers from the moathouse, they explored the caves, fighting giant bats and crab monsters along the way. In the final cave, they found two trolls surrounded by bones and debris. They slew both trolls, making sure to burn the bodies completely, but not before Kerrak was nearly killed by one of them. The party recovered treasure from the trolls' lair before returning to the moathouse.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Cam", "Lugs", "Dools"]
+    },
+    {
+        "id": "event-7",
+        "title": "Saving the Viscount",
+        "type": "adventure",
+        "date": { "year": 567, "month": 2, "day": 17 },
+        "summary": "The party thwarts an assassination attempt on Viscount Goodmeadow of Verbobonc.",
+        "details": "After receiving a letter from the Viscount of Verbobonc asking for a meeting, the adventurers set off for Verbobonc. Inside the Meeting Hall, Kris noticed that one of the guards seemed to be wearing a disguise. The Viscount arrived, introduced himself and expressed his gladness to see the heroes. Suddenly, he was viciously stabbed in the back by the disguised guard! The party quickly dispatched the assassin and turned their attention to the Viscount, who had been poisoned. Fortunately, Val used her recently procured potion of cure poison, saving the Viscount's life. In gratitude, the Viscount offered to finance their training and pay them 50gp each per day if they agreed to become his 'Agents' and undertake missions for his Court.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Viscount Goodmeadow"]
+    },
+    {
+        "id": "event-8",
+        "title": "Rescue of Elden Sarcina",
+        "type": "adventure",
+        "date": { "year": 567, "month": 3, "day": 13 },
+        "summary": "The party rescues a noble courier who had been captured and forced to fight in an illegal arena.",
+        "details": "Tasked with locating missing noble courier Elden Sarcina, the party tracked him to Rynehurst. There, they discovered an illegal arena where the courier was being forced to fight as a masked gladiator against an ogre. The party freed both the courier and the ogre, defeating the arena guards. From a charmed guard, Val learned that a woman named 'Vespera', rumored to be a were-rat, oversaw the arena, and that she served someone called the Hanged Man, with the Dead Tree Inn serving as a front for their activities.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Elden Sarcina", "Vespera"]
+    },
+    {
+        "id": "event-9",
+        "title": "Battle in the Fens of Tor",
+        "type": "adventure",
+        "date": { "year": 567, "month": 3, "day": 24 },
+        "summary": "The party helps a tribe of lizardfolk defeat ghouls that were attacking their village.",
+        "details": "The PCs traveled to the Fens of Tor swamp in search of thieves who had stolen from a wealthy merchant in Verbobonc named Ortiverne Xenth. They tracked down the thieves only to discover they had been taken prisoner by lizardmen. Instead of fighting, the PCs negotiated with the lizardmen who needed help destroying ghouls that were attacking their village. The PCs successfully destroyed the ghouls. The lizardmen returned the stolen property. The leader of the thieves claimed that Xenth was the true criminal and that he and his men were merely taking back what had been stolen from his brother. When the PCs returned to Verbobonc, Xenth was nowhere to be found.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Throvalsa", "Ussiraesthyr", "Variss", "Ortiverne Xenth"]
+    },
+    {
+        "id": "event-10",
+        "title": "Exploration of Naraglim",
+        "type": "adventure",
+        "date": { "year": 567, "month": 3, "day": 25 },
+        "summary": "The party explores the ancient gnomish city of Naraglim, battling goblins, lizardfolk, and brigands.",
+        "details": "Following Ussiraesthyr's request, the party traveled to the Fens of Tor to investigate the source of the ghouls that had been attacking her people. They discovered a cave entrance leading to an ancient gnomish city called Naraglim. Inside, they fought goblins, lizardfolk, and brigands, eventually liberating a group of captives including a human woman named Elara, a dwarf miner named Givlin, and a human nobleman named Rensarek. After a pitched battle, they managed to escape the city with the rescued prisoners. Lord Renserak rewarded the party with 1000 platinum pieces, while Elara gifted them a family heirloom, a Quaal's Feather token worth 400 platinum pieces.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Throvalsa", "Ussiraesthyr", "Luden", "Tural", "Skabnug", "Gritznak", "Elara", "Givlin", "Rensarek"]
+    },
+    {
+        "id": "event-11",
+        "title": "Discovery of Princess Jolene's Impersonation",
+        "type": "adventure",
+        "date": { "year": 567, "month": 4, "day": 23 },
+        "summary": "The party uncovers a plot involving a doppelganger impersonating Princess Jolene of Veluna.",
+        "details": "Invited to attend the wedding of Prince Thrommel of Furyondy and Princess Jolene of Veluna, the party notices suspicious events including the death of Lady Elysia Harthol, a friend of the princess. After investigating, they discover that the real princess had been replaced by a doppelganger, who was planning to assassinate Prince Thrommel on their wedding night. The party exposes the imposter and learns that the real princess is being held at Shadow Keep.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Viscount Wilfrick", "Prince Thrommel", "Lady Elysia Harthol", "Sir Merric Harrow", "Ludmern", "Nehel"]
+    },
+    {
+        "id": "event-12",
+        "title": "Rescue at Shadow Keep",
+        "type": "adventure",
+        "date": { "year": 567, "month": 5, "day": 8 },
+        "summary": "The party infiltrates Shadow Keep and rescues Princess Jolene and other prisoners.",
+        "details": "The party traveled to Shadow Keep, a former elven fortress in the Vesve Forest that had been corrupted by drow. Following information from a captured orc scout, they found an underground entrance to the dungeon beneath the keep. Fighting their way through monsters including a giant cave lizard, giant bombardier beetles, skeletal adventurers, and more, they eventually reached a jail where they found and freed Princess Jolene of Veluna and an elven lady ranger named Beir. They escaped with the rescued prisoners and returned to Chendl.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Throvalsa", "Princess Jolene", "Beir"]
+    },
+    {
+        "id": "event-13",
+        "title": "Battle with Kettite Forces",
+        "type": "battle",
+        "date": { "year": 567, "month": 8, "day": 11 },
+        "summary": "The party defeats a scouting force of Kettite soldiers led by a priest of Iuz.",
+        "details": "While escorting Princess Jolene near the Temple of the Tranquil Dawn, the party encountered a Kettite scouting party led by Gorlan, a priest of Iuz. Despite being outnumbered, the party prevailed thanks to Saldon's clever use of the Phantasmal Force spell, which caused many of the Kettite soldiers to flee in panic. The party defeated 18 Kettite horse archers, a Kettite lieutenant, a Kettite captain, and the priest of Iuz. Among the valuable loot they recovered were magical Boots of Speed, which they later sold for a significant sum.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Princess Jolene", "Gorlan"]
+    },
+    {
+        "id": "event-14",
+        "title": "Quest for the Banner of Unified Hearts",
+        "type": "adventure",
+        "date": { "year": 567, "month": 8, "day": 20 },
+        "summary": "The party travels to Gilmorack to retrieve an ancient artifact that could prevent the sack of Mitrik.",
+        "details": "With Kettite forces threatening Mitrik, the party traveled to the dwarven city of Gilmorack to retrieve the Banner of Unified Hearts, an artifact known for its ability to quell conflicts. King Rysten agreed to lend them the Banner in exchange for investigating the silence from Kheldurn Forgehold. There, they discovered a beholder had been petrifying dwarves. The party fought and defeated the beholder and its offspring. After returning to Gilmorack with news of their success, King Rysten granted them the Banner. Back in Mitrik, the Banner's magic caused the Kettite army to surrender, saving the city from destruction.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "King Rysten", "Canon Hazen"]
+    },
+    {
+        "id": "event-15",
+        "title": "Meeting with Queen Yolande",
+        "type": "npc-event",
+        "date": { "year": 567, "month": 11, "day": 21 },
+        "summary": "The party meets with Queen Yolande of Celene to discuss a potential alliance against growing threats.",
+        "details": "The party traveled to Enstad, the capital of the elven kingdom of Celene. There, they delivered a letter from Canon Hazen to Queen Yolande, seeking an alliance against growing threats. Though the Queen was unmoved by the plea, she asked the party to scout the Wild Coast for evidence of humanoid advances. Royal Advisor Onselven privately encouraged the party not to give up on the idea of an alliance, despite the Queen's isolationist stance. During their stay in Enstad, Maxwell underwent four weeks of training to reach level 5 as a cleric, while Kerrak and Val sought henchmen. Kerrak hired an elven druid named Entuvia, while Val hired an elf cleric named Ousseawin.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Queen Yolande", "Prince Consort Triserron", "Onselven", "Entuvia", "Ousseawin"]
+    },
+    {
+        "id": "event-16",
+        "title": "Troll Ambush",
+        "type": "battle",
+        "date": { "year": 567, "month": 15, "day": 27 },
+        "summary": "The party is ambushed by trolls while traveling through the Twilight Woods.",
+        "details": "While traveling south from Enstad through the Twilight Woods, the party was attacked by a trio of trolls during the night. The battle was fierce, with Kerrak nearly losing his life after being brutally mauled. The party managed to defeat all three trolls, which had a total of 90 hit points. The experience of this battle proved valuable to the heroes as they continued their journey.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-17",
+        "title": "Breaking the Siege of Badwall",
+        "type": "battle",
+        "date": { "year": 568, "month": 0, "day": 2 },
+        "summary": "With the help of treants, the party breaks the siege of Badwall by a large humanoid army.",
+        "details": "The party discovered that the town of Badwall was under siege by an army of over two thousand humanoids. They convinced a treant named Oakheart and his seven companions to help break the siege. Together, they slaughtered hundreds of orcs, goblins, gnolls, hobgoblins, and kobolds. The treants proved devastatingly powerful, cutting a path of destruction through the besieging forces. Eventually, the town's defenders, led by Lord Robaste, joined the battle. The party defeated the army's commander, Grom Ironfist, a 10th level half-orc fighter, saving the town from certain destruction. This victory brought the party great fame and a substantial reward.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Oakheart", "Timberbloom", "Leafstrider", "Splinternut", "Willowgnarl", "Elderwood", "Mossbark", "Bramblebrush", "Lord Robaste", "Grom Ironfist", "Eanisean"]
+    },
+    {
+        "id": "event-18",
+        "title": "Quest of the Wandering Star Begins",
+        "type": "adventure",
+        "date": { "year": 568, "month": 14, "day": 15 },
+        "summary": "The party begins a quest to find powerful weapons that could turn the tide of war.",
+        "details": "Told that they might be part of an ancient prophecy, the party headed into the Lortmil mountains in search of weapons that could turn the tide of war. They followed the 'wandering star' visible in the sky, eventually finding a small mountain vale ruled by a clan of gnomes. Along the way, they encountered an elven patrol that warned them of a hobgoblin war band in the area, narrowly escaped an avalanche, and defeated six ogres in battle. The gnomes welcomed them and revealed more about the prophecy that seemed to include each of the adventurers.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-19",
+        "title": "Discovery of the Witch Queen's Dungeon",
+        "type": "adventure",
+        "date": { "year": 568, "month": 3, "day": 1 },
+        "summary": "The party discovers and begins to explore a vast dungeon in the Lortmil mountains.",
+        "details": "The party left the Hillmen steading, accompanied by guides, and found in a box canyon a previously hidden stairway. Down the stairway, the group found a dungeon and began to explore it. They fought off demons, a lurker above, five giant bats (mobats), and collected valuable treasures including gems, jewelry, and magical items. In total, they recovered 4,500 gold pieces in gems and jewelry, 167 platinum pieces, 281 gold pieces, and four 500-gold-piece gems from their exploration.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Melos", "Throvalsa"]
+    },
+    {
+        "id": "event-20",
+        "title": "Battle with the Gorgimera",
+        "type": "battle",
+        "date": { "year": 568, "month": 3, "day": 5 },
+        "summary": "The party confronts and defeats a fearsome gorgimera in the dungeon.",
+        "details": "Continuing their exploration of the Witch Queen's Dungeon, the party encountered and defeated a powerful gorgimera, a chimera-like monster with the ability to petrify its victims. The battle was challenging but the party prevailed. In the creature's hoard, they discovered treasures worth 76,100 gold pieces, including a Ring of Spell Storing (which Maxwell kept) and a Bag of Holding (which Kristopher kept). The group also found valuable scrolls, including a Ward of Elementals, a Wish scroll, a Symbol scroll, Neutralize Poison, Cure Serious Wounds, and Cause Disease. Unfortunately, during the battle, Kris was poisoned, forcing him and Val to polymorph into birds to quickly fly back to Gnome Vale for treatment.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Throvalsa", "Melos"]
+    },
+    {
+        "id": "event-21",
+        "title": "Deeper into the Dungeon",
+        "type": "adventure",
+        "date": { "year": 568, "month": 3, "day": 11 },
+        "summary": "The party ventures deeper into the dungeon, facing new threats and finding more treasures.",
+        "details": "After returning to the dungeon, the party encountered and defeated a xorn, a strange creature that could move through solid stone. The battle was difficult, but they managed to defeat the xorn, which had 139 hit points in total. From the creature, they recovered 18 gems worth 500 gold pieces each. As they continued to explore, they also encountered and defeated giant beetles, ghasts, and troglodytes. Among the magical items found were Boots of Levitation (kept by Kerrak), a Horn of Fog, a Ring of Water Walking, and a Ring of Protection +1 with a 5-foot radius (kept by Kris).",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Throvalsa", "Melos"]
+    },
+    {
+        "id": "event-22",
+        "title": "Battle with the Spectral Death Gaze",
+        "type": "battle",
+        "date": { "year": 568, "month": 3, "day": 24 },
+        "summary": "The party faces a powerful demonic creature with a deadly gaze in the dungeon's depths.",
+        "details": "As the group continued to explore the dungeon, they descended 900 steps to a lower level where they faced a demonic creature with a death gaze, known as a Bodak. The creature's gaze attack was deadly, and the battle was fierce, but the party managed to defeat it. In the creature's hoard, they found valuable treasures including an earring worth 6,000 gold pieces, a clasp worth 5,000 gold pieces, a necklace worth 7,000 gold pieces, and other items totaling 34,000 gold pieces. They also found scrolls, potions, and various magical items including a +2 spear, a candle of invocation, an owl figurine of wondrous power, a ring of warmth (kept by Val), bracers of defense AC 7, a +1 short sword (kept by Sal), and +2 scale mail.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Throvalsa", "Melos"]
+    },
+    {
+        "id": "event-23",
+        "title": "Encounter with the Vampire",
+        "type": "battle",
+        "date": { "year": 569, "month": 3, "day": 25 },
+        "summary": "The party confronts a powerful vampire in the depths of the dungeon.",
+        "details": "The group continued to explore the lower dungeon. Each time they tried to enter an important hallway, defined by a massive iron door, they were teleported to seemingly random spots. On the seventh attempt, they finally opened a door to the master's lair. The 'master' turned out to be a female vampire named Drelnza, clad in gold armor and wielding a chaotic evil bastard sword. After a difficult battle, they defeated her, though she escaped in mist form. The party found a vast treasure including powerful magical items: a Prison of Zagig, a Demonomicon, a magical Lanthorn, and several magical tomes that would increase their abilities: a Manual of Bodily Health, a Manual of Gainful Exercise, a Manual of Quickness of Action, a Tome of Clear Thought, a Tome of Leadership and Influence, and a Tome of Understanding. They also found thousands of gold pieces in gems, jewelry, and other valuables.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Drelnza"]
+    },
+    {
+        "id": "event-24",
+        "title": "Return to Gnome Vale and Training",
+        "type": "adventure",
+        "date": { "year": 569, "month": 3, "day": 28 },
+        "summary": "The party returns to Gnome Vale and spends time training and recovering from their adventures.",
+        "details": "After their successful exploration of the dungeon, the party returned to Gnome Vale where Laird Gwaylar held a feast in their honor. Val decided to stay in Gnome Vale to wait for Sage Deledenavarae's study of the magical items they had recovered, while the rest of the party traveled to Enstad to begin their training. The party members spent several months training to improve their skills and abilities: Val trained as both a Thief and a Magic-User, Jules, Mavis, and Kris completed their training after 6 weeks, Maxwell after 10 weeks, Saldon after 11 weeks, and Kerrak after 15 weeks. During this time, Val, Kris, and Max also read the magical tomes they had found, increasing their physical and mental attributes.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Laird Gwaylar", "Deledenavarae"]
+    },
+    {
+        "id": "event-25",
+        "title": "Assault on the Lost Temple",
+        "type": "battle",
+        "date": { "year": 569, "month": 10, "day": 16 },
+        "summary": "The party assaults a temple that has been the source of raids against the gnomes.",
+        "details": "After reuniting in Gnome Vale, the party tracked a large group of 'Noblink' to a strange pyramid-like building in the mountains. Inside, they faced numerous monsters including norkers, gnolls, ogres, trolls, and a giant troll. They also encountered a powerful annis hag. After fierce battles, they managed to clear out the temple, finding substantial treasures including gold, jewelry, and magical items. This victory helped secure the safety of the gnomes of the Vale.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-26",
+        "title": "Deeper into the Lost Temple",
+        "type": "adventure",
+        "date": { "year": 569, "month": 10, "day": 18 },
+        "summary": "The party continues their exploration of the Lost Temple, uncovering more of its secrets.",
+        "details": "Pressing deeper into the Lost Temple, the party encountered more dangerous foes including hill giants, ogres, a huge spider, and a guardian demon. After defeating these threats, they discovered a vast treasure consisting of 105,000 gold pieces in gems, as well as sacks of gold and other valuables. They also found numerous magical items including potions, incense of meditation, a cloak of protection +1, elven chain mail, scrolls, a +1 ring, and a +2 dagger. These riches would help fund their future adventures and improve their equipment.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-27",
+        "title": "Final Chambers of the Lost Temple",
+        "type": "battle",
+        "date": { "year": 569, "month": 10, "day": 20 },
+        "summary": "The party clears the final chambers of the Lost Temple, defeating powerful foes and claiming more treasures.",
+        "details": "The party continued their exploration of the Lost Temple, facing and defeating more ogres, gnolls, norkers, a mountain giant, dire wolves, and a witch doctor. They discovered three treasure chests containing valuable items: the first held jewelry worth 16,600 gold pieces, a tapestry worth 275 gold pieces, an ivory box worth 2,000 gold pieces, gems worth 210 gold pieces, and a glass ball worth 500 gold pieces; the second contained a statue worth 100 gold pieces, pelts worth 500 gold pieces, 148 platinum coins, and tusks worth 2,000 gold pieces; and the third held 4,300 gold pieces. They also found magical items including a +2 Heavy Mace (kept by Jules), Beads of Force (kept by Saldon), a +2 Dagger (kept by Saldon), a Ring of Invisibility (kept by Val), and a Cloak of Protection +1 (kept by Kerrak). Some items like the elven chain mail, a scroll of protection, and incense were sold for 15,500 gold pieces, while dust of appearance and +1 leather armor brought in another 6,000 gold pieces.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-28",
+        "title": "Return from the Lost Temple",
+        "type": "adventure",
+        "date": { "year": 569, "month": 10, "day": 22 },
+        "summary": "The party returns from the Lost Temple, facing one final challenge on their journey.",
+        "details": "As the party made their way back from the Lost Temple, they stopped to rest in what they thought was a safe cave. They were suddenly attacked by four trolls with a combined 128 hit points. Despite the surprise, the party defeated the trolls and recovered 6,000 gold pieces in loot. Later that day, they spotted and managed to avoid a large hobgoblin war party of approximately 80 warriors. The party arrived back in Gnome Vale on Reaping 28, where they sold some of their magical items, including elven boots to Val for 4,500 gold pieces and a +1 morningstar for 3,000 gold pieces.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-29",
+        "title": "Miracle of the Pegasus",
+        "type": "adventure",
+        "date": { "year": 569, "month": 11, "day": 15 },
+        "summary": "Jules' mount Mattimeo is transformed into a pegasus through divine intervention.",
+        "details": "After leaving Gnome Vale, the party traveled to the village of Orlane, arriving on Goodmonth 15. There, Jules began a period of prayer and fasting, seeking divine intervention for his loyal warhorse Mattimeo. After weeks of devotion, on Harvester 4 (Godsday), Jules' prayers were answered. The goddess Merrika blessed Mattimeo, transforming him into a magnificent pegasus, greatly increasing his capabilities and cementing the special bond between paladin and mount.",
+        "characters": ["Jules", "Mattimeo", "Val", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-30",
+        "title": "Riverkeep Adventure",
+        "type": "adventure",
+        "date": { "year": 569, "month": 12, "day": 10 },
+        "summary": "The party undertakes an adventure at Riverkeep, battling strange creatures and recovering treasure.",
+        "details": "The party embarked on an adventure to a place known as Riverkeep. There, they encountered and defeated a Guardian Familiar, two Ochre Jellies, two Green Hags, and six Buccaneers. After defeating these foes, they recovered gold and gems totaling 3,000 gold pieces, which was divided among the party members.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-31",
+        "title": "Against the Giants: The Hill Giants",
+        "type": "battle",
+        "date": { "year": 569, "month": 13, "day": 24 },
+        "summary": "The party begins a campaign against the giants, starting with hill giants.",
+        "details": "The party initiated their campaign against the giants, beginning with hill giants who had been raiding human settlements. In their first engagement, they slew three powerful hill giants and recovered tower giant jewelry worth 1,400 gold pieces. They also defeated three female giantesses. This would be the beginning of a much larger campaign against the giants threatening the lands.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-32",
+        "title": "Steading of the Hill Giant Chief",
+        "type": "battle",
+        "date": { "year": 569, "month": 14, "day": 8 },
+        "summary": "The party storms the steading of the hill giant chief, facing numerous foes.",
+        "details": "The party assaulted the steading of the hill giant chief, a massive wooden fortress. In a day of intense fighting, they slew 24 hill giants, the hill giant chief, a cloud giant, three stone giants, eight ogres, a cave bear, a female giantess, and a prehistoric lion. They also encountered and defeated six more ogres (slain by Kris alone) and six dire wolves. The treasure recovered from the giants and ogres was substantial, including jewelry worth 59,046 gold pieces and an ogre necklace worth 1,000 gold pieces. This victory struck a major blow against the giant alliance that had been forming.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-33",
+        "title": "Clearing the Steading",
+        "type": "battle",
+        "date": { "year": 569, "month": 14, "day": 22 },
+        "summary": "The party continues their assault on the giant steading, clearing out more enemies.",
+        "details": "Continuing their assault on the hill giant steading, the party defeated eight dire wolves, a cave bear, a 'handsome' giant, several female giants, and a group of twelve bugbears. The slain giants had jewelry worth 5,500 gold pieces. This day of fighting brought them closer to completely clearing the steading and discovering what was behind the giants' increased aggression against human lands.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-34",
+        "title": "Defeating the Bugbear Garrison",
+        "type": "battle",
+        "date": { "year": 569, "month": 15, "day": 5 },
+        "summary": "The party defeats the bugbear garrison within the giant steading and rescues a prisoner.",
+        "details": "In their final push to clear the hill giant steading, the party fought and defeated a large force of bugbears that served as the steading's garrison. They slew 36 regular bugbears, 6 bugbear guards, 5 bugbear elites, and a bugbear captain. During their exploration, they found and rescued a woman named Liana Heth, who had been taken prisoner by the giants. They safely escorted her back to Orlane. Following this victory, Jules used some of his accumulated wealth to train from level 7 to level 8 as a Paladin.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon", "Liana Heth"]
+    },
+    {
+        "id": "event-35",
+        "title": "Glacial Rift of the Frost Giant Jarl",
+        "type": "battle",
+        "date": { "year": 569, "month": 15, "day": 19 },
+        "summary": "The party invades the lair of the frost giants, facing undead giants and other threats.",
+        "details": "Following clues found in the hill giant steading, the party traveled to a glacial rift that served as the home of frost giants. In their initial assault, they faced and defeated four hill giant zombies, four ogre zombies, a creature known as the keeper, giant apes, two fire giants, and two hill giants. The party recovered valuable treasure including hill giant jewelry worth 8,000 gold pieces, and contents from several chests: 3,000 gold pieces, three bracelets worth 13,000 gold pieces, four potions, a comb worth 300 gold pieces, a mirror worth 200 gold pieces, a pin worth 800 gold pieces, 1,500 gold pieces, 110 platinum pieces, 29 gems worth 11,080 gold pieces, and two more potions. They also discovered the equipment of fallen adventurers, including a dwarf warrior and a human cleric.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-36",
+        "title": "Depths of the Glacial Rift",
+        "type": "adventure",
+        "date": { "year": 569, "month": 15, "day": 28 },
+        "summary": "The party explores deeper into the frost giants' lair, finding more enemies and treasure.",
+        "details": "Continuing their exploration of the Glacial Rift, the party encountered and defeated two carrion crawlers, 33 troglodytes, and four manticores. They discovered a significant treasure hoard containing 27,300 silver pieces (equivalent to 1,365 gold pieces), 7,140 electrum pieces (equivalent to 3,570 gold pieces), 27 copper ingots worth 400 gold pieces each (10,800 gold pieces total), 11 ivory tusks worth 11,000 gold pieces, 23,840 gold pieces, 4,139 platinum pieces (equivalent to 20,695 gold pieces), 62 gems worth a total of 18,600 gold pieces, and 17 pieces of jewelry worth 8,500 gold pieces. The party also found magical weapons and armor including 11 +2 arrows, a +3 spear, a flaming sword, a frostbrand sword, +2 elven chainmail, a +2 shield, a dwarven thrower, gauntlets of ogre power, a ring of invisibility, a +3 shield mounted on a wall, and a +1 battleaxe.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-37",
+        "title": "Battle with the Hill Giants",
+        "type": "battle",
+        "date": { "year": 569, "month": 16, "day": 17 },
+        "summary": "The party faces a group of hill giants while exploring the frozen northern lands.",
+        "details": "As the party continued their campaign against the giants, they encountered and defeated ten hill giants. The battle was fierce but the party prevailed, recovering the giants' gold and claiming several magical items including a flame sword, a +3 spear, a +1 battleaxe, and eleven +1 arrows. After the battle, the party took time to convert much of their accumulated wealth into gems for easier transport.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-38",
+        "title": "Hall of the Frost Giant Jarl: Outer Defenses",
+        "type": "battle",
+        "date": { "year": 570, "month": 0, "day": 14 },
+        "summary": "The party assaults the Hall of the Frost Giant Jarl, facing yetis and frost giants.",
+        "details": "The party began their assault on the Hall of the Frost Giant Jarl, the ruler of the frost giants. Outside the hall, they encountered and defeated seven yetis, recovering seven ivory tusks worth 5,600 gold pieces. They also defeated two snow leopards. Inside the hall, they faced 18 frost giants in a tremendous battle that tested their skills to the limit. After defeating the giants, they discovered 278 rock crystals worth 2,780 gold pieces.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-39",
+        "title": "Deeper into the Hall of the Frost Giant Jarl",
+        "type": "battle",
+        "date": { "year": 570, "month": 0, "day": 28 },
+        "summary": "The party continues their assault on the Hall of the Frost Giant Jarl, defeating more frost giants.",
+        "details": "Pressing deeper into the Hall of the Frost Giant Jarl, the party encountered and defeated four frost giants in room 23 and more in room 26. They recovered three sacks of coins, each containing 3,000 gold pieces, for a total of 9,000 gold pieces. The party's progress through the hall was steady but challenging, as the frost giants were formidable opponents.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    },
+    {
+        "id": "event-40",
+        "title": "Final Confrontation in the Hall of the Frost Giant Jarl",
+        "type": "battle",
+        "date": { "year": 570, "month": 1, "day": 11 },
+        "summary": "The party completes their assault on the Hall of the Frost Giant Jarl, defeating the remaining giants and discovering valuable treasures.",
+        "details": "In their final push through the Hall of the Frost Giant Jarl, the party defeated eight frost giants in rooms 9 and 10, and eight more in rooms 1 and 2. They recovered a jeweled belt worth 7,000 gold pieces, a pouch of gems worth 3,710 gold pieces, a sack containing 4,128 gold pieces, a chain worth 3,000 gold pieces, a belt worth 1,600 gold pieces, five bags in room 10 containing 4,455 gold pieces, and a stone box containing gems worth 2,100 gold pieces. They also found several magical items including a +1 battleaxe, a wand of frost, a scroll of elemental protection, and +2 platemail. Additionally, they defeated young hill giants and hill giantesses, recovering three bracelets worth 15,000 gold pieces, 3,000 gold pieces in coins, and four potions.",
+        "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
+    }
+]
+ 

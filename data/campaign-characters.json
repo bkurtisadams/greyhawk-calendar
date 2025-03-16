@@ -1,0 +1,20 @@
+[
+    {
+      "id": "char-1",
+      "name": "Thorgrim Ironfist",
+      "race": "Dwarf",
+      "class": "Fighter",
+      "level": 8,
+      "stats": {
+        "str": 18,
+        "dex": 12,
+        "con": 16,
+        "int": 10,
+        "wis": 13,
+        "cha": 8
+      },
+      "bio": "A stoic dwarf from the Principality of Ulek who took up arms after his clan was driven from their mines.",
+      "player": "Mike"
+    },
+   
+  ]

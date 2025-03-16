@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greyhawk Wars Campaign Calendar</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <h1>Greyhawk Wars Campaign</h1>
+        <p>Campaign Timeline and Event Tracker - 567 CY to 569 CY</p>
+    </header>
+
+    <div class="campaign-info">
+        <div class="campaign-block">
+            <h2>Campaign Overview</h2>
+            <p>This campaign follows our heroes through the tumultuous events of the Greyhawk Wars, beginning in 567 CY. The conflict has spread across the Flanaess, drawing in nations from the Baklunish West to the Solnor Ocean.</p>
+        </div>
+        <div class="campaign-block">
+            <h2>Current Status</h2>
+            <p>The party is currently in the Kingdom of Nyrond, investigating rumors of Iuz's agents infiltrating the royal court. Last session ended with the discovery of a secret passage beneath Castle Rel Mord.</p>
+        </div>
+    </div>
+
+    <div class="current-date" id="current-date">
+        Loading current campaign date...
+    </div>
+
+    <div class="toggle-view">
+        <button id="btn-calendar" class="active">Calendar View</button>
+        <button id="btn-timeline">Timeline</button>
+        <button id="btn-characters">Character Sheets</button>
+        <button id="btn-months">Greyhawk Months</button>
+        <button id="btn-holidays">Holidays & Festivals</button>
+    </div>
+
+    <div id="calendar-view" class="view active">
+        <div class="year-navigation">
+            <button id="prev-year">◀ Prev Year</button>
+            <div class="current-cy" id="display-year">568 CY</div>
+            <button id="next-year">Next Year ▶</button>
+        </div>
+        
+        <div class="event-filters">
+            <div class="event-filter">
+                <input type="checkbox" id="filter-holiday" checked>
+                <span class="color-box color-holiday"></span>
+                <label for="filter-holiday">Holidays</label>
+            </div>
+            <div class="event-filter">
+                <input type="checkbox" id="filter-adventure" checked>
+                <span class="color-box color-adventure"></span>
+                <label for="filter-adventure">Adventures</label>
+            </div>
+            <div class="event-filter">
+                <input type="checkbox" id="filter-battle" checked>
+                <span class="color-box color-battle"></span>
+                <label for="filter-battle">Battles</label>
+            </div>
+            <div class="event-filter">
+                <input type="checkbox" id="filter-npc" checked>
+                <span class="color-box color-npc"></span>
+                <label for="filter-npc">NPC Events</label>
+            </div>
+        </div>
+        
+        <div id="calendar-container" class="month-grid">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <div id="timeline-view" class="view">
+        <h2>Campaign Timeline</h2>
+        <p>A chronological record of major events in the campaign.</p>
+        
+        <div class="timeline" id="timeline-container">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <div id="characters-view" class="view">
+        <h2>Character Sheets</h2>
+        <p>The heroes and major NPCs of the campaign.</p>
+        
+        <div class="character-grid" id="character-container">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <div id="months-view" class="view">
+        <h2>Months of the Greyhawk Calendar</h2>
+        <p>The Greyhawk calendar consists of 12 months of 28 days each, plus 4 week-long festivals that mark the changing of the seasons.</p>
+        
+        <div class="month-grid">
+            <div class="month-card festival">
+                <h3>Needfest (Winter Festival)</h3>
+                <p>A week-long festival marking midwinter and the beginning of the new year. Many communities observe this as a time of reflection and renewal.</p>
+            </div>
+            <div class="month-card">
+                <h3>Fireseek</h3>
+                <p>The deep winter month when people stay close to their hearths and fires. Named for the constant search for warmth.</p>
+            </div>
+            <div class="month-card">
+                <h3>Readying</h3>
+                <p>The late winter month when preparations begin for spring planting and weather begins to moderate.</p>
+            </div>
+            <div class="month-card">
+                <h3>Coldeven</h3>
+                <p>The early spring month of transition from winter to spring, when temperatures even out but cool winds still blow.</p>
+            </div>
+            <div class="month-card festival">
+                <h3>Growfest (Spring Festival)</h3>
+                <p>The week-long festival celebrating the arrival of spring and the renewal of life.</p>
+            </div>
+            <div class="month-card">
+                <h3>Planting</h3>
+                <p>The mid-spring month when most crops are sown and fields prepared.</p>
+            </div>
+            <div class="month-card">
+                <h3>Flocktime</h3>
+                <p>The late spring month when animals are gathered into herds and flocks for summer grazing.</p>
+            </div>
+            <div class="month-card">
+                <h3>Wealsun</h3>
+                <p>The early summer month when the sun brings wealth to the land with its warmth and light.</p>
+            </div>
+            <div class="month-card festival">
+                <h3>Richfest (Summer Festival)</h3>
+                <p>The week-long midsummer festival, celebrated with feasting, tournaments, and marriages.</p>
+            </div>
+            <div class="month-card">
+                <h3>Reaping</h3>
+                <p>The mid-summer month when the first harvests begin and fields are rich with crops.</p>
+            </div>
+            <div class="month-card">
+                <h3>Goodmonth</h3>
+                <p>The late summer month known for its pleasant weather and abundance.</p>
+            </div>
+            <div class="month-card">
+                <h3>Harvester</h3>
+                <p>The early autumn month when the main harvests are gathered.</p>
+            </div>
+            <div class="month-card festival">
+                <h3>Brewfest (Fall Festival)</h3>
+                <p>The week-long autumn festival celebrating the harvest, featuring much drinking of new ales and wines.</p>
+            </div>
+            <div class="month-card">
+                <h3>Patchwall</h3>
+                <p>The mid-autumn month when preparations for winter begin and buildings are patched against coming cold.</p>
+            </div>
+            <div class="month-card">
+                <h3>Ready'reat</h3>
+                <p>The late autumn month when the last preparations for winter are made and final harvests gathered.</p>
+            </div>
+            <div class="month-card">
+                <h3>Sunsebb</h3>
+                <p>The early winter month when the sun ebbs its lowest in the sky and daylight grows scarce.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="holidays-view" class="view">
+        <h2>Holidays and Festivals of the Flanaess</h2>
+        <p>The people of the Flanaess observe many holidays throughout the year, from solemn religious observances to joyous seasonal celebrations.</p>
+        
+        <div class="holiday-list" id="holiday-container">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Event Modal -->
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="event-title" id="modal-title">Event Title</h2>
+            <p class="event-meta" id="modal-date">Date information</p>
+            
+            <div class="event-tabs">
+                <div class="event-tab active" data-tab="summary">Summary</div>
+                <div class="event-tab" data-tab="details">Full Details</div>
+                <div class="event-tab" data-tab="characters">Characters</div>
+                <div class="event-tab" data-tab="maps">Maps & Images</div>
+            </div>
+            
+            <div id="tab-summary" class="tab-content active">
+                <div id="modal-summary"></div>
+            </div>
+            
+            <div id="tab-details" class="tab-content">
+                <div id="modal-details"></div>
+            </div>
+            
+            <div id="tab-characters" class="tab-content">
+                <div id="modal-characters"></div>
+            </div>
+            
+            <div id="tab-maps" class="tab-content">
+                <div id="modal-maps"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin controls for adding/editing content -->
+    <button class="admin-toggle" id="admin-toggle">+</button>
+    
+    <div class="admin-controls" id="admin-panel">
+        <h2>Add/Edit Campaign Content</h2>
+        
+        <div class="admin-section">
+            <label for="admin-type">Event Type:</label>
+            <select id="admin-type">
+                <option value="adventure">Adventure</option>
+                <option value="battle">Battle</option>
+                <option value="npc-event">NPC Event</option>
+                <option value="character">Character Sheet</option>
+            </select>
+        </div>
+        
+        <div class="admin-section">
+            <label for="admin-title">Title:</label>
+            <input type="text" id="admin-title" placeholder="Event or character name">
+        </div>
+        
+        <div class="admin-section" id="date-section">
+            <label for="admin-date">Date:</label>
+            <select id="admin-year">
+                <option value="567">567 CY</option>
+                <option value="568">568 CY</option>
+                <option value="569" selected>569 CY</option>
+            </select>
+            <select id="admin-month">
+                <!-- Will be populated by JavaScript -->
+            </select>
+            <select id="admin-day">
+                <!-- Will be populated by JavaScript -->
+            </select>
+        </div>
+        
+        <div class="admin-section">
+            <label for="admin-summary">Summary:</label>
+            <textarea id="admin-summary" placeholder="Brief summary or character bio"></textarea>
+        </div>
+        
+        <div class="admin-section">
+            <label for="admin-details">Full Details:</label>
+            <textarea id="admin-details" placeholder="Full description, adventure recap, or character details"></textarea>
+        </div>
+        
+        <div class="admin-buttons">
+            <button class="admin-button save" id="admin-save">Save</button>
+            <button class="admin-button" id="admin-cancel">Cancel</button>
+            <button class="admin-button delete" id="admin-delete">Delete</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>For use with the Greyhawk Wars campaign. Based on the World of Greyhawk setting created by Gary Gygax.</p>
+    </footer>
+
+    <!-- JavaScript file references -->
+    <script src="scripts/calendar.js"></script>
+</body>
+</html>
