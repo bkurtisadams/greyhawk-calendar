@@ -855,29 +855,22 @@
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function () {
-            // Load saved content first
-            loadContentFromLocalStorage();
+    // Initialize UI
+    updateCurrentDate();
+    populateAdminMonthSelect();
+    buildCalendarYear(CAMPAIGN_DATE.year);
+    buildTimeline();
+    buildCharacterList();
+    buildHolidayList();
 
-            // Initialize UI
-            updateCurrentDate();
-            populateAdminMonthSelect();
-            buildCalendarYear(CAMPAIGN_DATE.year);
-            buildTimeline();
-            buildCharacterList();
-            buildHolidayList();
-
-            setupTabButtons();
-            setupEventTabs();
-            setupModal();
-            setupEventFilters();
-            setupYearNavigation();
-            setupAdminPanel();
-
-            // Save current campaign date to local storage when page closes
-            window.addEventListener('beforeunload', function () {
-                localStorage.setItem('greyhawk-campaign-date', JSON.stringify(CAMPAIGN_DATE));
-            });
-        });
+    setupTabButtons();
+    setupEventTabs();
+    setupModal();
+    setupEventFilters();
+    setupYearNavigation();
+    setupAdminPanel();
+});
+;
     </script>
 
 </body>

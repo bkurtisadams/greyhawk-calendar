@@ -802,7 +802,7 @@ function generateTimeline() {
             const eventItem = document.createElement('div');
             eventItem.className = `timeline-event ${event.type}`;
 
-            const month = GREYHAWK_MONTHS.find(m => m.id === event.month);
+            const month = GREYHAWK_MONTHS[event.month];
 
             eventItem.innerHTML = `
                 <div class="timeline-date">${event.day} ${month.name}</div>
@@ -1432,39 +1432,31 @@ function generateTimeline() {
     }
 
     function loadContentFromLocalStorage() {
+        // Your existing logic here
         const savedEvents = localStorage.getItem('greyhawk-events');
         if (savedEvents) {
-            // Merge with existing events
             const parsedEvents = JSON.parse(savedEvents);
-
-            // Check for duplicates by ID
             parsedEvents.forEach(event => {
                 if (!CAMPAIGN_EVENTS.some(e => e.id === event.id)) {
                     CAMPAIGN_EVENTS.push(event);
                 }
             });
         }
-
+    
         const savedCharacters = localStorage.getItem('greyhawk-characters');
         if (savedCharacters) {
-            // Merge with existing characters
             const parsedCharacters = JSON.parse(savedCharacters);
-
-            // Check for duplicates by ID
             parsedCharacters.forEach(character => {
                 if (!CHARACTERS.some(c => c.id === character.id)) {
                     CHARACTERS.push(character);
                 }
             });
         }
-
-        // Load saved campaign date
+    
         const savedDate = localStorage.getItem('greyhawk-campaign-date');
         if (savedDate) {
             CAMPAIGN_DATE = JSON.parse(savedDate);
         }
     }
-
-
 }
 
