@@ -114,10 +114,11 @@ function initializeCalendar() {
 }
 
 // Function to update the current campaign date display
+// Corrected updateCurrentDateDisplay function clearly
 function updateCurrentDateDisplay() {
     const dateElement = document.getElementById('current-date');
     const month = GREYHAWK_MONTHS.find(m => m.id === currentMonth);
-    
+
     // Calculate the day of the week
     let totalDays = 0;
     for (let m = 0; m < currentMonth; m++) {
@@ -125,18 +126,8 @@ function updateCurrentDateDisplay() {
     }
     totalDays += currentDay - 1; // -1 because currentDay starts at 1, not 0
     const weekdayIndex = totalDays % 7;
-    
+
     dateElement.textContent = `Current Campaign Date: ${WEEKDAYS[weekdayIndex]}, ${currentDay} ${month.name}, ${currentYear} CY`;
-            
-            // Add event listener to show modal when clicked
-            eventItem.addEventListener('click', () => showEventModal(event));
-            
-            eventsList.appendChild(eventItem);
-        });
-        
-        yearContainer.appendChild(eventsList);
-        container.appendChild(yearContainer);
-    });
 }
 
 // Function to generate character sheets
@@ -777,7 +768,6 @@ function generateTimeline() {
             eventsList.appendChild(eventItem);
         });
 
-        const yearContainer = document.createElement('div');
         yearContainer.className = 'timeline-year';
         yearContainer.innerHTML = `<h3>${year} CY</h3>`;
         yearContainer.appendChild(eventsList);
