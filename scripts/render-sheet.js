@@ -368,6 +368,17 @@
     contentArea.appendChild(itemsTab);
     contentArea.appendChild(spellsTab);
     contentArea.appendChild(proficienciesTab);
+
+    // Restore last selected tab (per character)
+    const lastTab = localStorage.getItem(`charTab-${actorId}`) || "main";
+
+    sidebar.querySelectorAll(".tab-btn").forEach((btn) => {
+      if (btn.dataset.tab === lastTab) btn.classList.add("active");
+    });
+
+    contentArea.querySelectorAll(".tab-content").forEach((tab) => {
+      tab.style.display = tab.dataset.tab === lastTab ? "block" : "none";
+    });
   
     wrapper.appendChild(sidebar);
     wrapper.appendChild(contentArea);
@@ -408,5 +419,31 @@
   export function initializeCharacterRenderer() {
     loadCharactersFromLocalStorage();
     setupCharacterUpload();
+  }
+  
+  function createTabButton(name, label, actorId) {
+    const btn = document.createElement("button");
+    btn.className = "tab-btn";
+    btn.textContent = label;
+    btn.dataset.tab = name;
+    btn.style.padding = "0.5em";
+    btn.style.marginBottom = "4px";
+    btn.style.width = "100%";
+    btn.style.border = "1px solid #ccc";
+    btn.style.background = "#f0f0f0";
+    btn.style.cursor = "pointer";
+  
+    btn.addEventListener("click", () => {
+      const parent = btn.closest(".character-card");
+      parent.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
+      parent.querySelectorAll(".tab-content").forEach((tc) => (tc.style.display = "none"));
+      btn.classList.add("active");
+      parent.querySelector(`.tab-content[data-tab="${name}"]`).style.display = "block";
+  
+      // 🧠 Save last selected tab for this character
+      localStorage.setItem(`charTab-${actorId}`, name);
+    });
+  
+    return btn;
   }
   
