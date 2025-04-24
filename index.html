@@ -7,7 +7,7 @@
     <title>Greyhawk Wars Campaign Calendar</title>
 
     <link rel="stylesheet" href="main.css">
-</head>
+
 <style>
     body {
         font-family: 'Bookman Old Style', Garamond, serif;
@@ -864,9 +864,9 @@
 </script>
 
 <script>
-    function getStoredCharacters() {
+    /* function getStoredCharacters() {
         return JSON.parse(localStorage.getItem('uploadedCharacters') || '[]');
-    }
+    } */
     
     function saveStoredCharacters(chars) {
         localStorage.setItem('uploadedCharacters', JSON.stringify(chars));
