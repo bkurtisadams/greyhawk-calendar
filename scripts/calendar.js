@@ -100,15 +100,6 @@ async function loadCampaignData() {
             events.forEach(event => CAMPAIGN_EVENTS.push(event));
         }
 
-        // Load characters
-        //const charactersResponse = await fetch('data/campaign-characters.json');
-        /* if (charactersResponse.ok) {
-            const characters = await charactersResponse.json();
-            // Replace sample characters with loaded data
-            CHARACTERS.length = 0; // Clear existing array
-            characters.forEach(character => CHARACTERS.push(character));
-        } */
-
         console.log('Campaign data loaded successfully');
 
     } catch (error) {
@@ -1035,14 +1026,22 @@ function loadContentFromLocalStorage() {
     }
 
     const savedCharacters = localStorage.getItem('greyhawk-characters');
-    if (savedCharacters) {
+if (savedCharacters) {
+    try {
         const parsedCharacters = JSON.parse(savedCharacters);
         parsedCharacters.forEach(character => {
-            if (!CHARACTERS.some(c => c.id === character.id)) {
-                CHARACTERS.push(character);
+            if (character?.id && character?.name) {
+                if (!CHARACTERS.some(c => c.id === character.id)) {
+                    CHARACTERS.push(character);
+                }
+            } else {
+                console.warn("Skipped invalid character:", character);
             }
         });
+    } catch (err) {
+        console.error("Failed to parse stored characters:", err);
     }
+}
 
     const savedDate = localStorage.getItem('greyhawk-campaign-date');
     if (savedDate) {
@@ -1230,22 +1229,23 @@ function showEventModal(event) {
 
     // Populate characters involved
     characters.innerHTML = '';
-    if (event.characters && event.characters.length > 0) {
-        const charList = document.createElement('ul');
-        charList.className = 'character-list';
-
-        event.characters.forEach(charId => {
-            const character = CHARACTERS.find(c => c.id === charId);
-            if (character) {
-                const charItem = document.createElement('li');
-                charItem.innerHTML = `<strong>${character.name}</strong>: ${character.shortDescription}`;
-                charList.appendChild(charItem);
-            }
-        });
-
-        characters.appendChild(charList);
+    if (character && character.name) {
+        const charCard = document.createElement('div');
+        charCard.className = 'character-card';
+    
+        const header = document.createElement('h3');
+        header.textContent = character.name;
+    
+        const raceCls = document.createElement('p');
+        raceCls.textContent = `${character.race ?? 'Unknown'} ${character.class ?? 'Class'} (Level ${character.level ?? '?'})`;
+    
+        charCard.appendChild(header);
+        charCard.appendChild(raceCls);
+        charContent.appendChild(charCard);
     } else {
-        characters.textContent = 'No character information available.';
+        const charItem = document.createElement('p');
+        charItem.textContent = charName ?? 'Unnamed character';
+        charContent.appendChild(charItem);
     }
 
     // Populate maps and images
