@@ -1,4 +1,4 @@
-// render-sheet.js
+// render-sheet.js (with nested collapsible containers)
 
 function getStoredCharacters() {
     return JSON.parse(localStorage.getItem('uploadedCharacters') || '[]');
@@ -18,6 +18,40 @@ function groupItemsByContainer(items) {
     return grouped;
 }
 
+function renderContainer(containerItem, nested = false) {
+    const wrapper = document.createElement('div');
+    wrapper.className = nested ? 'nested-container' : 'container';
+
+    const toggle = document.createElement('details');
+    toggle.open = true;
+    const summary = document.createElement('summary');
+    summary.textContent = containerItem.name;
+    toggle.appendChild(summary);
+
+    const list = document.createElement('ul');
+    list.classList.add('item-list');
+    list.setAttribute('data-container', containerItem.name);
+
+    const items = containerItem.system?.itemList || [];
+    for (let subItem of items) {
+        const li = document.createElement('li');
+        li.textContent = `${subItem.name} x${subItem.quantity ?? 1}`;
+        li.setAttribute('draggable', 'true');
+
+        // If this is also a container, nest it
+        if (subItem.type === 'container') {
+            const nestedContainer = renderContainer(subItem, true);
+            li.appendChild(nestedContainer);
+        }
+
+        list.appendChild(li);
+    }
+
+    toggle.appendChild(list);
+    wrapper.appendChild(toggle);
+    return wrapper;
+}
+
 function renderCharacterSheet(actor) {
     const container = document.createElement('div');
     container.className = 'character-card';
@@ -32,23 +66,27 @@ function renderCharacterSheet(actor) {
 
     container.innerHTML += `<div class="character-stats">${statList}</div>`;
 
-    const groupedItems = groupItemsByContainer(actor.items || []);
-    for (let [pack, items] of Object.entries(groupedItems)) {
+    const allItems = actor.items || [];
+
+    for (let item of allItems) {
+        if (item.type === 'container') {
+            const nestedContainer = renderContainer(item);
+            container.appendChild(nestedContainer);
+        }
+    }
+
+    const looseItems = allItems.filter(i => !i.system?.location?.parent && i.type !== 'container');
+    if (looseItems.length > 0) {
         const ul = document.createElement('ul');
         ul.classList.add('item-list');
-        ul.setAttribute('data-container', pack);
-        ul.setAttribute('draggable', 'true');
-
-        for (let item of items) {
+        looseItems.forEach(item => {
             const li = document.createElement('li');
             li.textContent = `${item.name} x${item.system?.quantity ?? 1}`;
             li.setAttribute('draggable', 'true');
             ul.appendChild(li);
-        }
-
-        const subheader = document.createElement('h4');
-        subheader.textContent = pack;
-        container.appendChild(subheader);
+        });
+        container.appendChild(document.createElement('hr'));
+        container.appendChild(document.createTextNode('Loose Items'));
         container.appendChild(ul);
     }
 
@@ -108,7 +146,6 @@ function setupCharacterUpload() {
     });
 }
 
-// Exported initializer
 export function initializeCharacterRenderer() {
     loadCharactersFromLocalStorage();
     setupCharacterUpload();
