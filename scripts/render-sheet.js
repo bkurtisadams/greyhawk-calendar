@@ -1,4 +1,4 @@
-// render-sheet.js (with delete buttons)
+// render-sheet.js (delete fix + clear all)
 
 function getStoredCharacters() {
     return JSON.parse(localStorage.getItem('uploadedCharacters') || '[]');
@@ -8,11 +8,20 @@ function saveStoredCharacters(chars) {
     localStorage.setItem('uploadedCharacters', JSON.stringify(chars));
 }
 
+function getActorId(actor) {
+    return actor._id || actor.name || Math.random().toString(36).substring(2);
+}
+
 function deleteCharacterById(id) {
     const stored = getStoredCharacters();
-    const filtered = stored.filter(c => c._id !== id);
+    const filtered = stored.filter(c => getActorId(c) !== id);
     saveStoredCharacters(filtered);
     document.getElementById(`character-${id}`)?.remove();
+}
+
+function clearAllCharacters() {
+    localStorage.removeItem('uploadedCharacters');
+    document.getElementById('character-grid').innerHTML = '';
 }
 
 function renderContainer(containerItem, nested = false) {
@@ -49,9 +58,10 @@ function renderContainer(containerItem, nested = false) {
 }
 
 function renderCharacterSheet(actor) {
+    const actorId = getActorId(actor);
     const container = document.createElement('div');
     container.className = 'character-card';
-    container.id = `character-${actor._id}`;
+    container.id = `character-${actorId}`;
 
     const name = actor.name || 'Unnamed';
     const header = document.createElement('h3');
@@ -64,7 +74,7 @@ function renderCharacterSheet(actor) {
     delBtn.style.border = 'none';
     delBtn.style.cursor = 'pointer';
     delBtn.title = 'Remove character';
-    delBtn.addEventListener('click', () => deleteCharacterById(actor._id));
+    delBtn.addEventListener('click', () => deleteCharacterById(actorId));
 
     header.appendChild(delBtn);
     container.appendChild(header);
@@ -154,6 +164,13 @@ function setupCharacterUpload() {
                 makeDraggable();
             });
     });
+
+    // Add clear all button
+    const clearBtn = document.createElement('button');
+    clearBtn.textContent = '🗑️ Clear All Characters';
+    clearBtn.style.marginTop = '10px';
+    clearBtn.addEventListener('click', clearAllCharacters);
+    input.insertAdjacentElement('afterend', clearBtn);
 }
 
 export function initializeCharacterRenderer() {
