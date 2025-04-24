@@ -192,12 +192,14 @@ export function getStoredCharacters() {
 
 
     if (Array.isArray(profs) && profs.length > 0) {
-        const list = document.createElement("ul");
-        for (const prof of profs) {
-          const li = document.createElement("li");
-          li.textContent = prof.name ?? prof.label ?? "Unnamed";
-          proficienciesTab.appendChild(li);
-        }
+      const list = document.createElement("ul");
+      for (const prof of profs) {
+        const li = document.createElement("li");
+        li.textContent = prof.name ?? prof.label ?? "Unnamed";
+        list.appendChild(li);  // ✅ Append to the list!
+      }
+      proficienciesTab.appendChild(list);  // ✅ Append the full list to the tab
+      
         
         proficienciesTab.appendChild(list);
     } else {
