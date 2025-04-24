@@ -677,37 +677,40 @@ function buildTimeline() {
 
     // Create timeline items
     sortedEvents.forEach((event, index) => {
+        if (!event.date || typeof event.date.month !== 'number' || !GREYHAWK_MONTHS[event.date.month]) {
+            console.warn('Skipping event with invalid date:', event);
+            return; // Skip rendering this event
+        }
+    
         const timelineItem = document.createElement('div');
         timelineItem.className = `timeline-container ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}`;
-
+    
         const content = document.createElement('div');
         content.className = 'timeline-content';
-
+    
         const title = document.createElement('h3');
         title.textContent = event.title;
-
+    
         const dateStr = document.createElement('div');
         dateStr.className = 'event-date';
         dateStr.textContent = `${GREYHAWK_MONTHS[event.date.month].name} ${event.date.day}, ${event.date.year} CY`;
-
+    
         const summary = document.createElement('p');
         summary.textContent = event.summary;
-
-        // Add visual indicator for event type
+    
         content.classList.add(event.type);
-
         content.appendChild(title);
         content.appendChild(dateStr);
         content.appendChild(summary);
-
-        // Add click handler
+    
         content.addEventListener('click', function () {
             showEventDetails(event);
         });
-
+    
         timelineItem.appendChild(content);
         container.appendChild(timelineItem);
     });
+    
 }
 
 function buildCharacterList() {
