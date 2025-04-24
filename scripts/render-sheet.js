@@ -227,15 +227,16 @@ function getStoredCharacters() {
         const table = document.createElement("table");
         table.style.width = '100%';
         table.style.borderCollapse = 'collapse';
+        table.style.marginBottom = '1em';
 
         const thead = document.createElement("thead");
         thead.innerHTML = `<tr>
-        <th>Name</th>
-        <th>Level</th>
-        <th>Cmp</th>
-        <th>CT</th>
-        <th>Range</th>
-        <th>AOE</th>
+        <th style="text-align: left;">Name</th>
+        <th style="text-align: left;">Level</th>
+        <th style="text-align: left;">Cmp</th>
+        <th style="text-align: left;">CT</th>
+        <th style="text-align: left;">Range</th>
+        <th style="text-align: left;">AOE</th>
         </tr>`;
         table.appendChild(thead);
 
@@ -244,18 +245,19 @@ function getStoredCharacters() {
         const row = document.createElement("tr");
 
         const matchingItem = actor.items?.find(i => i._id === spell.id);
-        const cmp = matchingItem?.system?.components ?? "";
+        const cmpObj = matchingItem?.system?.components || {};
+        const cmp = [cmpObj.verbal ? 'V' : '', cmpObj.somatic ? 'S' : '', cmpObj.material ? 'M' : ''].filter(Boolean).join(', ');
         const ct = matchingItem?.system?.time ?? "";
         const range = matchingItem?.system?.range ?? "";
         const aoe = matchingItem?.system?.aoe ?? "";
 
         row.innerHTML = `
-            <td><img src="${spell.img}" alt="" style="height: 1em; vertical-align: middle; margin-right: 4px;"> ${spell.name}</td>
-            <td>${spell.level ?? ''}</td>
-            <td>${cmp}</td>
-            <td>${ct}</td>
-            <td>${range}</td>
-            <td>${aoe}</td>`;
+            <td style="text-align: left;"><img src="${spell.img}" alt="" style="height: 1em; vertical-align: middle; margin-right: 4px;"> ${spell.name}</td>
+            <td style="text-align: left;">${spell.level ?? ''}</td>
+            <td style="text-align: left;">${cmp}</td>
+            <td style="text-align: left;">${ct}</td>
+            <td style="text-align: left;">${range}</td>
+            <td style="text-align: left;">${aoe}</td>`;
         tbody.appendChild(row);
         }
         table.appendChild(tbody);
