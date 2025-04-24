@@ -1419,7 +1419,7 @@ function deleteSelectedContent() {
 document.addEventListener('DOMContentLoaded', () => {
     loadCampaignData().then(() => {
         updateCurrentDateDisplay();
-        generateCalendarGrid(activeYear);
+        buildCalendarYear(CAMPAIGN_DATE?.year || 569);
         generateTimeline();
         generateCharacterSheets();
         generateHolidaysList();
