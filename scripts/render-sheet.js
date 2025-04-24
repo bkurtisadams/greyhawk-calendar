@@ -137,6 +137,7 @@ function getStoredCharacters() {
       { id: "main", label: "Main" },
       { id: "combat", label: "Combat" },
       { id: "items", label: "Items" },
+      { id: "spells", label: "Spells" }
     ];
   
     for (const tab of tabNames) {
@@ -186,6 +187,56 @@ function getStoredCharacters() {
     itemsTab.className = "tab-content";
     itemsTab.dataset.tab = "items";
     itemsTab.style.display = "none";
+
+    // Spell tab content
+
+    const spellsTab = document.createElement("div");
+    spellsTab.className = "tab-content";
+    spellsTab.dataset.tab = "spells";
+    spellsTab.style.display = "none";
+
+    const slots = actor.system?.spells || {};
+    const slotLevels = Object.keys(slots).sort();
+    if (slotLevels.length > 0) {
+        const slotHeader = document.createElement("h4");
+        slotHeader.textContent = "Spell Slots";
+        spellsTab.appendChild(slotHeader);
+        const slotList = document.createElement("ul");
+        for (const lvl of slotLevels) {
+        const entry = slots[lvl];
+        const li = document.createElement("li");
+        const label = lvl.replace("lvl", "Level ");
+        li.textContent = `${label}: ${entry.value ?? 0} / ${entry.max ?? 0}`;
+        slotList.appendChild(li);
+        }
+        spellsTab.appendChild(slotList);
+    }
+
+    const allSpells = actor.items?.filter(i => i.type === "spell") || [];
+    const spellsByLevel = {};
+    for (const s of allSpells) {
+        const lvl = s.system?.level ?? 0;
+        if (!spellsByLevel[lvl]) spellsByLevel[lvl] = [];
+        spellsByLevel[lvl].push(s);
+    }
+
+    Object.keys(spellsByLevel).sort((a,b) => a - b).forEach(level => {
+        const header = document.createElement("h4");
+        header.textContent = `Level ${level}`;
+        spellsTab.appendChild(header);
+        const ul = document.createElement("ul");
+        spellsByLevel[level].forEach(spell => {
+        const li = document.createElement("li");
+        li.textContent = `${spell.name}`;
+        ul.appendChild(li);
+        });
+        spellsTab.appendChild(ul);
+    });
+
+    contentArea.appendChild(mainTab);
+    contentArea.appendChild(combatTab);
+    contentArea.appendChild(itemsTab);
+    contentArea.appendChild(spellsTab);
 
     // 💰 MONEY SECTION
     const currencies = actor.items?.filter((i) => i.type === "currency") || [];
