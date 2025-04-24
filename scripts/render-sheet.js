@@ -1,4 +1,4 @@
-// render-sheet.js (fix width + restore nested containers)
+// render-sheet.js (drag-and-drop for inventory items)
 
 function getStoredCharacters() {
     return JSON.parse(localStorage.getItem('uploadedCharacters') || '[]');
@@ -24,25 +24,31 @@ function clearAllCharacters() {
     document.getElementById('character-grid').innerHTML = '';
 }
 
-function createTabButton(name, label) {
-    const btn = document.createElement('button');
-    btn.className = 'tab-btn';
-    btn.textContent = label;
-    btn.dataset.tab = name;
-    btn.style.padding = '0.5em';
-    btn.style.marginBottom = '4px';
-    btn.style.width = '100%';
-    btn.style.border = '1px solid #ccc';
-    btn.style.background = '#f0f0f0';
-    btn.style.cursor = 'pointer';
-    btn.addEventListener('click', () => {
-        const parent = btn.closest('.character-card');
-        parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        parent.querySelectorAll('.tab-content').forEach(tc => tc.style.display = 'none');
-        btn.classList.add('active');
-        parent.querySelector(`.tab-content[data-tab="${name}"]`).style.display = 'block';
+function makeListDraggable(ul) {
+    ul.addEventListener('dragstart', e => {
+        if (e.target.tagName === 'LI') {
+            e.dataTransfer.setData('text/plain', e.target.dataset.uuid || '');
+            e.target.classList.add('dragging');
+        }
     });
-    return btn;
+
+    ul.addEventListener('dragover', e => {
+        e.preventDefault();
+        const dragging = ul.querySelector('.dragging');
+        const after = [...ul.children].find(child =>
+            child !== dragging && e.clientY < child.getBoundingClientRect().top + child.offsetHeight / 2);
+        if (after) ul.insertBefore(dragging, after);
+        else ul.appendChild(dragging);
+    });
+
+    ul.addEventListener('drop', e => {
+        e.preventDefault();
+        ul.querySelectorAll('li').forEach(li => li.classList.remove('dragging'));
+    });
+
+    ul.addEventListener('dragend', e => {
+        e.target.classList.remove('dragging');
+    });
 }
 
 function renderContainer(containerItem, nested = false) {
@@ -59,12 +65,15 @@ function renderContainer(containerItem, nested = false) {
     for (let subItem of items) {
         const li = document.createElement('li');
         li.textContent = `${subItem.name} x${subItem.quantity ?? 1}`;
+        li.setAttribute('draggable', 'true');
+        li.dataset.uuid = subItem.uuid || '';
         if (subItem.type === 'container') {
             const nestedBlock = renderContainer(subItem, true);
             li.appendChild(nestedBlock);
         }
         list.appendChild(li);
     }
+    makeListDraggable(list);
     toggle.appendChild(list);
     wrapper.appendChild(toggle);
     return wrapper;
@@ -183,8 +192,11 @@ function renderCharacterSheet(actor) {
         looseItems.forEach(item => {
             const li = document.createElement('li');
             li.textContent = `${item.name} x${item.system?.quantity ?? 1}`;
+            li.setAttribute('draggable', 'true');
+            li.dataset.uuid = item._id || '';
             ul.appendChild(li);
         });
+        makeListDraggable(ul);
         itemsTab.appendChild(document.createElement('hr'));
         itemsTab.appendChild(document.createTextNode('Loose Items'));
         itemsTab.appendChild(ul);
