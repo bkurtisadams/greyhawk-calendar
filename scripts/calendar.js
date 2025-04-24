@@ -783,18 +783,26 @@ function setupTabButtons() {
     ];
 
     buttons.forEach(button => {
-        document.getElementById(button.id).addEventListener('click', function () {
-            // Update button states
-            buttons.forEach(b => {
-                document.getElementById(b.id).classList.remove('active');
-                document.getElementById(b.view).classList.remove('active');
-            });
+        const btn = document.getElementById(button.id);
+        const view = document.getElementById(button.view);
 
-            this.classList.add('active');
-            document.getElementById(button.view).classList.add('active');
-        });
+        // Only attach if both button and view exist
+        if (btn && view) {
+            btn.addEventListener('click', function () {
+                buttons.forEach(b => {
+                    const bView = document.getElementById(b.view);
+                    const bBtn = document.getElementById(b.id);
+                    if (bView) bView.classList.remove('active');
+                    if (bBtn) bBtn.classList.remove('active');
+                });
+
+                btn.classList.add('active');
+                view.classList.add('active');
+            });
+        }
     });
 }
+
 
 function setupEventTabs() {
     const tabs = document.querySelectorAll('.event-tab');
