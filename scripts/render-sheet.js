@@ -1,4 +1,9 @@
 // render-sheet.js (fixed: merge drag-and-drop with ARS tabs + layout)
+import { initializeCharacterRenderer } from './render-sheet.js';
+document.addEventListener('DOMContentLoaded', () => {
+  initializeCharacterRenderer();
+});
+
 
   function getStoredCharacters() {
     const raw = localStorage.getItem('greyhawk-characters');
@@ -399,22 +404,47 @@
   function setupCharacterUpload() {
     const input = document.getElementById("character-upload");
     if (!input) return;
+  
     input.addEventListener("change", (event) => {
       const files = Array.from(event.target.files);
       const stored = getStoredCharacters();
-      Promise.all(files.map((file) => file.text().then((text) => JSON.parse(text)))).then((newChars) => {
-        const updated = [...stored, ...newChars];
+  
+      Promise.all(
+        files.map((file) =>
+          file.text().then((text) => {
+            try {
+              return JSON.parse(text);
+            } catch (err) {
+              console.error("Failed to parse uploaded JSON:", file.name, err);
+              return null;
+            }
+          })
+        )
+      ).then((newChars) => {
+        const validChars = newChars.filter(c => c && c.name); // Filter out nulls or bad data
+        const updated = [...stored, ...validChars];
+  
+        console.log("🧙 Uploaded characters:", validChars.map(c => c.name));
+        console.log("📦 Saving characters to localStorage:", updated.map(c => c.name));
+  
         saveStoredCharacters(updated);
         document.getElementById("character-grid").innerHTML = "";
         updated.forEach(renderCharacterSheet);
       });
     });
+  
+    // Add Clear Button
     const clearBtn = document.createElement("button");
     clearBtn.textContent = "🗑️ Clear All Characters";
     clearBtn.style.marginTop = "10px";
-    clearBtn.addEventListener("click", clearAllCharacters);
+    clearBtn.addEventListener("click", () => {
+      clearAllCharacters();
+      console.log("🚫 Cleared characters from localStorage");
+    });
+  
     input.insertAdjacentElement("afterend", clearBtn);
   }
+  
   
   export function initializeCharacterRenderer() {
     loadCharactersFromLocalStorage();
