@@ -189,40 +189,14 @@ function getStoredCharacters() {
     itemsTab.style.display = "none";
 
     // Spell tab content
-    const spellsTab = document.createElement("div");
-    spellsTab.className = "tab-content";
-    spellsTab.dataset.tab = "spells";
-    spellsTab.style.display = "none";
-
-    const slots = actor.system?.spells || {};
-    const slotLevels = Object.keys(slots).sort();
-    if (slotLevels.length > 0) {
-        const slotHeader = document.createElement("h4");
-        slotHeader.textContent = "Spell Slots";
-        spellsTab.appendChild(slotHeader);
-        const slotList = document.createElement("ul");
-        for (const lvl of slotLevels) {
-        const entry = slots[lvl];
-        const label = lvl.replace("lvl", "Level ");
-        const li = document.createElement("li");
-        li.textContent = `${label}: ${entry.value ?? 0} / ${entry.max ?? 0}`;
-        slotList.appendChild(li);
-        }
-        spellsTab.appendChild(slotList);
-    }
-
     const memorized = actor.system?.spellInfo?.memorization?.arcane || {};
-    const levels = Object.keys(memorized).filter(lvl => Array.isArray(memorized[lvl])).sort((a,b) => a - b);
+    const levels = Object.keys(memorized).sort((a, b) => parseInt(a) - parseInt(b));
 
-    if (levels.length === 0) {
-        const emptyNote = document.createElement("p");
-        emptyNote.textContent = "No memorized arcane spells.";
-        spellsTab.appendChild(emptyNote);
-    }
-
+    let foundAny = false;
     for (const level of levels) {
-        const spells = memorized[level];
-        if (!spells.length) continue;
+        const spellEntries = Object.values(memorized[level] || {}).filter(s => s?.name);
+        if (!spellEntries.length) continue;
+        foundAny = true;
 
         const header = document.createElement("h4");
         header.textContent = `Spell Level ${level}`;
@@ -244,7 +218,7 @@ function getStoredCharacters() {
         table.appendChild(thead);
 
         const tbody = document.createElement("tbody");
-        for (const spell of spells) {
+        for (const spell of spellEntries) {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td><img src="${spell.img}" alt="" style="height: 1em; vertical-align: middle; margin-right: 4px;"> ${spell.name}</td>
@@ -259,10 +233,17 @@ function getStoredCharacters() {
         spellsTab.appendChild(table);
     }
 
+    if (!foundAny) {
+        const emptyNote = document.createElement("p");
+        emptyNote.textContent = "No memorized arcane spells.";
+        spellsTab.appendChild(emptyNote);
+    }
+
     contentArea.appendChild(mainTab);
     contentArea.appendChild(combatTab);
     contentArea.appendChild(itemsTab);
     contentArea.appendChild(spellsTab);
+
     // end spells tab content
 
     // 💰 MONEY SECTION
