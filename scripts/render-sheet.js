@@ -1,22 +1,20 @@
 // render-sheet.js (fixed: merge drag-and-drop with ARS tabs + layout)
 
-function getStoredCharacters() {
-  const raw = localStorage.getItem('greyhawk-characters');
-  try {
-      return raw ? JSON.parse(raw) : [];
-  } catch (err) {
-      console.error('Error parsing stored characters:', err);
-      return [];
+  function getStoredCharacters() {
+    const raw = localStorage.getItem('greyhawk-characters');
+    try {
+        return raw ? JSON.parse(raw) : [];
+    } catch (err) {
+        console.error('Error parsing stored characters:', err);
+        return [];
+    }
   }
-}
 
-
-  
   function saveStoredCharacters(chars) {
     localStorage.setItem("uploadedCharacters", JSON.stringify(chars));
   }
-  
-  function getActorId(actor) {
+
+    function getActorId(actor) {
     return actor._id || actor.name || Math.random().toString(36).substring(2);
   }
   
@@ -374,6 +372,11 @@ function getStoredCharacters() {
     wrapper.appendChild(contentArea);
     document.getElementById("character-grid").appendChild(wrapper);
   }
+
+  window.getStoredCharacters = getStoredCharacters;
+  window.saveStoredCharacters = saveStoredCharacters;
+  window.renderCharacterSheet = renderCharacterSheet;
+  
   
   function loadCharactersFromLocalStorage() {
     const stored = getStoredCharacters();
