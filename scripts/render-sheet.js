@@ -203,32 +203,27 @@ function getStoredCharacters() {
         const slotList = document.createElement("ul");
         for (const lvl of slotLevels) {
         const entry = slots[lvl];
-        const li = document.createElement("li");
         const label = lvl.replace("lvl", "Level ");
+        const li = document.createElement("li");
         li.textContent = `${label}: ${entry.value ?? 0} / ${entry.max ?? 0}`;
         slotList.appendChild(li);
         }
         spellsTab.appendChild(slotList);
     }
 
-    const allSpells = actor.items?.filter(i => i.type === "spell") || [];
-    const preparedSpells = allSpells.filter(spell => spell.system?.prepared > 0 || spell.system?.memorized === true);
+    const memorized = actor.system?.spellInfo?.memorization?.arcane || {};
+    const levels = Object.keys(memorized).filter(lvl => Array.isArray(memorized[lvl])).sort((a,b) => a - b);
 
-    const spellsByLevel = {};
-    for (const s of preparedSpells) {
-        const lvl = s.system?.level ?? 0;
-        if (!spellsByLevel[lvl]) spellsByLevel[lvl] = [];
-        spellsByLevel[lvl].push(s);
-    }
-
-    const spellLevels = Object.keys(spellsByLevel).sort((a, b) => a - b);
-    if (spellLevels.length === 0) {
+    if (levels.length === 0) {
         const emptyNote = document.createElement("p");
-        emptyNote.textContent = "No prepared spells.";
+        emptyNote.textContent = "No memorized arcane spells.";
         spellsTab.appendChild(emptyNote);
     }
 
-    spellLevels.forEach(level => {
+    for (const level of levels) {
+        const spells = memorized[level];
+        if (!spells.length) continue;
+
         const header = document.createElement("h4");
         header.textContent = `Spell Level ${level}`;
         spellsTab.appendChild(header);
@@ -236,6 +231,7 @@ function getStoredCharacters() {
         const table = document.createElement("table");
         table.style.width = '100%';
         table.style.borderCollapse = 'collapse';
+
         const thead = document.createElement("thead");
         thead.innerHTML = `<tr>
         <th>Name</th>
@@ -248,20 +244,20 @@ function getStoredCharacters() {
         table.appendChild(thead);
 
         const tbody = document.createElement("tbody");
-        spellsByLevel[level].forEach(spell => {
+        for (const spell of spells) {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td><img src="${spell.img}" alt="" style="height: 1em; vertical-align: middle; margin-right: 4px;"> ${spell.name}</td>
-            <td>${spell.system?.level ?? ''}</td>
-            <td>${spell.system?.components ?? ''}</td>
-            <td>${spell.system?.time ?? ''}</td>
-            <td>${spell.system?.range ?? ''}</td>
-            <td>${spell.system?.aoe ?? ''}</td>`;
+            <td>${spell.level ?? ''}</td>
+            <td>${spell.components ?? ''}</td>
+            <td>${spell.time ?? ''}</td>
+            <td>${spell.range ?? ''}</td>
+            <td>${spell.aoe ?? ''}</td>`;
         tbody.appendChild(row);
-        });
+        }
         table.appendChild(tbody);
         spellsTab.appendChild(table);
-    });
+    }
 
     contentArea.appendChild(mainTab);
     contentArea.appendChild(combatTab);
