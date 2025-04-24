@@ -233,6 +233,7 @@ function getStoredCharacters() {
         thead.innerHTML = `<tr>
         <th style="text-align: left;">Name</th>
         <th style="text-align: left;">Level</th>
+        <th style="text-align: left;">Sta</th>
         <th style="text-align: left;">Cmp</th>
         <th style="text-align: left;">CT</th>
         <th style="text-align: left;">Range</th>
@@ -242,8 +243,6 @@ function getStoredCharacters() {
 
         const tbody = document.createElement("tbody");
         for (const spell of spellEntries) {
-        const row = document.createElement("tr");
-
         const matchingItem = actor.items?.find(i => i._id === spell.id);
         const cmpObj = matchingItem?.system?.components || {};
         const cmp = [cmpObj.verbal ? 'V' : '', cmpObj.somatic ? 'S' : '', cmpObj.material ? 'M' : ''].filter(Boolean).join(', ');
@@ -251,9 +250,16 @@ function getStoredCharacters() {
         const range = matchingItem?.system?.range ?? "";
         const aoe = matchingItem?.system?.aoe ?? "";
 
+        const isCast = spell.cast === true;
+        const stateText = isCast ? "Used" : "Ready";
+        const rowStyle = isCast ? "opacity: 0.5; font-style: italic;" : "";
+
+        const row = document.createElement("tr");
+        row.setAttribute("style", rowStyle);
         row.innerHTML = `
             <td style="text-align: left;"><img src="${spell.img}" alt="" style="height: 1em; vertical-align: middle; margin-right: 4px;"> ${spell.name}</td>
             <td style="text-align: left;">${spell.level ?? ''}</td>
+            <td style="text-align: left;">${stateText}</td>
             <td style="text-align: left;">${cmp}</td>
             <td style="text-align: left;">${ct}</td>
             <td style="text-align: left;">${range}</td>
