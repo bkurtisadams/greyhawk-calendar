@@ -242,12 +242,13 @@ function generateCharacterSheets(characterData) {
 fetch("kris.json").then(res => res.json()).then(characterData => {
     const container = document.getElementById('character-container');
     container.innerHTML = `
-        ${generateARSCharacterHTML({...})}
-        ${generateInventoryHTML(characterData.items)}
-        <h3>Skills & Proficiencies</h3>
-        ${generateSkillsHTML(characterData.items)}
+      ${generateARSCharacterHTML(characterData)}
+      ${generateInventoryHTML(characterData.items)}
+      <h3>Skills & Proficiencies</h3>
+      ${generateSkillsHTML(characterData.items)}
     `;
-});
+  });
+  
 
 function generateSkillsHTML(items) {
     const skills = items.filter(item => item.type === 'skill' || item.type === 'proficiency');
