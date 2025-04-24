@@ -143,7 +143,8 @@
       { id: "main", label: "Main" },
       { id: "combat", label: "Combat" },
       { id: "items", label: "Items" },
-      { id: "spells", label: "Spells" }
+      { id: "spells", label: "Spells" },
+      { id: "proficiencies", label: "Proficiencies" }
     ];
   
     for (const tab of tabNames) {
