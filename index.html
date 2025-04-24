@@ -844,9 +844,8 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', async function () {
-    await loadCampaignCharacters(); // ensure this is done first!
-
-    generateCharacterSheets();
+    await loadCampaignData(); // loads both events and characters
+    generateCharacterSheets(); // fine -- still use it
     updateCurrentDate();
     populateAdminMonthSelect();
     buildCalendarYear(CAMPAIGN_DATE.year);
