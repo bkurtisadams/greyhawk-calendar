@@ -187,7 +187,7 @@ export function getStoredCharacters() {
     console.log("🔎 Checking proficiencies for:", actor);
     console.log("🛠 system.proficiencies:", actor.proficiencies);
     
-    const profs = actor.proficiencies ?? [];
+    const profs = actor.system?.proficiencies ?? [];
     console.log("📚 Found proficiencies:", profs.map(p => p.name));
 
 
