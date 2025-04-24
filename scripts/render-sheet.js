@@ -189,8 +189,30 @@ function getStoredCharacters() {
     itemsTab.style.display = "none";
 
     // Spell tab content
+    const spellsTab = document.createElement("div");
+    spellsTab.className = "tab-content";
+    spellsTab.dataset.tab = "spells";
+    spellsTab.style.display = "none";
+
+    const slots = actor.system?.spells || {};
+    const slotLevels = Object.keys(slots).sort();
+    if (slotLevels.length > 0) {
+        const slotHeader = document.createElement("h4");
+        slotHeader.textContent = "Spell Slots";
+        spellsTab.appendChild(slotHeader);
+        const slotList = document.createElement("ul");
+        for (const lvl of slotLevels) {
+        const entry = slots[lvl];
+        const li = document.createElement("li");
+        const label = lvl.replace("lvl", "Level ");
+        li.textContent = `${label}: ${entry.value ?? 0} / ${entry.max ?? 0}`;
+        slotList.appendChild(li);
+        }
+        spellsTab.appendChild(slotList);
+    }
+
     const allSpells = actor.items?.filter(i => i.type === "spell") || [];
-    const preparedSpells = allSpells.filter(spell => spell.system?.prepared || spell.system?.memorized);
+    const preparedSpells = allSpells.filter(spell => spell.system?.prepared > 0 || spell.system?.memorized === true);
 
     const spellsByLevel = {};
     for (const s of preparedSpells) {
@@ -199,7 +221,14 @@ function getStoredCharacters() {
         spellsByLevel[lvl].push(s);
     }
 
-    Object.keys(spellsByLevel).sort((a,b) => a - b).forEach(level => {
+    const spellLevels = Object.keys(spellsByLevel).sort((a, b) => a - b);
+    if (spellLevels.length === 0) {
+        const emptyNote = document.createElement("p");
+        emptyNote.textContent = "No prepared spells.";
+        spellsTab.appendChild(emptyNote);
+    }
+
+    spellLevels.forEach(level => {
         const header = document.createElement("h4");
         header.textContent = `Spell Level ${level}`;
         spellsTab.appendChild(header);
