@@ -189,31 +189,11 @@ function getStoredCharacters() {
     itemsTab.style.display = "none";
 
     // Spell tab content
-    const spellsTab = document.createElement("div");
-    spellsTab.className = "tab-content";
-    spellsTab.dataset.tab = "spells";
-    spellsTab.style.display = "none";
-
-    const slots = actor.system?.spells || {};
-    const slotLevels = Object.keys(slots).sort();
-    if (slotLevels.length > 0) {
-        const slotHeader = document.createElement("h4");
-        slotHeader.textContent = "Spell Slots";
-        spellsTab.appendChild(slotHeader);
-        const slotList = document.createElement("ul");
-        for (const lvl of slotLevels) {
-        const entry = slots[lvl];
-        const li = document.createElement("li");
-        const label = lvl.replace("lvl", "Level ");
-        li.textContent = `${label}: ${entry.value ?? 0} / ${entry.max ?? 0}`;
-        slotList.appendChild(li);
-        }
-        spellsTab.appendChild(slotList);
-    }
-
     const allSpells = actor.items?.filter(i => i.type === "spell") || [];
+    const preparedSpells = allSpells.filter(spell => spell.system?.prepared || spell.system?.memorized);
+
     const spellsByLevel = {};
-    for (const s of allSpells) {
+    for (const s of preparedSpells) {
         const lvl = s.system?.level ?? 0;
         if (!spellsByLevel[lvl]) spellsByLevel[lvl] = [];
         spellsByLevel[lvl].push(s);
@@ -258,7 +238,6 @@ function getStoredCharacters() {
     contentArea.appendChild(combatTab);
     contentArea.appendChild(itemsTab);
     contentArea.appendChild(spellsTab);
-
     // end spells tab content
 
     // 💰 MONEY SECTION
