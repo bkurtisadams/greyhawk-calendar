@@ -758,7 +758,7 @@ function buildCharacterList() {
     container.innerHTML = ''; // Clear previous content
 
     // Create character cards
-    CHARACTERS.forEach(character => {
+    CHARACTERS.filter(c => c && c.name && c.stats).forEach(character => {
         const charCard = document.createElement('div');
         charCard.className = 'character-card';
 
@@ -789,10 +789,10 @@ function buildCharacterList() {
 
         const bio = document.createElement('p');
         bio.className = 'character-bio';
-        bio.textContent = character.bio;
+        bio.textContent = character.bio || '';
 
         const player = document.createElement('p');
-        player.textContent = `Player: ${character.player}`;
+        player.textContent = `Player: ${character.player || 'Unknown'}`;
 
         charCard.appendChild(header);
         charCard.appendChild(raceCls);
