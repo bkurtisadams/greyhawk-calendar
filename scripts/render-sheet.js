@@ -186,6 +186,21 @@ function getStoredCharacters() {
     itemsTab.className = "tab-content";
     itemsTab.dataset.tab = "items";
     itemsTab.style.display = "none";
+
+    // 💰 MONEY SECTION
+    const currencies = actor.items?.filter((i) => i.type === "currency") || [];
+    if (currencies.length > 0) {
+        const moneyHeader = document.createElement("h4");
+        moneyHeader.textContent = "Money";
+        itemsTab.appendChild(moneyHeader);
+        const moneyList = document.createElement("ul");
+        currencies.forEach((coin) => {
+        const li = document.createElement("li");
+        li.textContent = `${coin.name}: ${coin.system?.quantity ?? 0}`;
+        moneyList.appendChild(li);
+        });
+        itemsTab.appendChild(moneyList);
+    }
   
     const containers = actor.items?.filter((i) => i.type === "container") || [];
     containers.forEach((c) => itemsTab.appendChild(renderContainer(c)));
