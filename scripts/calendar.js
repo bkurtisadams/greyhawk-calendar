@@ -123,14 +123,6 @@ async function loadCampaignData() {
             characters.forEach(character => CHARACTERS.push(character));
         }
 
-        // Optionally load custom holidays if you have them
-        // const holidaysResponse = await fetch('data/campaign-holidays.json');
-        // if (holidaysResponse.ok) {
-        //     const holidays = await holidaysResponse.json();
-        //     GREYHAWK_HOLIDAYS.length = 0;
-        //     holidays.forEach(holiday => GREYHAWK_HOLIDAYS.push(holiday));
-        // }
-
         console.log('Campaign data loaded successfully');
 
     } catch (error) {
