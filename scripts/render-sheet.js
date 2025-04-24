@@ -214,12 +214,6 @@ function getStoredCharacters() {
         proficienciesTab.appendChild(note);
     }
 
-    contentArea.appendChild(mainTab);
-    contentArea.appendChild(combatTab);
-    contentArea.appendChild(itemsTab);
-    contentArea.appendChild(spellsTab);
-    contentArea.appendChild(proficienciesTab);
-
     // ensure tabs get toggled
     const tabButtons = tabs.querySelectorAll("button");
     tabButtons.forEach(btn => {
@@ -326,13 +320,6 @@ function getStoredCharacters() {
         emptyNote.textContent = "No memorized arcane or divine spells.";
         spellsTab.appendChild(emptyNote);
     }
-
-    contentArea.appendChild(mainTab);
-    contentArea.appendChild(combatTab);
-    contentArea.appendChild(itemsTab);
-    contentArea.appendChild(spellsTab);
-
-
     // end spells tab content
 
     // 💰 MONEY SECTION
@@ -372,6 +359,8 @@ function getStoredCharacters() {
     contentArea.appendChild(mainTab);
     contentArea.appendChild(combatTab);
     contentArea.appendChild(itemsTab);
+    contentArea.appendChild(spellsTab);
+    contentArea.appendChild(proficienciesTab);
   
     wrapper.appendChild(sidebar);
     wrapper.appendChild(contentArea);
