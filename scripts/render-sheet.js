@@ -1,4 +1,4 @@
-// render-sheet.js (delete fix + clear all)
+// render-sheet.js (ARS-style layout)
 
 function getStoredCharacters() {
     return JSON.parse(localStorage.getItem('uploadedCharacters') || '[]');
@@ -24,127 +24,63 @@ function clearAllCharacters() {
     document.getElementById('character-grid').innerHTML = '';
 }
 
-function renderContainer(containerItem, nested = false) {
-    const wrapper = document.createElement('div');
-    wrapper.className = nested ? 'nested-container' : 'container';
-
-    const toggle = document.createElement('details');
-    toggle.open = true;
-    const summary = document.createElement('summary');
-    summary.textContent = containerItem.name;
-    toggle.appendChild(summary);
-
-    const list = document.createElement('ul');
-    list.classList.add('item-list');
-    list.setAttribute('data-container', containerItem.name);
-
-    const items = containerItem.system?.itemList || [];
-    for (let subItem of items) {
-        const li = document.createElement('li');
-        li.textContent = `${subItem.name} x${subItem.quantity ?? 1}`;
-        li.setAttribute('draggable', 'true');
-
-        if (subItem.type === 'container') {
-            const nestedContainer = renderContainer(subItem, true);
-            li.appendChild(nestedContainer);
-        }
-
-        list.appendChild(li);
-    }
-
-    toggle.appendChild(list);
-    wrapper.appendChild(toggle);
-    return wrapper;
-}
-
 function renderCharacterSheet(actor) {
     const actorId = getActorId(actor);
     const container = document.createElement('div');
     container.className = 'character-card';
     container.id = `character-${actorId}`;
 
-    const name = actor.name || 'Unnamed';
-    const header = document.createElement('h3');
-    header.textContent = name;
-
-    const delBtn = document.createElement('button');
-    delBtn.textContent = '❌';
-    delBtn.style.float = 'right';
-    delBtn.style.background = 'transparent';
-    delBtn.style.border = 'none';
-    delBtn.style.cursor = 'pointer';
-    delBtn.title = 'Remove character';
-    delBtn.addEventListener('click', () => deleteCharacterById(actorId));
-
-    header.appendChild(delBtn);
+    // Profile Header
+    const header = document.createElement('div');
+    header.className = 'flexrow';
+    header.innerHTML = `
+        <img src="${actor.img}" style="width: 64px; height: 64px; border-radius: 5px; margin-right: 10px;">
+        <h3 style="flex-grow:1;">${actor.name}</h3>
+        <button style="background:none; border:none; cursor:pointer; font-size:1.2em;" title="Remove Character">❌</button>
+    `;
+    header.querySelector('button').addEventListener('click', () => deleteCharacterById(actorId));
     container.appendChild(header);
 
-    const stats = actor.system?.abilities || {};
-    const statList = Object.entries(stats).map(([key, val]) => {
-        return `<div class="character-stat"><strong>${key.toUpperCase()}:</strong> ${val.value}</div>`;
-    }).join('');
+    // Class/Race/Background/Alignment block
+    const infoBlock = document.createElement('div');
+    infoBlock.className = 'flexcol';
+    infoBlock.innerHTML = `
+        <div class="flexrow"><strong>Class:</strong> ${actor.system?.classname || ''} &nbsp; <strong>Race:</strong> ${actor.racename || ''}</div>
+        <div class="flexrow"><strong>Alignment:</strong> ${actor.system?.details?.alignment || ''} &nbsp; <strong>Background:</strong> ${actor.system?.backgroundname || ''}</div>
+        <div class="flexrow"><strong>Size:</strong> ${actor.system?.attributes?.size || ''}
+            ${actor.system?.attributes?.hnr ? `&nbsp; <strong>Honor:</strong> ${actor.system.attributes.hnr.value}` : ''}
+        </div>
+    `;
+    container.appendChild(infoBlock);
 
-    container.innerHTML += `<div class="character-stats">${statList}</div>`;
+    // Abilities & Saves grid
+    const grid = document.createElement('div');
+    grid.className = 'ability-save-grid';
+    const abilities = actor.system?.abilities || {};
+    const saves = actor.system?.saves || {};
 
-    const allItems = actor.items || [];
-
-    for (let item of allItems) {
-        if (item.type === 'container') {
-            const nestedContainer = renderContainer(item);
-            container.appendChild(nestedContainer);
-        }
-    }
-
-    const looseItems = allItems.filter(i => !i.system?.location?.parent && i.type !== 'container');
-    if (looseItems.length > 0) {
-        const ul = document.createElement('ul');
-        ul.classList.add('item-list');
-        looseItems.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = `${item.name} x${item.system?.quantity ?? 1}`;
-            li.setAttribute('draggable', 'true');
-            ul.appendChild(li);
-        });
-        container.appendChild(document.createElement('hr'));
-        container.appendChild(document.createTextNode('Loose Items'));
-        container.appendChild(ul);
-    }
+    grid.innerHTML = `
+        <div class="flexrow" style="margin-top:10px;"><strong>Ability Scores</strong></div>
+        <div class="flexrow">
+            ${Object.entries(abilities).map(([key, val]) => `
+                <div class="character-stat"><strong>${key.toUpperCase()}:</strong> ${val.value}</div>
+            `).join('')}
+        </div>
+        <div class="flexrow" style="margin-top:10px;"><strong>Saving Throws</strong></div>
+        <div class="flexrow">
+            ${Object.entries(saves).map(([key, val]) => `
+                <div class="character-stat"><strong>${key.toUpperCase()}:</strong> ${val.value}</div>
+            `).join('')}
+        </div>
+    `;
+    container.appendChild(grid);
 
     document.getElementById('character-grid').appendChild(container);
-}
-
-function makeDraggable() {
-    document.querySelectorAll('.item-list').forEach(list => {
-        list.addEventListener('dragstart', e => {
-            e.dataTransfer.setData('text/plain', e.target.innerText);
-            e.target.classList.add('dragging');
-        });
-
-        list.addEventListener('dragover', e => {
-            e.preventDefault();
-            const dragging = document.querySelector('.dragging');
-            const after = [...list.children].find(child =>
-                e.clientY < child.getBoundingClientRect().top + child.offsetHeight / 2);
-            if (after) list.insertBefore(dragging, after);
-            else list.appendChild(dragging);
-        });
-
-        list.addEventListener('drop', e => {
-            e.preventDefault();
-            const dragging = document.querySelector('.dragging');
-            dragging.classList.remove('dragging');
-        });
-
-        list.addEventListener('dragend', e => {
-            e.target.classList.remove('dragging');
-        });
-    });
 }
 
 function loadCharactersFromLocalStorage() {
     const stored = getStoredCharacters();
     stored.forEach(renderCharacterSheet);
-    makeDraggable();
 }
 
 function setupCharacterUpload() {
@@ -161,7 +97,6 @@ function setupCharacterUpload() {
                 saveStoredCharacters(updated);
                 document.getElementById('character-grid').innerHTML = '';
                 updated.forEach(renderCharacterSheet);
-                makeDraggable();
             });
     });
 
