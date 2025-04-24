@@ -1,8 +1,16 @@
 // render-sheet.js (fixed: merge drag-and-drop with ARS tabs + layout)
 
 function getStoredCharacters() {
-    return JSON.parse(localStorage.getItem("uploadedCharacters") || "[]");
+  const raw = localStorage.getItem('greyhawk-characters');
+  try {
+      return raw ? JSON.parse(raw) : [];
+  } catch (err) {
+      console.error('Error parsing stored characters:', err);
+      return [];
   }
+}
+
+
   
   function saveStoredCharacters(chars) {
     localStorage.setItem("uploadedCharacters", JSON.stringify(chars));
