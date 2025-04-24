@@ -187,9 +187,8 @@ export function getStoredCharacters() {
     console.log("🔎 Checking proficiencies for:", actor);
     console.log("🛠 system.proficiencies:", actor.proficiencies);
     
-    const profs = actor.system?.proficiencies ?? [];
+    const profs = actor.items?.filter(i => i.type === "proficiency") ?? [];
     console.log("📚 Found proficiencies:", profs.map(p => p.name));
-
 
     if (Array.isArray(profs) && profs.length > 0) {
       const list = document.createElement("ul");
