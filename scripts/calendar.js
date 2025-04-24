@@ -1442,22 +1442,23 @@ function showEventDetails(event) {
             if (character && character.name) {
                 const charCard = document.createElement('div');
                 charCard.className = 'character-card';
-    
+        
                 const header = document.createElement('h3');
                 header.textContent = character.name;
-    
+        
                 const raceCls = document.createElement('p');
                 raceCls.textContent = `${character.race ?? 'Unknown Race'} ${character.class ?? 'Class'} (Level ${character.level ?? '?'})`;
-    
+        
                 charCard.appendChild(header);
                 charCard.appendChild(raceCls);
                 charContent.appendChild(charCard);
             } else {
                 const charItem = document.createElement('p');
-                charItem.textContent = charName ?? 'Unknown character';
+                charItem.textContent = typeof charName === 'string' ? charName : 'Unknown character';
                 charContent.appendChild(charItem);
             }
         });
+        
     } else {
         charContent.innerHTML = '<p>No character information available for this event.</p>';
     }
