@@ -123,7 +123,8 @@ export function getStoredCharacters() {
       { id: "combat", label: "Combat" },
       { id: "items", label: "Items" },
       { id: "spells", label: "Spells" },
-      { id: "proficiencies", label: "Proficiencies" }
+      { id: "proficiencies", label: "Proficiencies" },
+      { id: "details", label: "Details" }
     ];
   
     for (const tab of tabNames) {
@@ -218,6 +219,37 @@ export function getStoredCharacters() {
         });
     });
     // end proficiencies tab
+
+    // details tab
+    const detailsTab = document.createElement("div");
+    detailsTab.className = "tab-content";
+    detailsTab.dataset.tab = "details";
+    detailsTab.style.display = "none";
+
+    const details = actor.system?.details ?? {};
+    const prof = actor.system?.proficiency ?? {};
+    const xp = actor.system?.experience ?? {};
+    const classes = actor.system?.activeClasses ?? [];
+
+    detailsTab.innerHTML = `
+      <h3>Character Details</h3>
+      <p><strong>Race:</strong> ${details?.race?.name || "Unknown"}</p>
+      <p><strong>Background:</strong> ${actor.system?.backgroundname || "None"}</p>
+
+      <h4>Class</h4>
+      <ul>
+        ${classes.map(cls => `<li>${cls.name} (Level ${cls.system?.level ?? "?"})</li>`).join('')}
+      </ul>
+
+      <h4>Experience</h4>
+      <p><strong>Earned:</strong> ${xp.total ?? 0} | <strong>Un-applied:</strong> ${xp.unapplied ?? 0}</p>
+
+      <h4>Proficiency Totals</h4>
+      <p><strong>Weapon:</strong> Used ${prof.weapon?.used ?? 0} / ${prof.weapon?.value ?? 0}</p>
+      <p><strong>Non-Weapon:</strong> Used ${prof.skill?.used ?? 0} / ${prof.skill?.value ?? 0}</p>
+      <p><strong>Class Points:</strong> Used ${prof.classpoints?.used ?? 0} / ${prof.classpoints?.value ?? 0}</p>
+    `;
+    // end details tab
     
     // Spell tab content
     const spellsTab = document.createElement("div");
@@ -354,6 +386,7 @@ export function getStoredCharacters() {
     contentArea.appendChild(itemsTab);
     contentArea.appendChild(spellsTab);
     contentArea.appendChild(proficienciesTab);
+    contentArea.appendChild(detailsTab);
 
     // Restore last selected tab (per character)
     const lastTab = localStorage.getItem(`charTab-${actorId}`) || "main";
