@@ -211,17 +211,16 @@ function getStoredCharacters() {
         spellsTab.appendChild(slotList);
     }
 
-    const memorized = actor.system?.spellInfo?.memorization?.arcane || {};
-    const levels = Object.keys(memorized).sort((a, b) => parseInt(a) - parseInt(b));
-
-    let foundAny = false;
-    for (const level of levels) {
-        const spellEntries = Object.values(memorized[level] || {}).filter(s => s?.name);
+    const renderMemorizedSpells = (source, label) => {
+        const levels = Object.keys(source).sort((a, b) => parseInt(a) - parseInt(b));
+        let found = false;
+        for (const level of levels) {
+        const spellEntries = Object.values(source[level] || {}).filter(s => s?.name);
         if (!spellEntries.length) continue;
-        foundAny = true;
+        found = true;
 
         const header = document.createElement("h4");
-        header.textContent = `Spell Level ${level}`;
+        header.textContent = `${label} Spell Level ${level}`;
         spellsTab.appendChild(header);
 
         const table = document.createElement("table");
@@ -231,32 +230,32 @@ function getStoredCharacters() {
 
         const thead = document.createElement("thead");
         thead.innerHTML = `<tr>
-        <th style="text-align: left;">Name</th>
-        <th style="text-align: left;">Level</th>
-        <th style="text-align: left;">Sta</th>
-        <th style="text-align: left;">Cmp</th>
-        <th style="text-align: left;">CT</th>
-        <th style="text-align: left;">Range</th>
-        <th style="text-align: left;">AOE</th>
+            <th style="text-align: left;">Name</th>
+            <th style="text-align: left;">Level</th>
+            <th style="text-align: left;">Sta</th>
+            <th style="text-align: left;">Cmp</th>
+            <th style="text-align: left;">CT</th>
+            <th style="text-align: left;">Range</th>
+            <th style="text-align: left;">AOE</th>
         </tr>`;
         table.appendChild(thead);
 
         const tbody = document.createElement("tbody");
         for (const spell of spellEntries) {
-        const matchingItem = actor.items?.find(i => i._id === spell.id);
-        const cmpObj = matchingItem?.system?.components || {};
-        const cmp = [cmpObj.verbal ? 'V' : '', cmpObj.somatic ? 'S' : '', cmpObj.material ? 'M' : ''].filter(Boolean).join(', ');
-        const ct = matchingItem?.system?.time ?? "";
-        const range = matchingItem?.system?.range ?? "";
-        const aoe = matchingItem?.system?.aoe ?? "";
+            const matchingItem = actor.items?.find(i => i._id === spell.id);
+            const cmpObj = matchingItem?.system?.components || {};
+            const cmp = [cmpObj.verbal ? 'V' : '', cmpObj.somatic ? 'S' : '', cmpObj.material ? 'M' : ''].filter(Boolean).join(', ');
+            const ct = matchingItem?.system?.time ?? "";
+            const range = matchingItem?.system?.range ?? "";
+            const aoe = matchingItem?.system?.aoe ?? "";
 
-        const isCast = spell.cast === true;
-        const stateText = isCast ? "Used" : "Ready";
-        const rowStyle = isCast ? "opacity: 0.5; font-style: italic;" : "";
+            const isCast = spell.cast === true;
+            const stateText = isCast ? "Used" : "Ready";
+            const rowStyle = isCast ? "opacity: 0.5; font-style: italic;" : "";
 
-        const row = document.createElement("tr");
-        row.setAttribute("style", rowStyle);
-        row.innerHTML = `
+            const row = document.createElement("tr");
+            row.setAttribute("style", rowStyle);
+            row.innerHTML = `
             <td style="text-align: left;"><img src="${spell.img}" alt="" style="height: 1em; vertical-align: middle; margin-right: 4px;"> ${spell.name}</td>
             <td style="text-align: left;">${spell.level ?? ''}</td>
             <td style="text-align: left;">${stateText}</td>
@@ -264,15 +263,23 @@ function getStoredCharacters() {
             <td style="text-align: left;">${ct}</td>
             <td style="text-align: left;">${range}</td>
             <td style="text-align: left;">${aoe}</td>`;
-        tbody.appendChild(row);
+            tbody.appendChild(row);
         }
         table.appendChild(tbody);
         spellsTab.appendChild(table);
-    }
+        }
+        return found;
+    };
 
-    if (!foundAny) {
+    const arcane = actor.system?.spellInfo?.memorization?.arcane || {};
+    const divine = actor.system?.spellInfo?.memorization?.divine || {};
+
+    const hasArcane = renderMemorizedSpells(arcane, "Arcane");
+    const hasDivine = renderMemorizedSpells(divine, "Divine");
+
+    if (!hasArcane && !hasDivine) {
         const emptyNote = document.createElement("p");
-        emptyNote.textContent = "No memorized arcane spells.";
+        emptyNote.textContent = "No memorized arcane or divine spells.";
         spellsTab.appendChild(emptyNote);
     }
 
@@ -280,6 +287,7 @@ function getStoredCharacters() {
     contentArea.appendChild(combatTab);
     contentArea.appendChild(itemsTab);
     contentArea.appendChild(spellsTab);
+
 
     // end spells tab content
 
