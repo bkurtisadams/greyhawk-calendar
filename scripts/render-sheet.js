@@ -1,4 +1,4 @@
-// render-sheet.js (with nested collapsible containers)
+// render-sheet.js (with delete buttons)
 
 function getStoredCharacters() {
     return JSON.parse(localStorage.getItem('uploadedCharacters') || '[]');
@@ -8,14 +8,11 @@ function saveStoredCharacters(chars) {
     localStorage.setItem('uploadedCharacters', JSON.stringify(chars));
 }
 
-function groupItemsByContainer(items) {
-    const grouped = {};
-    for (let item of items) {
-        const container = item.system?.location?.parent || 'Loose Items';
-        if (!grouped[container]) grouped[container] = [];
-        grouped[container].push(item);
-    }
-    return grouped;
+function deleteCharacterById(id) {
+    const stored = getStoredCharacters();
+    const filtered = stored.filter(c => c._id !== id);
+    saveStoredCharacters(filtered);
+    document.getElementById(`character-${id}`)?.remove();
 }
 
 function renderContainer(containerItem, nested = false) {
@@ -38,7 +35,6 @@ function renderContainer(containerItem, nested = false) {
         li.textContent = `${subItem.name} x${subItem.quantity ?? 1}`;
         li.setAttribute('draggable', 'true');
 
-        // If this is also a container, nest it
         if (subItem.type === 'container') {
             const nestedContainer = renderContainer(subItem, true);
             li.appendChild(nestedContainer);
@@ -55,9 +51,23 @@ function renderContainer(containerItem, nested = false) {
 function renderCharacterSheet(actor) {
     const container = document.createElement('div');
     container.className = 'character-card';
+    container.id = `character-${actor._id}`;
 
     const name = actor.name || 'Unnamed';
-    container.innerHTML = `<h3>${name}</h3>`;
+    const header = document.createElement('h3');
+    header.textContent = name;
+
+    const delBtn = document.createElement('button');
+    delBtn.textContent = '❌';
+    delBtn.style.float = 'right';
+    delBtn.style.background = 'transparent';
+    delBtn.style.border = 'none';
+    delBtn.style.cursor = 'pointer';
+    delBtn.title = 'Remove character';
+    delBtn.addEventListener('click', () => deleteCharacterById(actor._id));
+
+    header.appendChild(delBtn);
+    container.appendChild(header);
 
     const stats = actor.system?.abilities || {};
     const statList = Object.entries(stats).map(([key, val]) => {
