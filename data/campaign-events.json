@@ -327,7 +327,7 @@
         "id": "event-37",
         "title": "Battle with the Hill Giants",
         "type": "battle",
-        "date": { "year": 569, "month": 16, "day": 17 },
+        "date": { "year": 569, "month": 15, "day": 17 },
         "summary": "The party faces a group of hill giants while exploring the frozen northern lands.",
         "details": "As the party continued their campaign against the giants, they encountered and defeated ten hill giants. The battle was fierce but the party prevailed, recovering the giants' gold and claiming several magical items including a flame sword, a +3 spear, a +1 battleaxe, and eleven +1 arrows. After the battle, the party took time to convert much of their accumulated wealth into gems for easier transport.",
         "characters": ["Val", "Jules", "Mavis", "Kristopher", "Maxwell", "Kerrak", "Saldon"]
