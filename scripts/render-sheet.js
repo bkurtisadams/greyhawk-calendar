@@ -215,7 +215,7 @@ function getStoredCharacters() {
     }
 
     // ensure tabs get toggled
-    const tabButtons = tabs.querySelectorAll("button");
+    const tabButtons = sidebar.querySelectorAll("button");
     tabButtons.forEach(btn => {
         btn.addEventListener("click", () => {
         const selected = btn.dataset.tab;
