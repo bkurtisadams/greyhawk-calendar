@@ -120,9 +120,6 @@ function initializeCalendar() {
         // Populate the timeline view
         generateTimeline();
 
-        // Populate the character sheets
-        //generateCharacterSheets();
-
         // Populate the holidays list
         generateHolidaysList();
 
@@ -149,62 +146,6 @@ function updateCurrentDateDisplay() {
     const weekdayIndex = totalDays % 7;
     dateElement.textContent = `... ${GREYHAWK_DAYS[weekdayIndex]} ...`;
 
-}
-
-// Function to generate character sheets
-function generateCharacterSheets(characterData) {
-    return `
-    <div class="character-sheet">
-        <h2>${characterData.name} (Level ${characterData.level} ${characterData.class})</h2>
-        <img src="${characterData.img}" alt="${characterData.name}" class="character-img"/>
-        
-        <div class="attributes">
-            <h3>Attributes</h3>
-            <ul>
-                <li>Strength: ${characterData.abilities.str.value}</li>
-                <li>Dexterity: ${characterData.abilities.dex.value}</li>
-                <li>Constitution: ${characterData.abilities.con.value}</li>
-                <li>Intelligence: ${characterData.abilities.int.value}</li>
-                <li>Wisdom: ${characterData.abilities.wis.value}</li>
-                <li>Charisma: ${characterData.abilities.cha.value}</li>
-                <li>Comeliness: ${characterData.abilities.com.value}</li>
-            </ul>
-        </div>
-
-        <div class="combat-stats">
-            <h3>Combat Stats</h3>
-            <ul>
-                <li>Armor Class: ${characterData.attributes.ac.value}</li>
-                <li>THAC0: ${characterData.attributes.thaco.value}</li>
-                <li>HP: ${characterData.attributes.hp.value}/${characterData.attributes.hp.max}</li>
-                <li>Movement: ${characterData.attributes.movement.value} ft.</li>
-            </ul>
-        </div>
-
-        <div class="saving-throws">
-            <h3>Saving Throws</h3>
-            <ul>
-                <li>Paralyzation/Poison/Death: ${characterData.saves.paralyzation.value}</li>
-                <li>Rod/Staff/Wand: ${characterData.saves.rod.value}</li>
-                <li>Petrification/Polymorph: ${characterData.saves.petrification.value}</li>
-                <li>Breath Weapon: ${characterData.saves.breath.value}</li>
-                <li>Spell: ${characterData.saves.spell.value}</li>
-            </ul>
-        </div>
-
-        <div class="details">
-            <h3>Character Details</h3>
-            <ul>
-                <li>Alignment: ${characterData.details.alignment.toUpperCase()}</li>
-                <li>Deity: ${characterData.details.deity}</li>
-                <li>Age: ${characterData.details.age}</li>
-                <li>Sex: ${characterData.details.sex}</li>
-                <li>Height: ${characterData.details.height}</li>
-                <li>Weight: ${characterData.details.weight}</li>
-            </ul>
-        </div>
-    </div>
-    `;
 }
 
 function generateSkillsHTML(items) {
@@ -1335,7 +1276,7 @@ function saveAdminContent() {
         };
 
         CHARACTERS.push(character);
-        //generateCharacterSheets();
+        
     } else {
         // Save event
         const year = parseInt(document.getElementById('admin-year').value);
@@ -1390,7 +1331,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCurrentDateDisplay();
         buildCalendarYear(CAMPAIGN_DATE?.year || 569);
         generateTimeline();
-        //generateCharacterSheets();
         generateHolidaysList();
         setupEventListeners();
         populateAdminDateSelectors();
