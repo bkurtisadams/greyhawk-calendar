@@ -189,7 +189,6 @@ function getStoredCharacters() {
     itemsTab.style.display = "none";
 
     // Spell tab content
-
     const spellsTab = document.createElement("div");
     spellsTab.className = "tab-content";
     spellsTab.dataset.tab = "spells";
@@ -222,21 +221,45 @@ function getStoredCharacters() {
 
     Object.keys(spellsByLevel).sort((a,b) => a - b).forEach(level => {
         const header = document.createElement("h4");
-        header.textContent = `Level ${level}`;
+        header.textContent = `Spell Level ${level}`;
         spellsTab.appendChild(header);
-        const ul = document.createElement("ul");
+
+        const table = document.createElement("table");
+        table.style.width = '100%';
+        table.style.borderCollapse = 'collapse';
+        const thead = document.createElement("thead");
+        thead.innerHTML = `<tr>
+        <th>Name</th>
+        <th>Level</th>
+        <th>Cmp</th>
+        <th>CT</th>
+        <th>Range</th>
+        <th>AOE</th>
+        </tr>`;
+        table.appendChild(thead);
+
+        const tbody = document.createElement("tbody");
         spellsByLevel[level].forEach(spell => {
-        const li = document.createElement("li");
-        li.textContent = `${spell.name}`;
-        ul.appendChild(li);
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td><img src="${spell.img}" alt="" style="height: 1em; vertical-align: middle; margin-right: 4px;"> ${spell.name}</td>
+            <td>${spell.system?.level ?? ''}</td>
+            <td>${spell.system?.components ?? ''}</td>
+            <td>${spell.system?.time ?? ''}</td>
+            <td>${spell.system?.range ?? ''}</td>
+            <td>${spell.system?.aoe ?? ''}</td>`;
+        tbody.appendChild(row);
         });
-        spellsTab.appendChild(ul);
+        table.appendChild(tbody);
+        spellsTab.appendChild(table);
     });
 
     contentArea.appendChild(mainTab);
     contentArea.appendChild(combatTab);
     contentArea.appendChild(itemsTab);
     contentArea.appendChild(spellsTab);
+
+    // end spells tab content
 
     // 💰 MONEY SECTION
     const currencies = actor.items?.filter((i) => i.type === "currency") || [];
