@@ -188,6 +188,50 @@ function getStoredCharacters() {
     itemsTab.dataset.tab = "items";
     itemsTab.style.display = "none";
 
+    // proficiencies tab
+    const proficienciesTab = document.createElement("div");
+    proficienciesTab.className = "tab-content";
+    proficienciesTab.dataset.tab = "proficiencies";
+    proficienciesTab.style.display = "none";
+
+    const profHeader = document.createElement("h3");
+    profHeader.textContent = "Proficiencies";
+    proficienciesTab.appendChild(profHeader);
+
+    const profs = actor.system?.proficiencies ?? [];
+
+    if (Array.isArray(profs) && profs.length > 0) {
+        const list = document.createElement("ul");
+        for (const prof of profs) {
+        const li = document.createElement("li");
+        li.textContent = prof.name ?? prof.label ?? prof;
+        list.appendChild(li);
+        }
+        proficienciesTab.appendChild(list);
+    } else {
+        const note = document.createElement("p");
+        note.textContent = "No proficiencies found.";
+        proficienciesTab.appendChild(note);
+    }
+
+    contentArea.appendChild(mainTab);
+    contentArea.appendChild(combatTab);
+    contentArea.appendChild(itemsTab);
+    contentArea.appendChild(spellsTab);
+    contentArea.appendChild(proficienciesTab);
+
+    // ensure tabs get toggled
+    const tabButtons = tabs.querySelectorAll("button");
+    tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+        const selected = btn.dataset.tab;
+        contentArea.querySelectorAll(".tab-content").forEach(div => {
+            div.style.display = div.dataset.tab === selected ? "block" : "none";
+        });
+        });
+    });
+    // end proficiencies tab
+    
     // Spell tab content
     const spellsTab = document.createElement("div");
     spellsTab.className = "tab-content";
