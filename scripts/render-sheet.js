@@ -1,11 +1,6 @@
 // render-sheet.js (fixed: merge drag-and-drop with ARS tabs + layout)
-import { initializeCharacterRenderer } from './render-sheet.js';
-document.addEventListener('DOMContentLoaded', () => {
-  initializeCharacterRenderer();
-});
 
-
-  function getStoredCharacters() {
+export function getStoredCharacters() {
     const raw = localStorage.getItem('greyhawk-characters');
     try {
         return raw ? JSON.parse(raw) : [];
@@ -15,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function saveStoredCharacters(chars) {
+  export function saveStoredCharacters(chars) {
     localStorage.setItem("greyhawk-characters", JSON.stringify(chars));
   }
 
@@ -33,27 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function clearAllCharacters() {
     localStorage.removeItem("uploadedCharacters");
     document.getElementById("character-grid").innerHTML = "";
-  }
-  
-  function createTabButton(name, label) {
-    const btn = document.createElement("button");
-    btn.className = "tab-btn";
-    btn.textContent = label;
-    btn.dataset.tab = name;
-    btn.style.padding = "0.5em";
-    btn.style.marginBottom = "4px";
-    btn.style.width = "100%";
-    btn.style.border = "1px solid #ccc";
-    btn.style.background = "#f0f0f0";
-    btn.style.cursor = "pointer";
-    btn.addEventListener("click", () => {
-      const parent = btn.closest(".character-card");
-      parent.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
-      parent.querySelectorAll(".tab-content").forEach((tc) => (tc.style.display = "none"));
-      btn.classList.add("active");
-      parent.querySelector(`.tab-content[data-tab="${name}"]`).style.display = "block";
-    });
-    return btn;
   }
   
   function makeListDraggable(ul) {
@@ -114,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return wrapper;
   }
   
-  function renderCharacterSheet(actor) {
+  export function renderCharacterSheet(actor) {
     const actorId = getActorId(actor);
     const wrapper = document.createElement("div");
     wrapper.className = "character-card";
@@ -153,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
   
     for (const tab of tabNames) {
-      const btn = createTabButton(tab.id, tab.label);
+      const btn = createTabButton(tab.id, tab.label, actorId);
       sidebar.appendChild(btn);
     }
   
