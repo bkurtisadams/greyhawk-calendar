@@ -189,10 +189,11 @@ export function getStoredCharacters() {
     if (Array.isArray(profs) && profs.length > 0) {
         const list = document.createElement("ul");
         for (const prof of profs) {
-        const li = document.createElement("li");
-        li.textContent = prof.name ?? prof.label ?? prof;
-        list.appendChild(li);
+          const li = document.createElement("li");
+          li.textContent = prof.name ?? prof.label ?? "Unnamed";
+          proficienciesTab.appendChild(li);
         }
+        
         proficienciesTab.appendChild(list);
     } else {
         const note = document.createElement("p");
