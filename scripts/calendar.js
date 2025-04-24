@@ -63,20 +63,6 @@ function calculateDayOfWeek(year, month, day) {
     return totalDays % 7;
 }
 
-/* async function loadCampaignCharacters() {
-    try {
-        const response = await fetch('data/campaign-characters.json');
-        if (response.ok) {
-            CHARACTERS = await response.json();
-            console.log('Characters loaded successfully');
-        } else {
-            throw new Error('Network response was not ok');
-        }
-    } catch (error) {
-        console.error('Failed to load characters:', error);
-    }
-} */
-
 function updateCurrentDate() {
     const dateObj = {
         year: CAMPAIGN_DATE.year,
