@@ -26,7 +26,7 @@ export function getStoredCharacters() {
   }
   
   function clearAllCharacters() {
-    localStorage.removeItem("uploadedCharacters");
+    localStorage.removeItem("greyhawk-characters");
     document.getElementById("character-grid").innerHTML = "";
   }
   
@@ -184,7 +184,9 @@ export function getStoredCharacters() {
     profHeader.textContent = "Proficiencies";
     proficienciesTab.appendChild(profHeader);
 
-    const profs = actor.system?.proficiencies ?? [];
+    console.log("🔎 Checking proficiencies for:", actor);
+    console.log("🛠 system.proficiencies:", actor.system?.proficiencies);
+    const profs = actor.proficiencies ?? actor.system?.proficiencies ?? [];
 
     if (Array.isArray(profs) && profs.length > 0) {
         const list = document.createElement("ul");
