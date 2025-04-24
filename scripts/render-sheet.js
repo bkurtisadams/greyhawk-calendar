@@ -189,6 +189,28 @@ function getStoredCharacters() {
     itemsTab.style.display = "none";
 
     // Spell tab content
+    const spellsTab = document.createElement("div");
+    spellsTab.className = "tab-content";
+    spellsTab.dataset.tab = "spells";
+    spellsTab.style.display = "none";
+
+    const slots = actor.system?.spells || {};
+    const slotLevels = Object.keys(slots).sort();
+    if (slotLevels.length > 0) {
+        const slotHeader = document.createElement("h4");
+        slotHeader.textContent = "Spell Slots";
+        spellsTab.appendChild(slotHeader);
+        const slotList = document.createElement("ul");
+        for (const lvl of slotLevels) {
+        const entry = slots[lvl];
+        const label = lvl.replace("lvl", "Level ");
+        const li = document.createElement("li");
+        li.textContent = `${label}: ${entry.value ?? 0} / ${entry.max ?? 0}`;
+        slotList.appendChild(li);
+        }
+        spellsTab.appendChild(slotList);
+    }
+
     const memorized = actor.system?.spellInfo?.memorization?.arcane || {};
     const levels = Object.keys(memorized).sort((a, b) => parseInt(a) - parseInt(b));
 
