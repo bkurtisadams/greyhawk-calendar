@@ -130,7 +130,7 @@ function initializeCalendar() {
         generateTimeline();
 
         // Populate the character sheets
-        generateCharacterSheets();
+        //generateCharacterSheets();
 
         // Populate the holidays list
         generateHolidaysList();
@@ -1332,7 +1332,7 @@ function saveAdminContent() {
         };
 
         CHARACTERS.push(character);
-        generateCharacterSheets();
+        //generateCharacterSheets();
     } else {
         // Save event
         const year = parseInt(document.getElementById('admin-year').value);
@@ -1387,7 +1387,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCurrentDateDisplay();
         buildCalendarYear(CAMPAIGN_DATE?.year || 569);
         generateTimeline();
-        generateCharacterSheets();
+        //generateCharacterSheets();
         generateHolidaysList();
         setupEventListeners();
         populateAdminDateSelectors();
