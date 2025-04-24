@@ -242,13 +242,20 @@ function getStoredCharacters() {
         const tbody = document.createElement("tbody");
         for (const spell of spellEntries) {
         const row = document.createElement("tr");
+
+        const matchingItem = actor.items?.find(i => i._id === spell.id);
+        const cmp = matchingItem?.system?.components ?? "";
+        const ct = matchingItem?.system?.time ?? "";
+        const range = matchingItem?.system?.range ?? "";
+        const aoe = matchingItem?.system?.aoe ?? "";
+
         row.innerHTML = `
             <td><img src="${spell.img}" alt="" style="height: 1em; vertical-align: middle; margin-right: 4px;"> ${spell.name}</td>
             <td>${spell.level ?? ''}</td>
-            <td>${spell.components ?? ''}</td>
-            <td>${spell.time ?? ''}</td>
-            <td>${spell.range ?? ''}</td>
-            <td>${spell.aoe ?? ''}</td>`;
+            <td>${cmp}</td>
+            <td>${ct}</td>
+            <td>${range}</td>
+            <td>${aoe}</td>`;
         tbody.appendChild(row);
         }
         table.appendChild(tbody);
