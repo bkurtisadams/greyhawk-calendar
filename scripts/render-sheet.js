@@ -188,7 +188,7 @@ export function getStoredCharacters() {
     console.log("🛠 system.proficiencies:", actor.proficiencies);
     
     const profs = actor.proficiencies ?? [];
-    console.log("📚 Final proficiencies list for", actor.name, profs.map(p => p.name));
+    console.log("📚 Found proficiencies:", profs.map(p => p.name));
 
 
     if (Array.isArray(profs) && profs.length > 0) {
