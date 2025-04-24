@@ -102,12 +102,12 @@ async function loadCampaignData() {
 
         // Load characters
         //const charactersResponse = await fetch('data/campaign-characters.json');
-        if (charactersResponse.ok) {
+        /* if (charactersResponse.ok) {
             const characters = await charactersResponse.json();
             // Replace sample characters with loaded data
             CHARACTERS.length = 0; // Clear existing array
             characters.forEach(character => CHARACTERS.push(character));
-        }
+        } */
 
         console.log('Campaign data loaded successfully');
 
