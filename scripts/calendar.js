@@ -101,7 +101,7 @@ async function loadCampaignData() {
         }
 
         // Load characters
-        const charactersResponse = await fetch('data/campaign-characters.json');
+        //const charactersResponse = await fetch('data/campaign-characters.json');
         if (charactersResponse.ok) {
             const characters = await charactersResponse.json();
             // Replace sample characters with loaded data

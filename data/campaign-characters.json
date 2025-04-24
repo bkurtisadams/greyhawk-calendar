@@ -20,15 +20,22 @@
    "size": "medium",
    "identified": false,
    "hnr": {"base": 0, "value": 0, "min": 0, "max": 0}},
-  "details": {"biography": {"value": "<p>Background Noble: The second daughter of Queen Yolande, Princess Valerys Aravae Loravalur Mystralath grew up an impetuous child, full of mischievous and playful desires. Her Mother, the Queen, never had time for her, and she was raised by a nurse and courtiers at teh High Court of Celene. She learned all the Etiquette required of a young noble elf girl.She was bright and had exceptional coordination, agility, reflexes, precision and balance. At a young age, all she wanted to do was learn how to dance. Later in life, she strove to use her incredible intelligence to master the Art of Magic.&nbsp;</p>\n<p>At the age of one hundred and one with her prospects dimmed and little chance of ever serving in a High Court, Valerys struck out to become an adventurer. She left the Capitol city of Enstad of the Elven Kingdom of Celene in search of excitement. Always dreaming of Magic, she embarked to become a Magic-User, and after twelve years of study, she became one and continued to study her craft for decades.</p>\n<p><br>The studious life of a Tower Mage was uneventful and rather dull, so Val once again set her sight on the distant horizon and set off for more adventure. She soon found herself in the company of thieves, and became one of them. She learned all of the thieving arts and did quite well. Yet after seventeen years, she grew bored with Thieves Guild activity and struck out on her own once again. Finally leaving The Kingdom at the still young age of 180, Valerys wandered the realms, looking for adventure. Valerys will never inherit anything of value back home in Celene. Valerys has not ventured back to the Kingdom of Celene since she left almost a year ago, but she still holds her signet ring in high regard and wears it proudly on her finger. As the daughter of a Noble House of the Faerie Kingdom of Celene, Valerys Mystralath is expected to return from time to time to fulfill her duties. As an adventurer she goes by the name of "Val" and does not let on that she is of noble birth and in line to succeed to the throne of the Faerie Kingdom of Celene.</p>"},
-   "provisions": {"food": "iMDsbnIXp6zmTz27", "water": "m8dL9lrkpYLyDW5N"},
+  "details": {
+  "biography": {
+    "value": "<p>Background Noble: The second daughter of Queen Yolande, Princess Valerys Aravae Loravalur Mystralath grew up an impetuous child, full of mischievous and playful desires. Her mother, the Queen, never had time for her, and she was raised by a nurse and courtiers at the High Court of Celene. She learned all the etiquette required of a young noble elf girl. She was bright and had exceptional coordination, agility, reflexes, precision and balance. At a young age, all she wanted to do was learn how to dance. Later in life, she strove to use her incredible intelligence to master the Art of Magic.&nbsp;</p>\n<p>At the age of one hundred and one with her prospects dimmed and little chance of ever serving in a High Court, Valerys struck out to become an adventurer. She left the capitol city of Enstad of the Elven Kingdom of Celene in search of excitement. Always dreaming of Magic, she embarked to become a Magic-User, and after twelve years of study, she became one and continued to study her craft for decades.</p>\n<p><br>The studious life of a Tower Mage was uneventful and rather dull, so Val once again set her sights on the distant horizon and set off for more adventure. She soon found herself in the company of thieves, and became one of them. She learned all of the thieving arts and did quite well. Yet after seventeen years, she grew bored with Thieves Guild activity and struck out on her own once again. Finally leaving the Kingdom at the still young age of 180, Valerys wandered the realms, looking for adventure. Valerys will never inherit anything of value back home in Celene. Valerys has not ventured back to the Kingdom of Celene since she left almost a year ago, but she still holds her signet ring in high regard and wears it proudly on her finger. As the daughter of a Noble House of the Faerie Kingdom of Celene, Valerys Mystralath is expected to return from time to time to fulfill her duties. As an adventurer she goes by the name of \\\"Val\\\", and does not let on that she is of noble birth and in line to succeed to the throne of the Faerie Kingdom of Celene.</p>"
+      },
+      "provisions": {
+        "food": "iMDsbnIXp6zmTz27",
+        "water": "m8dL9lrkpYLyDW5N"
+      }
+    },
    "alignment": "cg",
    "xp": 218215,
    "applyxp": 9460,
    "age": "182",
    "sex": "Female",
    "deity": "Ehlonna",
-   "height": "5\"0"",
+   "height": "5\\\"0\"",
    "weight": "84 pounds",
    "patron": "Queen Yolande"},
   "items_summary": [{"name": "Elf", "type": "race", "quantity": 1},
@@ -71,7 +78,7 @@
    {"name": "Eldritch Craft", "type": "ability", "quantity": 1},
    {"name": "Sixth Sense: Scrying", "type": "skill", "quantity": 1},
    {"name": "Climb Walls", "type": "skill", "quantity": 1},
-   {"name": "Language (Thieves" Cant)", "type": "ability", "quantity": 1},
+   {"name": "Language (Thieves\\\" Cant)", "type": "ability", "quantity": 1},
    {"name": "Backstab", "type": "ability", "quantity": 1},
    {"name": "Find Traps", "type": "skill", "quantity": 1},
    {"name": "Hide in Shadows", "type": "skill", "quantity": 1},
@@ -79,7 +86,7 @@
    {"name": "Open Locks/Disarm Traps", "type": "skill", "quantity": 1},
    {"name": "Pick Pockets", "type": "skill", "quantity": 1},
    {"name": "Read Languages", "type": "skill", "quantity": 1},
-   {"name": "Daoud"s Wondrous Lanthorn", "type": "item", "quantity": 1},
+   {"name": "Daoud\\\"s Wondrous Lanthorn", "type": "item", "quantity": 1},
    {"name": "Sapphire (Blue Star)", "type": "item", "quantity": 3},
    {"name": "Topaz (Golden Yellow)", "type": "item", "quantity": 3},
    {"name": "Ring of Spell Storing", "type": "item", "quantity": 1},
@@ -179,7 +186,7 @@
    {"name": "Potion of Gaseous Form", "type": "potion", "quantity": 1},
    {"name": "Potion of Invisibility", "type": "potion", "quantity": 1},
    {"name": "Flint and steel", "type": "item", "quantity": 1},
-   {"name": "Thieves" Tools", "type": "item", "quantity": 1},
+   {"name": "Thieves\\\" Tools", "type": "item", "quantity": 1},
    {"name": "Dice (Bone), pair", "type": "item", "quantity": 1},
    {"name": "Chalk, piece", "type": "item", "quantity": 1},
    {"name": "Pouch (Belt), Large", "type": "container", "quantity": 1},
