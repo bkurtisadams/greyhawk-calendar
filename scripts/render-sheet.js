@@ -1,4 +1,4 @@
-// render-sheet.js (with ARS-style tab layout: Main, Combat, Items)
+// render-sheet.js (fixes: save display, styling, width, remove flat)
 
 function getStoredCharacters() {
     return JSON.parse(localStorage.getItem('uploadedCharacters') || '[]');
@@ -29,6 +29,12 @@ function createTabButton(name, label) {
     btn.className = 'tab-btn';
     btn.textContent = label;
     btn.dataset.tab = name;
+    btn.style.padding = '0.5em';
+    btn.style.marginBottom = '4px';
+    btn.style.width = '100%';
+    btn.style.border = '1px solid #ccc';
+    btn.style.background = '#f0f0f0';
+    btn.style.cursor = 'pointer';
     btn.addEventListener('click', () => {
         const parent = btn.closest('.character-card');
         parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -45,10 +51,13 @@ function renderCharacterSheet(actor) {
     wrapper.className = 'character-card';
     wrapper.id = `character-${actorId}`;
     wrapper.style.display = 'flex';
+    wrapper.style.width = '100%';
+    wrapper.style.maxWidth = '800px';
     wrapper.style.border = '1px solid #ccc';
     wrapper.style.borderRadius = '6px';
     wrapper.style.overflow = 'hidden';
-    wrapper.style.marginBottom = '1em';
+    wrapper.style.margin = '1em auto';
+    wrapper.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
 
     const sidebar = document.createElement('div');
     sidebar.className = 'tab-sidebar';
@@ -57,12 +66,13 @@ function renderCharacterSheet(actor) {
     sidebar.style.padding = '0.5em';
     sidebar.style.background = '#eee';
     sidebar.style.borderRight = '1px solid #ccc';
-    sidebar.style.minWidth = '100px';
+    sidebar.style.minWidth = '120px';
 
     const contentArea = document.createElement('div');
     contentArea.className = 'tab-content-area';
     contentArea.style.flexGrow = '1';
     contentArea.style.padding = '1em';
+    contentArea.style.background = '#fff';
 
     const tabNames = [
         { id: 'main', label: 'Main' },
@@ -82,10 +92,10 @@ function renderCharacterSheet(actor) {
     deleteBtn.style.background = 'transparent';
     deleteBtn.style.border = 'none';
     deleteBtn.style.cursor = 'pointer';
+    deleteBtn.style.fontSize = '1.2em';
     deleteBtn.addEventListener('click', () => deleteCharacterById(actorId));
     sidebar.appendChild(deleteBtn);
 
-    // Tabs content
     const mainTab = document.createElement('div');
     mainTab.className = 'tab-content';
     mainTab.dataset.tab = 'main';
@@ -113,7 +123,7 @@ function renderCharacterSheet(actor) {
             <div><strong>${key.toUpperCase()}:</strong> ${val.value}</div>`).join('')}</div>
         <h4>Saving Throws</h4>
         <div class="flexrow">${Object.entries(saves).map(([key, val]) => `
-            <div><strong>${key.toUpperCase()}:</strong> ${val}</div>`).join('')}</div>
+            <div><strong>${key.toUpperCase()}:</strong> ${val?.value ?? val}</div>`).join('')}</div>
     `;
     mainTab.appendChild(grid);
 
@@ -156,6 +166,7 @@ function renderCharacterSheet(actor) {
 
 function loadCharactersFromLocalStorage() {
     const stored = getStoredCharacters();
+    document.getElementById('character-grid').innerHTML = '';
     stored.forEach(renderCharacterSheet);
 }
 
