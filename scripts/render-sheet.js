@@ -1,4 +1,4 @@
-// render-sheet.js (fixes: save display, styling, width, remove flat)
+// render-sheet.js (fix width + restore nested containers)
 
 function getStoredCharacters() {
     return JSON.parse(localStorage.getItem('uploadedCharacters') || '[]');
@@ -45,6 +45,31 @@ function createTabButton(name, label) {
     return btn;
 }
 
+function renderContainer(containerItem, nested = false) {
+    const wrapper = document.createElement('div');
+    wrapper.className = nested ? 'nested-container' : 'container';
+    const toggle = document.createElement('details');
+    toggle.open = true;
+    const summary = document.createElement('summary');
+    summary.textContent = containerItem.name;
+    toggle.appendChild(summary);
+
+    const list = document.createElement('ul');
+    const items = containerItem.system?.itemList || [];
+    for (let subItem of items) {
+        const li = document.createElement('li');
+        li.textContent = `${subItem.name} x${subItem.quantity ?? 1}`;
+        if (subItem.type === 'container') {
+            const nestedBlock = renderContainer(subItem, true);
+            li.appendChild(nestedBlock);
+        }
+        list.appendChild(li);
+    }
+    toggle.appendChild(list);
+    wrapper.appendChild(toggle);
+    return wrapper;
+}
+
 function renderCharacterSheet(actor) {
     const actorId = getActorId(actor);
     const wrapper = document.createElement('div');
@@ -52,7 +77,7 @@ function renderCharacterSheet(actor) {
     wrapper.id = `character-${actorId}`;
     wrapper.style.display = 'flex';
     wrapper.style.width = '100%';
-    wrapper.style.maxWidth = '800px';
+    wrapper.style.minWidth = '960px';
     wrapper.style.border = '1px solid #ccc';
     wrapper.style.borderRadius = '6px';
     wrapper.style.overflow = 'hidden';
@@ -73,6 +98,7 @@ function renderCharacterSheet(actor) {
     contentArea.style.flexGrow = '1';
     contentArea.style.padding = '1em';
     contentArea.style.background = '#fff';
+    contentArea.style.overflowX = 'auto';
 
     const tabNames = [
         { id: 'main', label: 'Main' },
@@ -145,14 +171,24 @@ function renderCharacterSheet(actor) {
     itemsTab.dataset.tab = 'items';
     itemsTab.style.display = 'none';
 
-    const looseItems = actor.items?.filter(i => !i.system?.location?.parent && i.type !== 'container') || [];
-    const ul = document.createElement('ul');
-    looseItems.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.name} x${item.system?.quantity ?? 1}`;
-        ul.appendChild(li);
+    const containers = actor.items?.filter(i => i.type === 'container') || [];
+    containers.forEach(c => {
+        const containerBlock = renderContainer(c);
+        itemsTab.appendChild(containerBlock);
     });
-    itemsTab.appendChild(ul);
+
+    const looseItems = actor.items?.filter(i => !i.system?.location?.parent && i.type !== 'container') || [];
+    if (looseItems.length > 0) {
+        const ul = document.createElement('ul');
+        looseItems.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} x${item.system?.quantity ?? 1}`;
+            ul.appendChild(li);
+        });
+        itemsTab.appendChild(document.createElement('hr'));
+        itemsTab.appendChild(document.createTextNode('Loose Items'));
+        itemsTab.appendChild(ul);
+    }
 
     contentArea.appendChild(mainTab);
     contentArea.appendChild(combatTab);
