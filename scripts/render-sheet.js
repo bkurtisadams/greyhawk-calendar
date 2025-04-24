@@ -11,7 +11,7 @@
   }
 
   function saveStoredCharacters(chars) {
-    localStorage.setItem("uploadedCharacters", JSON.stringify(chars));
+    localStorage.setItem("greyhawk-characters", JSON.stringify(chars));
   }
 
     function getActorId(actor) {
