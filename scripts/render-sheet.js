@@ -1,4 +1,4 @@
-// render-sheet.js (ARS-style layout)
+// render-sheet.js (with ARS-style tab layout: Main, Combat, Items)
 
 function getStoredCharacters() {
     return JSON.parse(localStorage.getItem('uploadedCharacters') || '[]');
@@ -24,58 +24,134 @@ function clearAllCharacters() {
     document.getElementById('character-grid').innerHTML = '';
 }
 
+function createTabButton(name, label) {
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn';
+    btn.textContent = label;
+    btn.dataset.tab = name;
+    btn.addEventListener('click', () => {
+        const parent = btn.closest('.character-card');
+        parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        parent.querySelectorAll('.tab-content').forEach(tc => tc.style.display = 'none');
+        btn.classList.add('active');
+        parent.querySelector(`.tab-content[data-tab="${name}"]`).style.display = 'block';
+    });
+    return btn;
+}
+
 function renderCharacterSheet(actor) {
     const actorId = getActorId(actor);
-    const container = document.createElement('div');
-    container.className = 'character-card';
-    container.id = `character-${actorId}`;
+    const wrapper = document.createElement('div');
+    wrapper.className = 'character-card';
+    wrapper.id = `character-${actorId}`;
+    wrapper.style.display = 'flex';
+    wrapper.style.border = '1px solid #ccc';
+    wrapper.style.borderRadius = '6px';
+    wrapper.style.overflow = 'hidden';
+    wrapper.style.marginBottom = '1em';
 
-    // Profile Header
-    const header = document.createElement('div');
-    header.className = 'flexrow';
-    header.innerHTML = `
-        <img src="${actor.img}" style="width: 64px; height: 64px; border-radius: 5px; margin-right: 10px;">
-        <h3 style="flex-grow:1;">${actor.name}</h3>
-        <button style="background:none; border:none; cursor:pointer; font-size:1.2em;" title="Remove Character">❌</button>
-    `;
-    header.querySelector('button').addEventListener('click', () => deleteCharacterById(actorId));
-    container.appendChild(header);
+    const sidebar = document.createElement('div');
+    sidebar.className = 'tab-sidebar';
+    sidebar.style.display = 'flex';
+    sidebar.style.flexDirection = 'column';
+    sidebar.style.padding = '0.5em';
+    sidebar.style.background = '#eee';
+    sidebar.style.borderRight = '1px solid #ccc';
+    sidebar.style.minWidth = '100px';
 
-    // Class/Race/Background/Alignment block
+    const contentArea = document.createElement('div');
+    contentArea.className = 'tab-content-area';
+    contentArea.style.flexGrow = '1';
+    contentArea.style.padding = '1em';
+
+    const tabNames = [
+        { id: 'main', label: 'Main' },
+        { id: 'combat', label: 'Combat' },
+        { id: 'items', label: 'Items' }
+    ];
+
+    for (const tab of tabNames) {
+        const btn = createTabButton(tab.id, tab.label);
+        sidebar.appendChild(btn);
+    }
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = '❌';
+    deleteBtn.title = 'Delete Character';
+    deleteBtn.style.marginTop = 'auto';
+    deleteBtn.style.background = 'transparent';
+    deleteBtn.style.border = 'none';
+    deleteBtn.style.cursor = 'pointer';
+    deleteBtn.addEventListener('click', () => deleteCharacterById(actorId));
+    sidebar.appendChild(deleteBtn);
+
+    // Tabs content
+    const mainTab = document.createElement('div');
+    mainTab.className = 'tab-content';
+    mainTab.dataset.tab = 'main';
+    mainTab.style.display = 'block';
+
+    const header = document.createElement('h3');
+    header.textContent = actor.name;
+    mainTab.appendChild(header);
+
     const infoBlock = document.createElement('div');
-    infoBlock.className = 'flexcol';
     infoBlock.innerHTML = `
-        <div class="flexrow"><strong>Class:</strong> ${actor.system?.classname || ''} &nbsp; <strong>Race:</strong> ${actor.racename || ''}</div>
-        <div class="flexrow"><strong>Alignment:</strong> ${actor.system?.details?.alignment || ''} &nbsp; <strong>Background:</strong> ${actor.system?.backgroundname || ''}</div>
-        <div class="flexrow"><strong>Size:</strong> ${actor.system?.attributes?.size || ''}
-            ${actor.system?.attributes?.hnr ? `&nbsp; <strong>Honor:</strong> ${actor.system.attributes.hnr.value}` : ''}
-        </div>
+        <strong>Class:</strong> ${actor.system?.classname || ''} <strong>Race:</strong> ${actor.racename || ''}<br>
+        <strong>Alignment:</strong> ${actor.system?.details?.alignment || ''} <strong>Background:</strong> ${actor.system?.backgroundname || ''}<br>
+        <strong>Size:</strong> ${actor.system?.attributes?.size || ''} <strong>Honor:</strong> ${actor.system?.attributes?.hnr?.value || 0}<br>
     `;
-    container.appendChild(infoBlock);
+    mainTab.appendChild(infoBlock);
 
-    // Abilities & Saves grid
     const grid = document.createElement('div');
-    grid.className = 'ability-save-grid';
     const abilities = actor.system?.abilities || {};
     const saves = actor.system?.saves || {};
 
     grid.innerHTML = `
-        <div class="flexrow" style="margin-top:10px;"><strong>Ability Scores</strong></div>
-        <div class="flexrow">
-            ${Object.entries(abilities).map(([key, val]) => `
-                <div class="character-stat"><strong>${key.toUpperCase()}:</strong> ${val.value}</div>
-            `).join('')}
-        </div>
-        <div class="flexrow" style="margin-top:10px;"><strong>Saving Throws</strong></div>
-        <div class="flexrow">
-            ${Object.entries(saves).map(([key, val]) => `
-                <div class="character-stat"><strong>${key.toUpperCase()}:</strong> ${val.value}</div>
-            `).join('')}
-        </div>
+        <h4>Ability Scores</h4>
+        <div class="flexrow">${Object.entries(abilities).map(([key, val]) => `
+            <div><strong>${key.toUpperCase()}:</strong> ${val.value}</div>`).join('')}</div>
+        <h4>Saving Throws</h4>
+        <div class="flexrow">${Object.entries(saves).map(([key, val]) => `
+            <div><strong>${key.toUpperCase()}:</strong> ${val}</div>`).join('')}</div>
     `;
-    container.appendChild(grid);
+    mainTab.appendChild(grid);
 
-    document.getElementById('character-grid').appendChild(container);
+    const combatTab = document.createElement('div');
+    combatTab.className = 'tab-content';
+    combatTab.dataset.tab = 'combat';
+    combatTab.style.display = 'none';
+    combatTab.innerHTML = `
+        <h3>Combat</h3>
+        <p><strong>AC:</strong> ${actor.system?.ac?.value ?? '?'} | 
+           <strong>Shieldless:</strong> ${actor.system?.ac?.shieldless ?? '?'} | 
+           <strong>Rear:</strong> ${actor.system?.ac?.rear ?? '?'}</p>
+        <p><strong>HP:</strong> ${actor.system?.hp?.value ?? '?'} / ${actor.system?.hp?.max ?? '?'}</p>
+        <p><strong>Movement:</strong> ${actor.system?.attributes?.move?.value ?? '?'}</p>
+    `;
+
+    const itemsTab = document.createElement('div');
+    itemsTab.className = 'tab-content';
+    itemsTab.dataset.tab = 'items';
+    itemsTab.style.display = 'none';
+
+    const looseItems = actor.items?.filter(i => !i.system?.location?.parent && i.type !== 'container') || [];
+    const ul = document.createElement('ul');
+    looseItems.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} x${item.system?.quantity ?? 1}`;
+        ul.appendChild(li);
+    });
+    itemsTab.appendChild(ul);
+
+    contentArea.appendChild(mainTab);
+    contentArea.appendChild(combatTab);
+    contentArea.appendChild(itemsTab);
+
+    wrapper.appendChild(sidebar);
+    wrapper.appendChild(contentArea);
+
+    document.getElementById('character-grid').appendChild(wrapper);
 }
 
 function loadCharactersFromLocalStorage() {
@@ -100,7 +176,6 @@ function setupCharacterUpload() {
             });
     });
 
-    // Add clear all button
     const clearBtn = document.createElement('button');
     clearBtn.textContent = '🗑️ Clear All Characters';
     clearBtn.style.marginTop = '10px';
