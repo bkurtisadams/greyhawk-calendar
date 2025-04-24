@@ -146,7 +146,7 @@ function initializeCalendar() {
         updateCurrentDateDisplay();
 
         // Generate the calendar for the active year
-        generateCalendarGrid(activeYear);
+        buildCalendarYear(activeYear);
 
         // Populate the timeline view
         generateTimeline();
