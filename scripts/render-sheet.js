@@ -264,39 +264,127 @@ export function getStoredCharacters() {
     });
     // end proficiencies tab
 
-    // details tab
-    const detailsTab = document.createElement("div");
-    detailsTab.className = "tab-content";
-    detailsTab.dataset.tab = "details";
-    detailsTab.style.display = "none";
+    // Details tab
+    function createDetailsTab(actor) {
+      const detailsTab = document.createElement("div");
+      detailsTab.className = "tab-content";
+      detailsTab.dataset.tab = "details";
+      detailsTab.style.display = "none";
+      
+      // Extract race information
+      let raceName = "Unknown";
+      // Try to get race from items array first
+      const raceItem = actor.items?.find(i => i.type === "race");
+      if (raceItem) {
+          raceName = raceItem.name;
+      } 
+      // Fallback to system properties if no race item found
+      else if (actor.system?.details?.race?.name) {
+          raceName = actor.system.details.race.name;
+      } else if (actor.system?.racename) {
+          raceName = actor.system.racename;
+      }
+      
+      // Extract background
+      let backgroundName = "None";
+      const backgroundItem = actor.items?.find(i => i.type === "background");
+      if (backgroundItem) {
+          backgroundName = backgroundItem.name;
+      } else if (actor.system?.details?.background) {
+          backgroundName = actor.system.details.background;
+      } else if (actor.system?.backgroundname) {
+          backgroundName = actor.system.backgroundname;
+      }
+      
+      // Extract class and level information
+      let classHtml = "<li>None</li>";
+      const classItems = actor.items?.filter(i => i.type === "class") || [];
+      
+      if (classItems.length > 0) {
+          classHtml = classItems.map(cls => {
+              const level = cls.system?.level || 
+                          cls.system?.advancement?.length || 
+                          "?";
+              return `<li>${cls.name} (Level ${level})</li>`;
+          }).join('');
+      } else if (actor.activeClasses && actor.activeClasses.length > 0) {
+          classHtml = actor.activeClasses.map(cls => {
+              const level = cls.system?.level || "?";
+              return `<li>${cls.name} (Level ${level})</li>`;
+          }).join('');
+      } else if (actor.system?.className) {
+          const level = actor.system?.level || "?";
+          classHtml = `<li>${actor.system.className} (Level ${level})</li>`;
+      }
+      
+      // Extract experience points
+      let totalXP = 0;
+      let unappliedXP = 0;
+      
+      if (actor.system?.details?.xp) {
+          totalXP = actor.system.details.xp;
+          unappliedXP = actor.system.details.applyxp || 0;
+      } else if (actor.system?.experience) {
+          totalXP = actor.system.experience.total || 0;
+          unappliedXP = actor.system.experience.unapplied || 0;
+      } else if (actor.experience) {
+          totalXP = actor.experience.total || 0;
+          unappliedXP = actor.experience.unapplied || 0;
+      }
+      
+      // Extract proficiency information
+      const prof = {
+          weapon: { used: 0, value: 0 },
+          skill: { used: 0, value: 0 },
+          classpoints: { used: 0, value: 0 },
+          penalty: 0
+      };
+      
+      // Try different paths to find proficiency data
+      if (actor.system?.proficiencies) {
+          const p = actor.system.proficiencies;
+          prof.weapon.value = p.weapon?.starting || 0;
+          prof.weapon.used = countItemsByType(actor.items, "proficiency");
+          prof.skill.value = p.skill?.starting || 0;
+          prof.skill.used = countItemsByType(actor.items, "skill");
+          prof.penalty = p.penalty || 0;
+      } else if (actor.system?.proficiency) {
+          const p = actor.system.proficiency;
+          Object.assign(prof, p);
+      } else if (actor.proficiency) {
+          Object.assign(prof, actor.proficiency);
+      }
+      
+      // Build the HTML content
+      const contentHtml = `
+        <h3>Character Details</h3>
+        <p><strong>Race:</strong> ${raceName}</p>
+        <p><strong>Background:</strong> ${backgroundName}</p>
 
-    const details = actor.system?.details ?? {};
-    const prof = actor.system?.proficiency || actor.proficiency || {};
-    const xp = actor.system?.details?.xp
-      ? { total: actor.system.details.xp }
-      : actor.system?.experience || actor.experience || {};
-    const classes = actor.activeClasses ?? [];
+        <h4>Class</h4>
+        <ul>
+          ${classHtml}
+        </ul>
 
-    detailsTab.innerHTML = `
-      <h3>Character Details</h3>
-      <p><strong>Race:</strong> ${actor.system?.details?.race?.name || actor.details?.race?.name
-        || "Unknown"}</p>
-      <p><strong>Background:</strong> ${actor.system?.backgroundname || "None"}</p>
+        <h4>Experience</h4>
+        <p><strong>Earned:</strong> ${totalXP} | <strong>Un-Applied:</strong> ${unappliedXP}</p>
 
-      <h4>Class</h4>
-      <ul>
-        ${classes.map(cls => `<li>${cls.name} (Level ${cls.system?.level ?? "?"})</li>`).join('') || "<li>None</li>"}
-      </ul>
+        <h4>Proficiency Totals</h4>
+        <p><strong>Weapon:</strong> Used ${prof.weapon.used} / ${prof.weapon.value}</p>
+        <p><strong>Non-Weapon:</strong> Used ${prof.skill.used} / ${prof.skill.value}</p>
+        <p><strong>Class Points:</strong> Used ${prof.classpoints.used || 0} / ${prof.classpoints.value || 0}</p>
+        <p><strong>Penalty:</strong> ${prof.penalty}</p>
+      `;
+      
+      detailsTab.innerHTML = contentHtml;
+      return detailsTab;
+    }
 
-
-      <h4>Experience</h4>
-      <p><strong>Earned:</strong> ${xp.total ?? 0} | <strong>Un-applied:</strong> ${xp.unapplied ?? 0}</p>
-
-      <h4>Proficiency Totals</h4>
-      <p><strong>Weapon:</strong> Used ${prof.weapon?.used ?? 0} / ${prof.weapon?.value ?? 0}</p>
-      <p><strong>Non-Weapon:</strong> Used ${prof.skill?.used ?? 0} / ${prof.skill?.value ?? 0}</p>
-      <p><strong>Class Points:</strong> Used ${prof.classpoints?.used ?? 0} / ${prof.classpoints?.value ?? 0}</p>
-    `;
+    // Helper function to count items of a specific type
+    function countItemsByType(items, type) {
+      if (!items || !Array.isArray(items)) return 0;
+      return items.filter(item => item.type === type).length;
+    }
     // end details tab
     
     // Spell tab content
