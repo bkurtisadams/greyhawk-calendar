@@ -128,6 +128,10 @@ function initializeCalendar() {
 
         // Populate admin month/day selectors
         populateAdminDateSelectors();
+
+        // Setup and restore view tab state
+        setupTabButtons();
+        restoreLastActiveView();  // <-- restore saved tab
     });
 }
 
@@ -773,6 +777,19 @@ function updateAdminDaySelect() {
     }
 }
 
+function restoreLastActiveView() {
+    const lastViewId = localStorage.getItem("activeViewId");
+    if (lastViewId && document.getElementById(lastViewId)) {
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        document.querySelectorAll('.toggle-view button').forEach(b => b.classList.remove('active'));
+
+        document.getElementById(lastViewId).classList.add('active');
+
+        const btnId = `btn-${lastViewId.replace('-view', '')}`;
+        document.getElementById(btnId)?.classList.add('active');
+    }
+}
+
 function setupTabButtons() {
     const buttons = [
         { id: 'btn-calendar', view: 'calendar-view' },
@@ -786,22 +803,23 @@ function setupTabButtons() {
         const btn = document.getElementById(button.id);
         const view = document.getElementById(button.view);
 
-        // Only attach if both button and view exist
         if (btn && view) {
             btn.addEventListener('click', function () {
                 buttons.forEach(b => {
-                    const bView = document.getElementById(b.view);
-                    const bBtn = document.getElementById(b.id);
-                    if (bView) bView.classList.remove('active');
-                    if (bBtn) bBtn.classList.remove('active');
+                    document.getElementById(b.view)?.classList.remove('active');
+                    document.getElementById(b.id)?.classList.remove('active');
                 });
 
                 btn.classList.add('active');
                 view.classList.add('active');
+
+                // Store active view ID
+                localStorage.setItem("activeViewId", button.view);
             });
         }
     });
 }
+
 
 
 function setupEventTabs() {
