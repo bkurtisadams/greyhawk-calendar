@@ -405,7 +405,37 @@ export function getStoredCharacters() {
   
     wrapper.appendChild(sidebar);
     wrapper.appendChild(contentArea);
-    document.getElementById("character-grid").appendChild(wrapper);
+    const tabsContainer = document.getElementById("character-tabs");
+    const contentsContainer = document.getElementById("character-contents");
+
+    // Create tab button
+    const tabButton = document.createElement("button");
+    tabButton.textContent = actor.name;
+    tabButton.className = "character-tab-button";
+    tabButton.dataset.target = `character-${actorId}`;
+    tabsContainer.appendChild(tabButton);
+
+    // Create content wrapper
+    const characterDiv = document.createElement("div");
+    characterDiv.className = "character-content";
+    characterDiv.id = `character-${actorId}`;
+    characterDiv.style.display = "none"; // Hide initially
+    characterDiv.appendChild(wrapper);
+    contentsContainer.appendChild(characterDiv);
+
+    // Tab switching behavior
+    tabButton.addEventListener("click", () => {
+        document.querySelectorAll(".character-content").forEach(div => div.style.display = "none");
+        document.querySelectorAll(".character-tab-button").forEach(btn => btn.classList.remove("active"));
+
+        characterDiv.style.display = "block";
+        tabButton.classList.add("active");
+    });
+
+    // Auto-click the first tab
+    if (tabsContainer.childElementCount === 1) {
+        tabButton.click();
+    }
   }
 
   window.getStoredCharacters = getStoredCharacters;

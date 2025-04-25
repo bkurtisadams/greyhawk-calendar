@@ -574,6 +574,32 @@
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
         z-index: 100;
     }
+
+    #character-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        }
+
+        .character-tab-button {
+        background-color: #8b4513;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+
+        .character-tab-button.active {
+        background-color: #5a3827;
+        }
+
+        .character-content {
+        margin-top: 10px;
+        }
+
 </style>
 
 </head>
@@ -655,11 +681,13 @@
     </div>
 
     <!-- clearly insert your new character links here -->
-    <section id="characters-view">
+    <section id="characters-view" class="view">
         <h2>Player Characters</h2>
         <input type="file" id="character-upload" accept=".json" multiple>
-        <div id="character-grid" class="character-grid"></div>
-    </section>
+        <div id="character-tabs" class="tab-buttons"></div>
+        <div id="character-contents" class="tab-contents"></div>
+      </section>
+    
 
     <div id="months-view" class="view">
         <h2>Months of the Greyhawk Calendar</h2>
