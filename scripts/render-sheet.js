@@ -1749,18 +1749,5 @@ function formatAlignment(alignment) {
     return img; // external or custom image
   }
 
-  function formatAlignment(alignment) {
-    const map = {
-      l: "Lawful",
-      n: "Neutral",
-      c: "Chaotic",
-      g: "Good",
-      e: "Evil"
-    };
-    if (!alignment) return "Unknown";
-  
-    const chars = alignment.toLowerCase().split("");
-    return chars.map(c => map[c] || "?").join(" ");
-  }
   
   
