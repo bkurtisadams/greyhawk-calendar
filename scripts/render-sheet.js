@@ -443,12 +443,13 @@ export function getStoredCharacters() {
   window.renderCharacterSheet = renderCharacterSheet;
   
   
-  function loadCharactersFromLocalStorage() {
+  export function loadCharactersFromLocalStorage() {
     const stored = getStoredCharacters();
-    document.getElementById("character-grid").innerHTML = "";
-    stored.forEach(renderCharacterSheet);
-  }
-  
+    document.getElementById('character-tabs').innerHTML = '';
+    document.getElementById('character-contents').innerHTML = '';
+    stored.forEach(actor => renderCharacterSheet(actor));
+}
+
   function setupCharacterUpload() {
     const input = document.getElementById("character-upload");
     if (!input) return;
