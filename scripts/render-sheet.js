@@ -22,13 +22,27 @@ export function getStoredCharacters() {
     const stored = getStoredCharacters();
     const filtered = stored.filter((c) => getActorId(c) !== id);
     saveStoredCharacters(filtered);
-    document.getElementById(`character-${id}`)?.remove();
-  }
+
+    // Remove the tab button
+    const tabButton = document.querySelector(`.character-tab-button[data-target="character-${id}"]`);
+    tabButton?.remove();
+
+    // Remove the content area
+    const characterDiv = document.getElementById(`character-${id}`);
+    characterDiv?.remove();
+
+    // Auto-select another tab if any remain
+    const firstTab = document.querySelector('.character-tab-button');
+    if (firstTab) firstTab.click();
+}
+
   
   function clearAllCharacters() {
     localStorage.removeItem("greyhawk-characters");
-    document.getElementById("character-grid").innerHTML = "";
-  }
+    document.getElementById("character-tabs").innerHTML = "";
+    document.getElementById("character-contents").innerHTML = "";
+}
+
   
   function makeListDraggable(ul) {
     ul.addEventListener("dragstart", (e) => {
