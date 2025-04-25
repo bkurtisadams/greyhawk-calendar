@@ -166,13 +166,19 @@ export function getStoredCharacters() {
       <h3>${actor.name}</h3>
 
       <div>
-        <strong>Class:</strong> ${actor.activeClasses?.map(cls => `${cls.name} (Level ${cls.system?.level ?? "?"})`).join(', ') || "Unknown"}
-        <strong>Race:</strong> ${actor.system?.details?.race?.name || "Unknown"}
+        <strong>Class:</strong> ${
+          actor.activeClasses?.map(cls =>
+            `${cls.name} (Level ${cls.system?.level ?? "?"})`
+          ).join(", ") || "Unknown"
+        }
+
+        <strong>Race:</strong> ${actor.racename || actor.races?.[0]?.name || "Unknown"}
       </div>
 
-      <div>
-        <strong>Alignment:</strong> ${actor.system?.details?.alignment || "Unknown"}
-        <strong>Background:</strong> ${actor.system?.backgroundname || "None"}
+      <strong>Alignment:</strong> ${formatAlignment(actor.system?.details?.alignment)}
+
+      <strong>Background:</strong> ${actor.system?.backgroundname || "None"}
+
       </div>
 
       <h4>Ability Scores</h4>
@@ -636,4 +642,14 @@ export function getStoredCharacters() {
     }
     return img; // external or custom image
   }
+
+  function formatAlignment(code) {
+    const map = {
+      lg: "Lawful Good", ln: "Lawful Neutral", le: "Lawful Evil",
+      ng: "Neutral Good", n: "Neutral", ne: "Neutral Evil",
+      cg: "Chaotic Good", cn: "Chaotic Neutral", ce: "Chaotic Evil"
+    };
+    return map[code?.toLowerCase()] || code?.toUpperCase() || "Unknown";
+  }
+  
   
