@@ -161,18 +161,35 @@ export function getStoredCharacters() {
     mainTab.className = "tab-content";
     mainTab.dataset.tab = "main";
     mainTab.style.display = "block";
-  
+
     mainTab.innerHTML = `
       <h3>${actor.name}</h3>
-      <div><strong>Class:</strong> ${actor.system?.classname || ""} <strong>Race:</strong> ${actor.racename || ""}</div>
-      <div><strong>Alignment:</strong> ${actor.system?.details?.alignment || ""} <strong>Background:</strong> ${actor.system?.backgroundname || ""}</div>
-      <div><strong>Size:</strong> ${actor.system?.attributes?.size || ""} <strong>Honor:</strong> ${actor.system?.attributes?.hnr?.value ?? 0}</div>
+
+      <div>
+        <strong>Class:</strong> ${actor.activeClasses?.map(cls => `${cls.name} (Level ${cls.system?.level ?? "?"})`).join(', ') || "Unknown"}
+        <strong>Race:</strong> ${actor.system?.details?.race?.name || "Unknown"}
+      </div>
+
+      <div>
+        <strong>Alignment:</strong> ${actor.system?.details?.alignment || "Unknown"}
+        <strong>Background:</strong> ${actor.system?.backgroundname || "None"}
+      </div>
+
       <h4>Ability Scores</h4>
-      <div class="flexrow">${Object.entries(actor.system?.abilities || {}).map(([k, v]) => `<div><strong>${k.toUpperCase()}:</strong> ${v.value}</div>`).join('')}</div>
+      <div class="flexrow">
+        ${Object.entries(actor.system?.abilities || {}).map(([k, v]) => `
+          <div><strong>${k.toUpperCase()}:</strong> ${v.value}</div>
+        `).join('')}
+      </div>
+
       <h4>Saving Throws</h4>
-      <div class="flexrow">${Object.entries(actor.system?.saves || {}).map(([k, v]) => `<div><strong>${k.toUpperCase()}:</strong> ${v?.value ?? v}</div>`).join('')}</div>
+      <div class="flexrow">
+        ${Object.entries(actor.system?.saves || {}).map(([k, v]) => `
+          <div><strong>${k.toUpperCase()}:</strong> ${v?.value ?? v}</div>
+        `).join('')}
+      </div>
     `;
-  
+
     const combatTab = document.createElement("div");
     combatTab.className = "tab-content";
     combatTab.dataset.tab = "combat";
