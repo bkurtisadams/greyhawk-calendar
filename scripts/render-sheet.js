@@ -181,6 +181,31 @@ export function getStoredCharacters() {
     console.log("🧙 Classname:", className);
     console.log("🧝 Racename:", raceName);
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // 🧙 Fix class name using activeClasses
+    if (actor.activeClasses?.length) {
+      const cls = actor.activeClasses[0];
+      const level = cls.system?.level ?? "?";
+      className = `${cls.name} (Level ${level})`;
+    } else if (actor.system?.classname) {
+      className = actor.system.classname;
+    } else {
+      className = "Unknown";
+    }
+
+    // 🧝 Fix race name using actor.details.race.name
+    if (actor.details?.race?.name) {
+      raceName = actor.details.race.name;
+    } else if (actor.system?.details?.race?.name) {
+      raceName = actor.system.details.race.name;
+    } else {
+      raceName = "Unknown";
+    }
+
+    // 🧭 Capitalize alignment if not already
+    alignmentText = alignmentText.charAt(0).toUpperCase() + alignmentText.slice(1).toLowerCase();
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     mainTab.innerHTML = `
     <h3>${actor.name}</h3>
 
