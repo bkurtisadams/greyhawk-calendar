@@ -410,26 +410,39 @@ export function getStoredCharacters() {
         li.setAttribute("draggable", "true");
         li.dataset.uuid = item._id || "";
 
-        let itemText = item.name;
+        let nameSpan = document.createElement("span");
+        nameSpan.innerHTML = `<img src="${item.img}" style="height:1em; vertical-align:middle; margin-right:5px;"> ${item.name}`;
+        li.appendChild(nameSpan);
 
-        // Add quantity if more than 1
-        const quantity = item.system?.quantity ?? 1;
-        if (quantity > 1) {
-          itemText += ` (x${quantity})`;
-        }
-
-        // Add weight
-        const weight = item.system?.weight ?? 0;
-        itemText += ` - ${weight} lb`;
-
-        li.textContent = itemText;
-
-        // Highlight magic items in blue
+        // Magic: blue text or icon
         if (item.system?.magical) {
-          li.style.color = "blue";
+          nameSpan.style.color = "blue";
+          nameSpan.innerHTML += ` <span title="Magical">✨</span>`;
         }
+
+        // Identified: optional icon
+        if (item.system?.identified === false) {
+          nameSpan.innerHTML += ` <span title="Unidentified">❓</span>`;
+        }
+
+        // Carried state: add (Equipped), (Carried), etc.
+        const carriedState = item.system?.carried ?? "carried";
+        const carriedLabel = carriedState === "equipped" ? " (Equipped)" :
+                            carriedState === "carried" ? " (Carried)" :
+                            carriedState === "dropped" ? " (Not Carried)" : "";
+        nameSpan.innerHTML += carriedLabel;
+
+        // Quantity and weight
+        const quantity = item.system?.quantity ?? 1;
+        const weight = item.system?.weight ?? 0;
+        const qtyWeight = document.createElement("small");
+        qtyWeight.style.marginLeft = "0.5em";
+        qtyWeight.style.color = "#666";
+        qtyWeight.textContent = `(x${quantity}, ${weight} lb)`;
+        li.appendChild(qtyWeight);
 
         ul.appendChild(li);
+
       });
 
       makeListDraggable(ul);
