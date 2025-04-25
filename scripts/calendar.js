@@ -39,13 +39,33 @@ const GREYHAWK_HOLIDAYS = [
 ];
 
 // Current date tracking - initialize to campaign start
-let currentYear = 568; // Common Year (CY)
-let currentMonth = 5; // Planting
+let currentYear = 567; // Common Year (CY)
+let currentMonth = 1; // Needfest
 let currentDay = 1; // 1st day of the month
 
 // UI state tracking
-let activeView = "calendar-view";
+let activeView = localStorage.getItem("activeViewId") || "calendar-view";
 let activeYear = currentYear;
+
+// Tab switching helper
+function switchTab(tabName) {
+    // Hide all main tabs
+    document.querySelectorAll(".main-tab").forEach(tab => tab.style.display = "none");
+  
+    // Find the tab element
+    const tab = document.getElementById(tabName);
+  
+    if (tab) {
+      tab.style.display = "block";
+      localStorage.setItem("activeViewId", tabName);
+    } else {
+      console.warn(`Tab "${tabName}" not found. Falling back to Calendar.`);
+      // fallback to Calendar view
+      document.getElementById("calendar-view")?.style.display = "block";
+      localStorage.setItem("activeViewId", "calendar-view");
+    }
+  }
+
 
 /**
  * Calculate day of week for a Greyhawk date.
@@ -110,6 +130,8 @@ async function loadCampaignData() {
 
 // Function to initialize the calendar application
 function initializeCalendar() {
+    loadContentFromLocalStorage();
+
     loadCampaignData().then(() => {
         // Update the display with the current campaign date
         updateCurrentDateDisplay();
