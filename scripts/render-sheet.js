@@ -164,13 +164,13 @@ export function getStoredCharacters() {
 
     // display classes (multi-class support)
     const className = actor.activeClasses?.length
-      ? actor.activeClasses.map(c => `${c.name} (Level ${c.system?.level ?? "?"})`).join(", ")
-      : actor.system?.classname || "Unknown";
+    ? actor.activeClasses.map(c => `${c.name} (Level ${c.system?.level ?? "?"})`).join(", ")
+    : actor.system?.classname || "Unknown";
 
     // display race
-    const raceName = actor.races?.length
-      ? actor.races[0]?.name
-      : actor.system?.details?.race?.name || "Unknown";
+    const raceName = actor.details?.race?.name
+    || actor.system?.details?.race?.name
+    || "Unknown";
 
     // Capitalized or full name alignment
     const alignmentText = formatAlignment(actor.system?.details?.alignment || "Unknown");
@@ -180,25 +180,26 @@ export function getStoredCharacters() {
 
     console.log("🧙 Classname:", className);
     console.log("🧝 Racename:", raceName);
+
     mainTab.innerHTML = `
-      <h3>${actor.name}</h3>
+    <h3>${actor.name}</h3>
 
-      <div><strong>Class:</strong> ${className} <strong>Race:</strong> ${raceName}</div>
-      <div><strong>Alignment:</strong> ${alignmentText} <strong>Background:</strong> ${backgroundName}</div>
+    <div><strong>Class:</strong> ${className} <strong>Race:</strong> ${raceName}</div>
+    <div><strong>Alignment:</strong> ${alignmentText} <strong>Background:</strong> ${backgroundName}</div>
 
-      <h4>Ability Scores</h4>
-      <div class="flexrow">
-        ${Object.entries(actor.system?.abilities || {}).map(([k, v]) => `
-          <div><strong>${k.toUpperCase()}:</strong> ${v.value}</div>
-        `).join('')}
-      </div>
+    <h4>Ability Scores</h4>
+    <div class="flexrow">
+      ${Object.entries(actor.system?.abilities || {}).map(([k, v]) => `
+        <div><strong>${k.toUpperCase()}:</strong> ${v.value}</div>
+      `).join('')}
+    </div>
 
-      <h4>Saving Throws</h4>
-      <div class="flexrow">
-        ${Object.entries(actor.system?.saves || {}).map(([k, v]) => `
-          <div><strong>${k.toUpperCase()}:</strong> ${v?.value ?? v}</div>
-        `).join('')}
-      </div>
+    <h4>Saving Throws</h4>
+    <div class="flexrow">
+      ${Object.entries(actor.system?.saves || {}).map(([k, v]) => `
+        <div><strong>${k.toUpperCase()}:</strong> ${v?.value ?? v}</div>
+      `).join('')}
+    </div>
     `;
 
     const combatTab = document.createElement("div");
