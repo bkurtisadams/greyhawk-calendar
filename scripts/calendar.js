@@ -61,7 +61,11 @@ function switchTab(tabName) {
     } else {
       console.warn(`Tab "${tabName}" not found. Falling back to Calendar.`);
       // fallback to Calendar view
-      document.getElementById("calendar-view")?.style.display = "block";
+      const fallbackTab = document.getElementById("calendar-view");
+        if (fallbackTab) {
+            fallbackTab.style.display = "block";
+        }
+
       localStorage.setItem("activeViewId", "calendar-view");
     }
   }
