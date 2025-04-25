@@ -166,12 +166,7 @@ export function getStoredCharacters() {
       <h3>${actor.name}</h3>
 
       <div>
-        <strong>Class:</strong> ${
-          actor.activeClasses?.map(cls =>
-            `${cls.name} (Level ${cls.system?.level ?? "?"})`
-          ).join(", ") || "Unknown"
-        }
-
+        <strong>Class:</strong> ${actor.system?.classname || "Unknown"}
         <strong>Race:</strong> ${actor.racename || actor.races?.[0]?.name || "Unknown"}
       </div>
 
