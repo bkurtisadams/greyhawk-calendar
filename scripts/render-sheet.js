@@ -430,7 +430,11 @@ export function getStoredCharacters() {
         img.src = item.img;
         img.style.height = "1em";
         img.style.verticalAlign = "middle";
-        img.onerror = () => img.src = "/icons/svg/item-bag.svg";
+        img.onerror = function handler() {
+          img.onerror = null; // prevent infinite loop
+          img.src = "icons/items/misc/sack.webp"; // fallback once
+        };
+        
         iconTd.appendChild(img);
         tr.appendChild(iconTd);
     
