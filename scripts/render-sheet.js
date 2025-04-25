@@ -279,7 +279,7 @@ export function getStoredCharacters() {
     const acSection = document.createElement("div");
     acSection.style.display = "flex";
     acSection.style.alignItems = "center";
-    
+
     const acValue = document.createElement("div");
     acValue.className = "ac-value";
     acValue.style.display = "flex";
@@ -292,78 +292,145 @@ export function getStoredCharacters() {
     acValue.style.padding = "5px";
     acValue.style.marginRight = "10px";
     acValue.style.justifyContent = "center";
-    
+
     const acLabel = document.createElement("div");
     acLabel.textContent = "Armor Class";
     acLabel.style.fontSize = "10px";
-    
+
     const acValues = calculateArmorClass(actor);
-    // 🛡️ Armor and shield info display under AC
-    const armor = actor.items?.find(i => i.type === "armor" && i.system?.location?.state === "equipped");
+
+    // 🛡️ Armor and shield info
+    const armor = actor.items?.find(i => 
+      i.type === "armor" && 
+      i.system?.location?.state === "equipped" &&
+      (i.system?.protection?.type || "").toLowerCase() === "armor"
+    );
+
     const shield = actor.items?.find(i => 
-      i.type === "equipment" &&
+      (i.type === "armor" || i.type === "equipment") &&
       i.name?.toLowerCase().includes("shield") &&
       i.system?.location?.state === "equipped"
     );
 
-    // Build armor/shield display text
-    let equipmentText = '';
+    // Build visible equipment text (multi-line)
+    let equipmentLines = [];
+
     if (armor) {
-      equipmentText += armor.name;
-      const bonus = armor.system?.attributes?.bonus || 0;
-      if (bonus) equipmentText += ` (+${bonus})`;
-    }
-    if (shield) {
-      if (equipmentText) equipmentText += ' + ';
-      equipmentText += shield.name;
-      const bonus = shield.system?.attributes?.bonus || 0;
-      if (bonus) equipmentText += ` (+${bonus})`;
+      const base = armor.system?.protection?.ac ?? "?";
+      const mod = armor.system?.protection?.modifier ?? 0;
+      equipmentLines.push(`${armor.name} (AC ${base}, +${mod} magic)`);
+    } else {
+      equipmentLines.push(`No Armor`);
     }
 
-    // Create a little div to show armor/shield info
+    if (shield) {
+      const mod = shield.system?.protection?.modifier ?? 0;
+      equipmentLines.push(`${shield.name} (+${1 + mod} AC)`);
+    }
+
+    // Find protection items
+    const protectionItems = actor.items?.filter(i => {
+      const name = i.name?.toLowerCase() || "";
+      return (name.includes("ring of protection") ||
+              name.includes("cloak of protection") ||
+              name.includes("amulet of protection")) &&
+            i.system?.location?.state === "equipped";
+    }) || [];
+
+    if (protectionItems.length > 0) {
+      protectionItems.forEach(item => {
+        const bonus = item.system?.attributes?.bonus ?? 1;
+        equipmentLines.push(`${item.name} (+${bonus} AC)`);
+      });
+    }
+
+    // Final display text (multi-line)
+    const equipmentText = equipmentLines.join('<br>');
+
+    // Create div under AC showing armor/shield/magic worn
     const equipmentDiv = document.createElement("div");
     equipmentDiv.style.fontSize = "10px";
     equipmentDiv.style.marginTop = "4px";
     equipmentDiv.style.textAlign = "center";
-    equipmentDiv.textContent = equipmentText || "No Armor";
+    equipmentDiv.innerHTML = equipmentText || "No Armor";
 
-    // Attach a tooltip to the AC circle
-    acValue.title = equipmentText || "No Armor Equipped";
+    // Full hover tooltip with sources
+    let tooltip = "";
 
-    // Add below AC bubble
-    acSection.appendChild(equipmentDiv);
+    if (armor) {
+      const base = armor.system?.protection?.ac ?? "?";
+      const mod = armor.system?.protection?.modifier ?? 0;
+      tooltip += `🛡️ Armor: ${armor.name} (AC ${base}, +${mod} magic)\n`;
+    } else {
+      tooltip += `🛡️ Armor: None\n`;
+    }
 
+    if (shield) {
+      const mod = shield.system?.protection?.modifier ?? 0;
+      tooltip += `🛡️ Shield: ${shield.name} (+${1 + mod} AC total)\n`;
+    } else {
+      tooltip += `🛡️ Shield: None\n`;
+    }
 
+    // Real DEX adjustment
+    const dex = actor.system?.abilities?.dex?.value ?? 10;
+    let dexBonus = 0;
+    if (dex === 3) dexBonus = +4;
+    else if (dex === 4) dexBonus = +3;
+    else if (dex === 5) dexBonus = +2;
+    else if (dex === 6) dexBonus = +1;
+    else if (dex >= 7 && dex <= 14) dexBonus = 0;
+    else if (dex === 15) dexBonus = -1;
+    else if (dex === 16) dexBonus = -2;
+    else if (dex === 17) dexBonus = -3;
+    else if (dex === 18) dexBonus = -4;
+
+    tooltip += `🏃 Dex ${dex}: ${dexBonus >= 0 ? "+" : ""}${dexBonus} AC\n`;
+
+    if (protectionItems.length > 0) {
+      protectionItems.forEach(item => {
+        const bonus = item.system?.attributes?.bonus ?? 1;
+        tooltip += `💍 ${item.name} (+${bonus} AC)\n`;
+      });
+    } else {
+      tooltip += `💍 No additional protection items\n`;
+    }
+
+    // Attach tooltip to AC value
+    acValue.title = tooltip.trim();
+
+    // Create AC number display
     const acNum = document.createElement("div");
     acNum.textContent = acValues.normal;
-
     acNum.style.fontSize = "24px";
     acNum.style.fontWeight = "bold";
-    
+
     acValue.appendChild(acLabel);
     acValue.appendChild(acNum);
-    
+
+    // Create shieldless and rear AC rows
     const acDetails = document.createElement("div");
     acDetails.style.display = "flex";
     acDetails.style.flexDirection = "column";
-    
+
     const shieldlessRow = document.createElement("div");
     shieldlessRow.innerHTML = `<span>Shieldless</span> <span>${acValues.shieldless}</span>`;
-
     shieldlessRow.style.display = "flex";
     shieldlessRow.style.justifyContent = "space-between";
-    
+
     const rearRow = document.createElement("div");
     rearRow.innerHTML = `<span>Rear</span> <span>${acValues.rear}</span>`;
-    
     rearRow.style.display = "flex";
     rearRow.style.justifyContent = "space-between";
-    
+
     acDetails.appendChild(shieldlessRow);
     acDetails.appendChild(rearRow);
-    
+
+    // Add everything to acSection
     acSection.appendChild(acValue);
+    acSection.appendChild(equipmentDiv);
     acSection.appendChild(acDetails);
+
     
     // Hit Points section
     const hpSection = document.createElement("div");
