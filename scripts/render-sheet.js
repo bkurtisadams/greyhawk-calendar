@@ -228,7 +228,9 @@ export function getStoredCharacters() {
 
     const details = actor.system?.details ?? {};
     const prof = actor.system?.proficiency || actor.proficiency || {};
-    const xp = actor.system?.experience || actor.experience || {};
+    const xp = actor.system?.details?.xp
+      ? { total: actor.system.details.xp }
+      : actor.system?.experience || actor.experience || {};
     const classes = actor.activeClasses ?? [];
 
     detailsTab.innerHTML = `
