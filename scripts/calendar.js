@@ -1353,15 +1353,9 @@ function deleteSelectedContent() {
 
 // Initialize the calendar when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    loadCampaignData().then(() => {
-        updateCurrentDateDisplay();
-        buildCalendarYear(CAMPAIGN_DATE?.year || 569);
-        generateTimeline();
-        generateHolidaysList();
-        setupEventListeners();
-        populateAdminDateSelectors();
-    });
+    initializeCalendar();
 });
+
 
 // Function to generate the calendar grid for a given year
 
