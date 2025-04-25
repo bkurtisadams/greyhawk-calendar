@@ -163,69 +163,48 @@ export function getStoredCharacters() {
     mainTab.style.display = "block";
 
     // display classes (multi-class support)
-    const className = actor.activeClasses?.length
-    ? actor.activeClasses.map(c => `${c.name} (Level ${c.system?.level ?? "?"})`).join(", ")
-    : actor.system?.classname || "Unknown";
+    className = actor.activeClasses?.length
+    ? actor.activeClasses.map(c => {
+        const lvl = c.system?.level ?? "?";
+        return `${c.name} (Level ${lvl})`;
+      }).join(", ")
+    : (actor.system?.classname || "Unknown");
 
     // display race
-    const raceName = actor.details?.race?.name
+    raceName = actor.details?.race?.name
     || actor.system?.details?.race?.name
+    || actor.racename
     || "Unknown";
 
     // Capitalized or full name alignment
-    const alignmentText = formatAlignment(actor.system?.details?.alignment || "Unknown");
+    alignmentText = formatAlignment(actor.system?.details?.alignment || "Unknown");
 
     // display background
-    const backgroundName = actor.system?.backgroundname || "None";
+    backgroundName = actor.system?.backgroundname || "None";
 
-    console.log("🧙 Classname:", className);
-    console.log("🧝 Racename:", raceName);
+  console.log("🧙 Classname:", className);
+  console.log("🧝 Racename:", raceName);
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // 🧙 Fix class name using activeClasses
-    if (actor.activeClasses?.length) {
-      const cls = actor.activeClasses[0];
-      const level = cls.system?.level ?? "?";
-      className = `${cls.name} (Level ${level})`;
-    } else if (actor.system?.classname) {
-      className = actor.system.classname;
-    } else {
-      className = "Unknown";
-    }
+  mainTab.innerHTML = `
+  <h3>${actor.name}</h3>
 
-    // 🧝 Fix race name using actor.details.race.name
-    if (actor.details?.race?.name) {
-      raceName = actor.details.race.name;
-    } else if (actor.system?.details?.race?.name) {
-      raceName = actor.system.details.race.name;
-    } else {
-      raceName = "Unknown";
-    }
+  <div><strong>Class:</strong> ${className} <strong>Race:</strong> ${raceName}</div>
+  <div><strong>Alignment:</strong> ${alignmentText} <strong>Background:</strong> ${backgroundName}</div>
 
-    // 🧭 Capitalize alignment if not already
-    alignmentText = alignmentText.charAt(0).toUpperCase() + alignmentText.slice(1).toLowerCase();
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  <h4>Ability Scores</h4>
+  <div class="flexrow">
+    ${Object.entries(actor.system?.abilities || {}).map(([k, v]) => `
+      <div><strong>${k.toUpperCase()}:</strong> ${v.value}</div>
+    `).join('')}
+  </div>
 
-    mainTab.innerHTML = `
-    <h3>${actor.name}</h3>
-
-    <div><strong>Class:</strong> ${className} <strong>Race:</strong> ${raceName}</div>
-    <div><strong>Alignment:</strong> ${alignmentText} <strong>Background:</strong> ${backgroundName}</div>
-
-    <h4>Ability Scores</h4>
-    <div class="flexrow">
-      ${Object.entries(actor.system?.abilities || {}).map(([k, v]) => `
-        <div><strong>${k.toUpperCase()}:</strong> ${v.value}</div>
-      `).join('')}
-    </div>
-
-    <h4>Saving Throws</h4>
-    <div class="flexrow">
-      ${Object.entries(actor.system?.saves || {}).map(([k, v]) => `
-        <div><strong>${k.toUpperCase()}:</strong> ${v?.value ?? v}</div>
-      `).join('')}
-    </div>
-    `;
+  <h4>Saving Throws</h4>
+  <div class="flexrow">
+    ${Object.entries(actor.system?.saves || {}).map(([k, v]) => `
+      <div><strong>${k.toUpperCase()}:</strong> ${v?.value ?? v}</div>
+    `).join('')}
+  </div>
+  `;
 
     const combatTab = document.createElement("div");
     combatTab.className = "tab-content";
