@@ -940,7 +940,7 @@ function updateEventFilters() {
     });
 }
 
-function setupYearNavigation() {
+/* function setupYearNavigation() {
     document.getElementById('prev-year').addEventListener('click', function () {
         const currentYear = parseInt(document.getElementById('display-year').textContent);
         buildCalendarYear(currentYear - 1);
@@ -950,7 +950,7 @@ function setupYearNavigation() {
         const currentYear = parseInt(document.getElementById('display-year').textContent);
         buildCalendarYear(currentYear + 1);
     });
-}
+} */
 
 function setupAdminPanel() {
     const adminToggle = document.getElementById('admin-toggle');
