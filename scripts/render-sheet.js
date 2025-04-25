@@ -163,15 +163,13 @@ export function getStoredCharacters() {
     mainTab.style.display = "block";
 
     // display classes (multi-class support)
-    const className = actor.activeClasses?.length
-    ? actor.activeClasses.map(cls => `${cls.name} (Level ${cls.system?.level ?? "?"})`).join(", ")
-    : actor.system?.classname || "Unknown";
+    const className = actor.system?.classname || "Unknown";
 
     // display race
-    const raceName = actor.races?.[0]?.name || actor.system?.details?.race?.name || "Unknown";
+    const raceName = actor.racename || "Unknown";
 
     // Capitalized or full name alignment
-    const alignmentText = formatAlignment(actor.system?.details?.alignment);
+    const alignmentText = formatAlignment(actor.system?.details?.alignment || "Unknown");
 
     // display background
     const backgroundName = actor.system?.backgroundname || "None";
@@ -644,13 +642,18 @@ export function getStoredCharacters() {
     return img; // external or custom image
   }
 
-  function formatAlignment(code) {
+  function formatAlignment(alignment) {
     const map = {
-      lg: "Lawful Good", ln: "Lawful Neutral", le: "Lawful Evil",
-      ng: "Neutral Good", n: "Neutral", ne: "Neutral Evil",
-      cg: "Chaotic Good", cn: "Chaotic Neutral", ce: "Chaotic Evil"
+      l: "Lawful",
+      n: "Neutral",
+      c: "Chaotic",
+      g: "Good",
+      e: "Evil"
     };
-    return map[code?.toLowerCase()] || code?.toUpperCase() || "Unknown";
+    if (!alignment) return "Unknown";
+  
+    const chars = alignment.toLowerCase().split("");
+    return chars.map(c => map[c] || "?").join(" ");
   }
   
   
