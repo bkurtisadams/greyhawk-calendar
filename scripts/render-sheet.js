@@ -163,10 +163,14 @@ export function getStoredCharacters() {
     mainTab.style.display = "block";
 
     // display classes (multi-class support)
-    const className = actor.system?.classname ?? "Unknown";
+    const className = actor.activeClasses?.length
+      ? actor.activeClasses.map(c => `${c.name} (Level ${c.system?.level ?? "?"})`).join(", ")
+      : actor.system?.classname || "Unknown";
 
     // display race
-    const raceName = actor.racename ?? "Unknown";
+    const raceName = actor.races?.length
+      ? actor.races[0]?.name
+      : actor.system?.details?.race?.name || "Unknown";
 
     // Capitalized or full name alignment
     const alignmentText = formatAlignment(actor.system?.details?.alignment || "Unknown");
@@ -180,7 +184,7 @@ export function getStoredCharacters() {
       <h3>${actor.name}</h3>
 
       <div><strong>Class:</strong> ${className} <strong>Race:</strong> ${raceName}</div>
-       <div><strong>Alignment:</strong> ${alignmentText} <strong>Background:</strong> ${backgroundName}</div>
+      <div><strong>Alignment:</strong> ${alignmentText} <strong>Background:</strong> ${backgroundName}</div>
 
       <h4>Ability Scores</h4>
       <div class="flexrow">
