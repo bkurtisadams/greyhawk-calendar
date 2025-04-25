@@ -163,24 +163,16 @@ export function getStoredCharacters() {
     mainTab.style.display = "block";
 
     // display classes (multi-class support)
-    className = actor.activeClasses?.length
-    ? actor.activeClasses.map(c => {
-        const lvl = c.system?.level ?? "?";
-        return `${c.name} (Level ${lvl})`;
-      }).join(", ")
-    : (actor.system?.classname || "Unknown");
+    const className = actor.system?.classname ?? "Unknown";
 
     // display race
-    raceName = actor.details?.race?.name
-    || actor.system?.details?.race?.name
-    || actor.racename
-    || "Unknown";
+    const raceName = actor.racename ?? "Unknown";
 
     // Capitalized or full name alignment
-    alignmentText = formatAlignment(actor.system?.details?.alignment || "Unknown");
+    const alignmentText = formatAlignment(actor.system?.details?.alignment || "Unknown");
 
     // display background
-    backgroundName = actor.system?.backgroundname || "None";
+    const backgroundName = actor.system?.backgroundname || "None";
 
   console.log("🧙 Classname:", className);
   console.log("🧝 Racename:", raceName);
