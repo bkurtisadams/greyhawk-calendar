@@ -1487,25 +1487,28 @@ function showEventDetails(event) {
     document.getElementById('event-modal').style.display = 'block';
 }
 
+    document.addEventListener("DOMContentLoaded", () => {
+        // Now safe to bind buttons to getStoredCharacters etc.
+        document.getElementById('clear-characters-btn')?.addEventListener('click', () => {
+        localStorage.removeItem('storedCharacters');
+        location.reload();
+        });
+    
+    document.getElementById('upload-character-file')?.addEventListener('change', async (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const uploadedCharacter = await readCharacterFile(file);
+        if (uploadedCharacter) {
+          const currentCharacters = getStoredCharacters();
+          currentCharacters.push(uploadedCharacter);
+          saveStoredCharacters(currentCharacters);
+          location.reload();
+        }
+      }
+    });
+  });
 
-
-
-
-
-
-
-
-
-
-
-
-// Toggle between views
-
-
-
-
-
-
+  // Toggle between views
 function setupEventFilters() {
     const filters = [
         'filter-holiday',
