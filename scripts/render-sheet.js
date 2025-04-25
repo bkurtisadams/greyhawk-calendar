@@ -925,7 +925,7 @@ export function getStoredCharacters() {
 
   // Make sure to create and append the items tab in the main render function
   //const itemsTab = createItemsTab(actor);
-  contentArea.appendChild(itemsTab);
+  //contentArea.appendChild(itemsTab);
   // Example of createMatrixTab
   function createMatrixTab(actor) {
     const tab = document.createElement("div");
