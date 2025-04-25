@@ -157,46 +157,51 @@ export function getStoredCharacters() {
     deleteBtn.addEventListener("click", () => deleteCharacterById(actorId));
     sidebar.appendChild(deleteBtn);
   
+    // Main tab content
     const mainTab = document.createElement("div");
     mainTab.className = "tab-content";
     mainTab.dataset.tab = "main";
     mainTab.style.display = "block";
 
-    // display classes (multi-class support)
-    const className = actor.system?.classname ?? "Unknown";
+    // Find class item
+    const classItems = actor.items?.filter(i => i.type === "class") || [];
+    const className = classItems.length > 0 
+      ? classItems.map(c => c.name).join(", ") 
+      : (actor.system?.className || actor.className || "Unknown");
 
-    // display race
-    const raceName = actor.racename ?? "Unknown";
+    // Find race item
+    const raceItem = actor.items?.find(i => i.type === "race");
+    const raceName = raceItem?.name || actor.system?.raceName || "Unknown";
 
     // Capitalized or full name alignment
     const alignmentText = formatAlignment(actor.system?.details?.alignment || "Unknown");
 
     // display background
-    const backgroundName = actor.system?.backgroundname || "None";
+    const backgroundName = actor.system?.details?.background || "None";
 
-  console.log("🧙 Classname:", className);
-  console.log("🧝 Racename:", raceName);
+    console.log("🧙 Classname:", className);
+    console.log("🧝 Racename:", raceName);
 
-  mainTab.innerHTML = `
-  <h3>${actor.name}</h3>
+    mainTab.innerHTML = `
+    <h3>${actor.name}</h3>
 
-  <div><strong>Class:</strong> ${className} <strong>Race:</strong> ${raceName}</div>
-  <div><strong>Alignment:</strong> ${alignmentText} <strong>Background:</strong> ${backgroundName}</div>
+    <div><strong>Class:</strong> ${className} <strong>Race:</strong> ${raceName}</div>
+    <div><strong>Alignment:</strong> ${alignmentText} <strong>Background:</strong> ${backgroundName}</div>
 
-  <h4>Ability Scores</h4>
-  <div class="flexrow">
-    ${Object.entries(actor.system?.abilities || {}).map(([k, v]) => `
-      <div><strong>${k.toUpperCase()}:</strong> ${v.value}</div>
-    `).join('')}
-  </div>
+    <h4>Ability Scores</h4>
+    <div class="flexrow">
+      ${Object.entries(actor.system?.abilities || {}).map(([k, v]) => `
+        <div><strong>${k.toUpperCase()}:</strong> ${v.value}</div>
+      `).join('')}
+    </div>
 
-  <h4>Saving Throws</h4>
-  <div class="flexrow">
-    ${Object.entries(actor.system?.saves || {}).map(([k, v]) => `
-      <div><strong>${k.toUpperCase()}:</strong> ${v?.value ?? v}</div>
-    `).join('')}
-  </div>
-  `;
+    <h4>Saving Throws</h4>
+    <div class="flexrow">
+      ${Object.entries(actor.system?.saves || {}).map(([k, v]) => `
+        <div><strong>${k.toUpperCase()}:</strong> ${v?.value ?? v}</div>
+      `).join('')}
+    </div>
+    `;
 
     const combatTab = document.createElement("div");
     combatTab.className = "tab-content";
