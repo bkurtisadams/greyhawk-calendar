@@ -102,6 +102,54 @@ export function getStoredCharacters() {
     return wrapper;
   }
   
+  function calculateArmorClass(actor) {
+    let baseAC = 10;
+    let armorBonus = 0;
+    let shieldBonus = 0;
+    let dexBonus = 0;
+  
+    // Step 1: Find equipped armor and shield
+    const armor = actor.items?.find(i => i.type === "armor" && i.system?.location?.state === "equipped");
+    const shield = actor.items?.find(i => 
+      i.type === "equipment" &&
+      i.name?.toLowerCase().includes("shield") &&
+      i.system?.location?.state === "equipped"
+    );
+  
+    // Step 2: Apply base armor AC
+    if (armor) {
+      baseAC = armor.system?.attributes?.ac || 10;
+      armorBonus = armor.system?.attributes?.bonus || 0;
+    }
+  
+    // Step 3: Apply shield bonus
+    if (shield) {
+      shieldBonus = shield.system?.attributes?.bonus || 1; // Assume normal shield gives -1 AC unless overridden
+    }
+  
+    // Step 4: Dexterity bonus
+    const dex = actor.system?.abilities?.dex?.value || 10;
+    if (dex <= 3) dexBonus = -3;
+    else if (dex <= 5) dexBonus = -2;
+    else if (dex <= 8) dexBonus = -1;
+    else if (dex <= 12) dexBonus = 0;
+    else if (dex <= 15) dexBonus = 1;
+    else if (dex === 16) dexBonus = 2;
+    else if (dex === 17) dexBonus = 3;
+    else if (dex >= 18) dexBonus = 4;
+  
+    // Step 5: Calculate variations
+    const normal = baseAC - armorBonus - shieldBonus - dexBonus;
+    const shieldless = baseAC - armorBonus - dexBonus; // No shield bonus
+    const rear = baseAC - armorBonus; // No shield, no dex
+  
+    return {
+      normal,
+      shieldless,
+      rear
+    };
+  }
+
   export function renderCharacterSheet(actor) {
     const actorId = getActorId(actor);
     const wrapper = document.createElement("div");
@@ -209,8 +257,46 @@ export function getStoredCharacters() {
     acLabel.textContent = "Armor Class";
     acLabel.style.fontSize = "10px";
     
+    const acValues = calculateArmorClass(actor);
+    // 🛡️ Armor and shield info display under AC
+    const armor = actor.items?.find(i => i.type === "armor" && i.system?.location?.state === "equipped");
+    const shield = actor.items?.find(i => 
+      i.type === "equipment" &&
+      i.name?.toLowerCase().includes("shield") &&
+      i.system?.location?.state === "equipped"
+    );
+
+    // Build armor/shield display text
+    let equipmentText = '';
+    if (armor) {
+      equipmentText += armor.name;
+      const bonus = armor.system?.attributes?.bonus || 0;
+      if (bonus) equipmentText += ` (+${bonus})`;
+    }
+    if (shield) {
+      if (equipmentText) equipmentText += ' + ';
+      equipmentText += shield.name;
+      const bonus = shield.system?.attributes?.bonus || 0;
+      if (bonus) equipmentText += ` (+${bonus})`;
+    }
+
+    // Create a little div to show armor/shield info
+    const equipmentDiv = document.createElement("div");
+    equipmentDiv.style.fontSize = "10px";
+    equipmentDiv.style.marginTop = "4px";
+    equipmentDiv.style.textAlign = "center";
+    equipmentDiv.textContent = equipmentText || "No Armor";
+
+    // Attach a tooltip to the AC circle
+    acValue.title = equipmentText || "No Armor Equipped";
+
+    // Add below AC bubble
+    acSection.appendChild(equipmentDiv);
+
+
     const acNum = document.createElement("div");
-    acNum.textContent = actor.system?.attributes?.ac?.value || "10";
+    acNum.textContent = acValues.normal;
+
     acNum.style.fontSize = "24px";
     acNum.style.fontWeight = "bold";
     
@@ -222,12 +308,14 @@ export function getStoredCharacters() {
     acDetails.style.flexDirection = "column";
     
     const shieldlessRow = document.createElement("div");
-    shieldlessRow.innerHTML = `<span>Shieldless</span> <span>${actor.system?.attributes?.ac?.shieldless || actor.system?.attributes?.ac?.value || "10"}</span>`;
+    shieldlessRow.innerHTML = `<span>Shieldless</span> <span>${acValues.shieldless}</span>`;
+
     shieldlessRow.style.display = "flex";
     shieldlessRow.style.justifyContent = "space-between";
     
     const rearRow = document.createElement("div");
-    rearRow.innerHTML = `<span>Rear</span> <span>${actor.system?.attributes?.ac?.rear || actor.system?.attributes?.ac?.value || "10"}</span>`;
+    rearRow.innerHTML = `<span>Rear</span> <span>${acValues.rear}</span>`;
+    
     rearRow.style.display = "flex";
     rearRow.style.justifyContent = "space-between";
     
