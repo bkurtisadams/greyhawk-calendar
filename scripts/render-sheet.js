@@ -109,26 +109,29 @@ export function getStoredCharacters() {
     let dexBonus = 0;
   
     // Step 1: Find equipped armor and shield
-    const armor = actor.items?.find(i => i.type === "armor" && i.system?.location?.state === "equipped");
+    const armor = actor.items?.find(i => 
+      i.type === "armor" && i.system?.location?.state === "equipped"
+    );
+  
     const shield = actor.items?.find(i => 
-      i.type === "equipment" &&
+      (i.type === "armor" || i.type === "equipment") &&
       i.name?.toLowerCase().includes("shield") &&
       i.system?.location?.state === "equipped"
     );
   
     // Step 2: Apply base armor AC
     if (armor) {
-      baseAC = armor.system?.attributes?.ac || 10;
-      armorBonus = armor.system?.attributes?.bonus || 0;
+      baseAC = armor.system?.attributes?.ac ?? 10;
+      armorBonus = armor.system?.attributes?.bonus ?? 0;
     }
   
     // Step 3: Apply shield bonus
     if (shield) {
-      shieldBonus = shield.system?.attributes?.bonus || 1; // Assume normal shield gives -1 AC unless overridden
+      shieldBonus = shield.system?.attributes?.bonus ?? 1;
     }
   
     // Step 4: Dexterity bonus
-    const dex = actor.system?.abilities?.dex?.value || 10;
+    const dex = actor.system?.abilities?.dex?.value ?? 10;
     if (dex <= 3) dexBonus = -3;
     else if (dex <= 5) dexBonus = -2;
     else if (dex <= 8) dexBonus = -1;
@@ -140,8 +143,8 @@ export function getStoredCharacters() {
   
     // Step 5: Calculate variations
     const normal = baseAC - armorBonus - shieldBonus - dexBonus;
-    const shieldless = baseAC - armorBonus - dexBonus; // No shield bonus
-    const rear = baseAC - armorBonus; // No shield, no dex
+    const shieldless = baseAC - armorBonus - dexBonus;
+    const rear = baseAC - armorBonus;
   
     return {
       normal,
@@ -149,6 +152,7 @@ export function getStoredCharacters() {
       rear
     };
   }
+  
 
   export function renderCharacterSheet(actor) {
     const actorId = getActorId(actor);
