@@ -111,32 +111,35 @@ export function getStoredCharacters() {
     let dexBonus = 0;
     let protectionBonus = 0;
   
-    // Find equipped armor
+    // Step 1: Find equipped armor
     const armor = actor.items?.find(i => 
       i.type === "armor" && i.system?.location?.state === "equipped"
     );
     if (armor) {
-      console.log(`🛡️ Armor found: ${armor.name} (Base AC ${armor.system?.attributes?.ac ?? "?"}, Magic Bonus +${armor.system?.attributes?.bonus ?? 0})`);
-      baseAC = armor.system?.attributes?.ac ?? 10;
-      armorMagicBonus = armor.system?.attributes?.bonus ?? 0;
+      const armorBaseAC = armor.system?.protection?.ac ?? 10;
+      const armorBonus = armor.system?.protection?.modifier ?? 0;
+      baseAC = armorBaseAC;
+      armorMagicBonus = armorBonus;
+      console.log(`🛡️ Armor found: ${armor.name} (Base AC ${armorBaseAC}, Magic Bonus +${armorBonus})`);
     } else {
       console.log(`⚠️ No armor equipped.`);
     }
   
-    // Find equipped shield
+    // Step 2: Find equipped shield
     const shield = actor.items?.find(i => 
       (i.type === "armor" || i.type === "equipment") &&
       i.name?.toLowerCase().includes("shield") &&
       i.system?.location?.state === "equipped"
     );
     if (shield) {
-      console.log(`🛡️ Shield found: ${shield.name} (Magic Bonus +${shield.system?.attributes?.bonus ?? 0})`);
-      shieldACBonus = 1 + (shield.system?.attributes?.bonus ?? 0);
+      const shieldBonus = shield.system?.protection?.modifier ?? 0;
+      shieldACBonus = 1 + shieldBonus;
+      console.log(`🛡️ Shield found: ${shield.name} (Base +1 shield bonus, Magic Bonus +${shieldBonus})`);
     } else {
       console.log(`⚠️ No shield equipped.`);
     }
   
-    // Find equipped protection items (rings, cloaks, etc.)
+    // Step 3: Find protection items
     const protectionItems = actor.items?.filter(i => {
       const name = i.name?.toLowerCase() || "";
       return (name.includes("ring of protection") || 
@@ -155,7 +158,7 @@ export function getStoredCharacters() {
       console.log(`⚠️ No protection items equipped.`);
     }
   
-    // Dexterity bonus
+    // Step 4: Dexterity bonus
     const dex = actor.system?.abilities?.dex?.value ?? 10;
     if (dex <= 3) dexBonus = -3;
     else if (dex <= 5) dexBonus = -2;
@@ -167,7 +170,7 @@ export function getStoredCharacters() {
     else if (dex >= 18) dexBonus = 4;
     console.log(`🏃 Dexterity score: ${dex} (Bonus ${dexBonus >= 0 ? "+" : ""}${dexBonus})`);
   
-    // Calculate ACs
+    // Step 5: Calculate final ACs
     const normal = baseAC - armorMagicBonus - shieldACBonus - protectionBonus - dexBonus;
     const shieldless = baseAC - armorMagicBonus - protectionBonus - dexBonus;
     const rear = baseAC - armorMagicBonus - protectionBonus;
@@ -181,7 +184,6 @@ export function getStoredCharacters() {
       rear
     };
   }
-  
 
   export function renderCharacterSheet(actor) {
     const actorId = getActorId(actor);
