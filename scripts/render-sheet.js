@@ -448,6 +448,7 @@ export function getStoredCharacters() {
     const matrixTab = createMatrixTab(actor);
     const weaponsTab = createWeaponsTab(actor);
     const actionsTab = createActionsTab(actor);
+    const itemsTab = createItemsTab(actor);
     const skillsTab = createSkillsTab(actor);
     const spellsTab = createSpellsTab(actor);
     const proficienciesTab = createProficienciesTab(actor);
@@ -924,7 +925,7 @@ export function getStoredCharacters() {
 
   // Make sure to create and append the items tab in the main render function
   //const itemsTab = createItemsTab(actor);
-  //contentArea.appendChild(itemsTab);
+  contentArea.appendChild(itemsTab);
   // Example of createMatrixTab
   function createMatrixTab(actor) {
     const tab = document.createElement("div");
