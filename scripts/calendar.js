@@ -497,7 +497,18 @@ function buildCalendarYear(year) {
     container.innerHTML = ''; // Clear previous content
 
     // Update displayed year
-    document.getElementById('display-year').textContent = year + ' CY';
+    document.getElementById('display-year').textContent = year + ' CY';    // Check if year is inside campaign range
+
+    if (year < 567 || year > 570) {
+        const message = document.createElement('div');
+        message.style.textAlign = "center";
+        message.style.padding = "2em";
+        message.style.fontSize = "1.2em";
+        message.style.color = "#8b4513";
+        message.innerHTML = `No Campaign Events for ${year} CY.`;
+        container.appendChild(message);
+        return; // ❌ Stop building the calendar
+    }
 
     // Create a month card for each Greyhawk month
     GREYHAWK_MONTHS.forEach((month, monthIndex) => {
