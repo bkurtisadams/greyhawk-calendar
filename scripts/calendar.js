@@ -138,7 +138,7 @@ function initializeCalendar() {
 
         // Generate the calendar for the active year
         buildCalendarYear(activeYear);
-        updateYearButtons();    // grey out button if necessary
+        //updateYearButtons();    // grey out button if necessary
 
         // Populate the timeline view
         generateTimeline();
