@@ -341,12 +341,12 @@ function setupEventListeners() {
     // Year navigation buttons
     document.getElementById('prev-year').addEventListener('click', () => {
         activeYear--;
-        generateCalendarGrid(activeYear);
+        buildCalendarYear(activeYear);
     });
 
     document.getElementById('next-year').addEventListener('click', () => {
         activeYear++;
-        generateCalendarGrid(activeYear);
+        buildCalendarYear(activeYear);
     });
 
     // Event filter checkboxes
