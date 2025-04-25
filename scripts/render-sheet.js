@@ -923,8 +923,8 @@ export function getStoredCharacters() {
   }
 
   // Make sure to create and append the items tab in the main render function
-  const itemsTab = createItemsTab(actor);
-  contentArea.appendChild(itemsTab);
+  //const itemsTab = createItemsTab(actor);
+  //contentArea.appendChild(itemsTab);
   // Example of createMatrixTab
   function createMatrixTab(actor) {
     const tab = document.createElement("div");
@@ -1209,9 +1209,9 @@ function createActionsTab(actor) {
   }
   // Finally check for items with actions
   else {
-    const itemsWithActions = actor.items?.filter(i => 
-      i.actions && i.actions.length > 0
-    ) || [];
+    const itemsWithActions = actor.items 
+      ? actor.items.filter(i => i.actions && i.actions.length > 0)
+      : [];
     
     actionItems = itemsWithActions.map(item => ({
       name: item.name,
@@ -1924,8 +1924,11 @@ function formatAlignment(alignment) {
   
     btn.addEventListener("click", () => {
       const parent = btn.closest(".character-card");
+      if (!parent) return;  // 🛡️ Safety guard
+
       parent.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
       parent.querySelectorAll(".tab-content").forEach((tc) => (tc.style.display = "none"));
+
       btn.classList.add("active");
       parent.querySelector(`.tab-content[data-tab="${name}"]`).style.display = "block";
   
