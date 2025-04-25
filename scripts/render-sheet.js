@@ -115,8 +115,9 @@ export function getStoredCharacters() {
     const armor = actor.items?.find(i => 
       i.type === "armor" &&
       i.system?.location?.state === "equipped" &&
-      (i.system?.protection?.type || "").toLowerCase() === "armor"
+      ["armor", "bracers", "warding"].includes((i.system?.protection?.type || "").toLowerCase())
     );
+    
     if (armor) {
       const armorBaseAC = armor.system?.protection?.ac ?? 10;
       const armorBonus = armor.system?.protection?.modifier ?? 0;
@@ -301,9 +302,9 @@ export function getStoredCharacters() {
 
     // 🛡️ Armor and shield info
     const armor = actor.items?.find(i => 
-      i.type === "armor" && 
+      i.type === "armor" &&
       i.system?.location?.state === "equipped" &&
-      (i.system?.protection?.type || "").toLowerCase() === "armor"
+      ["armor", "bracers", "warding"].includes((i.system?.protection?.type || "").toLowerCase())
     );
 
     const shield = actor.items?.find(i => 
