@@ -394,59 +394,77 @@ export function getStoredCharacters() {
 
     const looseItems = actor.items?.filter(i => 
       inventoryTypes.includes(i.type) && 
-      !i.system?.location?.parent // not stored inside a container
+      !i.system?.location?.parent
     ) || [];
-
+    
     if (looseItems.length > 0) {
       const looseHeader = document.createElement("h4");
       looseHeader.textContent = "Loose Items";
       itemsTab.appendChild(document.createElement("hr"));
       itemsTab.appendChild(looseHeader);
-
-      const ul = document.createElement("ul");
-
+    
+      const table = document.createElement("table");
+      table.className = "inventory-grid";
+    
+      const thead = document.createElement("thead");
+      thead.innerHTML = `
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Qty</th>
+          <th>Weight</th>
+        </tr>`;
+      table.appendChild(thead);
+    
+      const tbody = document.createElement("tbody");
+    
       looseItems.forEach(item => {
-        const li = document.createElement("li");
-        li.setAttribute("draggable", "true");
-        li.dataset.uuid = item._id || "";
-
-        let nameSpan = document.createElement("span");
-        nameSpan.innerHTML = `<img src="${item.img}" style="height:1em; vertical-align:middle; margin-right:5px;"> ${item.name}`;
-        li.appendChild(nameSpan);
-
-        // Magic: blue text or icon
+        const tr = document.createElement("tr");
+        tr.setAttribute("draggable", "true");
+        tr.dataset.uuid = item._id || "";
+    
+        // Icon
+        const iconTd = document.createElement("td");
+        const img = document.createElement("img");
+        img.src = item.img;
+        img.style.height = "1em";
+        img.style.verticalAlign = "middle";
+        img.onerror = () => img.src = "/icons/svg/item-bag.svg";
+        iconTd.appendChild(img);
+        tr.appendChild(iconTd);
+    
+        // Name
+        const nameTd = document.createElement("td");
+        nameTd.innerHTML = item.name;
         if (item.system?.magical) {
-          nameSpan.style.color = "blue";
-          nameSpan.innerHTML += ` <span title="Magical">✨</span>`;
+          nameTd.style.color = "blue"; // or add ✨
         }
-
-        // Identified: optional icon
-        if (item.system?.identified === false) {
-          nameSpan.innerHTML += ` <span title="Unidentified">❓</span>`;
-        }
-
-        // Carried state: add (Equipped), (Carried), etc.
+        tr.appendChild(nameTd);
+    
+        // Status (Carried/Equipped/Not Carried)
+        const statusTd = document.createElement("td");
         const carriedState = item.system?.carried ?? "carried";
-        const carriedLabel = carriedState === "equipped" ? " (Equipped)" :
-                            carriedState === "carried" ? " (Carried)" :
-                            carriedState === "dropped" ? " (Not Carried)" : "";
-        nameSpan.innerHTML += carriedLabel;
-
-        // Quantity and weight
+        statusTd.textContent = carriedState.charAt(0).toUpperCase() + carriedState.slice(1);
+        tr.appendChild(statusTd);
+    
+        // Quantity
+        const qtyTd = document.createElement("td");
         const quantity = item.system?.quantity ?? 1;
+        qtyTd.textContent = quantity;
+        tr.appendChild(qtyTd);
+    
+        // Weight
+        const weightTd = document.createElement("td");
         const weight = item.system?.weight ?? 0;
-        const qtyWeight = document.createElement("small");
-        qtyWeight.style.marginLeft = "0.5em";
-        qtyWeight.style.color = "#666";
-        qtyWeight.textContent = `(x${quantity}, ${weight} lb)`;
-        li.appendChild(qtyWeight);
-
-        ul.appendChild(li);
-
+        weightTd.textContent = weight;
+        tr.appendChild(weightTd);
+    
+        tbody.appendChild(tr);
       });
-
-      makeListDraggable(ul);
-      itemsTab.appendChild(ul);
+    
+      table.appendChild(tbody);
+      itemsTab.appendChild(table);
     }
 
     contentArea.appendChild(mainTab);
@@ -588,5 +606,13 @@ export function getStoredCharacters() {
     });
   
     return btn;
+  }
+  
+  function localIconPath(img) {
+    // If it's a Foundry/ARS internal icon, remap to local /icons/ folder
+    if (img?.startsWith("systems/ars/icons/")) {
+      return img.replace("systems/ars/icons/", "icons/");
+    }
+    return img; // external or custom image
   }
   
