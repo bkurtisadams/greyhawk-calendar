@@ -227,19 +227,21 @@ export function getStoredCharacters() {
     detailsTab.style.display = "none";
 
     const details = actor.system?.details ?? {};
-    const prof = actor.system?.proficiency ?? {};
-    const xp = actor.system?.experience ?? {};
-    const classes = actor.system?.activeClasses ?? [];
+    const prof = actor.system?.proficiency || actor.proficiency || {};
+    const xp = actor.system?.experience || actor.experience || {};
+    const classes = actor.activeClasses ?? [];
 
     detailsTab.innerHTML = `
       <h3>Character Details</h3>
-      <p><strong>Race:</strong> ${details?.race?.name || "Unknown"}</p>
+      <p><strong>Race:</strong> ${actor.system?.details?.race?.name || actor.details?.race?.name
+        || "Unknown"}</p>
       <p><strong>Background:</strong> ${actor.system?.backgroundname || "None"}</p>
 
       <h4>Class</h4>
       <ul>
-        ${classes.map(cls => `<li>${cls.name} (Level ${cls.system?.level ?? "?"})</li>`).join('')}
+        ${classes.map(cls => `<li>${cls.name} (Level ${cls.system?.level ?? "?"})</li>`).join('') || "<li>None</li>"}
       </ul>
+
 
       <h4>Experience</h4>
       <p><strong>Earned:</strong> ${xp.total ?? 0} | <strong>Un-applied:</strong> ${xp.unapplied ?? 0}</p>
