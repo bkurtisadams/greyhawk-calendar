@@ -380,25 +380,62 @@ export function getStoredCharacters() {
         itemsTab.appendChild(moneyList);
     }
   
-    const containers = actor.items?.filter((i) => i.type === "container") || [];
-    containers.forEach((c) => itemsTab.appendChild(renderContainer(c)));
-  
-    const looseItems = actor.items?.filter((i) => !i.system?.location?.parent && i.type !== "container") || [];
-    if (looseItems.length) {
+    // First: Render containers
+    const containers = actor.items?.filter(i => i.type === "container") || [];
+    containers.forEach(container => {
+      itemsTab.appendChild(renderContainer(container));
+    });
+
+    // Then: Render loose inventory items (outside containers)
+    const inventoryTypes = [
+      "weapon", "armor", "equipment", "item",
+      "currency", "consumable", "treasure", "potion"
+    ];
+
+    const looseItems = actor.items?.filter(i => 
+      inventoryTypes.includes(i.type) && 
+      !i.system?.location?.parent // not stored inside a container
+    ) || [];
+
+    if (looseItems.length > 0) {
+      const looseHeader = document.createElement("h4");
+      looseHeader.textContent = "Loose Items";
+      itemsTab.appendChild(document.createElement("hr"));
+      itemsTab.appendChild(looseHeader);
+
       const ul = document.createElement("ul");
-      looseItems.forEach((item) => {
+
+      looseItems.forEach(item => {
         const li = document.createElement("li");
-        li.textContent = `${item.name} x${item.system?.quantity ?? 1}`;
         li.setAttribute("draggable", "true");
         li.dataset.uuid = item._id || "";
+
+        let itemText = item.name;
+
+        // Add quantity if more than 1
+        const quantity = item.system?.quantity ?? 1;
+        if (quantity > 1) {
+          itemText += ` (x${quantity})`;
+        }
+
+        // Add weight
+        const weight = item.system?.weight ?? 0;
+        itemText += ` - ${weight} lb`;
+
+        li.textContent = itemText;
+
+        // Highlight magic items in blue
+        if (item.system?.magical) {
+          li.style.color = "blue";
+        }
+
         ul.appendChild(li);
       });
+
       makeListDraggable(ul);
-      itemsTab.appendChild(document.createElement("hr"));
-      itemsTab.appendChild(document.createTextNode("Loose Items"));
       itemsTab.appendChild(ul);
     }
-  
+
     contentArea.appendChild(mainTab);
     contentArea.appendChild(combatTab);
     contentArea.appendChild(itemsTab);
