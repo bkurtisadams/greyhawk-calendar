@@ -422,6 +422,7 @@ export function getStoredCharacters() {
       { id: "weapons", label: "Weapons" },
       { id: "actions", label: "Actions" },
       { id: "skills", label: "Skills" },
+      { id: "items", label: "Items" }, 
       { id: "spells", label: "Spells" },
       { id: "proficiencies", label: "Proficiencies" }
     ];
@@ -457,6 +458,7 @@ export function getStoredCharacters() {
     contentArea.appendChild(weaponsTab);
     contentArea.appendChild(actionsTab);
     contentArea.appendChild(skillsTab);
+    contentArea.appendChild(itemsTab); 
     contentArea.appendChild(spellsTab);
     contentArea.appendChild(proficienciesTab);
     
@@ -730,6 +732,199 @@ export function getStoredCharacters() {
     return tab;
   }
   
+  // Then add the createItemsTab function
+  function createItemsTab(actor) {
+    const tab = document.createElement("div");
+    tab.className = "tab-content";
+    tab.dataset.tab = "items";
+    tab.style.display = "none";
+    
+    // Items header with purple background
+    const header = document.createElement("div");
+    header.className = "section-header";
+    header.textContent = "Items";
+    header.style.backgroundColor = "#271744";
+    header.style.color = "white";
+    header.style.padding = "5px 10px";
+    header.style.fontWeight = "bold";
+    header.style.borderRadius = "3px";
+    header.style.marginBottom = "10px";
+    
+    tab.appendChild(header);
+    
+    // 💰 MONEY SECTION
+    const currencies = actor.items?.filter((i) => i.type === "currency") || [];
+    if (currencies.length > 0) {
+      const moneyHeader = document.createElement("h4");
+      moneyHeader.textContent = "Money";
+      tab.appendChild(moneyHeader);
+      
+      const moneyList = document.createElement("ul");
+      currencies.forEach((coin) => {
+        const li = document.createElement("li");
+        li.textContent = `${coin.name}: ${coin.system?.quantity ?? 0}`;
+        moneyList.appendChild(li);
+      });
+      
+      tab.appendChild(moneyList);
+    }
+
+    // CONTAINERS SECTION
+    const containers = actor.items?.filter(i => i.type === "container") || [];
+    
+    if (containers.length > 0) {
+      const containersHeader = document.createElement("h4");
+      containersHeader.textContent = "Containers";
+      tab.appendChild(containersHeader);
+      
+      containers.forEach(container => {
+        const containerDiv = document.createElement("div");
+        containerDiv.className = "container-item";
+        containerDiv.style.marginBottom = "15px";
+        
+        // Container header
+        const contHeader = document.createElement("div");
+        contHeader.style.display = "flex";
+        contHeader.style.alignItems = "center";
+        contHeader.style.padding = "5px";
+        contHeader.style.backgroundColor = "#e0e0d0";
+        contHeader.style.borderRadius = "3px";
+        
+        const contIcon = document.createElement("img");
+        contIcon.src = container.img;
+        contIcon.alt = "";
+        contIcon.style.width = "24px";
+        contIcon.style.height = "24px";
+        contIcon.style.marginRight = "10px";
+        
+        const contName = document.createElement("strong");
+        contName.textContent = container.name;
+        
+        contHeader.appendChild(contIcon);
+        contHeader.appendChild(contName);
+        containerDiv.appendChild(contHeader);
+        
+        // Container contents
+        const contentsList = document.createElement("ul");
+        contentsList.style.marginLeft = "30px";
+        
+        const contents = container.system?.itemList || [];
+        contents.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = `${item.name} (${item.quantity || 1})`;
+          contentsList.appendChild(li);
+        });
+        
+        containerDiv.appendChild(contentsList);
+        tab.appendChild(containerDiv);
+      });
+    }
+    
+    // INVENTORY SECTION
+    const inventoryTypes = [
+      "weapon", "armor", "equipment", "item",
+      "consumable", "treasure", "potion"
+    ];
+    
+    const looseItems = actor.items?.filter(i => 
+      inventoryTypes.includes(i.type) && 
+      !i.system?.location?.parent
+    ) || [];
+    
+    if (looseItems.length > 0) {
+      const looseHeader = document.createElement("h4");
+      looseHeader.textContent = "Loose Items";
+      tab.appendChild(document.createElement("hr"));
+      tab.appendChild(looseHeader);
+      
+      const table = document.createElement("table");
+      table.className = "inventory-grid";
+      table.style.width = "100%";
+      table.style.borderCollapse = "collapse";
+      
+      const thead = document.createElement("thead");
+      const headerRow = document.createElement("tr");
+      
+      const headers = ["", "Name", "Status", "Qty", "Weight"];
+      
+      headers.forEach(header => {
+        const th = document.createElement("th");
+        th.textContent = header;
+        th.style.padding = "5px";
+        th.style.textAlign = header === "" ? "center" : "left";
+        headerRow.appendChild(th);
+      });
+      
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+      
+      const tbody = document.createElement("tbody");
+      
+      looseItems.forEach(item => {
+        const tr = document.createElement("tr");
+        tr.style.backgroundColor = "#f0f0e0";
+        tr.style.borderBottom = "1px solid #ddd";
+        
+        // Icon
+        const iconTd = document.createElement("td");
+        iconTd.style.textAlign = "center";
+        
+        const img = document.createElement("img");
+        img.src = item.img;
+        img.alt = "";
+        img.style.width = "20px";
+        img.style.height = "20px";
+        
+        iconTd.appendChild(img);
+        tr.appendChild(iconTd);
+        
+        // Name
+        const nameTd = document.createElement("td");
+        nameTd.textContent = item.name;
+        
+        // Add magical styling if needed
+        if (item.system?.attributes?.magic) {
+          nameTd.style.color = "blue";
+        }
+        
+        tr.appendChild(nameTd);
+        
+        // Status (Carried/Equipped/Not Carried)
+        const statusTd = document.createElement("td");
+        let status = "Carried";
+        
+        if (item.system?.location?.state === "equipped") {
+          status = "Equipped";
+        } else if (item.system?.location?.state === "nocarried") {
+          status = "Not Carried";
+        }
+        
+        statusTd.textContent = status;
+        tr.appendChild(statusTd);
+        
+        // Quantity
+        const qtyTd = document.createElement("td");
+        qtyTd.textContent = item.system?.quantity || 1;
+        tr.appendChild(qtyTd);
+        
+        // Weight
+        const weightTd = document.createElement("td");
+        weightTd.textContent = item.system?.weight || 0;
+        tr.appendChild(weightTd);
+        
+        tbody.appendChild(tr);
+      });
+      
+      table.appendChild(tbody);
+      tab.appendChild(table);
+    }
+    
+    return tab;
+  }
+
+  // Make sure to create and append the items tab in the main render function
+  const itemsTab = createItemsTab(actor);
+  contentArea.appendChild(itemsTab);
   // Example of createMatrixTab
   function createMatrixTab(actor) {
     const tab = document.createElement("div");
