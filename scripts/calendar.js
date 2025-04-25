@@ -116,6 +116,7 @@ function initializeCalendar() {
 
         // Generate the calendar for the active year
         buildCalendarYear(activeYear);
+        updateYearButtons();    // grey out button if necessary
 
         // Populate the timeline view
         generateTimeline();
@@ -340,15 +341,30 @@ function setupEventListeners() {
 
     // Year navigation buttons
     document.getElementById('prev-year').addEventListener('click', () => {
-        activeYear--;
-        buildCalendarYear(activeYear);
+        if (activeYear > 567) {
+            activeYear--;
+            buildCalendarYear(activeYear);
+            updateYearButtons();
+        }
     });
-
+    
     document.getElementById('next-year').addEventListener('click', () => {
-        activeYear++;
-        buildCalendarYear(activeYear);
+        if (activeYear < 570) {
+            activeYear++;
+            buildCalendarYear(activeYear);
+            updateYearButtons();
+        }
     });
-
+    
+    
+    function updateYearButtons() {
+        const prevBtn = document.getElementById('prev-year');
+        const nextBtn = document.getElementById('next-year');
+    
+        prevBtn.disabled = (activeYear <= 567);
+        nextBtn.disabled = (activeYear >= 570);
+    }
+    
     // Event filter checkboxes
     document.querySelectorAll('.event-filter input[type="checkbox"]').forEach(checkbox => {
         checkbox.addEventListener('change', updateEventFilters);
