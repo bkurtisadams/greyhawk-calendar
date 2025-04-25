@@ -594,6 +594,7 @@ export function getStoredCharacters() {
     contentArea.appendChild(itemsTab);
     contentArea.appendChild(spellsTab);
     contentArea.appendChild(proficienciesTab);
+    const detailsTab = createDetailsTab(actor);
     contentArea.appendChild(detailsTab);
 
     // Restore last selected tab (per character)
