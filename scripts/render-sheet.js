@@ -162,19 +162,25 @@ export function getStoredCharacters() {
     mainTab.dataset.tab = "main";
     mainTab.style.display = "block";
 
+    // display classes (multi-class support)
+    const className = actor.activeClasses?.length
+    ? actor.activeClasses.map(cls => `${cls.name} (Level ${cls.system?.level ?? "?"})`).join(", ")
+    : actor.system?.classname || "Unknown";
+
+    // display race
+    const raceName = actor.races?.[0]?.name || actor.system?.details?.race?.name || "Unknown";
+
+    // Capitalized or full name alignment
+    const alignmentText = formatAlignment(actor.system?.details?.alignment);
+
+    // display background
+    const backgroundName = actor.system?.backgroundname || "None";
+
     mainTab.innerHTML = `
       <h3>${actor.name}</h3>
 
-      <div>
-        <strong>Class:</strong> ${actor.system?.classname || "Unknown"}
-        <strong>Race:</strong> ${actor.racename || actor.races?.[0]?.name || "Unknown"}
-      </div>
-
-      <strong>Alignment:</strong> ${formatAlignment(actor.system?.details?.alignment)}
-
-      <strong>Background:</strong> ${actor.system?.backgroundname || "None"}
-
-      </div>
+      <div><strong>Class:</strong> ${className} <strong>Race:</strong> ${raceName}</div>
+      <div><strong>Alignment:</strong> ${alignmentText} <strong>Background:</strong> ${backgroundName}</div>
 
       <h4>Ability Scores</h4>
       <div class="flexrow">
