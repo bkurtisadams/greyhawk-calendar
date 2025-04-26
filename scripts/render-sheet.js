@@ -203,6 +203,9 @@ export function getStoredCharacters() {
     wrapper.style.overflow = "hidden";
     wrapper.style.margin = "1em auto";
     wrapper.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
+
+    // Apply racial modifiers to get adjusted ability scores
+    const modifiedActor = applyRacialModifiers(actor);
     
     // Character header section (consistent across all tabs)
     const headerSection = document.createElement("div");
@@ -952,6 +955,12 @@ export function getStoredCharacters() {
   function createAbilityTable(actor, abilKey, headers, values) {
     const abilities = actor.system?.abilities || {};
     const abilityValue = abilities[abilKey.toLowerCase()]?.value || 10;
+
+    // Get the original actor's ability score (without racial modifiers)
+    const originalAbilityValue = actor.system?.abilities?.[abilKey.toLowerCase()]?.value || 10;
+    
+    // Calculate the racial modifier
+    const racialMod = abilityValue - originalAbilityValue;
     
     // Create table container
     const tableContainer = document.createElement("div");
@@ -1010,8 +1019,13 @@ export function getStoredCharacters() {
     abilityDisplay.style.fontWeight = "bold";
     abilityDisplay.style.fontSize = "12px";
     
+    // When displaying the ability value, show the base value and racial modifier
     const valueDisplay = document.createElement("div");
-    valueDisplay.textContent = abilityValue;
+    if (racialMod !== 0) {
+      valueDisplay.innerHTML = `${abilityValue} <span style="font-size: 12px; color: ${racialMod > 0 ? 'green' : 'red'};">(${racialMod > 0 ? '+' : ''}${racialMod})</span>`;
+    } else {
+      valueDisplay.textContent = abilityValue;
+    }
     valueDisplay.style.fontSize = "20px";
     valueDisplay.style.fontWeight = "bold";
     
@@ -2864,6 +2878,45 @@ function formatAlignment(alignment) {
     25: { maxHenchmen: 50, loyaltyBase: "+13", reactionAdj: "+13" }
   };
 
+  // This function would be added to apply racial modifiers
+function applyRacialModifiers(actor) {
+  if (!actor.system?.abilities) return actor;
   
+  // Clone the actor to avoid modifying the original
+  const modifiedActor = JSON.parse(JSON.stringify(actor));
+  
+  // Get race information
+  const raceItem = actor.items?.find(i => i.type === "race");
+  const raceName = raceItem?.name || actor.system?.details?.race?.name || "";
+  
+  // Apply racial modifiers based on race
+  if (raceName) {
+    const raceLower = raceName.toLowerCase();
+    
+    if (raceLower.includes("dwarf")) {
+      // Dwarf: Constitution +1; Charisma -1
+      modifiedActor.system.abilities.con.value += 1;
+      modifiedActor.system.abilities.cha.value -= 1;
+    } 
+    else if (raceLower.includes("elf")) {
+      // Elf: Dexterity +1; Constitution -1
+      modifiedActor.system.abilities.dex.value += 1;
+      modifiedActor.system.abilities.con.value -= 1;
+    }
+    else if (raceLower.includes("half-orc") || raceLower.includes("halforc")) {
+      // Half-Orc: Strength +1; Constitution +1; Charisma -2
+      modifiedActor.system.abilities.str.value += 1;
+      modifiedActor.system.abilities.con.value += 1;
+      modifiedActor.system.abilities.cha.value -= 2;
+    }
+    else if (raceLower.includes("halfling")) {
+      // Halfling: Strength -1; Dexterity +1
+      modifiedActor.system.abilities.str.value -= 1;
+      modifiedActor.system.abilities.dex.value += 1;
+    }
+  }
+  
+  return modifiedActor;
+}
   
   
