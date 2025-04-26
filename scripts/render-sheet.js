@@ -1531,47 +1531,17 @@ export function getStoredCharacters() {
     header.style.justifyContent = "space-between";
     header.style.alignItems = "center";
     
-    // Add search and filter icons
+    // Add icons
     const toolsDiv = document.createElement("div");
     toolsDiv.innerHTML = `
-      <span style="cursor: pointer; margin-right: 10px;">🔍</span>
       <span style="cursor: pointer; margin-right: 10px;">≡</span>
-      <span style="cursor: pointer; margin-right: 10px;">❯</span>
-      <span style="cursor: pointer; margin-right: 10px;">🔄</span>
       <span style="cursor: pointer; margin-right: 10px; color: #4caf50;">✚</span>
     `;
     header.appendChild(toolsDiv);
     
     tab.appendChild(header);
   
-    // Filter dropdown and search bar
-    const filterRow = document.createElement("div");
-    filterRow.style.display = "flex";
-    filterRow.style.marginBottom = "10px";
-    
-    const filterSelect = document.createElement("select");
-    filterSelect.style.padding = "5px";
-    filterSelect.style.marginRight = "10px";
-    
-    const options = ["None", "Weapons", "Armor", "Containers", "Consumables"];
-    options.forEach(opt => {
-      const option = document.createElement("option");
-      option.value = opt.toLowerCase();
-      option.textContent = opt;
-      filterSelect.appendChild(option);
-    });
-    
-    const searchInput = document.createElement("input");
-    searchInput.type = "text";
-    searchInput.placeholder = "Search";
-    searchInput.style.flex = "1";
-    searchInput.style.padding = "5px";
-    
-    filterRow.appendChild(filterSelect);
-    filterRow.appendChild(searchInput);
-    tab.appendChild(filterRow);
-    
-    // Money section (simple display in header area)
+    // Money section
     const currencies = actor.items?.filter((i) => i.type === "currency") || [];
     if (currencies.length > 0) {
       const moneyRow = document.createElement("div");
@@ -1617,16 +1587,18 @@ export function getStoredCharacters() {
     thead.style.backgroundColor = "#e0e0d0";
     
     const headerRow = document.createElement("tr");
-    const headers = ["Name", "", "", "#", ""];
+    const headers = ["Name", "Type", "Equipped", "Qty", "Weight"];
     
-    const columnWidths = ["65%", "5%", "5%", "10%", "15%"];
+    const columnWidths = ["55%", "10%", "10%", "10%", "15%"];
     
     headers.forEach((headerText, index) => {
       const th = document.createElement("th");
       th.textContent = headerText;
       th.style.padding = "8px 4px";
-      th.style.textAlign = "left";
+      th.style.textAlign = index === 0 ? "left" : "center";
       th.style.width = columnWidths[index];
+      th.style.fontSize = "12px";
+      th.style.fontWeight = "bold";
       headerRow.appendChild(th);
     });
     
@@ -1733,15 +1705,48 @@ export function getStoredCharacters() {
         nameSpan.style.fontWeight = "bold";
       }
       
+      // Make containers collapsible
+      if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
+        // Add a toggle indicator
+        const toggleIcon = document.createElement("span");
+        toggleIcon.textContent = "▼";
+        toggleIcon.style.marginLeft = "6px";
+        toggleIcon.style.fontSize = "10px";
+        toggleIcon.style.cursor = "pointer";
+        toggleIcon.style.color = "#666";
+        toggleIcon.dataset.containerId = `container-${item.name.replace(/\s+/g, '-').toLowerCase()}`;
+        toggleIcon.dataset.state = "open";
+        
+        toggleIcon.addEventListener("click", (e) => {
+          const containerId = e.target.dataset.containerId;
+          const state = e.target.dataset.state;
+          const containerItems = document.querySelectorAll(`.${containerId}`);
+          
+          if (state === "open") {
+            containerItems.forEach(el => el.style.display = "none");
+            e.target.textContent = "►";
+            e.target.dataset.state = "closed";
+          } else {
+            containerItems.forEach(el => el.style.display = "table-row");
+            e.target.textContent = "▼";
+            e.target.dataset.state = "open";
+          }
+          
+          e.stopPropagation();
+        });
+        
+        nameSpan.appendChild(toggleIcon);
+      }
+      
       nameCell.appendChild(itemImage);
       nameCell.appendChild(nameSpan);
       
-      // Create the container/armor/weapon type icon column
+      // Create the type column
       const typeCell = document.createElement("td");
       typeCell.style.padding = "4px";
       typeCell.style.textAlign = "center";
       
-      // Add the appropriate icon based on item type
+      // Show the type icon
       const typeIcon = document.createElement("div");
       
       if (item.type === "container") {
@@ -1760,7 +1765,7 @@ export function getStoredCharacters() {
       
       typeCell.appendChild(typeIcon);
       
-      // Create the magical/equipped column
+      // Create the equipped status column
       const statusCell = document.createElement("td");
       statusCell.style.padding = "4px";
       statusCell.style.textAlign = "center";
@@ -1786,11 +1791,12 @@ export function getStoredCharacters() {
       // Create the quantity column with input field
       const qtyCell = document.createElement("td");
       qtyCell.style.padding = "4px";
+      qtyCell.style.textAlign = "center";
       
       const qtyInput = document.createElement("input");
       qtyInput.type = "text";
       qtyInput.value = item.system?.quantity || 1;
-      qtyInput.style.width = "90%";
+      qtyInput.style.width = "60%";
       qtyInput.style.padding = "2px";
       qtyInput.style.textAlign = "center";
       qtyInput.style.border = "1px solid #ccc";
@@ -1799,18 +1805,15 @@ export function getStoredCharacters() {
       
       qtyCell.appendChild(qtyInput);
       
-      // Create the weight/actions column
-      const actionsCell = document.createElement("td");
-      actionsCell.style.padding = "4px";
-      actionsCell.style.textAlign = "right";
+      // Create the weight column
+      const weightCell = document.createElement("td");
+      weightCell.style.padding = "4px";
+      weightCell.style.textAlign = "center";
       
       // Display item weight if available
-      if (item.system?.weight) {
-        const weightSpan = document.createElement("span");
-        weightSpan.textContent = item.system.weight;
-        weightSpan.style.marginRight = "15px";
-        actionsCell.appendChild(weightSpan);
-      }
+      const weightSpan = document.createElement("span");
+      weightSpan.textContent = item.system?.weight || "0";
+      weightCell.appendChild(weightSpan);
       
       // Add actions menu button
       const menuButton = document.createElement("button");
@@ -1820,24 +1823,27 @@ export function getStoredCharacters() {
       menuButton.style.cursor = "pointer";
       menuButton.style.fontSize = "18px";
       menuButton.style.padding = "0 5px";
+      menuButton.style.float = "right";
       
-      actionsCell.appendChild(menuButton);
+      weightCell.appendChild(menuButton);
       
       // Add all cells to the row
       row.appendChild(nameCell);
       row.appendChild(typeCell);
       row.appendChild(statusCell);
       row.appendChild(qtyCell);
-      row.appendChild(actionsCell);
+      row.appendChild(weightCell);
       
       tbody.appendChild(row);
       
-      // If this is a container, optionally show its contents indented
+      // If this is a container, add its contents indented
       if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
+        const containerId = `container-${item.name.replace(/\s+/g, '-').toLowerCase()}`;
         const contents = item.system.itemList;
         
         contents.forEach(subItem => {
           const subRow = document.createElement("tr");
+          subRow.className = containerId;
           subRow.style.backgroundColor = "#f5f5eb";
           subRow.style.borderBottom = "1px dotted #e0e0d0";
           
@@ -1856,16 +1862,17 @@ export function getStoredCharacters() {
           // Quantity cell
           const subQtyCell = document.createElement("td");
           subQtyCell.style.padding = "4px";
+          subQtyCell.style.textAlign = "center";
           subQtyCell.textContent = subItem.quantity || 1;
           
-          // Empty actions cell
-          const subActionsCell = document.createElement("td");
+          // Empty weight cell
+          const subWeightCell = document.createElement("td");
           
           subRow.appendChild(subNameCell);
           subRow.appendChild(subTypeCell);
           subRow.appendChild(subStatusCell);
           subRow.appendChild(subQtyCell);
-          subRow.appendChild(subActionsCell);
+          subRow.appendChild(subWeightCell);
           
           tbody.appendChild(subRow);
         });
