@@ -745,9 +745,11 @@ export function getStoredCharacters() {
       const classes = actor.activeClasses.map(c => `${c.name} ${c.system?.level ?? "?"}`);
       classDisplay = classes.join(" / ");
     } else if (actor.items) {
-      const classItem = actor.items.find(i => i.type === "class");
-      const classLevel = classItem?.system?.level ?? "";
-      classDisplay = classItem ? `${classItem.name} ${classLevel}` : "Unknown";
+      const classItems = actor.items.filter(i => i.type === "class");
+      if (classItems.length > 0) {
+        const classes = classItems.map(c => `${c.name} ${c.system?.level ?? "?"}`);
+        classDisplay = classes.join(" / ");
+      }
     }
     classValue.textContent = classDisplay;
 
