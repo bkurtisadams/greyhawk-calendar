@@ -623,7 +623,8 @@ export function getStoredCharacters() {
       { id: "skills", label: "Skills" },
       { id: "items", label: "Items" }, 
       { id: "spells", label: "Spells" },
-      { id: "proficiencies", label: "Proficiencies" }
+      { id: "proficiencies", label: "Proficiencies" },
+      { id: "description", label: "Description" } 
     ];
     
     for (const tab of tabNames) {
@@ -652,6 +653,8 @@ export function getStoredCharacters() {
     const skillsTab = createSkillsTab(modifiedActor);
     const spellsTab = createSpellsTab(modifiedActor);
     const proficienciesTab = createProficienciesTab(modifiedActor);
+    const descriptionTab = createDescriptionTab(modifiedActor);
+
     
     // Add tabs to content area
     contentArea.appendChild(characterTab);
@@ -662,6 +665,8 @@ export function getStoredCharacters() {
     contentArea.appendChild(itemsTab); 
     contentArea.appendChild(spellsTab);
     contentArea.appendChild(proficienciesTab);
+    contentArea.appendChild(descriptionTab);
+
     
     contentWrapper.appendChild(sidebar);
     contentWrapper.appendChild(contentArea);
@@ -3466,3 +3471,91 @@ function applyRacialModifiers(actor) {
   });
 } */
 
+  function createDescriptionTab(actor) {
+    const tab = document.createElement("div");
+    tab.className = "tab-content";
+    tab.dataset.tab = "description";
+    tab.style.display = "none";
+  
+    // 🔹 Section Header: "Character Description"
+    const descHeader = document.createElement("div");
+    descHeader.className = "section-header";
+    descHeader.textContent = "Character Description";
+    descHeader.style.backgroundColor = "#271744";
+    descHeader.style.color = "white";
+    descHeader.style.padding = "5px 10px";
+    descHeader.style.fontWeight = "bold";
+    descHeader.style.borderRadius = "3px";
+    descHeader.style.marginBottom = "10px";
+    tab.appendChild(descHeader);
+  
+    // 📋 Basic Info Grid
+    const infoGrid = document.createElement("div");
+    infoGrid.style.display = "grid";
+    infoGrid.style.gridTemplateColumns = "1fr 1fr";
+    infoGrid.style.gap = "10px";
+    infoGrid.style.marginBottom = "20px";
+  
+    const fields = [
+      { label: "Age", value: actor.system?.age ?? "Unknown" },
+      { label: "Sex", value: actor.system?.sex ?? "Unknown" },
+      { label: "Deity", value: actor.system?.details?.deity || "None" },
+      { label: "Height", value: actor.system?.height ?? "Unknown" },
+      { label: "Weight", value: actor.system?.weight ?? "Unknown" },
+      { label: "Patron", value: actor.system?.details?.patron || "None" }
+    ];
+  
+    for (const field of fields) {
+      const fieldDiv = document.createElement("div");
+      fieldDiv.style.display = "flex";
+      fieldDiv.style.flexDirection = "column";
+  
+      const label = document.createElement("div");
+      label.textContent = field.label;
+      label.style.fontWeight = "bold";
+      label.style.fontSize = "12px";
+  
+      const value = document.createElement("div");
+      value.textContent = field.value;
+      value.style.fontSize = "14px";
+  
+      fieldDiv.appendChild(label);
+      fieldDiv.appendChild(value);
+      infoGrid.appendChild(fieldDiv);
+    }
+  
+    tab.appendChild(infoGrid);
+  
+    // 🔹 Section Header: "Notes"
+    const notesHeader = document.createElement("div");
+    notesHeader.className = "section-header";
+    notesHeader.textContent = "Notes";
+    notesHeader.style.backgroundColor = "#271744";
+    notesHeader.style.color = "white";
+    notesHeader.style.padding = "5px 10px";
+    notesHeader.style.fontWeight = "bold";
+    notesHeader.style.borderRadius = "3px";
+    notesHeader.style.marginBottom = "10px";
+    tab.appendChild(notesHeader);
+  
+    // 📝 Biography / Background Text
+    const notesBox = document.createElement("div");
+    notesBox.style.background = "#fff";
+    notesBox.style.border = "1px solid #ccc";
+    notesBox.style.borderRadius = "5px";
+    notesBox.style.padding = "10px";
+    notesBox.style.minHeight = "200px";
+    notesBox.style.maxHeight = "500px";
+    notesBox.style.overflowY = "auto"; // Make it scrollable if very long
+    notesBox.style.whiteSpace = "pre-wrap"; // Preserve line breaks
+    notesBox.style.fontSize = "14px";
+  
+    notesBox.textContent = actor.system?.biography || "No description available.";
+  
+    tab.appendChild(notesBox);
+  
+    return tab;
+  }
+  
+  
+  
