@@ -256,10 +256,13 @@ export function saveStoredCharacters(chars) {
     notesContent.style.fontSize = "13px";
     notesContent.style.lineHeight = "1.5";
     
-    // Parse HTML biography and convert to plain text
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = actor.system?.details?.biography?.value || "";
-    const cleanText = tempDiv.textContent || tempDiv.innerText || "";
+    // Parse HTML biography and convert to plain text safely
+    let cleanText = "";
+    if (actor.system?.details?.biography?.value) {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = actor.system.details.biography.value;
+      cleanText = tempDiv.textContent || tempDiv.innerText || "";
+    }
     
     notesContent.textContent = cleanText;
     
@@ -2754,11 +2757,11 @@ function formatAlignment(alignment) {
   function setupCharacterUpload() {
     const input = document.getElementById("character-upload");
     if (!input) return;
-  
+
     input.addEventListener("change", (event) => {
       const files = Array.from(event.target.files);
       const stored = getStoredCharacters();
-  
+
       Promise.all(
         files.map((file) =>
           file.text().then((text) => {
@@ -2771,28 +2774,25 @@ function formatAlignment(alignment) {
           })
         )
       ).then((newChars) => {
-        const validChars = newChars.filter(c => c && c.name); // Filter out nulls or bad data
+        const validChars = newChars.filter(c => c && c.name);
         const updated = [...stored, ...validChars];
-  
+
         console.log("🧙 Uploaded characters:", validChars.map(c => c.name));
         console.log("📦 Saving characters to localStorage:", updated.map(c => c.name));
-  
+
         saveStoredCharacters(updated);
-        document.getElementById("character-grid").innerHTML = "";
+        
+        // Clear existing content first
+        const characterTabs = document.getElementById("character-tabs");
+        const characterContents = document.getElementById("character-contents");
+        
+        if (characterTabs) characterTabs.innerHTML = "";
+        if (characterContents) characterContents.innerHTML = "";
+        
+        // Render all characters
         updated.forEach(renderCharacterSheet);
       });
     });
-  
-    // Add Clear Button
-    const clearBtn = document.createElement("button");
-    clearBtn.textContent = "🗑️ Clear All Characters";
-    clearBtn.style.marginTop = "10px";
-    clearBtn.addEventListener("click", () => {
-      clearAllCharacters();
-      console.log("🚫 Cleared characters from localStorage");
-    });
-  
-    input.insertAdjacentElement("afterend", clearBtn);
   }
   
   
