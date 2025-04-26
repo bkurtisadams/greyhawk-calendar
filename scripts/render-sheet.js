@@ -623,13 +623,17 @@ export function getStoredCharacters() {
       { id: "skills", label: "Skills" },
       { id: "items", label: "Items" }, 
       { id: "spells", label: "Spells" },
-      { id: "proficiencies", label: "Proficiencies" }
+      { id: "proficiencies", label: "Proficiencies" },
+      { id: "details", label: "Details" }
     ];
     
     for (const tab of tabNames) {
       const btn = createTabButton(tab.id, tab.label, actorId);
       sidebar.appendChild(btn);
     }
+
+    // And add the details tab creation:
+    const detailsTab = createDetailsTab(modifiedActor); 
     
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "❌";
@@ -662,6 +666,7 @@ export function getStoredCharacters() {
     contentArea.appendChild(itemsTab); 
     contentArea.appendChild(spellsTab);
     contentArea.appendChild(proficienciesTab);
+    contentArea.appendChild(detailsTab);
     
     contentWrapper.appendChild(sidebar);
     contentWrapper.appendChild(contentArea);
@@ -2920,4 +2925,115 @@ function applyRacialModifiers(actor) {
   return modifiedActor;
 }
   
+function createDetailsTab(actor) {
+  const tab = document.createElement("div");
+  tab.className = "tab-content";
+  tab.dataset.tab = "details";
+  tab.style.display = "none";
+  
+  // Details header with purple background
+  const header = document.createElement("div");
+  header.className = "section-header";
+  header.textContent = "Character Description";
+  header.style.backgroundColor = "#271744";
+  header.style.color = "white";
+  header.style.padding = "5px 10px";
+  header.style.fontWeight = "bold";
+  header.style.borderRadius = "3px";
+  header.style.marginBottom = "10px";
+  
+  tab.appendChild(header);
+  
+  // Character Details Grid
+  const detailsGrid = document.createElement("div");
+  detailsGrid.style.display = "grid";
+  detailsGrid.style.gridTemplateColumns = "auto 1fr auto 1fr";
+  detailsGrid.style.gap = "10px 20px";
+  detailsGrid.style.marginBottom = "20px";
+  detailsGrid.style.background = "#f0f0e0";
+  detailsGrid.style.padding = "10px";
+  detailsGrid.style.borderRadius = "5px";
+  
+  // First Row: Age and Sex
+  addDetailField(detailsGrid, "Age", actor.system?.details?.age || "");
+  addDetailField(detailsGrid, "Sex", actor.system?.details?.sex || "");
+  
+  // Second Row: Height and Weight
+  addDetailField(detailsGrid, "Height", actor.system?.details?.height || "");
+  addDetailField(detailsGrid, "Weight", actor.system?.details?.weight || "");
+  
+  // Third Row: Deity and Patron
+  addDetailField(detailsGrid, "Deity", actor.system?.details?.deity || "");
+  addDetailField(detailsGrid, "Patron", actor.system?.details?.patron || "");
+  
+  tab.appendChild(detailsGrid);
+  
+  // Notes Section
+  const notesHeader = document.createElement("div");
+  notesHeader.className = "section-header";
+  notesHeader.textContent = "Notes";
+  notesHeader.style.backgroundColor = "#271744";
+  notesHeader.style.color = "white";
+  notesHeader.style.padding = "5px 10px";
+  notesHeader.style.fontWeight = "bold";
+  notesHeader.style.borderRadius = "3px";
+  notesHeader.style.marginBottom = "10px";
+  
+  tab.appendChild(notesHeader);
+  
+  // Biography/Notes content
+  const notesContent = document.createElement("div");
+  notesContent.style.background = "#f0f0e0";
+  notesContent.style.border = "2px solid #c00";
+  notesContent.style.padding = "15px";
+  notesContent.style.borderRadius = "3px";
+  notesContent.style.whiteSpace = "pre-wrap";
+  notesContent.style.fontFamily = "monospace";
+  notesContent.style.fontSize = "13px";
+  notesContent.style.lineHeight = "1.5";
+  
+  // Parse HTML biography and convert to plain text
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = actor.system?.details?.biography?.value || "";
+  const cleanText = tempDiv.textContent || tempDiv.innerText || "";
+  
+  notesContent.textContent = cleanText;
+  
+  tab.appendChild(notesContent);
+  
+  return tab;
+}
+
+// Helper function to add detail fields
+function addDetailField(container, label, value) {
+  const labelDiv = document.createElement("div");
+  labelDiv.textContent = label;
+  labelDiv.style.fontWeight = "bold";
+  
+  const valueDiv = document.createElement("div");
+  if (label === "Age" || label === "Height" || label === "Weight") {
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = value;
+    input.style.width = "100px";
+    input.style.padding = "4px";
+    input.style.border = "1px solid #ccc";
+    input.style.borderRadius = "3px";
+    input.readOnly = true;
+    valueDiv.appendChild(input);
+  } else {
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = value;
+    input.style.width = "200px";
+    input.style.padding = "4px";
+    input.style.border = "1px solid #ccc";
+    input.style.borderRadius = "3px";
+    input.readOnly = true;
+    valueDiv.appendChild(input);
+  }
+  
+  container.appendChild(labelDiv);
+  container.appendChild(valueDiv);
+}
   
