@@ -1512,6 +1512,7 @@ export function getStoredCharacters() {
   
   // Then add the createItemsTab function
   // Fixed function to properly handle container contents
+// Step 1: Update the createItemsTab function
 function createItemsTab(actor) {
   const tab = document.createElement("div");
   tab.className = "tab-content";
@@ -1609,8 +1610,8 @@ function createItemsTab(actor) {
   // Table body
   const tbody = document.createElement("tbody");
   
-  // Create a map of contained items to avoid duplicating them in the main list
-  const containedItemMap = new Map();
+  // Create a map to track contained items to avoid duplicates
+  const containedItemsMap = new Map();
   
   // First, identify all items that are inside containers
   const allItems = actor.items?.filter(i => 
@@ -1624,17 +1625,19 @@ function createItemsTab(actor) {
     i.type === "item"
   ) || [];
   
-  // Find and mark contained items
+  // Mark contained items
   allItems.forEach(item => {
     if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
-      // Mark all items in this container as contained
-      markContainedItems(item.system.itemList, containedItemMap);
+      // Process each item in this container
+      item.system.itemList.forEach(containedItem => {
+        containedItemsMap.set(containedItem.name, true);
+      });
     }
   });
   
   // Sort items: equipped first, then by type, then by name
   // Only include top-level items (not contained in any container)
-  const topLevelItems = allItems.filter(item => !containedItemMap.has(item.name));
+  const topLevelItems = allItems.filter(item => !containedItemsMap.has(item.name));
   
   topLevelItems.sort((a, b) => {
     // Equipped items come first
@@ -1662,15 +1665,210 @@ function createItemsTab(actor) {
     return a.name.localeCompare(b.name);
   });
   
-  // Render the top-level items first
+  // Add each top-level item to the table
   topLevelItems.forEach(item => {
-    const row = createItemRow(item);
+    const row = document.createElement("tr");
+    row.style.borderBottom = "1px solid #e0e0d0";
+    
+    // Highlight equipped items
+    if (item.system?.location?.state === "equipped") {
+      row.style.backgroundColor = "#e7f0e7";
+    } else {
+      row.style.backgroundColor = "#f9f9f2";
+    }
+    
+    // Item name with icon
+    const nameCell = document.createElement("td");
+    nameCell.style.padding = "8px 4px";
+    nameCell.style.display = "flex";
+    nameCell.style.alignItems = "center";
+    
+    // Item icon based on type
+    const getTypeIcon = (item) => {
+      if (item.type === "weapon") return "🗡️";
+      if (item.type === "armor" && item.name.toLowerCase().includes("shield")) return "🛡️";
+      if (item.type === "armor") return "👕";
+      if (item.type === "container") return "📦";
+      if (item.type === "potion" || item.type === "consumable") return "🧪";
+      if (item.type === "treasure") return "💎";
+      return "📜";
+    };
+    
+    const itemImage = document.createElement("img");
+    itemImage.alt = getTypeIcon(item);
+    itemImage.src = item.img || "icons/svg/item-bag.svg";
+    itemImage.onerror = function() {
+      // If image fails to load, use a fallback based on item type
+      this.onerror = null;
+      this.style.display = "none";
+      const fallbackIcon = document.createElement("span");
+      fallbackIcon.textContent = getTypeIcon(item);
+      fallbackIcon.style.fontSize = "20px";
+      fallbackIcon.style.marginRight = "8px";
+      this.parentNode.insertBefore(fallbackIcon, this);
+    };
+    itemImage.style.width = "24px";
+    itemImage.style.height = "24px";
+    itemImage.style.marginRight = "8px";
+    itemImage.style.borderRadius = "3px";
+    itemImage.style.border = "1px solid #ccc";
+    
+    const nameSpan = document.createElement("span");
+    nameSpan.textContent = item.name;
+    
+    // Add magical styling
+    if (item.system?.attributes?.magic || 
+        item.name.includes("+") || 
+        item.name.toLowerCase().includes("of ")) {
+      nameSpan.style.color = "#1a66ba";
+      nameSpan.style.fontWeight = "bold";
+    }
+    
+    // Make containers collapsible
+    if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
+      // Generate a unique ID for this container
+      const containerId = `container-${item.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}-${Math.random().toString(36).substring(2, 7)}`;
+      
+      // Add a toggle indicator
+      const toggleIcon = document.createElement("span");
+      toggleIcon.textContent = "▼";
+      toggleIcon.style.marginLeft = "6px";
+      toggleIcon.style.fontSize = "10px";
+      toggleIcon.style.cursor = "pointer";
+      toggleIcon.style.color = "#666";
+      toggleIcon.dataset.containerId = containerId;
+      toggleIcon.dataset.state = "open";
+      
+      toggleIcon.addEventListener("click", (e) => {
+        const containerId = e.target.dataset.containerId;
+        const state = e.target.dataset.state;
+        const containerItems = document.querySelectorAll(`.${containerId}`);
+        
+        if (state === "open") {
+          containerItems.forEach(el => el.style.display = "none");
+          e.target.textContent = "►";
+          e.target.dataset.state = "closed";
+        } else {
+          containerItems.forEach(el => el.style.display = "table-row");
+          e.target.textContent = "▼";
+          e.target.dataset.state = "open";
+        }
+        
+        e.stopPropagation();
+      });
+      
+      nameSpan.appendChild(toggleIcon);
+      
+      // Add container contents after the main row
+      const contents = item.system.itemList;
+      if (contents && contents.length > 0) {
+        row.dataset.hasContents = "true";
+        row.dataset.containerId = containerId;
+      }
+    }
+    
+    nameCell.appendChild(itemImage);
+    nameCell.appendChild(nameSpan);
+    
+    // Create the type column
+    const typeCell = document.createElement("td");
+    typeCell.style.padding = "4px";
+    typeCell.style.textAlign = "center";
+    
+    // Show the type icon
+    const typeIcon = document.createElement("div");
+    
+    if (item.type === "container") {
+      typeIcon.innerHTML = "📦";
+      typeIcon.title = "Container";
+    } else if (item.type === "armor") {
+      typeIcon.innerHTML = "🛡️";
+      typeIcon.title = "Armor";
+    } else if (item.type === "weapon") {
+      typeIcon.innerHTML = "⚔️";
+      typeIcon.title = "Weapon";
+    } else if (item.type === "consumable" || item.type === "potion") {
+      typeIcon.innerHTML = "🧪";
+      typeIcon.title = "Consumable";
+    }
+    
+    typeCell.appendChild(typeIcon);
+    
+    // Create the equipped status column
+    const statusCell = document.createElement("td");
+    statusCell.style.padding = "4px";
+    statusCell.style.textAlign = "center";
+    
+    // Show if an item is equipped
+    const statusIcon = document.createElement("div");
+    if (item.system?.location?.state === "equipped") {
+      statusIcon.innerHTML = "✓";
+      statusIcon.style.color = "green";
+      statusIcon.title = "Equipped";
+    } else if (item.system?.location?.state === "nocarried") {
+      statusIcon.innerHTML = "✗";
+      statusIcon.style.color = "red";
+      statusIcon.title = "Not Carried";
+    } else {
+      statusIcon.innerHTML = "○";
+      statusIcon.style.color = "#999";
+      statusIcon.title = "Carried";
+    }
+    
+    statusCell.appendChild(statusIcon);
+    
+    // Create the quantity column with input field
+    const qtyCell = document.createElement("td");
+    qtyCell.style.padding = "4px";
+    qtyCell.style.textAlign = "center";
+    
+    const qtyInput = document.createElement("input");
+    qtyInput.type = "text";
+    qtyInput.value = item.system?.quantity || 1;
+    qtyInput.style.width = "60%";
+    qtyInput.style.padding = "2px";
+    qtyInput.style.textAlign = "center";
+    qtyInput.style.border = "1px solid #ccc";
+    qtyInput.style.borderRadius = "3px";
+    qtyInput.readOnly = true;
+    
+    qtyCell.appendChild(qtyInput);
+    
+    // Create the weight column
+    const weightCell = document.createElement("td");
+    weightCell.style.padding = "4px";
+    weightCell.style.textAlign = "center";
+    
+    // Display item weight if available
+    const weightSpan = document.createElement("span");
+    weightSpan.textContent = item.system?.weight || "0";
+    weightCell.appendChild(weightSpan);
+    
+    // Add actions menu button
+    const menuButton = document.createElement("button");
+    menuButton.innerHTML = "⋮";
+    menuButton.style.border = "none";
+    menuButton.style.background = "none";
+    menuButton.style.cursor = "pointer";
+    menuButton.style.fontSize = "18px";
+    menuButton.style.padding = "0 5px";
+    menuButton.style.float = "right";
+    
+    weightCell.appendChild(menuButton);
+    
+    // Add all cells to the row
+    row.appendChild(nameCell);
+    row.appendChild(typeCell);
+    row.appendChild(statusCell);
+    row.appendChild(qtyCell);
+    row.appendChild(weightCell);
+    
     tbody.appendChild(row);
     
     // If this is a container, add its contents indented
     if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
-      const containerId = `container-${item.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}-${Math.random().toString(36).substring(2, 7)}`; // Add random suffix for uniqueness
-      addContainerContents(tbody, item.system.itemList, containerId);
+      const containerId = row.dataset.containerId;
+      addContainerContents(tbody, item.system.itemList, containerId, 1);
     }
   });
   
@@ -1678,6 +1876,62 @@ function createItemsTab(actor) {
   tab.appendChild(table);
   
   return tab;
+}
+
+// Step 2: Update the existing addContainerContents function (don't redeclare it)
+// Replace the existing function implementation with this new one:
+
+function addContainerContents(tbody, contents, parentContainerId, depth = 1) {
+  if (!Array.isArray(contents)) return;
+  
+  contents.forEach(subItem => {
+    const subRow = document.createElement("tr");
+    subRow.className = parentContainerId;
+    
+    // Slight background tint based on depth
+    const baseColor = 245 - (depth * 5);
+    subRow.style.backgroundColor = `rgb(${baseColor}, ${baseColor}, ${baseColor})`;
+    subRow.style.borderBottom = "1px dotted #e0e0d0";
+    
+    // Name cell (with deeper indent)
+    const subNameCell = document.createElement("td");
+    subNameCell.style.padding = "6px 4px";
+    subNameCell.style.paddingLeft = `${40 + (depth * 20)}px`;
+    subNameCell.textContent = subItem.name;
+    
+    // Type cell
+    const subTypeCell = document.createElement("td");
+    subTypeCell.style.textAlign = "center";
+    subTypeCell.textContent = subItem.type || "Item";
+    
+    // Equipped cell (blank for container contents)
+    const subStatusCell = document.createElement("td");
+    
+    // Quantity cell
+    const subQtyCell = document.createElement("td");
+    subQtyCell.style.textAlign = "center";
+    subQtyCell.textContent = subItem.quantity ?? 1;
+    
+    // Weight cell
+    const subWeightCell = document.createElement("td");
+    subWeightCell.style.textAlign = "center";
+    subWeightCell.textContent = subItem.weight ?? "0";
+    
+    subRow.appendChild(subNameCell);
+    subRow.appendChild(subTypeCell);
+    subRow.appendChild(subStatusCell);
+    subRow.appendChild(subQtyCell);
+    subRow.appendChild(subWeightCell);
+    
+    tbody.appendChild(subRow);
+    
+    // Recursively add nested container contents if it's also a container
+    if (subItem.type === "container" && subItem.itemList && subItem.itemList.length > 0) {
+      // Create unique ID for this nested container
+      const nestedContainerId = `${parentContainerId}-nested-${Math.random().toString(36).substring(2, 7)}`;
+      addContainerContents(tbody, subItem.itemList, nestedContainerId, depth + 1);
+    }
+  });
 }
 
 // Helper function to mark all items contained within containers
@@ -1887,7 +2141,7 @@ function createItemRow(item) {
 }
 
 // Fixed function to properly add container contents to the table
-function addContainerContents(tbody, contents, parentContainerId, depth = 1) {
+/* function addContainerContents(tbody, contents, parentContainerId, depth = 1) {
   // Make sure contents is an array before trying to process it
   if (!Array.isArray(contents)) return;
   
@@ -1939,7 +2193,7 @@ function addContainerContents(tbody, contents, parentContainerId, depth = 1) {
       addContainerContents(tbody, subItem.itemList, nestedContainerId, depth + 1);
     }
   });
-}
+} */
 
   // Make sure to create and append the items tab in the main render function
   //const itemsTab = createItemsTab(actor);
