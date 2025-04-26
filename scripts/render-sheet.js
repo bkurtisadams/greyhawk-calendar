@@ -1714,7 +1714,7 @@ export function getStoredCharacters() {
         toggleIcon.style.fontSize = "10px";
         toggleIcon.style.cursor = "pointer";
         toggleIcon.style.color = "#666";
-        toggleIcon.dataset.containerId = `container-${item.name.replace(/\s+/g, '-').toLowerCase()}`;
+        toggleIcon.dataset.containerId = `container-${item.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
         toggleIcon.dataset.state = "open";
         
         toggleIcon.addEventListener("click", (e) => {
