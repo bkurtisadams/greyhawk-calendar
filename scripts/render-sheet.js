@@ -803,61 +803,133 @@ export function getStoredCharacters() {
     abilitiesHeader.style.fontWeight = "bold";
     abilitiesHeader.style.margin = "10px 0";
     tab.appendChild(abilitiesHeader);
-    
+
     // ─── Abilities Tables ───
     // Create ability table layout similar to the screenshot
     const abilitiesSection = document.createElement("div");
     abilitiesSection.style.display = "flex";
     abilitiesSection.style.flexDirection = "column";
     abilitiesSection.style.gap = "10px";
-    
+
     // STR Table
-    const strTable = createAbilityTable(actor, "STR", 
-      ["", "%", "Hit Adj", "Damage Adj", "Carry", "Open Doors", "Bend Bars"],
-      ["STR", getPercent(actor, "str"), getHitAdj(actor), getDamageAdj(actor), 
-       getCarryWeight(actor), getOpenDoors(actor), getBendBars(actor)]
+    const strTable = document.createElement("div");
+    strTable.style.marginBottom = "15px";
+
+    const strLabel = document.createElement("div");
+    strLabel.textContent = "STR";
+    strLabel.style.fontSize = "16px";
+    strLabel.style.fontWeight = "bold";
+    strLabel.style.marginBottom = "4px";
+
+    const strTableContent = createAbilityTable(actor, "STR", 
+      ["%", "Hit Adj", "Damage Adj", "Carry", "Open Doors", "Bend Bars"],
+      [getPercent(actor, "str"), getHitAdj(actor), getDamageAdj(actor), 
+      getCarryWeight(actor), getOpenDoors(actor), getBendBars(actor)]
     );
+
+    strTable.appendChild(strLabel);
+    strTable.appendChild(strTableContent);
     abilitiesSection.appendChild(strTable);
-    
+
     // DEX Table
-    const dexTable = createAbilityTable(actor, "DEX", 
-      ["", "%", "Reaction Adj", "Missile Adj", "Def. Adj"],
-      ["DEX", "0", getReactionAdj(actor), getMissileAdj(actor), getDefAdj(actor)]
+    const dexTable = document.createElement("div");
+    dexTable.style.marginBottom = "15px";
+
+    const dexLabel = document.createElement("div");
+    dexLabel.textContent = "DEX";
+    dexLabel.style.fontSize = "16px";
+    dexLabel.style.fontWeight = "bold";
+    dexLabel.style.marginBottom = "4px";
+
+    const dexTableContent = createAbilityTable(actor, "DEX", 
+      ["%", "Reaction Adj", "Missile Adj", "Def. Adj"],
+      ["0", getReactionAdj(actor), getMissileAdj(actor), getDefAdj(actor)]
     );
+
+    dexTable.appendChild(dexLabel);
+    dexTable.appendChild(dexTableContent);
     abilitiesSection.appendChild(dexTable);
-    
+
     // CON Table
-    const conTable = createAbilityTable(actor, "CON", 
-      ["", "%", "Hit Points", "System Shock", "Res. Survival", "Poison Adj", "Regeneration"],
-      ["CON", "0", getHPBonus(actor), getSystemShock(actor), 
-       getResurrection(actor), getPoisonAdj(actor), getRegeneration(actor)]
+    const conTable = document.createElement("div");
+    conTable.style.marginBottom = "15px";
+
+    const conLabel = document.createElement("div");
+    conLabel.textContent = "CON";
+    conLabel.style.fontSize = "16px";
+    conLabel.style.fontWeight = "bold";
+    conLabel.style.marginBottom = "4px";
+
+    const conTableContent = createAbilityTable(actor, "CON", 
+      ["%", "Hit Points", "System Shock", "Res. Survival", "Poison Adj", "Regeneration"],
+      ["0", getHPBonus(actor), getSystemShock(actor), 
+      getResurrection(actor), getPoisonAdj(actor), getRegeneration(actor)]
     );
+
+    conTable.appendChild(conLabel);
+    conTable.appendChild(conTableContent);
     abilitiesSection.appendChild(conTable);
-    
+
     // INT Table
-    const intTable = createAbilityTable(actor, "INT", 
-      ["", "%", "# Languages", "Spell Level", "Learn Chance", "Max Spells", "Immunity"],
-      ["INT", "0", getLanguages(actor), getSpellLevel(actor), 
-       getLearnChance(actor), getMaxSpells(actor), getSpellImmunity(actor)]
+    const intTable = document.createElement("div");
+    intTable.style.marginBottom = "15px";
+
+    const intLabel = document.createElement("div");
+    intLabel.textContent = "INT";
+    intLabel.style.fontSize = "16px";
+    intLabel.style.fontWeight = "bold";
+    intLabel.style.marginBottom = "4px";
+
+    const intTableContent = createAbilityTable(actor, "INT", 
+      ["%", "# Languages", "Spell Level", "Learn Chance", "Max Spells", "Immunity"],
+      ["0", getLanguages(actor), getSpellLevel(actor), 
+      getLearnChance(actor), getMaxSpells(actor), getSpellImmunity(actor)]
     );
+
+    intTable.appendChild(intLabel);
+    intTable.appendChild(intTableContent);
     abilitiesSection.appendChild(intTable);
-    
+
     // WIS Table
-    const wisTable = createAbilityTable(actor, "WIS", 
-      ["", "%", "Magic Adj", "Spell Bonuses", "Spell Failure", "Immunity"],
-      ["WIS", "0", getMagicAdj(actor), getSpellBonuses(actor), 
-       getSpellFailure(actor), getWisImmunity(actor)]
+    const wisTable = document.createElement("div");
+    wisTable.style.marginBottom = "15px";
+
+    const wisLabel = document.createElement("div");
+    wisLabel.textContent = "WIS";
+    wisLabel.style.fontSize = "16px";
+    wisLabel.style.fontWeight = "bold";
+    wisLabel.style.marginBottom = "4px";
+
+    const wisTableContent = createAbilityTable(actor, "WIS", 
+      ["%", "Magic Adj", "Spell Bonuses", "Spell Failure", "Immunity"],
+      ["0", getMagicAdj(actor), getSpellBonuses(actor), 
+      getSpellFailure(actor), getWisImmunity(actor)]
     );
+
+    wisTable.appendChild(wisLabel);
+    wisTable.appendChild(wisTableContent);
     abilitiesSection.appendChild(wisTable);
-    
+
     // CHA Table
-    const chaTable = createAbilityTable(actor, "CHA", 
-      ["", "%", "Max Henchmen", "Loyalty Base", "Reaction Adj"],
-      ["CHA", "0", getMaxHenchmen(actor), getLoyaltyBase(actor), 
-       getChaReactionAdj(actor)]
+    const chaTable = document.createElement("div");
+    chaTable.style.marginBottom = "15px";
+
+    const chaLabel = document.createElement("div");
+    chaLabel.textContent = "CHA";
+    chaLabel.style.fontSize = "16px";
+    chaLabel.style.fontWeight = "bold";
+    chaLabel.style.marginBottom = "4px";
+
+    const chaTableContent = createAbilityTable(actor, "CHA", 
+      ["%", "Max Henchmen", "Loyalty Base", "Reaction Adj"],
+      ["0", getMaxHenchmen(actor), getLoyaltyBase(actor), 
+      getChaReactionAdj(actor)]
     );
+
+    chaTable.appendChild(chaLabel);
+    chaTable.appendChild(chaTableContent);
     abilitiesSection.appendChild(chaTable);
-    
+
     tab.appendChild(abilitiesSection);
     
     // ─── Saves Section ───
@@ -954,14 +1026,14 @@ export function getStoredCharacters() {
     
     // Create table container
     const tableContainer = document.createElement("div");
-    tableContainer.style.marginBottom = "5px";
+    tableContainer.style.marginBottom = "8px";
     
     // Create the table
     const table = document.createElement("table");
     table.style.width = "100%";
     table.style.borderCollapse = "collapse";
     table.style.border = "1px solid #aaa";
-    table.style.background = "#f0f0e8";
+    table.style.background = "#e0e0e0";
     
     // Create header row
     const thead = document.createElement("thead");
@@ -971,10 +1043,10 @@ export function getStoredCharacters() {
       const th = document.createElement("th");
       th.textContent = text;
       th.style.padding = "4px";
-      th.style.fontSize = "11px";
+      th.style.fontSize = "12px";
       th.style.fontWeight = "bold";
       th.style.borderBottom = "1px solid #aaa";
-      th.style.background = "#ddd";
+      th.style.textAlign = "center";
       headerRow.appendChild(th);
     });
     
@@ -984,29 +1056,26 @@ export function getStoredCharacters() {
     // Create value row
     const tbody = document.createElement("tbody");
     const valueRow = document.createElement("tr");
+    valueRow.style.background = "#f8f8f0";
     
-    // Special handling for the ability value cell
+    // First cell should contain the ability score value
     const abilityCell = document.createElement("td");
-    abilityCell.style.padding = "4px";
+    abilityCell.style.padding = "6px";
     abilityCell.style.textAlign = "center";
     abilityCell.style.border = "1px solid #ccc";
     abilityCell.style.fontWeight = "bold";
-    abilityCell.style.fontSize = "18px";
-    abilityCell.style.background = "#f8f8f0";
-    
-    const abilitySpan = document.createElement("span");
-    abilitySpan.textContent = abilityValue;
-    abilityCell.appendChild(abilitySpan);
+    abilityCell.style.fontSize = "20px";
+    abilityCell.textContent = abilityValue;
     valueRow.appendChild(abilityCell);
     
     // Add the rest of the values
-    for (let i = 1; i < values.length; i++) {
+    for (let i = 0; i < values.length; i++) {
       const td = document.createElement("td");
       td.textContent = values[i];
       td.style.padding = "4px";
       td.style.textAlign = "center";
       td.style.border = "1px solid #ccc";
-      td.style.fontSize = "12px";
+      td.style.fontSize = "13px";
       valueRow.appendChild(td);
     }
     
