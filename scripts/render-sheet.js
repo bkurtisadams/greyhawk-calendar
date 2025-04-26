@@ -1650,6 +1650,10 @@ export function getStoredCharacters() {
         const img = document.createElement("img");
         img.src = item.img;
         img.alt = "";
+        img.onerror = function() {
+          this.src = "icons/svg/item-bag.svg"; // Generic item fallback
+          this.onerror = null;
+        };
         img.style.width = "20px";
         img.style.height = "20px";
         
