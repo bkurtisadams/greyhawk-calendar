@@ -253,7 +253,7 @@ export function getStoredCharacters() {
     nameContainer.appendChild(nameInput);
     headerSection.appendChild(nameContainer);
   
-    // Combat section (consistent across all tabs)
+    // Combat section
     const combatSection = document.createElement("div");
     combatSection.className = "combat-section";
     combatSection.style.padding = "10px";
@@ -261,7 +261,7 @@ export function getStoredCharacters() {
     combatSection.style.border = "1px solid #ccc";
     combatSection.style.borderRadius = "5px";
     combatSection.style.marginBottom = "10px";
-    
+
     // Combat header
     const combatHeader = document.createElement("div");
     combatHeader.className = "section-header";
@@ -272,331 +272,167 @@ export function getStoredCharacters() {
     combatHeader.style.fontWeight = "bold";
     combatHeader.style.borderRadius = "3px";
     combatHeader.style.marginBottom = "10px";
-    
+
+    combatSection.appendChild(combatHeader);
+
     // Combat stats container
     const combatStats = document.createElement("div");
-    combatStats.className = "combat-stats";
     combatStats.style.display = "flex";
     combatStats.style.justifyContent = "space-between";
-    
-    // AC section (new clean version)
+    combatStats.style.alignItems = "center";
+
+    // Armor Class Section
     const acSection = document.createElement("div");
     acSection.style.display = "flex";
     acSection.style.flexDirection = "column";
     acSection.style.alignItems = "center";
     acSection.style.backgroundColor = "#e0e0d0";
     acSection.style.borderRadius = "5px";
-    acSection.style.padding = "10px";
+    acSection.style.padding = "8px";
     acSection.style.minWidth = "80px";
 
     const acValues = calculateArmorClass(actor);
 
-    // Main Armor Class value
-    const acMainValue = document.createElement("div");
-    acMainValue.textContent = acValues.normal;
-    acMainValue.style.fontSize = "32px";
-    acMainValue.style.fontWeight = "bold";
-    acMainValue.style.marginBottom = "4px";
-    acSection.appendChild(acMainValue);
+    const acValue = document.createElement("div");
+    acValue.textContent = acValues.normal;
+    acValue.style.fontSize = "32px";
+    acValue.style.fontWeight = "bold";
+    acValue.style.marginBottom = "4px";
 
-    // Label "Armor Class"
-    const acMainLabel = document.createElement("div");
-    acMainLabel.textContent = "Armor Class";
-    acMainLabel.style.fontSize = "12px";
-    acMainLabel.style.fontWeight = "bold";
-    acMainLabel.style.marginBottom = "6px";
-    acSection.appendChild(acMainLabel);
+    const acLabel = document.createElement("div");
+    acLabel.textContent = "Armor Class";
+    acLabel.style.fontSize = "12px";
+    acLabel.style.fontWeight = "bold";
+    acLabel.style.marginBottom = "6px";
 
-    // Shieldless and Rear
-    const acSubValues = document.createElement("div");
-    acSubValues.style.fontSize = "10px";
-    acSubValues.style.display = "flex";
-    acSubValues.style.flexDirection = "column";
-    acSubValues.style.alignItems = "center";
-    acSubValues.innerHTML = `
-      <div>Shieldless: ${acValues.shieldless}</div>
-      <div>Rear: ${acValues.rear}</div>
-    `;
-    acSection.appendChild(acSubValues);
+    const shieldless = document.createElement("div");
+    shieldless.textContent = `Shieldless: ${acValues.shieldless}`;
+    shieldless.style.fontSize = "10px";
 
+    const rear = document.createElement("div");
+    rear.textContent = `Rear: ${acValues.rear}`;
+    rear.style.fontSize = "10px";
 
-    // Build visible equipment text (multi-line)
-    /* let equipmentLines = [];
-
-    if (armor) {
-      const base = armor.system?.protection?.ac ?? "?";
-      const mod = armor.system?.protection?.modifier ?? 0;
-      equipmentLines.push(`${armor.name} (AC ${base}, +${mod} magic)`);
-    } else {
-      equipmentLines.push(`No Armor`);
-    }
-
-    if (shield) {
-      const mod = shield.system?.protection?.modifier ?? 0;
-      equipmentLines.push(`${shield.name} (+${1 + mod} AC)`);
-    } */
-
-    // Find protection items
-    /* const protectionItems = actor.items?.filter(i => {
-      const name = i.name?.toLowerCase() || "";
-      return (name.includes("ring of protection") ||
-              name.includes("cloak of protection") ||
-              name.includes("amulet of protection")) &&
-            i.system?.location?.state === "equipped";
-    }) || [];
-
-    if (protectionItems.length > 0) {
-      protectionItems.forEach(item => {
-        const bonus = item.system?.attributes?.bonus ?? 1;
-        equipmentLines.push(`${item.name} (+${bonus} AC)`);
-      });
-    }
-
-    // Final display text (multi-line)
-    const equipmentText = equipmentLines.join('<br>');
-
-    // Create div under AC showing armor/shield/magic worn
-    const equipmentDiv = document.createElement("div");
-    equipmentDiv.style.fontSize = "10px";
-    equipmentDiv.style.marginTop = "4px";
-    equipmentDiv.style.textAlign = "center";
-    equipmentDiv.innerHTML = equipmentText || "No Armor"; */
-
-    // Full hover tooltip with sources
-    let tooltip = "";
-
-    if (armor) {
-      const base = armor.system?.protection?.ac ?? "?";
-      const mod = armor.system?.protection?.modifier ?? 0;
-      tooltip += `🛡️ Armor: ${armor.name} (AC ${base}, +${mod} magic)\n`;
-    } else {
-      tooltip += `🛡️ Armor: None\n`;
-    }
-
-    if (shield) {
-      const mod = shield.system?.protection?.modifier ?? 0;
-      tooltip += `🛡️ Shield: ${shield.name} (+${1 + mod} AC total)\n`;
-    } else {
-      tooltip += `🛡️ Shield: None\n`;
-    }
-
-    // Real DEX adjustment
-    const dex = actor.system?.abilities?.dex?.value ?? 10;
-    let dexBonus = 0;
-    if (dex === 3) dexBonus = +4;
-    else if (dex === 4) dexBonus = +3;
-    else if (dex === 5) dexBonus = +2;
-    else if (dex === 6) dexBonus = +1;
-    else if (dex >= 7 && dex <= 14) dexBonus = 0;
-    else if (dex === 15) dexBonus = -1;
-    else if (dex === 16) dexBonus = -2;
-    else if (dex === 17) dexBonus = -3;
-    else if (dex === 18) dexBonus = -4;
-
-    tooltip += `🏃 Dex ${dex}: ${dexBonus >= 0 ? "+" : ""}${dexBonus} AC\n`;
-
-    if (protectionItems.length > 0) {
-      protectionItems.forEach(item => {
-        const bonus = item.system?.attributes?.bonus ?? 1;
-        tooltip += `💍 ${item.name} (+${bonus} AC)\n`;
-      });
-    } else {
-      tooltip += `💍 No additional protection items\n`;
-    }
-
-    // Attach tooltip to AC value
-    acValue.title = tooltip.trim();
-
-    // Create AC number display
-    const acNum = document.createElement("div");
-    acNum.textContent = acValues.normal;
-    acNum.style.fontSize = "24px";
-    acNum.style.fontWeight = "bold";
-
-    acValue.appendChild(acLabel);
-    acValue.appendChild(acNum);
-
-    // Create shieldless and rear AC rows
-    const acDetails = document.createElement("div");
-    acDetails.style.display = "flex";
-    acDetails.style.flexDirection = "column";
-
-    const shieldlessRow = document.createElement("div");
-    shieldlessRow.innerHTML = `<span>Shieldless</span> <span>${acValues.shieldless}</span>`;
-    shieldlessRow.style.display = "flex";
-    shieldlessRow.style.justifyContent = "space-between";
-
-    const rearRow = document.createElement("div");
-    rearRow.innerHTML = `<span>Rear</span> <span>${acValues.rear}</span>`;
-    rearRow.style.display = "flex";
-    rearRow.style.justifyContent = "space-between";
-
-    acDetails.appendChild(shieldlessRow);
-    acDetails.appendChild(rearRow);
-
-    // Add everything to acSection
     acSection.appendChild(acValue);
-    acSection.appendChild(equipmentDiv);
-    acSection.appendChild(acDetails);
+    acSection.appendChild(acLabel);
+    acSection.appendChild(shieldless);
+    acSection.appendChild(rear);
 
-    
-    // Hit Points section
+    // Hit Points Section
     const hpSection = document.createElement("div");
     hpSection.style.flex = "1";
-    hpSection.style.display = "flex";
-    hpSection.style.flexDirection = "column";
     hpSection.style.margin = "0 10px";
-    
+
     const hpLabel = document.createElement("div");
     hpLabel.textContent = "Current Hit Points";
     hpLabel.style.fontSize = "12px";
-    
-    const hpBar = document.createElement("div");
-    hpBar.style.display = "flex";
-    hpBar.style.alignItems = "center";
-    hpBar.style.margin = "5px 0";
-    
+    hpLabel.style.fontWeight = "bold";
+    hpLabel.style.marginBottom = "4px";
+
     const hpValue = document.createElement("div");
     hpValue.textContent = actor.system?.attributes?.hp?.value || "0";
     hpValue.style.fontSize = "32px";
     hpValue.style.fontWeight = "bold";
-    hpValue.style.marginRight = "10px";
-    
-    const progressContainer = document.createElement("div");
-    progressContainer.style.flex = "1";
-    progressContainer.style.height = "10px";
-    progressContainer.style.background = "#ccc";
-    progressContainer.style.borderRadius = "5px";
-    progressContainer.style.overflow = "hidden";
-    
-    const progressBar = document.createElement("div");
-    const hpValue2 = actor.system?.attributes?.hp?.value || 0;
+    hpValue.style.marginBottom = "4px";
+
+    const hpBarContainer = document.createElement("div");
+    hpBarContainer.style.height = "8px";
+    hpBarContainer.style.background = "#ccc";
+    hpBarContainer.style.borderRadius = "4px";
+    hpBarContainer.style.overflow = "hidden";
+
+    const hpBar = document.createElement("div");
+    const hpCurrent = actor.system?.attributes?.hp?.value || 0;
     const hpMax = actor.system?.attributes?.hp?.max || 0;
-    const hpPercent = hpMax > 0 ? (hpValue2 / hpMax) * 100 : 0;
-    progressBar.style.width = `${hpPercent}%`;
-    progressBar.style.height = "100%";
-    progressBar.style.background = "linear-gradient(to right, #83c783, #56ab56)";
-    progressContainer.appendChild(progressBar);
-    
-    hpBar.appendChild(hpValue);
-    hpBar.appendChild(progressContainer);
-    
+    const hpPercent = hpMax > 0 ? (hpCurrent / hpMax) * 100 : 0;
+    hpBar.style.width = `${hpPercent}%`;
+    hpBar.style.height = "100%";
+    hpBar.style.background = "linear-gradient(to right, #83c783, #56ab56)";
+
+    hpBarContainer.appendChild(hpBar);
+
     const hpStat = document.createElement("div");
     hpStat.style.display = "flex";
     hpStat.style.justifyContent = "space-between";
-    
+    hpStat.style.fontSize = "10px";
+    hpStat.style.marginTop = "4px";
+
     const maxLabel = document.createElement("div");
-    maxLabel.textContent = "Max";
-    
-    const maxValue = document.createElement("div");
-    maxValue.textContent = actor.system?.attributes?.hp?.max || "0";
-    
+    maxLabel.textContent = `Max: ${hpMax}`;
+
     const currentLabel = document.createElement("div");
-    currentLabel.textContent = "Current";
-    
-    const currentValue = document.createElement("div");
-    currentValue.textContent = actor.system?.attributes?.hp?.value || "0";
-    
+    currentLabel.textContent = `Current: ${hpCurrent}`;
+
     hpStat.appendChild(maxLabel);
-    hpStat.appendChild(maxValue);
     hpStat.appendChild(currentLabel);
-    hpStat.appendChild(currentValue);
-    
+
     hpSection.appendChild(hpLabel);
-    hpSection.appendChild(hpBar);
+    hpSection.appendChild(hpValue);
+    hpSection.appendChild(hpBarContainer);
     hpSection.appendChild(hpStat);
-    
-    // Movement section
+
+    // Movement Section
     const moveSection = document.createElement("div");
     moveSection.style.display = "flex";
+    moveSection.style.flexDirection = "column";
     moveSection.style.alignItems = "center";
-    
-    const moveIcon = document.createElement("div");
-    moveIcon.style.width = "40px";
-    moveIcon.style.height = "40px";
-    moveIcon.style.backgroundColor = "#e0e0d0";
-    moveIcon.style.borderRadius = "50%";
-    moveIcon.style.display = "flex";
-    moveIcon.style.justifyContent = "center";
-    moveIcon.style.alignItems = "center";
-    moveIcon.style.marginRight = "10px";
-    moveIcon.innerHTML = "Move";
-    
-    const moveDetails = document.createElement("div");
-    moveDetails.style.display = "flex";
-    moveDetails.style.flexDirection = "column";
-    
+    moveSection.style.minWidth = "80px";
+
     const moveValue = document.createElement("div");
+    moveValue.textContent = actor.system?.attributes?.movement?.value || "90";
     moveValue.style.fontSize = "32px";
     moveValue.style.fontWeight = "bold";
-    moveValue.textContent = actor.system?.attributes?.movement?.value || "90";
-    
+    moveValue.style.marginBottom = "4px";
+
+    const moveLabel = document.createElement("div");
+    moveLabel.textContent = "Move";
+    moveLabel.style.fontSize = "12px";
+    moveLabel.style.fontWeight = "bold";
+    moveLabel.style.marginBottom = "4px";
+
     const moveBase = document.createElement("div");
-    moveBase.style.display = "flex";
-    moveBase.style.justifyContent = "space-between";
-    
-    const baseLabel = document.createElement("div");
-    baseLabel.textContent = "Base";
-    
-    const baseValue = document.createElement("div");
-    baseValue.textContent = actor.system?.attributes?.movement?.value || "90";
-    
-    const progressContainer2 = document.createElement("div");
-    progressContainer2.style.width = "100px";
-    progressContainer2.style.height = "10px";
-    progressContainer2.style.background = "#ccc";
-    progressContainer2.style.borderRadius = "5px";
-    progressContainer2.style.overflow = "hidden";
-    progressContainer2.style.margin = "5px 0";
-    
-    const progressBar2 = document.createElement("div");
-    progressBar2.style.width = "100%";
-    progressBar2.style.height = "100%";
-    progressBar2.style.background = "linear-gradient(to right, #83c783, #56ab56)";
-    progressContainer2.appendChild(progressBar2);
-    
-    moveBase.appendChild(baseLabel);
-    moveBase.appendChild(baseValue);
-    
-    moveDetails.appendChild(moveValue);
-    moveDetails.appendChild(moveBase);
-    moveDetails.appendChild(progressContainer2);
-    
-    moveSection.appendChild(moveIcon);
-    moveSection.appendChild(moveDetails);
-    
-    // Attack Matrix section
+    moveBase.textContent = `Base: ${actor.system?.attributes?.movement?.value || "90"}`;
+    moveBase.style.fontSize = "10px";
+
+    moveSection.appendChild(moveValue);
+    moveSection.appendChild(moveLabel);
+    moveSection.appendChild(moveBase);
+
+    // Attack Matrix Section
     const matrixSection = document.createElement("div");
     matrixSection.style.display = "flex";
+    matrixSection.style.flexDirection = "column";
     matrixSection.style.alignItems = "center";
-    
+    matrixSection.style.justifyContent = "center";
+    matrixSection.style.minWidth = "80px";
+
     const matrixIcon = document.createElement("div");
-    matrixIcon.style.width = "40px";
-    matrixIcon.style.height = "40px";
+    matrixIcon.style.width = "32px";
+    matrixIcon.style.height = "32px";
     matrixIcon.style.backgroundImage = "url('icons/svg/sword.svg')";
     matrixIcon.style.backgroundSize = "contain";
-    matrixIcon.style.backgroundPosition = "center";
     matrixIcon.style.backgroundRepeat = "no-repeat";
-    matrixIcon.style.opacity = "0.5";
-    
-    const matrixText = document.createElement("div");
-    matrixText.textContent = "Attack Matrix";
-    matrixText.style.marginLeft = "10px";
-    
+    matrixIcon.style.backgroundPosition = "center";
+    matrixIcon.style.opacity = "0.6";
+    matrixIcon.style.marginBottom = "4px";
+
+    const matrixLabel = document.createElement("div");
+    matrixLabel.textContent = "Attack Matrix";
+    matrixLabel.style.fontSize = "10px";
+    matrixLabel.style.textAlign = "center";
+
     matrixSection.appendChild(matrixIcon);
-    matrixSection.appendChild(matrixText);
-    
-    // Add all sections to combat stats
+    matrixSection.appendChild(matrixLabel);
+
+    // Assemble combat sections
     combatStats.appendChild(acSection);
     combatStats.appendChild(hpSection);
     combatStats.appendChild(moveSection);
     combatStats.appendChild(matrixSection);
-    
-    combatSection.appendChild(combatHeader);
+
     combatSection.appendChild(combatStats);
-    
     headerSection.appendChild(combatSection);
-    wrapper.appendChild(headerSection);
+
     
     // Main content area with tab system
     const contentWrapper = document.createElement("div");
