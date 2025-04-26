@@ -727,61 +727,64 @@ export function getStoredCharacters() {
     
     tab.appendChild(header);
     
-    // Character grid (Class, Race, Alignment)
+    // Character Info Grid (Fixed for multiclass correctly)
     const basicInfo = document.createElement("div");
-    basicInfo.className = "character-basic-info";
     basicInfo.style.display = "grid";
-    basicInfo.style.gridTemplateColumns = "auto 1fr auto 1fr auto 1fr";
-    basicInfo.style.gap = "5px";
-    basicInfo.style.background = "#e8e8d8";
-    basicInfo.style.padding = "10px";
-    basicInfo.style.borderRadius = "5px";
-    basicInfo.style.marginBottom = "20px";
-    
-    // Class label and value
+    basicInfo.style.gridTemplateColumns = "1fr 1fr";
+    basicInfo.style.gap = "10px";
+    basicInfo.style.marginTop = "10px";
+
+    // ➔ Correct class + levels display
     const classLabel = document.createElement("div");
     classLabel.textContent = "Class";
     classLabel.style.fontWeight = "bold";
-    
+
     const classValue = document.createElement("div");
-    const classItem = actor.items?.find(i => i.type === "class");
-    const classLevel = classItem?.system?.level || "";
-    classValue.textContent = classItem ? `${classItem.name} ${classLevel}` : "Unknown";
-    
-    // Race label and value
+    let classDisplay = "Unknown";
+    if (actor.activeClasses && Array.isArray(actor.activeClasses)) {
+      const classes = actor.activeClasses.map(c => `${c.name} ${c.system?.level ?? "?"}`);
+      classDisplay = classes.join(" / ");
+    } else if (actor.items) {
+      const classItem = actor.items.find(i => i.type === "class");
+      const classLevel = classItem?.system?.level ?? "";
+      classDisplay = classItem ? `${classItem.name} ${classLevel}` : "Unknown";
+    }
+    classValue.textContent = classDisplay;
+
+    // ➔ Race
     const raceLabel = document.createElement("div");
     raceLabel.textContent = "Race";
     raceLabel.style.fontWeight = "bold";
-    
+
     const raceValue = document.createElement("div");
     const raceItem = actor.items?.find(i => i.type === "race");
-    raceValue.textContent = raceItem?.name || "Unknown";
-    
-    // Alignment label and value
+    raceValue.textContent = raceItem?.name || actor.system?.details?.race?.name || "Unknown";
+
+    // ➔ Alignment
     const alignmentLabel = document.createElement("div");
     alignmentLabel.textContent = "Alignment";
     alignmentLabel.style.fontWeight = "bold";
-    
+
     const alignmentValue = document.createElement("div");
-    alignmentValue.textContent = formatAlignment(actor.system?.details?.alignment || "Unknown");
-    
-    // Background label and value
+    alignmentValue.textContent = formatAlignment(actor.system?.alignment || actor.system?.details?.alignment || "Unknown");
+
+    // ➔ Background
     const backgroundLabel = document.createElement("div");
     backgroundLabel.textContent = "Background";
     backgroundLabel.style.fontWeight = "bold";
-    
+
     const backgroundValue = document.createElement("div");
     backgroundValue.textContent = actor.system?.backgroundname || "None";
-    
-    // Size label and value
+
+    // ➔ Size
     const sizeLabel = document.createElement("div");
     sizeLabel.textContent = "Size";
     sizeLabel.style.fontWeight = "bold";
-    
+
     const sizeValue = document.createElement("div");
-    sizeValue.textContent = actor.system?.attributes?.size || "Medium";
-    
-    // Add cells to grid
+    sizeValue.textContent = actor.system?.details?.size || actor.system?.attributes?.size || "Medium";
+
+    // ➔ Add all to grid
     basicInfo.appendChild(classLabel);
     basicInfo.appendChild(classValue);
     basicInfo.appendChild(raceLabel);
@@ -792,8 +795,9 @@ export function getStoredCharacters() {
     basicInfo.appendChild(backgroundValue);
     basicInfo.appendChild(sizeLabel);
     basicInfo.appendChild(sizeValue);
-    
+
     tab.appendChild(basicInfo);
+
     
     // ─── Abilities Header ───
     const abilitiesHeader = document.createElement("div");
