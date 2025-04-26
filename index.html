@@ -653,54 +653,6 @@
   text-align: center;
   line-height: 1.4;
 }
-
-.date-control {
-  background-color: #e9e0cc;
-  border-radius: 5px;
-  padding: 15px;
-  margin: 20px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.date-inputs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.input-group label {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.input-group input,
-.input-group select {
-  padding: 5px;
-  border: 1px solid #d3c7a7;
-  border-radius: 3px;
-}
-
-.date-control button {
-  background-color: #8b4513;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: auto;
-}
-
-.date-control button:hover {
-  background-color: #6a2f08;
-}
-
 </style>
 
 </head>
@@ -728,26 +680,6 @@
     <div class="current-date" id="current-date">
         Loading current campaign date...
     </div>
-    <div class="date-control">
-        <h3>Campaign Date Controls</h3>
-        <div class="date-inputs">
-          <div class="input-group">
-            <label for="campaign-year">Year:</label>
-            <input type="number" id="campaign-year" min="567" max="570" value="569">
-          </div>
-          <div class="input-group">
-            <label for="campaign-month">Month:</label>
-            <select id="campaign-month"></select>
-          </div>
-          <div class="input-group">
-            <label for="campaign-day">Day:</label>
-            <select id="campaign-day"></select>
-          </div>
-          <button id="update-campaign-date">Update Campaign Date</button>
-          <button id="advance-day">Advance 1 Day</button>
-        </div>
-      </div>
-      
 
     <div class="toggle-view">
         <button id="btn-calendar" class="active">Calendar View</button>

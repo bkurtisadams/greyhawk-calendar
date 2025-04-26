@@ -253,7 +253,7 @@ export function getStoredCharacters() {
     nameContainer.appendChild(nameInput);
     headerSection.appendChild(nameContainer);
   
-    // Combat section
+    // Combat section (consistent across all tabs)
     const combatSection = document.createElement("div");
     combatSection.className = "combat-section";
     combatSection.style.padding = "10px";
@@ -261,7 +261,7 @@ export function getStoredCharacters() {
     combatSection.style.border = "1px solid #ccc";
     combatSection.style.borderRadius = "5px";
     combatSection.style.marginBottom = "10px";
-
+    
     // Combat header
     const combatHeader = document.createElement("div");
     combatHeader.className = "section-header";
@@ -272,167 +272,327 @@ export function getStoredCharacters() {
     combatHeader.style.fontWeight = "bold";
     combatHeader.style.borderRadius = "3px";
     combatHeader.style.marginBottom = "10px";
-
-    combatSection.appendChild(combatHeader);
-
+    
     // Combat stats container
     const combatStats = document.createElement("div");
+    combatStats.className = "combat-stats";
     combatStats.style.display = "flex";
     combatStats.style.justifyContent = "space-between";
-    combatStats.style.alignItems = "center";
-
-    // Armor Class Section
+    
+    // AC section
     const acSection = document.createElement("div");
     acSection.style.display = "flex";
-    acSection.style.flexDirection = "column";
     acSection.style.alignItems = "center";
-    acSection.style.backgroundColor = "#e0e0d0";
-    acSection.style.borderRadius = "5px";
-    acSection.style.padding = "8px";
-    acSection.style.minWidth = "80px";
-
-    const acValues = calculateArmorClass(actor);
 
     const acValue = document.createElement("div");
-    acValue.textContent = acValues.normal;
-    acValue.style.fontSize = "32px";
-    acValue.style.fontWeight = "bold";
-    acValue.style.marginBottom = "4px";
+    acValue.className = "ac-value";
+    acValue.style.display = "flex";
+    acValue.style.flexDirection = "column";
+    acValue.style.alignItems = "center";
+    acValue.style.background = "#e0e0d0";
+    acValue.style.borderRadius = "50%";
+    acValue.style.width = "50px";
+    acValue.style.height = "50px";
+    acValue.style.padding = "5px";
+    acValue.style.marginRight = "10px";
+    acValue.style.justifyContent = "center";
 
     const acLabel = document.createElement("div");
     acLabel.textContent = "Armor Class";
-    acLabel.style.fontSize = "12px";
-    acLabel.style.fontWeight = "bold";
-    acLabel.style.marginBottom = "6px";
+    acLabel.style.fontSize = "10px";
 
-    const shieldless = document.createElement("div");
-    shieldless.textContent = `Shieldless: ${acValues.shieldless}`;
-    shieldless.style.fontSize = "10px";
+    const acValues = calculateArmorClass(actor);
 
-    const rear = document.createElement("div");
-    rear.textContent = `Rear: ${acValues.rear}`;
-    rear.style.fontSize = "10px";
+    // 🛡️ Armor and shield info
+    const armor = actor.items?.find(i => 
+      i.type === "armor" &&
+      i.system?.location?.state === "equipped" &&
+      ["armor", "bracers", "warding"].includes((i.system?.protection?.type || "").toLowerCase())
+    );
 
+    const shield = actor.items?.find(i => 
+      (i.type === "armor" || i.type === "equipment") &&
+      i.name?.toLowerCase().includes("shield") &&
+      i.system?.location?.state === "equipped"
+    );
+
+    // Build visible equipment text (multi-line)
+    let equipmentLines = [];
+
+    if (armor) {
+      const base = armor.system?.protection?.ac ?? "?";
+      const mod = armor.system?.protection?.modifier ?? 0;
+      equipmentLines.push(`${armor.name} (AC ${base}, +${mod} magic)`);
+    } else {
+      equipmentLines.push(`No Armor`);
+    }
+
+    if (shield) {
+      const mod = shield.system?.protection?.modifier ?? 0;
+      equipmentLines.push(`${shield.name} (+${1 + mod} AC)`);
+    }
+
+    // Find protection items
+    const protectionItems = actor.items?.filter(i => {
+      const name = i.name?.toLowerCase() || "";
+      return (name.includes("ring of protection") ||
+              name.includes("cloak of protection") ||
+              name.includes("amulet of protection")) &&
+            i.system?.location?.state === "equipped";
+    }) || [];
+
+    if (protectionItems.length > 0) {
+      protectionItems.forEach(item => {
+        const bonus = item.system?.attributes?.bonus ?? 1;
+        equipmentLines.push(`${item.name} (+${bonus} AC)`);
+      });
+    }
+
+    // Final display text (multi-line)
+    const equipmentText = equipmentLines.join('<br>');
+
+    // Create div under AC showing armor/shield/magic worn
+    const equipmentDiv = document.createElement("div");
+    equipmentDiv.style.fontSize = "10px";
+    equipmentDiv.style.marginTop = "4px";
+    equipmentDiv.style.textAlign = "center";
+    equipmentDiv.innerHTML = equipmentText || "No Armor";
+
+    // Full hover tooltip with sources
+    let tooltip = "";
+
+    if (armor) {
+      const base = armor.system?.protection?.ac ?? "?";
+      const mod = armor.system?.protection?.modifier ?? 0;
+      tooltip += `🛡️ Armor: ${armor.name} (AC ${base}, +${mod} magic)\n`;
+    } else {
+      tooltip += `🛡️ Armor: None\n`;
+    }
+
+    if (shield) {
+      const mod = shield.system?.protection?.modifier ?? 0;
+      tooltip += `🛡️ Shield: ${shield.name} (+${1 + mod} AC total)\n`;
+    } else {
+      tooltip += `🛡️ Shield: None\n`;
+    }
+
+    // Real DEX adjustment
+    const dex = actor.system?.abilities?.dex?.value ?? 10;
+    let dexBonus = 0;
+    if (dex === 3) dexBonus = +4;
+    else if (dex === 4) dexBonus = +3;
+    else if (dex === 5) dexBonus = +2;
+    else if (dex === 6) dexBonus = +1;
+    else if (dex >= 7 && dex <= 14) dexBonus = 0;
+    else if (dex === 15) dexBonus = -1;
+    else if (dex === 16) dexBonus = -2;
+    else if (dex === 17) dexBonus = -3;
+    else if (dex === 18) dexBonus = -4;
+
+    tooltip += `🏃 Dex ${dex}: ${dexBonus >= 0 ? "+" : ""}${dexBonus} AC\n`;
+
+    if (protectionItems.length > 0) {
+      protectionItems.forEach(item => {
+        const bonus = item.system?.attributes?.bonus ?? 1;
+        tooltip += `💍 ${item.name} (+${bonus} AC)\n`;
+      });
+    } else {
+      tooltip += `💍 No additional protection items\n`;
+    }
+
+    // Attach tooltip to AC value
+    acValue.title = tooltip.trim();
+
+    // Create AC number display
+    const acNum = document.createElement("div");
+    acNum.textContent = acValues.normal;
+    acNum.style.fontSize = "24px";
+    acNum.style.fontWeight = "bold";
+
+    acValue.appendChild(acLabel);
+    acValue.appendChild(acNum);
+
+    // Create shieldless and rear AC rows
+    const acDetails = document.createElement("div");
+    acDetails.style.display = "flex";
+    acDetails.style.flexDirection = "column";
+
+    const shieldlessRow = document.createElement("div");
+    shieldlessRow.innerHTML = `<span>Shieldless</span> <span>${acValues.shieldless}</span>`;
+    shieldlessRow.style.display = "flex";
+    shieldlessRow.style.justifyContent = "space-between";
+
+    const rearRow = document.createElement("div");
+    rearRow.innerHTML = `<span>Rear</span> <span>${acValues.rear}</span>`;
+    rearRow.style.display = "flex";
+    rearRow.style.justifyContent = "space-between";
+
+    acDetails.appendChild(shieldlessRow);
+    acDetails.appendChild(rearRow);
+
+    // Add everything to acSection
     acSection.appendChild(acValue);
-    acSection.appendChild(acLabel);
-    acSection.appendChild(shieldless);
-    acSection.appendChild(rear);
+    acSection.appendChild(equipmentDiv);
+    acSection.appendChild(acDetails);
 
-    // Hit Points Section
+    
+    // Hit Points section
     const hpSection = document.createElement("div");
     hpSection.style.flex = "1";
+    hpSection.style.display = "flex";
+    hpSection.style.flexDirection = "column";
     hpSection.style.margin = "0 10px";
-
+    
     const hpLabel = document.createElement("div");
     hpLabel.textContent = "Current Hit Points";
     hpLabel.style.fontSize = "12px";
-    hpLabel.style.fontWeight = "bold";
-    hpLabel.style.marginBottom = "4px";
-
+    
+    const hpBar = document.createElement("div");
+    hpBar.style.display = "flex";
+    hpBar.style.alignItems = "center";
+    hpBar.style.margin = "5px 0";
+    
     const hpValue = document.createElement("div");
     hpValue.textContent = actor.system?.attributes?.hp?.value || "0";
     hpValue.style.fontSize = "32px";
     hpValue.style.fontWeight = "bold";
-    hpValue.style.marginBottom = "4px";
-
-    const hpBarContainer = document.createElement("div");
-    hpBarContainer.style.height = "8px";
-    hpBarContainer.style.background = "#ccc";
-    hpBarContainer.style.borderRadius = "4px";
-    hpBarContainer.style.overflow = "hidden";
-
-    const hpBar = document.createElement("div");
-    const hpCurrent = actor.system?.attributes?.hp?.value || 0;
+    hpValue.style.marginRight = "10px";
+    
+    const progressContainer = document.createElement("div");
+    progressContainer.style.flex = "1";
+    progressContainer.style.height = "10px";
+    progressContainer.style.background = "#ccc";
+    progressContainer.style.borderRadius = "5px";
+    progressContainer.style.overflow = "hidden";
+    
+    const progressBar = document.createElement("div");
+    const hpValue2 = actor.system?.attributes?.hp?.value || 0;
     const hpMax = actor.system?.attributes?.hp?.max || 0;
-    const hpPercent = hpMax > 0 ? (hpCurrent / hpMax) * 100 : 0;
-    hpBar.style.width = `${hpPercent}%`;
-    hpBar.style.height = "100%";
-    hpBar.style.background = "linear-gradient(to right, #83c783, #56ab56)";
-
-    hpBarContainer.appendChild(hpBar);
-
+    const hpPercent = hpMax > 0 ? (hpValue2 / hpMax) * 100 : 0;
+    progressBar.style.width = `${hpPercent}%`;
+    progressBar.style.height = "100%";
+    progressBar.style.background = "linear-gradient(to right, #83c783, #56ab56)";
+    progressContainer.appendChild(progressBar);
+    
+    hpBar.appendChild(hpValue);
+    hpBar.appendChild(progressContainer);
+    
     const hpStat = document.createElement("div");
     hpStat.style.display = "flex";
     hpStat.style.justifyContent = "space-between";
-    hpStat.style.fontSize = "10px";
-    hpStat.style.marginTop = "4px";
-
+    
     const maxLabel = document.createElement("div");
-    maxLabel.textContent = `Max: ${hpMax}`;
-
+    maxLabel.textContent = "Max";
+    
+    const maxValue = document.createElement("div");
+    maxValue.textContent = actor.system?.attributes?.hp?.max || "0";
+    
     const currentLabel = document.createElement("div");
-    currentLabel.textContent = `Current: ${hpCurrent}`;
-
+    currentLabel.textContent = "Current";
+    
+    const currentValue = document.createElement("div");
+    currentValue.textContent = actor.system?.attributes?.hp?.value || "0";
+    
     hpStat.appendChild(maxLabel);
+    hpStat.appendChild(maxValue);
     hpStat.appendChild(currentLabel);
-
+    hpStat.appendChild(currentValue);
+    
     hpSection.appendChild(hpLabel);
-    hpSection.appendChild(hpValue);
-    hpSection.appendChild(hpBarContainer);
+    hpSection.appendChild(hpBar);
     hpSection.appendChild(hpStat);
-
-    // Movement Section
+    
+    // Movement section
     const moveSection = document.createElement("div");
     moveSection.style.display = "flex";
-    moveSection.style.flexDirection = "column";
     moveSection.style.alignItems = "center";
-    moveSection.style.minWidth = "80px";
-
+    
+    const moveIcon = document.createElement("div");
+    moveIcon.style.width = "40px";
+    moveIcon.style.height = "40px";
+    moveIcon.style.backgroundColor = "#e0e0d0";
+    moveIcon.style.borderRadius = "50%";
+    moveIcon.style.display = "flex";
+    moveIcon.style.justifyContent = "center";
+    moveIcon.style.alignItems = "center";
+    moveIcon.style.marginRight = "10px";
+    moveIcon.innerHTML = "Move";
+    
+    const moveDetails = document.createElement("div");
+    moveDetails.style.display = "flex";
+    moveDetails.style.flexDirection = "column";
+    
     const moveValue = document.createElement("div");
-    moveValue.textContent = actor.system?.attributes?.movement?.value || "90";
     moveValue.style.fontSize = "32px";
     moveValue.style.fontWeight = "bold";
-    moveValue.style.marginBottom = "4px";
-
-    const moveLabel = document.createElement("div");
-    moveLabel.textContent = "Move";
-    moveLabel.style.fontSize = "12px";
-    moveLabel.style.fontWeight = "bold";
-    moveLabel.style.marginBottom = "4px";
-
+    moveValue.textContent = actor.system?.attributes?.movement?.value || "90";
+    
     const moveBase = document.createElement("div");
-    moveBase.textContent = `Base: ${actor.system?.attributes?.movement?.value || "90"}`;
-    moveBase.style.fontSize = "10px";
-
-    moveSection.appendChild(moveValue);
-    moveSection.appendChild(moveLabel);
-    moveSection.appendChild(moveBase);
-
-    // Attack Matrix Section
+    moveBase.style.display = "flex";
+    moveBase.style.justifyContent = "space-between";
+    
+    const baseLabel = document.createElement("div");
+    baseLabel.textContent = "Base";
+    
+    const baseValue = document.createElement("div");
+    baseValue.textContent = actor.system?.attributes?.movement?.value || "90";
+    
+    const progressContainer2 = document.createElement("div");
+    progressContainer2.style.width = "100px";
+    progressContainer2.style.height = "10px";
+    progressContainer2.style.background = "#ccc";
+    progressContainer2.style.borderRadius = "5px";
+    progressContainer2.style.overflow = "hidden";
+    progressContainer2.style.margin = "5px 0";
+    
+    const progressBar2 = document.createElement("div");
+    progressBar2.style.width = "100%";
+    progressBar2.style.height = "100%";
+    progressBar2.style.background = "linear-gradient(to right, #83c783, #56ab56)";
+    progressContainer2.appendChild(progressBar2);
+    
+    moveBase.appendChild(baseLabel);
+    moveBase.appendChild(baseValue);
+    
+    moveDetails.appendChild(moveValue);
+    moveDetails.appendChild(moveBase);
+    moveDetails.appendChild(progressContainer2);
+    
+    moveSection.appendChild(moveIcon);
+    moveSection.appendChild(moveDetails);
+    
+    // Attack Matrix section
     const matrixSection = document.createElement("div");
     matrixSection.style.display = "flex";
-    matrixSection.style.flexDirection = "column";
     matrixSection.style.alignItems = "center";
-    matrixSection.style.justifyContent = "center";
-    matrixSection.style.minWidth = "80px";
-
+    
     const matrixIcon = document.createElement("div");
-    matrixIcon.style.width = "32px";
-    matrixIcon.style.height = "32px";
+    matrixIcon.style.width = "40px";
+    matrixIcon.style.height = "40px";
     matrixIcon.style.backgroundImage = "url('icons/svg/sword.svg')";
     matrixIcon.style.backgroundSize = "contain";
-    matrixIcon.style.backgroundRepeat = "no-repeat";
     matrixIcon.style.backgroundPosition = "center";
-    matrixIcon.style.opacity = "0.6";
-    matrixIcon.style.marginBottom = "4px";
-
-    const matrixLabel = document.createElement("div");
-    matrixLabel.textContent = "Attack Matrix";
-    matrixLabel.style.fontSize = "10px";
-    matrixLabel.style.textAlign = "center";
-
+    matrixIcon.style.backgroundRepeat = "no-repeat";
+    matrixIcon.style.opacity = "0.5";
+    
+    const matrixText = document.createElement("div");
+    matrixText.textContent = "Attack Matrix";
+    matrixText.style.marginLeft = "10px";
+    
     matrixSection.appendChild(matrixIcon);
-    matrixSection.appendChild(matrixLabel);
-
-    // Assemble combat sections
+    matrixSection.appendChild(matrixText);
+    
+    // Add all sections to combat stats
     combatStats.appendChild(acSection);
     combatStats.appendChild(hpSection);
     combatStats.appendChild(moveSection);
     combatStats.appendChild(matrixSection);
-
+    
+    combatSection.appendChild(combatHeader);
     combatSection.appendChild(combatStats);
+    
     headerSection.appendChild(combatSection);
-
+    wrapper.appendChild(headerSection);
     
     // Main content area with tab system
     const contentWrapper = document.createElement("div");
@@ -463,8 +623,7 @@ export function getStoredCharacters() {
       { id: "skills", label: "Skills" },
       { id: "items", label: "Items" }, 
       { id: "spells", label: "Spells" },
-      { id: "proficiencies", label: "Proficiencies" },
-      { id: "description", label: "Description" } 
+      { id: "proficiencies", label: "Proficiencies" }
     ];
     
     for (const tab of tabNames) {
@@ -493,8 +652,6 @@ export function getStoredCharacters() {
     const skillsTab = createSkillsTab(modifiedActor);
     const spellsTab = createSpellsTab(modifiedActor);
     const proficienciesTab = createProficienciesTab(modifiedActor);
-    const descriptionTab = createDescriptionTab(modifiedActor);
-
     
     // Add tabs to content area
     contentArea.appendChild(characterTab);
@@ -505,8 +662,6 @@ export function getStoredCharacters() {
     contentArea.appendChild(itemsTab); 
     contentArea.appendChild(spellsTab);
     contentArea.appendChild(proficienciesTab);
-    contentArea.appendChild(descriptionTab);
-
     
     contentWrapper.appendChild(sidebar);
     contentWrapper.appendChild(contentArea);
@@ -1356,689 +1511,194 @@ export function getStoredCharacters() {
   }
   
   // Then add the createItemsTab function
-  // Fixed function to properly handle container contents
-// Step 1: Update the createItemsTab function
-function createItemsTab(actor) {
-  const tab = document.createElement("div");
-  tab.className = "tab-content";
-  tab.dataset.tab = "items";
-  tab.style.display = "none";
-  
-  // Items header with purple background
-  const header = document.createElement("div");
-  header.className = "section-header";
-  header.textContent = "Equipment";
-  header.style.backgroundColor = "#271744";
-  header.style.color = "white";
-  header.style.padding = "5px 10px";
-  header.style.fontWeight = "bold";
-  header.style.borderRadius = "3px";
-  header.style.marginBottom = "10px";
-  header.style.display = "flex";
-  header.style.justifyContent = "space-between";
-  header.style.alignItems = "center";
-  
-  // Add icons
-  const toolsDiv = document.createElement("div");
-  toolsDiv.innerHTML = `
-    <span style="cursor: pointer; margin-right: 10px;">≡</span>
-    <span style="cursor: pointer; margin-right: 10px; color: #4caf50;">✚</span>
-  `;
-  header.appendChild(toolsDiv);
-  
-  tab.appendChild(header);
+  function createItemsTab(actor) {
+    const tab = document.createElement("div");
+    tab.className = "tab-content";
+    tab.dataset.tab = "items";
+    tab.style.display = "none";
+    
+    // Items header with purple background
+    const header = document.createElement("div");
+    header.className = "section-header";
+    header.textContent = "Items";
+    header.style.backgroundColor = "#271744";
+    header.style.color = "white";
+    header.style.padding = "5px 10px";
+    header.style.fontWeight = "bold";
+    header.style.borderRadius = "3px";
+    header.style.marginBottom = "10px";
+    
+    tab.appendChild(header);
+    
+    // 💰 MONEY SECTION
+    const currencies = actor.items?.filter((i) => i.type === "currency") || [];
+    if (currencies.length > 0) {
+      const moneyHeader = document.createElement("h4");
+      moneyHeader.textContent = "Money";
+      tab.appendChild(moneyHeader);
+      
+      const moneyList = document.createElement("ul");
+      currencies.forEach((coin) => {
+        const li = document.createElement("li");
+        li.textContent = `${coin.name}: ${coin.system?.quantity ?? 0}`;
+        moneyList.appendChild(li);
+      });
+      
+      tab.appendChild(moneyList);
+    }
 
-  // Money section
-  const currencies = actor.items?.filter((i) => i.type === "currency") || [];
-  if (currencies.length > 0) {
-    const moneyRow = document.createElement("div");
-    moneyRow.style.backgroundColor = "#e6e2d3";
-    moneyRow.style.padding = "5px";
-    moneyRow.style.marginBottom = "10px";
-    moneyRow.style.borderRadius = "3px";
-    moneyRow.style.display = "flex";
-    moneyRow.style.justifyContent = "space-between";
+    // CONTAINERS SECTION
+    const containers = actor.items?.filter(i => i.type === "container") || [];
     
-    const coinTypes = ["Copper", "Silver", "Electrum", "Gold", "Platinum"];
-    coinTypes.forEach(coinType => {
-      const coinDiv = document.createElement("div");
-      coinDiv.style.textAlign = "center";
-      coinDiv.style.flex = "1";
+    if (containers.length > 0) {
+      const containersHeader = document.createElement("h4");
+      containersHeader.textContent = "Containers";
+      tab.appendChild(containersHeader);
       
-      const coinLabel = document.createElement("div");
-      coinLabel.textContent = coinType;
-      coinLabel.style.fontSize = "12px";
-      coinLabel.style.color = "#666";
-      
-      const coinValue = document.createElement("div");
-      const coin = currencies.find(c => c.name.toLowerCase().includes(coinType.toLowerCase()));
-      coinValue.textContent = coin ? coin.system?.quantity || 0 : "0";
-      coinValue.style.fontWeight = "bold";
-      
-      coinDiv.appendChild(coinLabel);
-      coinDiv.appendChild(coinValue);
-      moneyRow.appendChild(coinDiv);
-    });
-    
-    tab.appendChild(moneyRow);
-  }
-  
-  // Create the main inventory table
-  const table = document.createElement("table");
-  table.className = "inventory-table";
-  table.style.width = "100%";
-  table.style.borderCollapse = "collapse";
-  
-  // Table header
-  const thead = document.createElement("thead");
-  thead.style.backgroundColor = "#e0e0d0";
-  
-  const headerRow = document.createElement("tr");
-  const headers = ["Name", "Type", "Equipped", "Qty", "Weight"];
-  
-  const columnWidths = ["55%", "10%", "10%", "10%", "15%"];
-  
-  headers.forEach((headerText, index) => {
-    const th = document.createElement("th");
-    th.textContent = headerText;
-    th.style.padding = "8px 4px";
-    th.style.textAlign = index === 0 ? "left" : "center";
-    th.style.width = columnWidths[index];
-    th.style.fontSize = "12px";
-    th.style.fontWeight = "bold";
-    headerRow.appendChild(th);
-  });
-  
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
-  
-  // Table body
-  const tbody = document.createElement("tbody");
-  
-  // Create a map to track contained items to avoid duplicates
-  const containedItemsMap = new Map();
-  
-  // First, identify all items that are inside containers
-  const allItems = actor.items?.filter(i => 
-    i.type === "weapon" || 
-    i.type === "armor" || 
-    i.type === "equipment" || 
-    i.type === "container" ||
-    i.type === "consumable" ||
-    i.type === "treasure" ||
-    i.type === "potion" ||
-    i.type === "item"
-  ) || [];
-  
-  // Mark contained items
-  allItems.forEach(item => {
-    if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
-      // Process each item in this container
-      item.system.itemList.forEach(containedItem => {
-        containedItemsMap.set(containedItem.name, true);
+      containers.forEach(container => {
+        const containerDiv = document.createElement("div");
+        containerDiv.className = "container-item";
+        containerDiv.style.marginBottom = "15px";
+        
+        // Container header
+        const contHeader = document.createElement("div");
+        contHeader.style.display = "flex";
+        contHeader.style.alignItems = "center";
+        contHeader.style.padding = "5px";
+        contHeader.style.backgroundColor = "#e0e0d0";
+        contHeader.style.borderRadius = "3px";
+        
+        const contIcon = document.createElement("img");
+        contIcon.src = container.img;
+        contIcon.alt = "";
+        contIcon.style.width = "24px";
+        contIcon.style.height = "24px";
+        contIcon.style.marginRight = "10px";
+        
+        const contName = document.createElement("strong");
+        contName.textContent = container.name;
+        
+        contHeader.appendChild(contIcon);
+        contHeader.appendChild(contName);
+        containerDiv.appendChild(contHeader);
+        
+        // Container contents
+        const contentsList = document.createElement("ul");
+        contentsList.style.marginLeft = "30px";
+        
+        const contents = container.system?.itemList || [];
+        contents.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = `${item.name} (${item.quantity || 1})`;
+          contentsList.appendChild(li);
+        });
+        
+        containerDiv.appendChild(contentsList);
+        tab.appendChild(containerDiv);
       });
     }
-  });
-  
-  // Sort items: equipped first, then by type, then by name
-  // Only include top-level items (not contained in any container)
-  const topLevelItems = allItems.filter(item => !containedItemsMap.has(item.name));
-  
-  topLevelItems.sort((a, b) => {
-    // Equipped items come first
-    const aEquipped = a.system?.location?.state === "equipped" ? 0 : 1;
-    const bEquipped = b.system?.location?.state === "equipped" ? 0 : 1;
     
-    if (aEquipped !== bEquipped) return aEquipped - bEquipped;
+    // INVENTORY SECTION
+    const inventoryTypes = [
+      "weapon", "armor", "equipment", "item",
+      "consumable", "treasure", "potion"
+    ];
     
-    // Then by type
-    if (a.type !== b.type) {
-      const typeOrder = {
-        "weapon": 0,
-        "armor": 1,
-        "container": 2,
-        "consumable": 3,
-        "potion": 4,
-        "treasure": 5,
-        "equipment": 6,
-        "item": 7
-      };
-      return (typeOrder[a.type] || 99) - (typeOrder[b.type] || 99);
-    }
+    const looseItems = actor.items?.filter(i => 
+      inventoryTypes.includes(i.type) && 
+      !i.system?.location?.parent
+    ) || [];
     
-    // Then by name
-    return a.name.localeCompare(b.name);
-  });
-  
-  // Add each top-level item to the table
-  topLevelItems.forEach(item => {
-    const row = document.createElement("tr");
-    row.style.borderBottom = "1px solid #e0e0d0";
-    
-    // Highlight equipped items
-    if (item.system?.location?.state === "equipped") {
-      row.style.backgroundColor = "#e7f0e7";
-    } else {
-      row.style.backgroundColor = "#f9f9f2";
-    }
-    
-    // Item name with icon
-    const nameCell = document.createElement("td");
-    nameCell.style.padding = "8px 4px";
-    nameCell.style.display = "flex";
-    nameCell.style.alignItems = "center";
-    
-    // Item icon based on type
-    const getTypeIcon = (item) => {
-      if (item.type === "weapon") return "🗡️";
-      if (item.type === "armor" && item.name.toLowerCase().includes("shield")) return "🛡️";
-      if (item.type === "armor") return "👕";
-      if (item.type === "container") return "📦";
-      if (item.type === "potion" || item.type === "consumable") return "🧪";
-      if (item.type === "treasure") return "💎";
-      return "📜";
-    };
-    
-    const itemImage = document.createElement("img");
-    itemImage.alt = getTypeIcon(item);
-    itemImage.src = item.img || "icons/svg/item-bag.svg";
-    itemImage.onerror = function() {
-      // If image fails to load, use a fallback based on item type
-      this.onerror = null;
-      this.style.display = "none";
-      const fallbackIcon = document.createElement("span");
-      fallbackIcon.textContent = getTypeIcon(item);
-      fallbackIcon.style.fontSize = "20px";
-      fallbackIcon.style.marginRight = "8px";
-      this.parentNode.insertBefore(fallbackIcon, this);
-    };
-    itemImage.style.width = "24px";
-    itemImage.style.height = "24px";
-    itemImage.style.marginRight = "8px";
-    itemImage.style.borderRadius = "3px";
-    itemImage.style.border = "1px solid #ccc";
-    
-    const nameSpan = document.createElement("span");
-    nameSpan.textContent = item.name;
-    
-    // Add magical styling
-    if (item.system?.attributes?.magic || 
-        item.name.includes("+") || 
-        item.name.toLowerCase().includes("of ")) {
-      nameSpan.style.color = "#1a66ba";
-      nameSpan.style.fontWeight = "bold";
-    }
-    
-    // Make containers collapsible
-    if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
-      // Generate a unique ID for this container
-      const containerId = `container-${item.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}-${Math.random().toString(36).substring(2, 7)}`;
+    if (looseItems.length > 0) {
+      const looseHeader = document.createElement("h4");
+      looseHeader.textContent = "Loose Items";
+      tab.appendChild(document.createElement("hr"));
+      tab.appendChild(looseHeader);
       
-      // Add a toggle indicator
-      const toggleIcon = document.createElement("span");
-      toggleIcon.textContent = "▼";
-      toggleIcon.style.marginLeft = "6px";
-      toggleIcon.style.fontSize = "10px";
-      toggleIcon.style.cursor = "pointer";
-      toggleIcon.style.color = "#666";
-      toggleIcon.dataset.containerId = containerId;
-      toggleIcon.dataset.state = "open";
+      const table = document.createElement("table");
+      table.className = "inventory-grid";
+      table.style.width = "100%";
+      table.style.borderCollapse = "collapse";
       
-      toggleIcon.addEventListener("click", (e) => {
-        const containerId = e.target.dataset.containerId;
-        const state = e.target.dataset.state;
-        const containerItems = document.querySelectorAll(`.${containerId}`);
+      const thead = document.createElement("thead");
+      const headerRow = document.createElement("tr");
+      
+      const headers = ["", "Name", "Status", "Qty", "Weight"];
+      
+      headers.forEach(header => {
+        const th = document.createElement("th");
+        th.textContent = header;
+        th.style.padding = "5px";
+        th.style.textAlign = header === "" ? "center" : "left";
+        headerRow.appendChild(th);
+      });
+      
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+      
+      const tbody = document.createElement("tbody");
+      
+      looseItems.forEach(item => {
+        const tr = document.createElement("tr");
+        tr.style.backgroundColor = "#f0f0e0";
+        tr.style.borderBottom = "1px solid #ddd";
         
-        if (state === "open") {
-          containerItems.forEach(el => el.style.display = "none");
-          e.target.textContent = "►";
-          e.target.dataset.state = "closed";
-        } else {
-          containerItems.forEach(el => el.style.display = "table-row");
-          e.target.textContent = "▼";
-          e.target.dataset.state = "open";
+        // Icon
+        const iconTd = document.createElement("td");
+        iconTd.style.textAlign = "center";
+        
+        const img = document.createElement("img");
+        img.src = item.img;
+        img.alt = "";
+        img.style.width = "20px";
+        img.style.height = "20px";
+        
+        iconTd.appendChild(img);
+        tr.appendChild(iconTd);
+        
+        // Name
+        const nameTd = document.createElement("td");
+        nameTd.textContent = item.name;
+        
+        // Add magical styling if needed
+        if (item.system?.attributes?.magic) {
+          nameTd.style.color = "blue";
         }
         
-        e.stopPropagation();
+        tr.appendChild(nameTd);
+        
+        // Status (Carried/Equipped/Not Carried)
+        const statusTd = document.createElement("td");
+        let status = "Carried";
+        
+        if (item.system?.location?.state === "equipped") {
+          status = "Equipped";
+        } else if (item.system?.location?.state === "nocarried") {
+          status = "Not Carried";
+        }
+        
+        statusTd.textContent = status;
+        tr.appendChild(statusTd);
+        
+        // Quantity
+        const qtyTd = document.createElement("td");
+        qtyTd.textContent = item.system?.quantity || 1;
+        tr.appendChild(qtyTd);
+        
+        // Weight
+        const weightTd = document.createElement("td");
+        weightTd.textContent = item.system?.weight || 0;
+        tr.appendChild(weightTd);
+        
+        tbody.appendChild(tr);
       });
       
-      nameSpan.appendChild(toggleIcon);
-      
-      // Add container contents after the main row
-      const contents = item.system.itemList;
-      if (contents && contents.length > 0) {
-        row.dataset.hasContents = "true";
-        row.dataset.containerId = containerId;
-      }
+      table.appendChild(tbody);
+      tab.appendChild(table);
     }
     
-    nameCell.appendChild(itemImage);
-    nameCell.appendChild(nameSpan);
-    
-    // Create the type column
-    const typeCell = document.createElement("td");
-    typeCell.style.padding = "4px";
-    typeCell.style.textAlign = "center";
-    
-    // Show the type icon
-    const typeIcon = document.createElement("div");
-    
-    if (item.type === "container") {
-      typeIcon.innerHTML = "📦";
-      typeIcon.title = "Container";
-    } else if (item.type === "armor") {
-      typeIcon.innerHTML = "🛡️";
-      typeIcon.title = "Armor";
-    } else if (item.type === "weapon") {
-      typeIcon.innerHTML = "⚔️";
-      typeIcon.title = "Weapon";
-    } else if (item.type === "consumable" || item.type === "potion") {
-      typeIcon.innerHTML = "🧪";
-      typeIcon.title = "Consumable";
-    }
-    
-    typeCell.appendChild(typeIcon);
-    
-    // Create the equipped status column
-    const statusCell = document.createElement("td");
-    statusCell.style.padding = "4px";
-    statusCell.style.textAlign = "center";
-    
-    // Show if an item is equipped
-    const statusIcon = document.createElement("div");
-    if (item.system?.location?.state === "equipped") {
-      statusIcon.innerHTML = "✓";
-      statusIcon.style.color = "green";
-      statusIcon.title = "Equipped";
-    } else if (item.system?.location?.state === "nocarried") {
-      statusIcon.innerHTML = "✗";
-      statusIcon.style.color = "red";
-      statusIcon.title = "Not Carried";
-    } else {
-      statusIcon.innerHTML = "○";
-      statusIcon.style.color = "#999";
-      statusIcon.title = "Carried";
-    }
-    
-    statusCell.appendChild(statusIcon);
-    
-    // Create the quantity column with input field
-    const qtyCell = document.createElement("td");
-    qtyCell.style.padding = "4px";
-    qtyCell.style.textAlign = "center";
-    
-    const qtyInput = document.createElement("input");
-    qtyInput.type = "text";
-    qtyInput.value = item.system?.quantity || 1;
-    qtyInput.style.width = "60%";
-    qtyInput.style.padding = "2px";
-    qtyInput.style.textAlign = "center";
-    qtyInput.style.border = "1px solid #ccc";
-    qtyInput.style.borderRadius = "3px";
-    qtyInput.readOnly = true;
-    
-    qtyCell.appendChild(qtyInput);
-    
-    // Create the weight column
-    const weightCell = document.createElement("td");
-    weightCell.style.padding = "4px";
-    weightCell.style.textAlign = "center";
-    
-    // Display item weight if available
-    const weightSpan = document.createElement("span");
-    weightSpan.textContent = item.system?.weight || "0";
-    weightCell.appendChild(weightSpan);
-    
-    // Add actions menu button
-    const menuButton = document.createElement("button");
-    menuButton.innerHTML = "⋮";
-    menuButton.style.border = "none";
-    menuButton.style.background = "none";
-    menuButton.style.cursor = "pointer";
-    menuButton.style.fontSize = "18px";
-    menuButton.style.padding = "0 5px";
-    menuButton.style.float = "right";
-    
-    weightCell.appendChild(menuButton);
-    
-    // Add all cells to the row
-    row.appendChild(nameCell);
-    row.appendChild(typeCell);
-    row.appendChild(statusCell);
-    row.appendChild(qtyCell);
-    row.appendChild(weightCell);
-    
-    tbody.appendChild(row);
-    
-    // If this is a container, add its contents indented
-    if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
-      const containerId = row.dataset.containerId;
-      addContainerContents(tbody, item.system.itemList, containerId, 1);
-    }
-  });
-  
-  table.appendChild(tbody);
-  tab.appendChild(table);
-  
-  return tab;
-}
-
-// Step 2: Update the existing addContainerContents function (don't redeclare it)
-// Replace the existing function implementation with this new one:
-
-function addContainerContents(tbody, contents, parentContainerId, depth = 1) {
-  if (!Array.isArray(contents)) return;
-  
-  contents.forEach(subItem => {
-    const subRow = document.createElement("tr");
-    subRow.className = parentContainerId;
-    
-    // Slight background tint based on depth
-    const baseColor = 245 - (depth * 5);
-    subRow.style.backgroundColor = `rgb(${baseColor}, ${baseColor}, ${baseColor})`;
-    subRow.style.borderBottom = "1px dotted #e0e0d0";
-    
-    // Name cell (with deeper indent)
-    const subNameCell = document.createElement("td");
-    subNameCell.style.padding = "6px 4px";
-    subNameCell.style.paddingLeft = `${40 + (depth * 20)}px`;
-    subNameCell.textContent = subItem.name;
-    
-    // Type cell
-    const subTypeCell = document.createElement("td");
-    subTypeCell.style.textAlign = "center";
-    subTypeCell.textContent = subItem.type || "Item";
-    
-    // Equipped cell (blank for container contents)
-    const subStatusCell = document.createElement("td");
-    
-    // Quantity cell
-    const subQtyCell = document.createElement("td");
-    subQtyCell.style.textAlign = "center";
-    subQtyCell.textContent = subItem.quantity ?? 1;
-    
-    // Weight cell
-    const subWeightCell = document.createElement("td");
-    subWeightCell.style.textAlign = "center";
-    subWeightCell.textContent = subItem.weight ?? "0";
-    
-    subRow.appendChild(subNameCell);
-    subRow.appendChild(subTypeCell);
-    subRow.appendChild(subStatusCell);
-    subRow.appendChild(subQtyCell);
-    subRow.appendChild(subWeightCell);
-    
-    tbody.appendChild(subRow);
-    
-    // Recursively add nested container contents if it's also a container
-    if (subItem.type === "container" && subItem.itemList && subItem.itemList.length > 0) {
-      // Create unique ID for this nested container
-      const nestedContainerId = `${parentContainerId}-nested-${Math.random().toString(36).substring(2, 7)}`;
-      addContainerContents(tbody, subItem.itemList, nestedContainerId, depth + 1);
-    }
-  });
-}
-
-// Helper function to mark all items contained within containers
-function markContainedItems(items, containedItemMap) {
-  items.forEach(item => {
-    // Mark this item as contained
-    containedItemMap.set(item.name, true);
-    
-    // Recursively mark items in nested containers
-    if (item.type === "container" && item.itemList && item.itemList.length > 0) {
-      markContainedItems(item.itemList, containedItemMap);
-    }
-  });
-}
-
-// Helper to create an item row
-function createItemRow(item) {
-  const row = document.createElement("tr");
-  row.style.borderBottom = "1px solid #e0e0d0";
-  
-  // Highlight equipped items
-  if (item.system?.location?.state === "equipped") {
-    row.style.backgroundColor = "#e7f0e7";
-  } else {
-    row.style.backgroundColor = "#f9f9f2";
+    return tab;
   }
-  
-  // Item name with icon
-  const nameCell = document.createElement("td");
-  nameCell.style.padding = "8px 4px";
-  nameCell.style.display = "flex";
-  nameCell.style.alignItems = "center";
-  
-  // Item icon based on type
-  const getTypeIcon = (item) => {
-    if (item.type === "weapon") return "🗡️";
-    if (item.type === "armor" && item.name.toLowerCase().includes("shield")) return "🛡️";
-    if (item.type === "armor") return "👕";
-    if (item.type === "container") return "📦";
-    if (item.type === "potion" || item.type === "consumable") return "🧪";
-    if (item.type === "treasure") return "💎";
-    return "📜";
-  };
-  
-  const itemImage = document.createElement("img");
-  itemImage.alt = getTypeIcon(item);
-  itemImage.src = item.img || "icons/svg/item-bag.svg";
-  itemImage.onerror = function() {
-    // If image fails to load, use a fallback based on item type
-    this.onerror = null;
-    this.style.display = "none";
-    const fallbackIcon = document.createElement("span");
-    fallbackIcon.textContent = getTypeIcon(item);
-    fallbackIcon.style.fontSize = "20px";
-    fallbackIcon.style.marginRight = "8px";
-    this.parentNode.insertBefore(fallbackIcon, this);
-  };
-  itemImage.style.width = "24px";
-  itemImage.style.height = "24px";
-  itemImage.style.marginRight = "8px";
-  itemImage.style.borderRadius = "3px";
-  itemImage.style.border = "1px solid #ccc";
-  
-  const nameSpan = document.createElement("span");
-  nameSpan.textContent = item.name;
-  
-  // Add magical styling
-  if (item.system?.attributes?.magic || 
-      item.name.includes("+") || 
-      item.name.toLowerCase().includes("of ")) {
-    nameSpan.style.color = "#1a66ba";
-    nameSpan.style.fontWeight = "bold";
-  }
-  
-  // Make containers collapsible
-  if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
-    // Add a toggle indicator
-    const toggleIcon = document.createElement("span");
-    toggleIcon.textContent = "▼";
-    toggleIcon.style.marginLeft = "6px";
-    toggleIcon.style.fontSize = "10px";
-    toggleIcon.style.cursor = "pointer";
-    toggleIcon.style.color = "#666";
-    // Generate unique ID using random string
-    const containerId = `container-${item.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}-${Math.random().toString(36).substring(2, 7)}`;
-    toggleIcon.dataset.containerId = containerId;
-    toggleIcon.dataset.state = "open";
-    
-    toggleIcon.addEventListener("click", (e) => {
-      const containerId = e.target.dataset.containerId;
-      const state = e.target.dataset.state;
-      const containerItems = document.querySelectorAll(`.${containerId}`);
-      
-      if (state === "open") {
-        containerItems.forEach(el => el.style.display = "none");
-        e.target.textContent = "►";
-        e.target.dataset.state = "closed";
-      } else {
-        containerItems.forEach(el => el.style.display = "table-row");
-        e.target.textContent = "▼";
-        e.target.dataset.state = "open";
-      }
-      
-      e.stopPropagation();
-    });
-    
-    nameSpan.appendChild(toggleIcon);
-  }
-  
-  nameCell.appendChild(itemImage);
-  nameCell.appendChild(nameSpan);
-  
-  // Create the type column
-  const typeCell = document.createElement("td");
-  typeCell.style.padding = "4px";
-  typeCell.style.textAlign = "center";
-  
-  // Show the type icon
-  const typeIcon = document.createElement("div");
-  
-  if (item.type === "container") {
-    typeIcon.innerHTML = "📦";
-    typeIcon.title = "Container";
-  } else if (item.type === "armor") {
-    typeIcon.innerHTML = "🛡️";
-    typeIcon.title = "Armor";
-  } else if (item.type === "weapon") {
-    typeIcon.innerHTML = "⚔️";
-    typeIcon.title = "Weapon";
-  } else if (item.type === "consumable" || item.type === "potion") {
-    typeIcon.innerHTML = "🧪";
-    typeIcon.title = "Consumable";
-  }
-  
-  typeCell.appendChild(typeIcon);
-  
-  // Create the equipped status column
-  const statusCell = document.createElement("td");
-  statusCell.style.padding = "4px";
-  statusCell.style.textAlign = "center";
-  
-  // Show if an item is equipped
-  const statusIcon = document.createElement("div");
-  if (item.system?.location?.state === "equipped") {
-    statusIcon.innerHTML = "✓";
-    statusIcon.style.color = "green";
-    statusIcon.title = "Equipped";
-  } else if (item.system?.location?.state === "nocarried") {
-    statusIcon.innerHTML = "✗";
-    statusIcon.style.color = "red";
-    statusIcon.title = "Not Carried";
-  } else {
-    statusIcon.innerHTML = "○";
-    statusIcon.style.color = "#999";
-    statusIcon.title = "Carried";
-  }
-  
-  statusCell.appendChild(statusIcon);
-  
-  // Create the quantity column with input field
-  const qtyCell = document.createElement("td");
-  qtyCell.style.padding = "4px";
-  qtyCell.style.textAlign = "center";
-  
-  const qtyInput = document.createElement("input");
-  qtyInput.type = "text";
-  qtyInput.value = item.system?.quantity || 1;
-  qtyInput.style.width = "60%";
-  qtyInput.style.padding = "2px";
-  qtyInput.style.textAlign = "center";
-  qtyInput.style.border = "1px solid #ccc";
-  qtyInput.style.borderRadius = "3px";
-  qtyInput.readOnly = true;
-  
-  qtyCell.appendChild(qtyInput);
-  
-  // Create the weight column
-  const weightCell = document.createElement("td");
-  weightCell.style.padding = "4px";
-  weightCell.style.textAlign = "center";
-  
-  // Display item weight if available
-  const weightSpan = document.createElement("span");
-  weightSpan.textContent = item.system?.weight || "0";
-  weightCell.appendChild(weightSpan);
-  
-  // Add actions menu button
-  const menuButton = document.createElement("button");
-  menuButton.innerHTML = "⋮";
-  menuButton.style.border = "none";
-  menuButton.style.background = "none";
-  menuButton.style.cursor = "pointer";
-  menuButton.style.fontSize = "18px";
-  menuButton.style.padding = "0 5px";
-  menuButton.style.float = "right";
-  
-  weightCell.appendChild(menuButton);
-  
-  // Add all cells to the row
-  row.appendChild(nameCell);
-  row.appendChild(typeCell);
-  row.appendChild(statusCell);
-  row.appendChild(qtyCell);
-  row.appendChild(weightCell);
-  
-  return row;
-}
-
-// Fixed function to properly add container contents to the table
-/* function addContainerContents(tbody, contents, parentContainerId, depth = 1) {
-  // Make sure contents is an array before trying to process it
-  if (!Array.isArray(contents)) return;
-  
-  contents.forEach(subItem => {
-    const subRow = document.createElement("tr");
-    subRow.className = parentContainerId;
-    
-    // Slight background tint based on depth
-    const baseColor = 245 - (depth * 5);
-    subRow.style.backgroundColor = `rgb(${baseColor}, ${baseColor}, ${baseColor})`;
-    subRow.style.borderBottom = "1px dotted #e0e0d0";
-    
-    // Name cell (with deeper indent)
-    const subNameCell = document.createElement("td");
-    subNameCell.style.padding = "6px 4px";
-    subNameCell.style.paddingLeft = `${40 + (depth * 20)}px`;
-    subNameCell.textContent = subItem.name;
-    
-    // Type cell
-    const subTypeCell = document.createElement("td");
-    subTypeCell.style.textAlign = "center";
-    subTypeCell.textContent = subItem.type || "Item";
-    
-    // Equipped cell (blank for container contents)
-    const subStatusCell = document.createElement("td");
-    
-    // Quantity cell
-    const subQtyCell = document.createElement("td");
-    subQtyCell.style.textAlign = "center";
-    subQtyCell.textContent = subItem.quantity ?? 1;
-    
-    // Weight cell
-    const subWeightCell = document.createElement("td");
-    subWeightCell.style.textAlign = "center";
-    subWeightCell.textContent = subItem.weight ?? "0";
-    
-    subRow.appendChild(subNameCell);
-    subRow.appendChild(subTypeCell);
-    subRow.appendChild(subStatusCell);
-    subRow.appendChild(subQtyCell);
-    subRow.appendChild(subWeightCell);
-    
-    tbody.appendChild(subRow);
-    
-    // Recursively add nested container contents if it's also a container
-    if (subItem.type === "container" && subItem.itemList && subItem.itemList.length > 0) {
-      // Create unique ID for this nested container
-      const nestedContainerId = `${parentContainerId}-nested-${Math.random().toString(36).substring(2, 7)}`;
-      addContainerContents(tbody, subItem.itemList, nestedContainerId, depth + 1);
-    }
-  });
-} */
 
   // Make sure to create and append the items tab in the main render function
   //const itemsTab = createItemsTab(actor);
@@ -3259,143 +2919,5 @@ function applyRacialModifiers(actor) {
   
   return modifiedActor;
 }
-  
-/* function addContainerContents(tbody, contents, parentContainerId, depth = 1) {
-
-  contents.forEach(subItem => {
-    const subRow = document.createElement("tr");
-    const sanitizedName = subItem.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
-    subRow.className = parentContainerId;
-    
-    // Slight background tint based on depth
-    const baseColor = 245 - (depth * 5);
-    subRow.style.backgroundColor = `rgb(${baseColor}, ${baseColor}, ${baseColor})`;
-    subRow.style.borderBottom = "1px dotted #e0e0d0";
-    
-    // Name cell (with deeper indent)
-    const subNameCell = document.createElement("td");
-    subNameCell.style.padding = "6px 4px";
-    subNameCell.style.paddingLeft = `${40 + (depth * 20)}px`;
-    subNameCell.textContent = subItem.name;
-    
-    // Type cell
-    const subTypeCell = document.createElement("td");
-    subTypeCell.style.textAlign = "center";
-    subTypeCell.textContent = subItem.type || "Item";
-    
-    // Equipped cell (blank for container contents)
-    const subStatusCell = document.createElement("td");
-    
-    // Quantity cell
-    const subQtyCell = document.createElement("td");
-    subQtyCell.style.textAlign = "center";
-    subQtyCell.textContent = subItem.quantity ?? 1;
-    
-    // Weight cell
-    const subWeightCell = document.createElement("td");
-    subWeightCell.style.textAlign = "center";
-    subWeightCell.textContent = subItem.weight ?? "0";
-    
-    subRow.appendChild(subNameCell);
-    subRow.appendChild(subTypeCell);
-    subRow.appendChild(subStatusCell);
-    subRow.appendChild(subQtyCell);
-    subRow.appendChild(subWeightCell);
-    
-    tbody.appendChild(subRow);
-    
-    // 🔥 Recursively add nested container contents if it's also a container
-    if (subItem.type === "container" && subItem.itemList && subItem.itemList.length > 0) {
-      addContainerContents(subItem.itemList, parentContainerId, depth + 1);
-    }
-  });
-} */
-
-  function createDescriptionTab(actor) {
-    const tab = document.createElement("div");
-    tab.className = "tab-content";
-    tab.dataset.tab = "description";
-    tab.style.display = "none";
-  
-    // 🔹 Section Header: "Character Description"
-    const descHeader = document.createElement("div");
-    descHeader.className = "section-header";
-    descHeader.textContent = "Character Description";
-    descHeader.style.backgroundColor = "#271744";
-    descHeader.style.color = "white";
-    descHeader.style.padding = "5px 10px";
-    descHeader.style.fontWeight = "bold";
-    descHeader.style.borderRadius = "3px";
-    descHeader.style.marginBottom = "10px";
-    tab.appendChild(descHeader);
-  
-    // 📋 Basic Info Grid
-    const infoGrid = document.createElement("div");
-    infoGrid.style.display = "grid";
-    infoGrid.style.gridTemplateColumns = "1fr 1fr";
-    infoGrid.style.gap = "10px";
-    infoGrid.style.marginBottom = "20px";
-  
-    const fields = [
-      { label: "Age", value: actor.system?.details?.age ?? "Unknown" },
-      { label: "Sex", value: actor.system?.details?.sex ?? "Unknown" },
-      { label: "Deity", value: actor.system?.details?.deity || "None" },
-      { label: "Height", value: actor.system?.details?.height ?? "Unknown" },
-      { label: "Weight", value: actor.system?.details?.weight ?? "Unknown" },
-      { label: "Patron", value: actor.system?.details?.patron || "None" }
-    ];
-  
-    for (const field of fields) {
-      const fieldDiv = document.createElement("div");
-      fieldDiv.style.display = "flex";
-      fieldDiv.style.flexDirection = "column";
-  
-      const label = document.createElement("div");
-      label.textContent = field.label;
-      label.style.fontWeight = "bold";
-      label.style.fontSize = "12px";
-  
-      const value = document.createElement("div");
-      value.textContent = field.value;
-      value.style.fontSize = "14px";
-  
-      fieldDiv.appendChild(label);
-      fieldDiv.appendChild(value);
-      infoGrid.appendChild(fieldDiv);
-    }
-  
-    tab.appendChild(infoGrid);
-  
-    // 🔹 Section Header: "Notes"
-    const notesHeader = document.createElement("div");
-    notesHeader.className = "section-header";
-    notesHeader.textContent = "Notes";
-    notesHeader.style.backgroundColor = "#271744";
-    notesHeader.style.color = "white";
-    notesHeader.style.padding = "5px 10px";
-    notesHeader.style.fontWeight = "bold";
-    notesHeader.style.borderRadius = "3px";
-    notesHeader.style.marginBottom = "10px";
-    tab.appendChild(notesHeader);
-  
-    // 📝 Biography / Background Text
-    const notesBox = document.createElement("div");
-    notesBox.style.background = "#fff";
-    notesBox.style.border = "1px solid #ccc";
-    notesBox.style.borderRadius = "5px";
-    notesBox.style.padding = "10px";
-    notesBox.style.minHeight = "200px";
-    notesBox.style.maxHeight = "500px";
-    notesBox.style.overflowY = "auto"; // Make it scrollable if very long
-    notesBox.style.whiteSpace = "pre-wrap"; // Preserve line breaks
-    notesBox.style.fontSize = "14px";
-  
-    notesBox.innerHTML = actor.system?.details?.biography?.value || "No description available.";
-  
-    tab.appendChild(notesBox);
-  
-    return tab;
-  }
-  
   
   
