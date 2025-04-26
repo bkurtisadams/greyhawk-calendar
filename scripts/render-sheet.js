@@ -3415,7 +3415,7 @@ function applyRacialModifiers(actor) {
   return modifiedActor;
 }
   
-function addContainerContents(tbody, contents, parentContainerId, depth = 1) {
+/* function addContainerContents(tbody, contents, parentContainerId, depth = 1) {
 
   contents.forEach(subItem => {
     const subRow = document.createElement("tr");
@@ -3464,5 +3464,5 @@ function addContainerContents(tbody, contents, parentContainerId, depth = 1) {
       addContainerContents(subItem.itemList, parentContainerId, depth + 1);
     }
   });
-}
+} */
 
