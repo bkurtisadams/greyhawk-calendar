@@ -192,6 +192,7 @@ export function getStoredCharacters() {
   
 
   export function renderCharacterSheet(actor) {
+    console.log("Rendering character sheet for:", actor.name);
     const actorId = getActorId(actor);
     const wrapper = document.createElement("div");
     wrapper.className = "character-card";
@@ -282,7 +283,10 @@ export function getStoredCharacters() {
     // AC section
     const acSection = document.createElement("div");
     acSection.style.display = "flex";
-    acSection.style.alignItems = "center";
+    acSection.style.alignItems = "flex-start";
+    acSection.className = "ac-section"; // Add class for debugging
+    acSection.style.minWidth = "120px";
+    acSection.style.minHeight = "80px";
 
     const acValue = document.createElement("div");
     acValue.className = "ac-value";
@@ -718,10 +722,20 @@ export function getStoredCharacters() {
   
   // Tab content generation functions
   function createCharacterTab(actor) {
+    console.log("Creating character tab with AC section");
     const tab = document.createElement("div");
     tab.className = "tab-content";
     tab.dataset.tab = "character";
     tab.style.display = "block";
+
+    // Add a test element that should always be visible
+    const testDiv = document.createElement("div");
+    testDiv.textContent = "TEST ELEMENT - Should be visible";
+    testDiv.style.padding = "10px";
+    testDiv.style.margin = "10px";
+    testDiv.style.backgroundColor = "red";
+    testDiv.style.color = "white";
+    tab.appendChild(testDiv);
     
     // Character header with purple background
     const header = document.createElement("div");
@@ -747,6 +761,8 @@ export function getStoredCharacters() {
     combatSection.style.display = "grid";
     combatSection.style.gridTemplateColumns = "1fr 2fr 1fr 1fr";
     combatSection.style.gap = "10px";
+
+    console.log("Combat section created:", combatSection);
     
     // AC Section
     const acSection = document.createElement("div");
