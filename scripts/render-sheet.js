@@ -337,7 +337,7 @@ export function getStoredCharacters() {
     } */
 
     // Find protection items
-    const protectionItems = actor.items?.filter(i => {
+    /* const protectionItems = actor.items?.filter(i => {
       const name = i.name?.toLowerCase() || "";
       return (name.includes("ring of protection") ||
               name.includes("cloak of protection") ||
@@ -360,7 +360,7 @@ export function getStoredCharacters() {
     equipmentDiv.style.fontSize = "10px";
     equipmentDiv.style.marginTop = "4px";
     equipmentDiv.style.textAlign = "center";
-    equipmentDiv.innerHTML = equipmentText || "No Armor";
+    equipmentDiv.innerHTML = equipmentText || "No Armor"; */
 
     // Full hover tooltip with sources
     let tooltip = "";
