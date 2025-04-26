@@ -1048,12 +1048,18 @@ function loadContentFromLocalStorage() {
         });
     }
 
-    const savedCharacters = localStorage.getItem('greyhawk-characters');
+
+const savedCharacters = localStorage.getItem('greyhawk-characters');
 if (savedCharacters) {
     try {
         const parsedCharacters = JSON.parse(savedCharacters);
         parsedCharacters.forEach(character => {
-            if (character?.id && character?.name) {
+            if (character?.name) {
+                // Generate an id if it doesn't exist
+                if (!character.id) {
+                    character.id = 'char-' + character.name.toLowerCase().replace(/\s+/g, '-');
+                }
+                
                 if (!CHARACTERS.some(c => c.id === character.id)) {
                     CHARACTERS.push(character);
                 }
@@ -1066,10 +1072,10 @@ if (savedCharacters) {
     }
 }
 
-    const savedDate = localStorage.getItem('greyhawk-campaign-date');
-    if (savedDate) {
-        CAMPAIGN_DATE = JSON.parse(savedDate);
-    }
+const savedDate = localStorage.getItem('greyhawk-campaign-date');
+if (savedDate) {
+    CAMPAIGN_DATE = JSON.parse(savedDate);
+}
 }
 
 function generateCalendarGrid(year) {
