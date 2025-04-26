@@ -1511,348 +1511,435 @@ export function getStoredCharacters() {
   }
   
   // Then add the createItemsTab function
-  function createItemsTab(actor) {
-    const tab = document.createElement("div");
-    tab.className = "tab-content";
-    tab.dataset.tab = "items";
-    tab.style.display = "none";
-    
-    // Items header with purple background
-    const header = document.createElement("div");
-    header.className = "section-header";
-    header.textContent = "Equipment";
-    header.style.backgroundColor = "#271744";
-    header.style.color = "white";
-    header.style.padding = "5px 10px";
-    header.style.fontWeight = "bold";
-    header.style.borderRadius = "3px";
-    header.style.marginBottom = "10px";
-    header.style.display = "flex";
-    header.style.justifyContent = "space-between";
-    header.style.alignItems = "center";
-    
-    // Add icons
-    const toolsDiv = document.createElement("div");
-    toolsDiv.innerHTML = `
-      <span style="cursor: pointer; margin-right: 10px;">≡</span>
-      <span style="cursor: pointer; margin-right: 10px; color: #4caf50;">✚</span>
-    `;
-    header.appendChild(toolsDiv);
-    
-    tab.appendChild(header);
+  // Fixed function to properly handle container contents
+function createItemsTab(actor) {
+  const tab = document.createElement("div");
+  tab.className = "tab-content";
+  tab.dataset.tab = "items";
+  tab.style.display = "none";
   
-    // Money section
-    const currencies = actor.items?.filter((i) => i.type === "currency") || [];
-    if (currencies.length > 0) {
-      const moneyRow = document.createElement("div");
-      moneyRow.style.backgroundColor = "#e6e2d3";
-      moneyRow.style.padding = "5px";
-      moneyRow.style.marginBottom = "10px";
-      moneyRow.style.borderRadius = "3px";
-      moneyRow.style.display = "flex";
-      moneyRow.style.justifyContent = "space-between";
+  // Items header with purple background
+  const header = document.createElement("div");
+  header.className = "section-header";
+  header.textContent = "Equipment";
+  header.style.backgroundColor = "#271744";
+  header.style.color = "white";
+  header.style.padding = "5px 10px";
+  header.style.fontWeight = "bold";
+  header.style.borderRadius = "3px";
+  header.style.marginBottom = "10px";
+  header.style.display = "flex";
+  header.style.justifyContent = "space-between";
+  header.style.alignItems = "center";
+  
+  // Add icons
+  const toolsDiv = document.createElement("div");
+  toolsDiv.innerHTML = `
+    <span style="cursor: pointer; margin-right: 10px;">≡</span>
+    <span style="cursor: pointer; margin-right: 10px; color: #4caf50;">✚</span>
+  `;
+  header.appendChild(toolsDiv);
+  
+  tab.appendChild(header);
+
+  // Money section
+  const currencies = actor.items?.filter((i) => i.type === "currency") || [];
+  if (currencies.length > 0) {
+    const moneyRow = document.createElement("div");
+    moneyRow.style.backgroundColor = "#e6e2d3";
+    moneyRow.style.padding = "5px";
+    moneyRow.style.marginBottom = "10px";
+    moneyRow.style.borderRadius = "3px";
+    moneyRow.style.display = "flex";
+    moneyRow.style.justifyContent = "space-between";
+    
+    const coinTypes = ["Copper", "Silver", "Electrum", "Gold", "Platinum"];
+    coinTypes.forEach(coinType => {
+      const coinDiv = document.createElement("div");
+      coinDiv.style.textAlign = "center";
+      coinDiv.style.flex = "1";
       
-      const coinTypes = ["Copper", "Silver", "Electrum", "Gold", "Platinum"];
-      coinTypes.forEach(coinType => {
-        const coinDiv = document.createElement("div");
-        coinDiv.style.textAlign = "center";
-        coinDiv.style.flex = "1";
-        
-        const coinLabel = document.createElement("div");
-        coinLabel.textContent = coinType;
-        coinLabel.style.fontSize = "12px";
-        coinLabel.style.color = "#666";
-        
-        const coinValue = document.createElement("div");
-        const coin = currencies.find(c => c.name.toLowerCase().includes(coinType.toLowerCase()));
-        coinValue.textContent = coin ? coin.system?.quantity || 0 : "0";
-        coinValue.style.fontWeight = "bold";
-        
-        coinDiv.appendChild(coinLabel);
-        coinDiv.appendChild(coinValue);
-        moneyRow.appendChild(coinDiv);
-      });
+      const coinLabel = document.createElement("div");
+      coinLabel.textContent = coinType;
+      coinLabel.style.fontSize = "12px";
+      coinLabel.style.color = "#666";
       
-      tab.appendChild(moneyRow);
+      const coinValue = document.createElement("div");
+      const coin = currencies.find(c => c.name.toLowerCase().includes(coinType.toLowerCase()));
+      coinValue.textContent = coin ? coin.system?.quantity || 0 : "0";
+      coinValue.style.fontWeight = "bold";
+      
+      coinDiv.appendChild(coinLabel);
+      coinDiv.appendChild(coinValue);
+      moneyRow.appendChild(coinDiv);
+    });
+    
+    tab.appendChild(moneyRow);
+  }
+  
+  // Create the main inventory table
+  const table = document.createElement("table");
+  table.className = "inventory-table";
+  table.style.width = "100%";
+  table.style.borderCollapse = "collapse";
+  
+  // Table header
+  const thead = document.createElement("thead");
+  thead.style.backgroundColor = "#e0e0d0";
+  
+  const headerRow = document.createElement("tr");
+  const headers = ["Name", "Type", "Equipped", "Qty", "Weight"];
+  
+  const columnWidths = ["55%", "10%", "10%", "10%", "15%"];
+  
+  headers.forEach((headerText, index) => {
+    const th = document.createElement("th");
+    th.textContent = headerText;
+    th.style.padding = "8px 4px";
+    th.style.textAlign = index === 0 ? "left" : "center";
+    th.style.width = columnWidths[index];
+    th.style.fontSize = "12px";
+    th.style.fontWeight = "bold";
+    headerRow.appendChild(th);
+  });
+  
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+  
+  // Table body
+  const tbody = document.createElement("tbody");
+  
+  // Create a map of contained items to avoid duplicating them in the main list
+  const containedItemMap = new Map();
+  
+  // First, identify all items that are inside containers
+  const allItems = actor.items?.filter(i => 
+    i.type === "weapon" || 
+    i.type === "armor" || 
+    i.type === "equipment" || 
+    i.type === "container" ||
+    i.type === "consumable" ||
+    i.type === "treasure" ||
+    i.type === "potion" ||
+    i.type === "item"
+  ) || [];
+  
+  // Find and mark contained items
+  allItems.forEach(item => {
+    if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
+      // Mark all items in this container as contained
+      markContainedItems(item.system.itemList, containedItemMap);
+    }
+  });
+  
+  // Sort items: equipped first, then by type, then by name
+  // Only include top-level items (not contained in any container)
+  const topLevelItems = allItems.filter(item => !containedItemMap.has(item.name));
+  
+  topLevelItems.sort((a, b) => {
+    // Equipped items come first
+    const aEquipped = a.system?.location?.state === "equipped" ? 0 : 1;
+    const bEquipped = b.system?.location?.state === "equipped" ? 0 : 1;
+    
+    if (aEquipped !== bEquipped) return aEquipped - bEquipped;
+    
+    // Then by type
+    if (a.type !== b.type) {
+      const typeOrder = {
+        "weapon": 0,
+        "armor": 1,
+        "container": 2,
+        "consumable": 3,
+        "potion": 4,
+        "treasure": 5,
+        "equipment": 6,
+        "item": 7
+      };
+      return (typeOrder[a.type] || 99) - (typeOrder[b.type] || 99);
     }
     
-    // Create the main inventory table
-    const table = document.createElement("table");
-    table.className = "inventory-table";
-    table.style.width = "100%";
-    table.style.borderCollapse = "collapse";
+    // Then by name
+    return a.name.localeCompare(b.name);
+  });
+  
+  // Render the top-level items first
+  topLevelItems.forEach(item => {
+    const row = createItemRow(item);
+    tbody.appendChild(row);
     
-    // Table header
-    const thead = document.createElement("thead");
-    thead.style.backgroundColor = "#e0e0d0";
-    
-    const headerRow = document.createElement("tr");
-    const headers = ["Name", "Type", "Equipped", "Qty", "Weight"];
-    
-    const columnWidths = ["55%", "10%", "10%", "10%", "15%"];
-    
-    headers.forEach((headerText, index) => {
-      const th = document.createElement("th");
-      th.textContent = headerText;
-      th.style.padding = "8px 4px";
-      th.style.textAlign = index === 0 ? "left" : "center";
-      th.style.width = columnWidths[index];
-      th.style.fontSize = "12px";
-      th.style.fontWeight = "bold";
-      headerRow.appendChild(th);
-    });
-    
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
-    
-    // Table body
-    const tbody = document.createElement("tbody");
-    
-    // All inventory items including weapons, armor, and containers
-    const allItems = actor.items?.filter(i => 
-      i.type === "weapon" || 
-      i.type === "armor" || 
-      i.type === "equipment" || 
-      i.type === "container" ||
-      i.type === "consumable" ||
-      i.type === "treasure" ||
-      i.type === "potion" ||
-      i.type === "item"
-    ) || [];
-    
-    // Sort items: equipped first, then by type, then by name
-    allItems.sort((a, b) => {
-      // Equipped items come first
-      const aEquipped = a.system?.location?.state === "equipped" ? 0 : 1;
-      const bEquipped = b.system?.location?.state === "equipped" ? 0 : 1;
-      
-      if (aEquipped !== bEquipped) return aEquipped - bEquipped;
-      
-      // Then by type
-      if (a.type !== b.type) {
-        const typeOrder = {
-          "weapon": 0,
-          "armor": 1,
-          "container": 2,
-          "consumable": 3,
-          "potion": 4,
-          "treasure": 5,
-          "equipment": 6,
-          "item": 7
-        };
-        return (typeOrder[a.type] || 99) - (typeOrder[b.type] || 99);
-      }
-      
-      // Then by name
-      return a.name.localeCompare(b.name);
-    });
-    
-    allItems.forEach(item => {
-      const row = document.createElement("tr");
-      row.style.borderBottom = "1px solid #e0e0d0";
-      
-      // Highlight equipped items
-      if (item.system?.location?.state === "equipped") {
-        row.style.backgroundColor = "#e7f0e7";
-      } else {
-        row.style.backgroundColor = "#f9f9f2";
-      }
-      
-      // Item name with icon
-      const nameCell = document.createElement("td");
-      nameCell.style.padding = "8px 4px";
-      nameCell.style.display = "flex";
-      nameCell.style.alignItems = "center";
-      
-      // Item icon based on type
-      const getTypeIcon = (item) => {
-        if (item.type === "weapon") return "🗡️";
-        if (item.type === "armor" && item.name.toLowerCase().includes("shield")) return "🛡️";
-        if (item.type === "armor") return "👕";
-        if (item.type === "container") return "📦";
-        if (item.type === "potion" || item.type === "consumable") return "🧪";
-        if (item.type === "treasure") return "💎";
-        return "📜";
-      };
-      
-      const itemImage = document.createElement("img");
-      itemImage.alt = getTypeIcon(item);
-      itemImage.src = item.img || "icons/svg/item-bag.svg";
-      itemImage.onerror = function() {
-        // If image fails to load, use a fallback based on item type
-        this.onerror = null;
-        this.style.display = "none";
-        const fallbackIcon = document.createElement("span");
-        fallbackIcon.textContent = getTypeIcon(item);
-        fallbackIcon.style.fontSize = "20px";
-        fallbackIcon.style.marginRight = "8px";
-        this.parentNode.insertBefore(fallbackIcon, this);
-      };
-      itemImage.style.width = "24px";
-      itemImage.style.height = "24px";
-      itemImage.style.marginRight = "8px";
-      itemImage.style.borderRadius = "3px";
-      itemImage.style.border = "1px solid #ccc";
-      
-      const nameSpan = document.createElement("span");
-      nameSpan.textContent = item.name;
-      
-      // Add magical styling
-      if (item.system?.attributes?.magic || 
-          item.name.includes("+") || 
-          item.name.toLowerCase().includes("of ")) {
-        nameSpan.style.color = "#1a66ba";
-        nameSpan.style.fontWeight = "bold";
-      }
-      
-      // Make containers collapsible
-      if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
-        // Add a toggle indicator
-        const toggleIcon = document.createElement("span");
-        toggleIcon.textContent = "▼";
-        toggleIcon.style.marginLeft = "6px";
-        toggleIcon.style.fontSize = "10px";
-        toggleIcon.style.cursor = "pointer";
-        toggleIcon.style.color = "#666";
-        toggleIcon.dataset.containerId = `container-${item.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
-        toggleIcon.dataset.state = "open";
-        
-        toggleIcon.addEventListener("click", (e) => {
-          const containerId = e.target.dataset.containerId;
-          const state = e.target.dataset.state;
-          const containerItems = document.querySelectorAll(`.${containerId}`);
-          
-          if (state === "open") {
-            containerItems.forEach(el => el.style.display = "none");
-            e.target.textContent = "►";
-            e.target.dataset.state = "closed";
-          } else {
-            containerItems.forEach(el => el.style.display = "table-row");
-            e.target.textContent = "▼";
-            e.target.dataset.state = "open";
-          }
-          
-          e.stopPropagation();
-        });
-        
-        nameSpan.appendChild(toggleIcon);
-      }
-      
-      nameCell.appendChild(itemImage);
-      nameCell.appendChild(nameSpan);
-      
-      // Create the type column
-      const typeCell = document.createElement("td");
-      typeCell.style.padding = "4px";
-      typeCell.style.textAlign = "center";
-      
-      // Show the type icon
-      const typeIcon = document.createElement("div");
-      
-      if (item.type === "container") {
-        typeIcon.innerHTML = "📦";
-        typeIcon.title = "Container";
-      } else if (item.type === "armor") {
-        typeIcon.innerHTML = "🛡️";
-        typeIcon.title = "Armor";
-      } else if (item.type === "weapon") {
-        typeIcon.innerHTML = "⚔️";
-        typeIcon.title = "Weapon";
-      } else if (item.type === "consumable" || item.type === "potion") {
-        typeIcon.innerHTML = "🧪";
-        typeIcon.title = "Consumable";
-      }
-      
-      typeCell.appendChild(typeIcon);
-      
-      // Create the equipped status column
-      const statusCell = document.createElement("td");
-      statusCell.style.padding = "4px";
-      statusCell.style.textAlign = "center";
-      
-      // Show if an item is equipped
-      const statusIcon = document.createElement("div");
-      if (item.system?.location?.state === "equipped") {
-        statusIcon.innerHTML = "✓";
-        statusIcon.style.color = "green";
-        statusIcon.title = "Equipped";
-      } else if (item.system?.location?.state === "nocarried") {
-        statusIcon.innerHTML = "✗";
-        statusIcon.style.color = "red";
-        statusIcon.title = "Not Carried";
-      } else {
-        statusIcon.innerHTML = "○";
-        statusIcon.style.color = "#999";
-        statusIcon.title = "Carried";
-      }
-      
-      statusCell.appendChild(statusIcon);
-      
-      // Create the quantity column with input field
-      const qtyCell = document.createElement("td");
-      qtyCell.style.padding = "4px";
-      qtyCell.style.textAlign = "center";
-      
-      const qtyInput = document.createElement("input");
-      qtyInput.type = "text";
-      qtyInput.value = item.system?.quantity || 1;
-      qtyInput.style.width = "60%";
-      qtyInput.style.padding = "2px";
-      qtyInput.style.textAlign = "center";
-      qtyInput.style.border = "1px solid #ccc";
-      qtyInput.style.borderRadius = "3px";
-      qtyInput.readOnly = true;
-      
-      qtyCell.appendChild(qtyInput);
-      
-      // Create the weight column
-      const weightCell = document.createElement("td");
-      weightCell.style.padding = "4px";
-      weightCell.style.textAlign = "center";
-      
-      // Display item weight if available
-      const weightSpan = document.createElement("span");
-      weightSpan.textContent = item.system?.weight || "0";
-      weightCell.appendChild(weightSpan);
-      
-      // Add actions menu button
-      const menuButton = document.createElement("button");
-      menuButton.innerHTML = "⋮";
-      menuButton.style.border = "none";
-      menuButton.style.background = "none";
-      menuButton.style.cursor = "pointer";
-      menuButton.style.fontSize = "18px";
-      menuButton.style.padding = "0 5px";
-      menuButton.style.float = "right";
-      
-      weightCell.appendChild(menuButton);
-      
-      // Add all cells to the row
-      row.appendChild(nameCell);
-      row.appendChild(typeCell);
-      row.appendChild(statusCell);
-      row.appendChild(qtyCell);
-      row.appendChild(weightCell);
-      
-      tbody.appendChild(row);
-      
-      // If this is a container, add its contents indented
-      if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
-        // When creating the container ID, we need to properly sanitize the name
-        // to create a valid CSS selector by removing special characters
-        const containerId = `container-${item.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
-        const contents = item.system.itemList;
-        
-        addContainerContents(tbody, contents, containerId);
+    // If this is a container, add its contents indented
+    if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
+      const containerId = `container-${item.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}-${Math.random().toString(36).substring(2, 7)}`; // Add random suffix for uniqueness
+      addContainerContents(tbody, item.system.itemList, containerId);
+    }
+  });
+  
+  table.appendChild(tbody);
+  tab.appendChild(table);
+  
+  return tab;
+}
 
+// Helper function to mark all items contained within containers
+function markContainedItems(items, containedItemMap) {
+  items.forEach(item => {
+    // Mark this item as contained
+    containedItemMap.set(item.name, true);
+    
+    // Recursively mark items in nested containers
+    if (item.type === "container" && item.itemList && item.itemList.length > 0) {
+      markContainedItems(item.itemList, containedItemMap);
+    }
+  });
+}
+
+// Helper to create an item row
+function createItemRow(item) {
+  const row = document.createElement("tr");
+  row.style.borderBottom = "1px solid #e0e0d0";
+  
+  // Highlight equipped items
+  if (item.system?.location?.state === "equipped") {
+    row.style.backgroundColor = "#e7f0e7";
+  } else {
+    row.style.backgroundColor = "#f9f9f2";
+  }
+  
+  // Item name with icon
+  const nameCell = document.createElement("td");
+  nameCell.style.padding = "8px 4px";
+  nameCell.style.display = "flex";
+  nameCell.style.alignItems = "center";
+  
+  // Item icon based on type
+  const getTypeIcon = (item) => {
+    if (item.type === "weapon") return "🗡️";
+    if (item.type === "armor" && item.name.toLowerCase().includes("shield")) return "🛡️";
+    if (item.type === "armor") return "👕";
+    if (item.type === "container") return "📦";
+    if (item.type === "potion" || item.type === "consumable") return "🧪";
+    if (item.type === "treasure") return "💎";
+    return "📜";
+  };
+  
+  const itemImage = document.createElement("img");
+  itemImage.alt = getTypeIcon(item);
+  itemImage.src = item.img || "icons/svg/item-bag.svg";
+  itemImage.onerror = function() {
+    // If image fails to load, use a fallback based on item type
+    this.onerror = null;
+    this.style.display = "none";
+    const fallbackIcon = document.createElement("span");
+    fallbackIcon.textContent = getTypeIcon(item);
+    fallbackIcon.style.fontSize = "20px";
+    fallbackIcon.style.marginRight = "8px";
+    this.parentNode.insertBefore(fallbackIcon, this);
+  };
+  itemImage.style.width = "24px";
+  itemImage.style.height = "24px";
+  itemImage.style.marginRight = "8px";
+  itemImage.style.borderRadius = "3px";
+  itemImage.style.border = "1px solid #ccc";
+  
+  const nameSpan = document.createElement("span");
+  nameSpan.textContent = item.name;
+  
+  // Add magical styling
+  if (item.system?.attributes?.magic || 
+      item.name.includes("+") || 
+      item.name.toLowerCase().includes("of ")) {
+    nameSpan.style.color = "#1a66ba";
+    nameSpan.style.fontWeight = "bold";
+  }
+  
+  // Make containers collapsible
+  if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
+    // Add a toggle indicator
+    const toggleIcon = document.createElement("span");
+    toggleIcon.textContent = "▼";
+    toggleIcon.style.marginLeft = "6px";
+    toggleIcon.style.fontSize = "10px";
+    toggleIcon.style.cursor = "pointer";
+    toggleIcon.style.color = "#666";
+    // Generate unique ID using random string
+    const containerId = `container-${item.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}-${Math.random().toString(36).substring(2, 7)}`;
+    toggleIcon.dataset.containerId = containerId;
+    toggleIcon.dataset.state = "open";
+    
+    toggleIcon.addEventListener("click", (e) => {
+      const containerId = e.target.dataset.containerId;
+      const state = e.target.dataset.state;
+      const containerItems = document.querySelectorAll(`.${containerId}`);
+      
+      if (state === "open") {
+        containerItems.forEach(el => el.style.display = "none");
+        e.target.textContent = "►";
+        e.target.dataset.state = "closed";
+      } else {
+        containerItems.forEach(el => el.style.display = "table-row");
+        e.target.textContent = "▼";
+        e.target.dataset.state = "open";
       }
+      
+      e.stopPropagation();
     });
     
-    table.appendChild(tbody);
-    tab.appendChild(table);
-    
-    return tab;
+    nameSpan.appendChild(toggleIcon);
   }
+  
+  nameCell.appendChild(itemImage);
+  nameCell.appendChild(nameSpan);
+  
+  // Create the type column
+  const typeCell = document.createElement("td");
+  typeCell.style.padding = "4px";
+  typeCell.style.textAlign = "center";
+  
+  // Show the type icon
+  const typeIcon = document.createElement("div");
+  
+  if (item.type === "container") {
+    typeIcon.innerHTML = "📦";
+    typeIcon.title = "Container";
+  } else if (item.type === "armor") {
+    typeIcon.innerHTML = "🛡️";
+    typeIcon.title = "Armor";
+  } else if (item.type === "weapon") {
+    typeIcon.innerHTML = "⚔️";
+    typeIcon.title = "Weapon";
+  } else if (item.type === "consumable" || item.type === "potion") {
+    typeIcon.innerHTML = "🧪";
+    typeIcon.title = "Consumable";
+  }
+  
+  typeCell.appendChild(typeIcon);
+  
+  // Create the equipped status column
+  const statusCell = document.createElement("td");
+  statusCell.style.padding = "4px";
+  statusCell.style.textAlign = "center";
+  
+  // Show if an item is equipped
+  const statusIcon = document.createElement("div");
+  if (item.system?.location?.state === "equipped") {
+    statusIcon.innerHTML = "✓";
+    statusIcon.style.color = "green";
+    statusIcon.title = "Equipped";
+  } else if (item.system?.location?.state === "nocarried") {
+    statusIcon.innerHTML = "✗";
+    statusIcon.style.color = "red";
+    statusIcon.title = "Not Carried";
+  } else {
+    statusIcon.innerHTML = "○";
+    statusIcon.style.color = "#999";
+    statusIcon.title = "Carried";
+  }
+  
+  statusCell.appendChild(statusIcon);
+  
+  // Create the quantity column with input field
+  const qtyCell = document.createElement("td");
+  qtyCell.style.padding = "4px";
+  qtyCell.style.textAlign = "center";
+  
+  const qtyInput = document.createElement("input");
+  qtyInput.type = "text";
+  qtyInput.value = item.system?.quantity || 1;
+  qtyInput.style.width = "60%";
+  qtyInput.style.padding = "2px";
+  qtyInput.style.textAlign = "center";
+  qtyInput.style.border = "1px solid #ccc";
+  qtyInput.style.borderRadius = "3px";
+  qtyInput.readOnly = true;
+  
+  qtyCell.appendChild(qtyInput);
+  
+  // Create the weight column
+  const weightCell = document.createElement("td");
+  weightCell.style.padding = "4px";
+  weightCell.style.textAlign = "center";
+  
+  // Display item weight if available
+  const weightSpan = document.createElement("span");
+  weightSpan.textContent = item.system?.weight || "0";
+  weightCell.appendChild(weightSpan);
+  
+  // Add actions menu button
+  const menuButton = document.createElement("button");
+  menuButton.innerHTML = "⋮";
+  menuButton.style.border = "none";
+  menuButton.style.background = "none";
+  menuButton.style.cursor = "pointer";
+  menuButton.style.fontSize = "18px";
+  menuButton.style.padding = "0 5px";
+  menuButton.style.float = "right";
+  
+  weightCell.appendChild(menuButton);
+  
+  // Add all cells to the row
+  row.appendChild(nameCell);
+  row.appendChild(typeCell);
+  row.appendChild(statusCell);
+  row.appendChild(qtyCell);
+  row.appendChild(weightCell);
+  
+  return row;
+}
+
+// Fixed function to properly add container contents to the table
+function addContainerContents(tbody, contents, parentContainerId, depth = 1) {
+  // Make sure contents is an array before trying to process it
+  if (!Array.isArray(contents)) return;
+  
+  contents.forEach(subItem => {
+    const subRow = document.createElement("tr");
+    subRow.className = parentContainerId;
+    
+    // Slight background tint based on depth
+    const baseColor = 245 - (depth * 5);
+    subRow.style.backgroundColor = `rgb(${baseColor}, ${baseColor}, ${baseColor})`;
+    subRow.style.borderBottom = "1px dotted #e0e0d0";
+    
+    // Name cell (with deeper indent)
+    const subNameCell = document.createElement("td");
+    subNameCell.style.padding = "6px 4px";
+    subNameCell.style.paddingLeft = `${40 + (depth * 20)}px`;
+    subNameCell.textContent = subItem.name;
+    
+    // Type cell
+    const subTypeCell = document.createElement("td");
+    subTypeCell.style.textAlign = "center";
+    subTypeCell.textContent = subItem.type || "Item";
+    
+    // Equipped cell (blank for container contents)
+    const subStatusCell = document.createElement("td");
+    
+    // Quantity cell
+    const subQtyCell = document.createElement("td");
+    subQtyCell.style.textAlign = "center";
+    subQtyCell.textContent = subItem.quantity ?? 1;
+    
+    // Weight cell
+    const subWeightCell = document.createElement("td");
+    subWeightCell.style.textAlign = "center";
+    subWeightCell.textContent = subItem.weight ?? "0";
+    
+    subRow.appendChild(subNameCell);
+    subRow.appendChild(subTypeCell);
+    subRow.appendChild(subStatusCell);
+    subRow.appendChild(subQtyCell);
+    subRow.appendChild(subWeightCell);
+    
+    tbody.appendChild(subRow);
+    
+    // Recursively add nested container contents if it's also a container
+    if (subItem.type === "container" && subItem.itemList && subItem.itemList.length > 0) {
+      // Create unique ID for this nested container
+      const nestedContainerId = `${parentContainerId}-nested-${Math.random().toString(36).substring(2, 7)}`;
+      addContainerContents(tbody, subItem.itemList, nestedContainerId, depth + 1);
+    }
+  });
+}
 
   // Make sure to create and append the items tab in the main render function
   //const itemsTab = createItemsTab(actor);
