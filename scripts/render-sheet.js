@@ -1520,186 +1520,360 @@ export function getStoredCharacters() {
     // Items header with purple background
     const header = document.createElement("div");
     header.className = "section-header";
-    header.textContent = "Items";
+    header.textContent = "Equipment";
     header.style.backgroundColor = "#271744";
     header.style.color = "white";
     header.style.padding = "5px 10px";
     header.style.fontWeight = "bold";
     header.style.borderRadius = "3px";
     header.style.marginBottom = "10px";
+    header.style.display = "flex";
+    header.style.justifyContent = "space-between";
+    header.style.alignItems = "center";
+    
+    // Add search and filter icons
+    const toolsDiv = document.createElement("div");
+    toolsDiv.innerHTML = `
+      <span style="cursor: pointer; margin-right: 10px;">🔍</span>
+      <span style="cursor: pointer; margin-right: 10px;">≡</span>
+      <span style="cursor: pointer; margin-right: 10px;">❯</span>
+      <span style="cursor: pointer; margin-right: 10px;">🔄</span>
+      <span style="cursor: pointer; margin-right: 10px; color: #4caf50;">✚</span>
+    `;
+    header.appendChild(toolsDiv);
     
     tab.appendChild(header);
+  
+    // Filter dropdown and search bar
+    const filterRow = document.createElement("div");
+    filterRow.style.display = "flex";
+    filterRow.style.marginBottom = "10px";
     
-    // 💰 MONEY SECTION
+    const filterSelect = document.createElement("select");
+    filterSelect.style.padding = "5px";
+    filterSelect.style.marginRight = "10px";
+    
+    const options = ["None", "Weapons", "Armor", "Containers", "Consumables"];
+    options.forEach(opt => {
+      const option = document.createElement("option");
+      option.value = opt.toLowerCase();
+      option.textContent = opt;
+      filterSelect.appendChild(option);
+    });
+    
+    const searchInput = document.createElement("input");
+    searchInput.type = "text";
+    searchInput.placeholder = "Search";
+    searchInput.style.flex = "1";
+    searchInput.style.padding = "5px";
+    
+    filterRow.appendChild(filterSelect);
+    filterRow.appendChild(searchInput);
+    tab.appendChild(filterRow);
+    
+    // Money section (simple display in header area)
     const currencies = actor.items?.filter((i) => i.type === "currency") || [];
     if (currencies.length > 0) {
-      const moneyHeader = document.createElement("h4");
-      moneyHeader.textContent = "Money";
-      tab.appendChild(moneyHeader);
+      const moneyRow = document.createElement("div");
+      moneyRow.style.backgroundColor = "#e6e2d3";
+      moneyRow.style.padding = "5px";
+      moneyRow.style.marginBottom = "10px";
+      moneyRow.style.borderRadius = "3px";
+      moneyRow.style.display = "flex";
+      moneyRow.style.justifyContent = "space-between";
       
-      const moneyList = document.createElement("ul");
-      currencies.forEach((coin) => {
-        const li = document.createElement("li");
-        li.textContent = `${coin.name}: ${coin.system?.quantity ?? 0}`;
-        moneyList.appendChild(li);
+      const coinTypes = ["Copper", "Silver", "Electrum", "Gold", "Platinum"];
+      coinTypes.forEach(coinType => {
+        const coinDiv = document.createElement("div");
+        coinDiv.style.textAlign = "center";
+        coinDiv.style.flex = "1";
+        
+        const coinLabel = document.createElement("div");
+        coinLabel.textContent = coinType;
+        coinLabel.style.fontSize = "12px";
+        coinLabel.style.color = "#666";
+        
+        const coinValue = document.createElement("div");
+        const coin = currencies.find(c => c.name.toLowerCase().includes(coinType.toLowerCase()));
+        coinValue.textContent = coin ? coin.system?.quantity || 0 : "0";
+        coinValue.style.fontWeight = "bold";
+        
+        coinDiv.appendChild(coinLabel);
+        coinDiv.appendChild(coinValue);
+        moneyRow.appendChild(coinDiv);
       });
       
-      tab.appendChild(moneyList);
-    }
-
-    // CONTAINERS SECTION
-    const containers = actor.items?.filter(i => i.type === "container") || [];
-    
-    if (containers.length > 0) {
-      const containersHeader = document.createElement("h4");
-      containersHeader.textContent = "Containers";
-      tab.appendChild(containersHeader);
-      
-      containers.forEach(container => {
-        const containerDiv = document.createElement("div");
-        containerDiv.className = "container-item";
-        containerDiv.style.marginBottom = "15px";
-        
-        // Container header
-        const contHeader = document.createElement("div");
-        contHeader.style.display = "flex";
-        contHeader.style.alignItems = "center";
-        contHeader.style.padding = "5px";
-        contHeader.style.backgroundColor = "#e0e0d0";
-        contHeader.style.borderRadius = "3px";
-        
-        const contIcon = document.createElement("img");
-        contIcon.src = container.img;
-        contIcon.alt = "";
-        contIcon.style.width = "24px";
-        contIcon.style.height = "24px";
-        contIcon.style.marginRight = "10px";
-        
-        const contName = document.createElement("strong");
-        contName.textContent = container.name;
-        
-        contHeader.appendChild(contIcon);
-        contHeader.appendChild(contName);
-        containerDiv.appendChild(contHeader);
-        
-        // Container contents
-        const contentsList = document.createElement("ul");
-        contentsList.style.marginLeft = "30px";
-        
-        const contents = container.system?.itemList || [];
-        contents.forEach(item => {
-          const li = document.createElement("li");
-          li.textContent = `${item.name} (${item.quantity || 1})`;
-          contentsList.appendChild(li);
-        });
-        
-        containerDiv.appendChild(contentsList);
-        tab.appendChild(containerDiv);
-      });
+      tab.appendChild(moneyRow);
     }
     
-    // INVENTORY SECTION
-    const inventoryTypes = [
-      "weapon", "armor", "equipment", "item",
-      "consumable", "treasure", "potion"
-    ];
+    // Create the main inventory table
+    const table = document.createElement("table");
+    table.className = "inventory-table";
+    table.style.width = "100%";
+    table.style.borderCollapse = "collapse";
     
-    const looseItems = actor.items?.filter(i => 
-      inventoryTypes.includes(i.type) && 
-      !i.system?.location?.parent
+    // Table header
+    const thead = document.createElement("thead");
+    thead.style.backgroundColor = "#e0e0d0";
+    
+    const headerRow = document.createElement("tr");
+    const headers = ["Name", "", "", "#", ""];
+    
+    const columnWidths = ["65%", "5%", "5%", "10%", "15%"];
+    
+    headers.forEach((headerText, index) => {
+      const th = document.createElement("th");
+      th.textContent = headerText;
+      th.style.padding = "8px 4px";
+      th.style.textAlign = "left";
+      th.style.width = columnWidths[index];
+      headerRow.appendChild(th);
+    });
+    
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+    
+    // Table body
+    const tbody = document.createElement("tbody");
+    
+    // All inventory items including weapons, armor, and containers
+    const allItems = actor.items?.filter(i => 
+      i.type === "weapon" || 
+      i.type === "armor" || 
+      i.type === "equipment" || 
+      i.type === "container" ||
+      i.type === "consumable" ||
+      i.type === "treasure" ||
+      i.type === "potion" ||
+      i.type === "item"
     ) || [];
     
-    if (looseItems.length > 0) {
-      const looseHeader = document.createElement("h4");
-      looseHeader.textContent = "Loose Items";
-      tab.appendChild(document.createElement("hr"));
-      tab.appendChild(looseHeader);
+    // Sort items: equipped first, then by type, then by name
+    allItems.sort((a, b) => {
+      // Equipped items come first
+      const aEquipped = a.system?.location?.state === "equipped" ? 0 : 1;
+      const bEquipped = b.system?.location?.state === "equipped" ? 0 : 1;
       
-      const table = document.createElement("table");
-      table.className = "inventory-grid";
-      table.style.width = "100%";
-      table.style.borderCollapse = "collapse";
+      if (aEquipped !== bEquipped) return aEquipped - bEquipped;
       
-      const thead = document.createElement("thead");
-      const headerRow = document.createElement("tr");
-      
-      const headers = ["", "Name", "Status", "Qty", "Weight"];
-      
-      headers.forEach(header => {
-        const th = document.createElement("th");
-        th.textContent = header;
-        th.style.padding = "5px";
-        th.style.textAlign = header === "" ? "center" : "left";
-        headerRow.appendChild(th);
-      });
-      
-      thead.appendChild(headerRow);
-      table.appendChild(thead);
-      
-      const tbody = document.createElement("tbody");
-      
-      looseItems.forEach(item => {
-        const tr = document.createElement("tr");
-        tr.style.backgroundColor = "#f0f0e0";
-        tr.style.borderBottom = "1px solid #ddd";
-        
-        // Icon
-        const iconTd = document.createElement("td");
-        iconTd.style.textAlign = "center";
-        
-        const img = document.createElement("img");
-        img.src = item.img;
-        img.alt = "";
-        img.onerror = function() {
-          this.src = "icons/svg/item-bag.svg"; // Generic item fallback
-          this.onerror = null;
+      // Then by type
+      if (a.type !== b.type) {
+        const typeOrder = {
+          "weapon": 0,
+          "armor": 1,
+          "container": 2,
+          "consumable": 3,
+          "potion": 4,
+          "treasure": 5,
+          "equipment": 6,
+          "item": 7
         };
-        img.style.width = "20px";
-        img.style.height = "20px";
-        
-        iconTd.appendChild(img);
-        tr.appendChild(iconTd);
-        
-        // Name
-        const nameTd = document.createElement("td");
-        nameTd.textContent = item.name;
-        
-        // Add magical styling if needed
-        if (item.system?.attributes?.magic) {
-          nameTd.style.color = "blue";
-        }
-        
-        tr.appendChild(nameTd);
-        
-        // Status (Carried/Equipped/Not Carried)
-        const statusTd = document.createElement("td");
-        let status = "Carried";
-        
-        if (item.system?.location?.state === "equipped") {
-          status = "Equipped";
-        } else if (item.system?.location?.state === "nocarried") {
-          status = "Not Carried";
-        }
-        
-        statusTd.textContent = status;
-        tr.appendChild(statusTd);
-        
-        // Quantity
-        const qtyTd = document.createElement("td");
-        qtyTd.textContent = item.system?.quantity || 1;
-        tr.appendChild(qtyTd);
-        
-        // Weight
-        const weightTd = document.createElement("td");
-        weightTd.textContent = item.system?.weight || 0;
-        tr.appendChild(weightTd);
-        
-        tbody.appendChild(tr);
-      });
+        return (typeOrder[a.type] || 99) - (typeOrder[b.type] || 99);
+      }
       
-      table.appendChild(tbody);
-      tab.appendChild(table);
-    }
+      // Then by name
+      return a.name.localeCompare(b.name);
+    });
+    
+    allItems.forEach(item => {
+      const row = document.createElement("tr");
+      row.style.borderBottom = "1px solid #e0e0d0";
+      
+      // Highlight equipped items
+      if (item.system?.location?.state === "equipped") {
+        row.style.backgroundColor = "#e7f0e7";
+      } else {
+        row.style.backgroundColor = "#f9f9f2";
+      }
+      
+      // Item name with icon
+      const nameCell = document.createElement("td");
+      nameCell.style.padding = "8px 4px";
+      nameCell.style.display = "flex";
+      nameCell.style.alignItems = "center";
+      
+      // Item icon based on type
+      const getTypeIcon = (item) => {
+        if (item.type === "weapon") return "🗡️";
+        if (item.type === "armor" && item.name.toLowerCase().includes("shield")) return "🛡️";
+        if (item.type === "armor") return "👕";
+        if (item.type === "container") return "📦";
+        if (item.type === "potion" || item.type === "consumable") return "🧪";
+        if (item.type === "treasure") return "💎";
+        return "📜";
+      };
+      
+      const itemImage = document.createElement("img");
+      itemImage.alt = getTypeIcon(item);
+      itemImage.src = item.img || "icons/svg/item-bag.svg";
+      itemImage.onerror = function() {
+        // If image fails to load, use a fallback based on item type
+        this.onerror = null;
+        this.style.display = "none";
+        const fallbackIcon = document.createElement("span");
+        fallbackIcon.textContent = getTypeIcon(item);
+        fallbackIcon.style.fontSize = "20px";
+        fallbackIcon.style.marginRight = "8px";
+        this.parentNode.insertBefore(fallbackIcon, this);
+      };
+      itemImage.style.width = "24px";
+      itemImage.style.height = "24px";
+      itemImage.style.marginRight = "8px";
+      itemImage.style.borderRadius = "3px";
+      itemImage.style.border = "1px solid #ccc";
+      
+      const nameSpan = document.createElement("span");
+      nameSpan.textContent = item.name;
+      
+      // Add magical styling
+      if (item.system?.attributes?.magic || 
+          item.name.includes("+") || 
+          item.name.toLowerCase().includes("of ")) {
+        nameSpan.style.color = "#1a66ba";
+        nameSpan.style.fontWeight = "bold";
+      }
+      
+      nameCell.appendChild(itemImage);
+      nameCell.appendChild(nameSpan);
+      
+      // Create the container/armor/weapon type icon column
+      const typeCell = document.createElement("td");
+      typeCell.style.padding = "4px";
+      typeCell.style.textAlign = "center";
+      
+      // Add the appropriate icon based on item type
+      const typeIcon = document.createElement("div");
+      
+      if (item.type === "container") {
+        typeIcon.innerHTML = "📦";
+        typeIcon.title = "Container";
+      } else if (item.type === "armor") {
+        typeIcon.innerHTML = "🛡️";
+        typeIcon.title = "Armor";
+      } else if (item.type === "weapon") {
+        typeIcon.innerHTML = "⚔️";
+        typeIcon.title = "Weapon";
+      } else if (item.type === "consumable" || item.type === "potion") {
+        typeIcon.innerHTML = "🧪";
+        typeIcon.title = "Consumable";
+      }
+      
+      typeCell.appendChild(typeIcon);
+      
+      // Create the magical/equipped column
+      const statusCell = document.createElement("td");
+      statusCell.style.padding = "4px";
+      statusCell.style.textAlign = "center";
+      
+      // Show if an item is equipped
+      const statusIcon = document.createElement("div");
+      if (item.system?.location?.state === "equipped") {
+        statusIcon.innerHTML = "✓";
+        statusIcon.style.color = "green";
+        statusIcon.title = "Equipped";
+      } else if (item.system?.location?.state === "nocarried") {
+        statusIcon.innerHTML = "✗";
+        statusIcon.style.color = "red";
+        statusIcon.title = "Not Carried";
+      } else {
+        statusIcon.innerHTML = "○";
+        statusIcon.style.color = "#999";
+        statusIcon.title = "Carried";
+      }
+      
+      statusCell.appendChild(statusIcon);
+      
+      // Create the quantity column with input field
+      const qtyCell = document.createElement("td");
+      qtyCell.style.padding = "4px";
+      
+      const qtyInput = document.createElement("input");
+      qtyInput.type = "text";
+      qtyInput.value = item.system?.quantity || 1;
+      qtyInput.style.width = "90%";
+      qtyInput.style.padding = "2px";
+      qtyInput.style.textAlign = "center";
+      qtyInput.style.border = "1px solid #ccc";
+      qtyInput.style.borderRadius = "3px";
+      qtyInput.readOnly = true;
+      
+      qtyCell.appendChild(qtyInput);
+      
+      // Create the weight/actions column
+      const actionsCell = document.createElement("td");
+      actionsCell.style.padding = "4px";
+      actionsCell.style.textAlign = "right";
+      
+      // Display item weight if available
+      if (item.system?.weight) {
+        const weightSpan = document.createElement("span");
+        weightSpan.textContent = item.system.weight;
+        weightSpan.style.marginRight = "15px";
+        actionsCell.appendChild(weightSpan);
+      }
+      
+      // Add actions menu button
+      const menuButton = document.createElement("button");
+      menuButton.innerHTML = "⋮";
+      menuButton.style.border = "none";
+      menuButton.style.background = "none";
+      menuButton.style.cursor = "pointer";
+      menuButton.style.fontSize = "18px";
+      menuButton.style.padding = "0 5px";
+      
+      actionsCell.appendChild(menuButton);
+      
+      // Add all cells to the row
+      row.appendChild(nameCell);
+      row.appendChild(typeCell);
+      row.appendChild(statusCell);
+      row.appendChild(qtyCell);
+      row.appendChild(actionsCell);
+      
+      tbody.appendChild(row);
+      
+      // If this is a container, optionally show its contents indented
+      if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
+        const contents = item.system.itemList;
+        
+        contents.forEach(subItem => {
+          const subRow = document.createElement("tr");
+          subRow.style.backgroundColor = "#f5f5eb";
+          subRow.style.borderBottom = "1px dotted #e0e0d0";
+          
+          // Indented name cell
+          const subNameCell = document.createElement("td");
+          subNameCell.style.padding = "6px 4px";
+          subNameCell.style.paddingLeft = "40px";
+          subNameCell.textContent = subItem.name;
+          
+          // Empty type cell
+          const subTypeCell = document.createElement("td");
+          
+          // Empty status cell
+          const subStatusCell = document.createElement("td");
+          
+          // Quantity cell
+          const subQtyCell = document.createElement("td");
+          subQtyCell.style.padding = "4px";
+          subQtyCell.textContent = subItem.quantity || 1;
+          
+          // Empty actions cell
+          const subActionsCell = document.createElement("td");
+          
+          subRow.appendChild(subNameCell);
+          subRow.appendChild(subTypeCell);
+          subRow.appendChild(subStatusCell);
+          subRow.appendChild(subQtyCell);
+          subRow.appendChild(subActionsCell);
+          
+          tbody.appendChild(subRow);
+        });
+      }
+    });
+    
+    table.appendChild(tbody);
+    tab.appendChild(table);
     
     return tab;
   }
