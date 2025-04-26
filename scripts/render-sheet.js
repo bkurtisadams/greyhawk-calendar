@@ -319,7 +319,7 @@ export function getStoredCharacters() {
     `;
     acSection.appendChild(acSubValues);
 
-/* 
+
     // Build visible equipment text (multi-line)
     let equipmentLines = [];
 
@@ -334,7 +334,7 @@ export function getStoredCharacters() {
     if (shield) {
       const mod = shield.system?.protection?.modifier ?? 0;
       equipmentLines.push(`${shield.name} (+${1 + mod} AC)`);
-    } */
+    }
 
     // Find protection items
     const protectionItems = actor.items?.filter(i => {
