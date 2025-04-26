@@ -1050,32 +1050,36 @@ function loadContentFromLocalStorage() {
 
 
 const savedCharacters = localStorage.getItem('greyhawk-characters');
-if (savedCharacters) {
-    try {
-        const parsedCharacters = JSON.parse(savedCharacters);
-        parsedCharacters.forEach(character => {
-            if (character?.name) {
-                // Generate an id if it doesn't exist
-                if (!character.id) {
-                    character.id = 'char-' + character.name.toLowerCase().replace(/\s+/g, '-');
+    if (savedCharacters) {
+        try {
+            const parsedCharacters = JSON.parse(savedCharacters);
+            parsedCharacters.forEach(character => {
+                if (character?.name) {
+                    // Generate an id if it doesn't exist
+                    if (!character.id) {
+                        character.id = 'char-' + character.name.toLowerCase().replace(/\s+/g, '-');
+                    }
+                    
+                    if (!CHARACTERS.some(c => c.id === character.id)) {
+                        CHARACTERS.push(character);
+                    }
+                } else {
+                    console.warn("Skipped invalid character:", character);
                 }
-                
-                if (!CHARACTERS.some(c => c.id === character.id)) {
-                    CHARACTERS.push(character);
-                }
-            } else {
-                console.warn("Skipped invalid character:", character);
-            }
-        });
-    } catch (err) {
-        console.error("Failed to parse stored characters:", err);
-    }
+            });
+        } catch (err) {
+            console.error("Failed to parse stored characters:", err);
+        }
 }
 
 const savedDate = localStorage.getItem('greyhawk-campaign-date');
-if (savedDate) {
-    CAMPAIGN_DATE = JSON.parse(savedDate);
-}
+    if (savedDate) {
+        const parsedDate = JSON.parse(savedDate);
+        CAMPAIGN_DATE.year = parsedDate.year;
+        CAMPAIGN_DATE.month = parsedDate.month;
+        CAMPAIGN_DATE.day = parsedDate.day;
+    }
+
 }
 
 function generateCalendarGrid(year) {
