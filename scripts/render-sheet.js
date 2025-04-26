@@ -321,7 +321,7 @@ export function getStoredCharacters() {
 
 
     // Build visible equipment text (multi-line)
-    let equipmentLines = [];
+    /* let equipmentLines = [];
 
     if (armor) {
       const base = armor.system?.protection?.ac ?? "?";
@@ -334,7 +334,7 @@ export function getStoredCharacters() {
     if (shield) {
       const mod = shield.system?.protection?.modifier ?? 0;
       equipmentLines.push(`${shield.name} (+${1 + mod} AC)`);
-    }
+    } */
 
     // Find protection items
     const protectionItems = actor.items?.filter(i => {
