@@ -718,6 +718,14 @@ export function getStoredCharacters() {
     if (tabsContainer.childElementCount === 1) {
       tabButton.click();
     }
+
+    // New fix: Always select the first character tab if none is active
+    const activeTab = document.querySelector('.character-tab-button.active');
+    if (!activeTab) {
+      const firstTab = document.querySelector('.character-tab-button');
+      firstTab?.click();
+    }
+
   }
   
   // Tab content generation functions

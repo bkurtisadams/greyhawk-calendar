@@ -701,25 +701,29 @@
   background-color: #6a2f08;
 }
 
-/* Debug rules to find hidden elements */
+/* Force combat section to be visible */
 .combat-section {
-    border: 3px solid red !important;
-    min-height: 100px !important;
-  }
-  .ac-section {
-    border: 3px solid blue !important;
-    min-width: 100px !important;
-    min-height: 50px !important;
-  }
-  /* Force display of hidden elements during debugging */
-  .tab-content {
     display: block !important;
-  }
-  /* Add background color to help spot elements */
-  #character-contents > div {
-    background-color: rgba(255, 255, 0, 0.1) !important;
+    min-height: 100px !important;
+    margin: 10px !important;
+    padding: 10px !important;
+    border: 2px solid #8b4513 !important;
   }
   
+  /* Force AC section to have visible dimensions */
+  .ac-section {
+    min-width: 100px !important;
+    min-height: 80px !important;
+    display: flex !important;
+  }
+  
+  /* Make sure the grid layout works */
+  .combat-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 2fr 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
 </style>
 
 </head>
