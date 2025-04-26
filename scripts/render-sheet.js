@@ -102,8 +102,8 @@ export function getStoredCharacters() {
     return wrapper;
   }
   
-  function calculateArmorClass(modifiedActor) {
-    console.log(`🔎 Calculating Armor Class for: ${modifiedActor.name}`);
+  function calculateArmorClass(actor) {
+    console.log(`🔎 Calculating Armor Class for: ${actor.name}`);
   
     let baseAC = 10;
     let armorMagicBonus = 0;
@@ -112,7 +112,7 @@ export function getStoredCharacters() {
     let protectionBonus = 0;
   
     // Step 1: Find equipped armor (MUST be real armor, not ring or cloak!)
-    const armor = modifiedActor.items?.find(i => 
+    const armor = actor.items?.find(i => 
       i.type === "armor" &&
       i.system?.location?.state === "equipped" &&
       ["armor", "bracers", "warding"].includes((i.system?.protection?.type || "").toLowerCase())
