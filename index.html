@@ -724,6 +724,10 @@
     gap: 10px !important;
   }
 
+  .character-content {
+  display: block !important;
+}
+
 </style>
 
 </head>
@@ -1141,8 +1145,11 @@
 
 <script type="module">
     import { initializeCharacterRenderer } from './scripts/render-sheet.js';
-    initializeCharacterRenderer();
-  </script>
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("DOM loaded, initializing character renderer");
+        initializeCharacterRenderer();
+    });
+</script>
   
 
 <script src="js/calendar.js"></script>
