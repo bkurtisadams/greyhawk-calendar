@@ -821,11 +821,79 @@ export function getStoredCharacters() {
     strLabel.style.fontWeight = "bold";
     strLabel.style.marginBottom = "4px";
 
-    const strTableContent = createAbilityTable(actor, "STR", 
-      ["%", "Hit Adj", "Damage Adj", "Carry", "Open Doors", "Bend Bars"],
-      [getPercent(actor, "str"), getHitAdj(actor), getDamageAdj(actor), 
-      getCarryWeight(actor), getOpenDoors(actor), getBendBars(actor)]
-    );
+    // Special case for STR to handle percentile strength
+    const strTableContent = document.createElement("div");
+    strTableContent.style.marginBottom = "8px";
+
+    // Create the table
+    const table = document.createElement("table");
+    table.style.width = "100%";
+    table.style.borderCollapse = "collapse";
+    table.style.border = "1px solid #aaa";
+    table.style.background = "#e0e0e0";
+
+    // Create header row
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+
+    // Headers for STR table
+    const headers = ["%", "Hit Adj", "Damage Adj", "Carry", "Open Doors", "Bend Bars"];
+    headers.forEach(text => {
+      const th = document.createElement("th");
+      th.textContent = text;
+      th.style.padding = "4px";
+      th.style.fontSize = "12px";
+      th.style.fontWeight = "bold";
+      th.style.borderBottom = "1px solid #aaa";
+      th.style.textAlign = "center";
+      headerRow.appendChild(th);
+    });
+
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Create value row
+    const tbody = document.createElement("tbody");
+    const valueRow = document.createElement("tr");
+    valueRow.style.background = "#f8f8f0";
+
+    // The abilities value
+    const abilities = actor.system?.abilities || {};
+    const strValue = abilities.str?.value || 10;
+    const strPercent = getPercent(actor, "str");
+
+    // First cell contains the STR score
+    const abilityCell = document.createElement("td");
+    abilityCell.style.padding = "6px";
+    abilityCell.style.textAlign = "center";
+    abilityCell.style.border = "1px solid #ccc";
+    abilityCell.style.fontWeight = "bold";
+    abilityCell.style.fontSize = "20px";
+    abilityCell.textContent = strValue;
+    valueRow.appendChild(abilityCell);
+
+    // Remaining cells for STR modifiers
+    const modifiers = [
+      getHitAdj(actor),
+      getDamageAdj(actor),
+      getCarryWeight(actor),
+      getOpenDoors(actor),
+      getBendBars(actor)
+    ];
+
+    modifiers.forEach(value => {
+      const td = document.createElement("td");
+      td.textContent = value;
+      td.style.padding = "4px";
+      td.style.textAlign = "center";
+      td.style.border = "1px solid #ccc";
+      td.style.fontSize = "13px";
+      valueRow.appendChild(td);
+    });
+
+    tbody.appendChild(valueRow);
+    table.appendChild(tbody);
+    strTableContent.appendChild(table);
 
     strTable.appendChild(strLabel);
     strTable.appendChild(strTableContent);
