@@ -1843,41 +1843,8 @@ export function getStoredCharacters() {
         const containerId = `container-${item.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
         const contents = item.system.itemList;
         
-        contents.forEach(subItem => {
-          const subRow = document.createElement("tr");
-          subRow.className = containerId;
-          subRow.style.backgroundColor = "#f5f5eb";
-          subRow.style.borderBottom = "1px dotted #e0e0d0";
-          
-          // Indented name cell
-          const subNameCell = document.createElement("td");
-          subNameCell.style.padding = "6px 4px";
-          subNameCell.style.paddingLeft = "40px";
-          subNameCell.textContent = subItem.name;
-          
-          // Empty type cell
-          const subTypeCell = document.createElement("td");
-          
-          // Empty status cell
-          const subStatusCell = document.createElement("td");
-          
-          // Quantity cell
-          const subQtyCell = document.createElement("td");
-          subQtyCell.style.padding = "4px";
-          subQtyCell.style.textAlign = "center";
-          subQtyCell.textContent = subItem.quantity || 1;
-          
-          // Empty weight cell
-          const subWeightCell = document.createElement("td");
-          
-          subRow.appendChild(subNameCell);
-          subRow.appendChild(subTypeCell);
-          subRow.appendChild(subStatusCell);
-          subRow.appendChild(subQtyCell);
-          subRow.appendChild(subWeightCell);
-          
-          tbody.appendChild(subRow);
-        });
+        addContainerContents(contents, containerId);
+
       }
     });
     
@@ -3107,4 +3074,53 @@ function applyRacialModifiers(actor) {
   return modifiedActor;
 }
   
-  
+function addContainerContents(contents, parentContainerId, depth = 1) {
+  contents.forEach(subItem => {
+    const subRow = document.createElement("tr");
+    const sanitizedName = subItem.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+    subRow.className = parentContainerId;
+    
+    // Slight background tint based on depth
+    const baseColor = 245 - (depth * 5);
+    subRow.style.backgroundColor = `rgb(${baseColor}, ${baseColor}, ${baseColor})`;
+    subRow.style.borderBottom = "1px dotted #e0e0d0";
+    
+    // Name cell (with deeper indent)
+    const subNameCell = document.createElement("td");
+    subNameCell.style.padding = "6px 4px";
+    subNameCell.style.paddingLeft = `${40 + (depth * 20)}px`;
+    subNameCell.textContent = subItem.name;
+    
+    // Type cell
+    const subTypeCell = document.createElement("td");
+    subTypeCell.style.textAlign = "center";
+    subTypeCell.textContent = subItem.type || "Item";
+    
+    // Equipped cell (blank for container contents)
+    const subStatusCell = document.createElement("td");
+    
+    // Quantity cell
+    const subQtyCell = document.createElement("td");
+    subQtyCell.style.textAlign = "center";
+    subQtyCell.textContent = subItem.quantity ?? 1;
+    
+    // Weight cell
+    const subWeightCell = document.createElement("td");
+    subWeightCell.style.textAlign = "center";
+    subWeightCell.textContent = subItem.weight ?? "0";
+    
+    subRow.appendChild(subNameCell);
+    subRow.appendChild(subTypeCell);
+    subRow.appendChild(subStatusCell);
+    subRow.appendChild(subQtyCell);
+    subRow.appendChild(subWeightCell);
+    
+    tbody.appendChild(subRow);
+    
+    // 🔥 Recursively add nested container contents if it's also a container
+    if (subItem.type === "container" && subItem.itemList && subItem.itemList.length > 0) {
+      addContainerContents(subItem.itemList, parentContainerId, depth + 1);
+    }
+  });
+}
+
