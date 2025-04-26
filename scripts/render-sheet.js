@@ -3155,10 +3155,18 @@ function formatAlignment(alignment) {
   
   export function loadCharactersFromLocalStorage() {
     const stored = getStoredCharacters();
-    document.getElementById('character-tabs').innerHTML = '';
-    document.getElementById('character-contents').innerHTML = '';
+
+    const tabsContainer = document.getElementById('character-tabs');
+    const contentsContainer = document.getElementById('character-contents');
+
+    if (!tabsContainer || !contentsContainer) return;
+
+    tabsContainer.innerHTML = '';
+    contentsContainer.innerHTML = '';
+
     stored.forEach(actor => renderCharacterSheet(actor));
 }
+
 
   function setupCharacterUpload() {
     const input = document.getElementById("character-upload");
