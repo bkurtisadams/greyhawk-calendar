@@ -136,16 +136,6 @@ async function loadCampaignData() {
 function initializeCalendar() {
     loadContentFromLocalStorage();
 
-    populateCampaignMonthSelect();
-    updateCampaignDaySelect();
-    document.getElementById('campaign-year').value = CAMPAIGN_DATE.year;
-    document.getElementById('campaign-month').value = CAMPAIGN_DATE.month;
-    document.getElementById('campaign-day').value = CAMPAIGN_DATE.day;
-
-    // Set up event listeners for campaign date controls
-    document.getElementById('update-campaign-date').addEventListener('click', updateCampaignDate);
-    document.getElementById('advance-day').addEventListener('click', advanceDay);
-
     loadCampaignData().then(() => {
         // Update the display with the current campaign date
         updateCurrentDateDisplay();
@@ -444,89 +434,6 @@ function setupEventListeners() {
         }
     });
 }
-
-// Populate campaign month select
-function populateCampaignMonthSelect() {
-    const select = document.getElementById('campaign-month');
-    select.innerHTML = '';
-  
-    GREYHAWK_MONTHS.forEach((month, index) => {
-      const option = document.createElement('option');
-      option.value = index;
-      option.textContent = month.name;
-      select.appendChild(option);
-    });
-  
-    select.value = CAMPAIGN_DATE.month;
-    select.addEventListener('change', updateCampaignDaySelect);
-  }
-
-  // Update days when month changes
-function updateCampaignDaySelect() {
-    const monthSelect = document.getElementById('campaign-month');
-    const daySelect = document.getElementById('campaign-day');
-    const selectedMonth = parseInt(monthSelect.value);
-  
-    daySelect.innerHTML = '';
-  
-    const daysInMonth = GREYHAWK_MONTHS[selectedMonth].isFestival ? 7 : 28;
-    for (let day = 1; day <= daysInMonth; day++) {
-      const option = document.createElement('option');
-      option.value = day;
-      option.textContent = day;
-      daySelect.appendChild(option);
-    }
-  
-    if (CAMPAIGN_DATE.day <= daysInMonth) {
-      daySelect.value = CAMPAIGN_DATE.day;
-    }
-  }
-
-  // Update the campaign date
-function updateCampaignDate() {
-    const year = parseInt(document.getElementById('campaign-year').value);
-    const month = parseInt(document.getElementById('campaign-month').value);
-    const day = parseInt(document.getElementById('campaign-day').value);
-  
-    if (year < 567 || year > 570) {
-      alert('Year must be between 567 and 570 CY');
-      return;
-    }
-  
-    CAMPAIGN_DATE.year = year;
-    CAMPAIGN_DATE.month = month;
-    CAMPAIGN_DATE.day = day;
-  
-    updateCurrentDate();
-    buildCalendarYear(activeYear);
-  
-    localStorage.setItem('greyhawk-campaign-date', JSON.stringify(CAMPAIGN_DATE));
-  }
-
-  // Advance the campaign by one day
-function advanceDay() {
-    let year = CAMPAIGN_DATE.year;
-    let month = CAMPAIGN_DATE.month;
-    let day = CAMPAIGN_DATE.day + 1;
-  
-    const daysInMonth = GREYHAWK_MONTHS[month].isFestival ? 7 : 28;
-    if (day > daysInMonth) {
-      day = 1;
-      month++;
-      if (month >= GREYHAWK_MONTHS.length) {
-        month = 0;
-        year++;
-      }
-    }
-  
-    document.getElementById('campaign-year').value = year;
-    document.getElementById('campaign-month').value = month;
-  
-    updateCampaignDaySelect();
-    document.getElementById('campaign-day').value = day;
-  
-    updateCampaignDate();
-  }
 
 function updateYearButtons() {
     const prevBtn = document.getElementById('prev-year');
@@ -1129,29 +1036,39 @@ function saveContentToLocalStorage() {
     }
 }
 
-// Find this code in calendar.js
-const savedCharacters = localStorage.getItem('greyhawk-characters');
+function loadContentFromLocalStorage() {
+    // Your existing logic here
+    const savedEvents = localStorage.getItem('greyhawk-events');
+    if (savedEvents) {
+        const parsedEvents = JSON.parse(savedEvents);
+        parsedEvents.forEach(event => {
+            if (!CAMPAIGN_EVENTS.some(e => e.id === event.id)) {
+                CAMPAIGN_EVENTS.push(event);
+            }
+        });
+    }
+
+    const savedCharacters = localStorage.getItem('greyhawk-characters');
 if (savedCharacters) {
     try {
         const parsedCharacters = JSON.parse(savedCharacters);
         parsedCharacters.forEach(character => {
-            // MODIFY THIS SECTION:
-            
-            // Silently skip character-sheet format characters
-            if (character && character.system) {
-                // These are for render-sheet.js, not calendar.js
-                return;
-            }
-            
-            // Process only calendar-format characters
             if (character?.id && character?.name) {
                 if (!CHARACTERS.some(c => c.id === character.id)) {
                     CHARACTERS.push(character);
                 }
+            } else {
+                console.warn("Skipped invalid character:", character);
             }
         });
     } catch (err) {
         console.error("Failed to parse stored characters:", err);
+    }
+}
+
+    const savedDate = localStorage.getItem('greyhawk-campaign-date');
+    if (savedDate) {
+        CAMPAIGN_DATE = JSON.parse(savedDate);
     }
 }
 
