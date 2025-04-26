@@ -756,6 +756,57 @@
     overflow: visible !important;
 }
 
+/* Force combat section to be visible */
+.combat-section {
+    display: block !important; 
+    min-height: 100px !important;
+    margin: 10px !important;
+    padding: 10px !important;
+    border: 2px solid #8b4513 !important;
+    background-color: #e8e8d8 !important;
+    z-index: 10 !important;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+/* Force AC section to have visible dimensions */
+.ac-section {
+    min-width: 100px !important;
+    min-height: 80px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 5px !important;
+    padding: 5px !important;
+    border: 1px solid #ccc !important;
+    background-color: #f8f8f0 !important;
+}
+
+/* Make sure the grid layout works */
+.combat-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 2fr 1fr 1fr !important;
+    gap: 10px !important;
+    align-items: start !important;
+}
+
+/* Make sure header sections are visible */
+.character-header {
+    display: block !important;
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+    background-color: #f8f8f0 !important;
+    border-bottom: 1px solid #ccc !important;
+}
+
+/* Make sure test element appears */
+.test-element {
+    display: block !important;
+    background-color: red !important;
+    color: white !important;
+    padding: 5px !important;
+    margin: 5px !important;
+}
+
 </style>
 
 </head>
@@ -1171,16 +1222,12 @@
     
     </script>
 
-<script type="module">
-    import { initializeCharacterRenderer } from './scripts/render-sheet.js';
-    document.addEventListener('DOMContentLoaded', () => {
-        console.log("DOM loaded, initializing character renderer");
-        initializeCharacterRenderer();
-    });
-</script>
-  
+    <script src="scripts/calendar.js"></script>
 
-<script src="js/calendar.js"></script>
+    <script type="module">
+        import { initializeCharacterRenderer } from './scripts/render-sheet.js';
+        initializeCharacterRenderer();
+    </script>
 
 </body>
 </html>
