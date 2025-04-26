@@ -727,17 +727,18 @@ export function getStoredCharacters() {
     
     tab.appendChild(header);
     
-    // Character grid
-    const grid = document.createElement("div");
-    grid.className = "character-grid";
-    grid.style.display = "grid";
-    grid.style.gridTemplateColumns = "auto 1fr";
-    grid.style.gap = "5px";
-    grid.style.background = "#e8e8d8";
-    grid.style.padding = "10px";
-    grid.style.borderRadius = "5px";
+    // Character grid (Class, Race, Alignment)
+    const basicInfo = document.createElement("div");
+    basicInfo.className = "character-basic-info";
+    basicInfo.style.display = "grid";
+    basicInfo.style.gridTemplateColumns = "auto 1fr auto 1fr auto 1fr";
+    basicInfo.style.gap = "5px";
+    basicInfo.style.background = "#e8e8d8";
+    basicInfo.style.padding = "10px";
+    basicInfo.style.borderRadius = "5px";
+    basicInfo.style.marginBottom = "20px";
     
-    // Class info
+    // Class label and value
     const classLabel = document.createElement("div");
     classLabel.textContent = "Class";
     classLabel.style.fontWeight = "bold";
@@ -747,7 +748,7 @@ export function getStoredCharacters() {
     const classLevel = classItem?.system?.level || "";
     classValue.textContent = classItem ? `${classItem.name} ${classLevel}` : "Unknown";
     
-    // Race info
+    // Race label and value
     const raceLabel = document.createElement("div");
     raceLabel.textContent = "Race";
     raceLabel.style.fontWeight = "bold";
@@ -756,7 +757,7 @@ export function getStoredCharacters() {
     const raceItem = actor.items?.find(i => i.type === "race");
     raceValue.textContent = raceItem?.name || "Unknown";
     
-    // Alignment info
+    // Alignment label and value
     const alignmentLabel = document.createElement("div");
     alignmentLabel.textContent = "Alignment";
     alignmentLabel.style.fontWeight = "bold";
@@ -764,7 +765,7 @@ export function getStoredCharacters() {
     const alignmentValue = document.createElement("div");
     alignmentValue.textContent = formatAlignment(actor.system?.details?.alignment || "Unknown");
     
-    // Background info
+    // Background label and value
     const backgroundLabel = document.createElement("div");
     backgroundLabel.textContent = "Background";
     backgroundLabel.style.fontWeight = "bold";
@@ -772,7 +773,7 @@ export function getStoredCharacters() {
     const backgroundValue = document.createElement("div");
     backgroundValue.textContent = actor.system?.backgroundname || "None";
     
-    // Size info
+    // Size label and value
     const sizeLabel = document.createElement("div");
     sizeLabel.textContent = "Size";
     sizeLabel.style.fontWeight = "bold";
@@ -780,209 +781,135 @@ export function getStoredCharacters() {
     const sizeValue = document.createElement("div");
     sizeValue.textContent = actor.system?.attributes?.size || "Medium";
     
-    // Add all to the grid
-    grid.appendChild(classLabel);
-    grid.appendChild(classValue);
-    grid.appendChild(raceLabel);
-    grid.appendChild(raceValue);
-    grid.appendChild(alignmentLabel);
-    grid.appendChild(alignmentValue);
-    grid.appendChild(backgroundLabel);
-    grid.appendChild(backgroundValue);
-    grid.appendChild(sizeLabel);
-    grid.appendChild(sizeValue);
+    // Add cells to grid
+    basicInfo.appendChild(classLabel);
+    basicInfo.appendChild(classValue);
+    basicInfo.appendChild(raceLabel);
+    basicInfo.appendChild(raceValue);
+    basicInfo.appendChild(alignmentLabel);
+    basicInfo.appendChild(alignmentValue);
+    basicInfo.appendChild(backgroundLabel);
+    basicInfo.appendChild(backgroundValue);
+    basicInfo.appendChild(sizeLabel);
+    basicInfo.appendChild(sizeValue);
     
-    tab.appendChild(grid);
+    tab.appendChild(basicInfo);
     
-    // ─── Abilities Section ───
+    // ─── Abilities Header ───
     const abilitiesHeader = document.createElement("div");
-    abilitiesHeader.className = "abilities-header";
     abilitiesHeader.textContent = "Abilities";
+    abilitiesHeader.style.textAlign = "center";
+    abilitiesHeader.style.fontSize = "16px";
+    abilitiesHeader.style.fontWeight = "bold";
+    abilitiesHeader.style.margin = "10px 0";
     tab.appendChild(abilitiesHeader);
-
-    const abilitiesGrid = document.createElement("div");
-    abilitiesGrid.className = "abilities-grid";
-    tab.appendChild(abilitiesGrid);
-
-    const abilities = actor.system?.abilities || {};
-
-    function createAbilityPanel(name, value) {
-      const panel = document.createElement("div");
-      panel.className = "ability-panel";
-
-      let bonusDetails = "";
-
-      switch (name.toLowerCase()) {
-        case "str": {
-          let strKey = value;
-          const exceptional = actor.system?.abilities?.strExceptional ?? 0;
-          if (value === 18 && exceptional > 0) {
-            if (exceptional <= 50) strKey = "18/01-50";
-            else if (exceptional <= 75) strKey = "18/51-75";
-            else if (exceptional <= 90) strKey = "18/76-90";
-            else if (exceptional <= 99) strKey = "18/91-99";
-            else if (exceptional === 100) strKey = "18/00";
-          }
-          const data = STRENGTH_TABLE[strKey] || {};
-          bonusDetails = `
-            Hit: ${data.hitBonus ?? "?"}, Dmg: ${data.dmgBonus ?? "?"}<br>
-            Carry: ${data.weightAllowance ?? "?"}<br>
-            Open: ${data.openDoors ?? "?"}<br>
-            Bars: ${data.bendBars ?? "?"}
-          `;
-          break;
-        }
-        case "int": {
-          const data = INTELLIGENCE_TABLE[value] || {};
-          bonusDetails = `
-            Lang: ${data.languages ?? "?"}<br>
-            Learn: ${data.learnSpellChance ?? "?"}<br>
-            Max: ${data.maxSpellsPerLevel ?? "?"}<br>
-            Immunity: ${data.spellImmunity ?? "None"}
-          `;
-          break;
-        }
-        case "wis": {
-          const data = WISDOM_TABLE[value] || {};
-          bonusDetails = `
-            Save Adj: ${data.magicDefenseAdj ?? "?"}<br>
-            Bonus: ${data.bonusSpells ?? "None"}<br>
-            Fail: ${data.spellFailureChance ?? "?"}
-          `;
-          break;
-        }
-        case "dex": {
-          const data = DEXTERITY_TABLE[value] || {};
-          bonusDetails = `
-            React: ${data.reactionAdj ?? "?"}<br>
-            Missile: ${data.missileAdj ?? "?"}<br>
-            Defense: ${data.defensiveAdj ?? "?"}
-          `;
-          break;
-        }
-        case "con": {
-          const data = CONSTITUTION_TABLE[value] || {};
-          bonusDetails = `
-            HP: ${data.hpAdj ?? "?"}<br>
-            Shock: ${data.systemShock ?? "?"}<br>
-            Raise: ${data.resurrection ?? "?"}<br>
-            Regen: ${data.regeneration ?? "None"}
-          `;
-          break;
-        }
-        case "cha": {
-          const data = CHARISMA_TABLE[value] || {};
-          bonusDetails = `
-            Hench: ${data.maxHenchmen ?? "?"}<br>
-            Loyalty: ${data.loyaltyBase ?? "?"}<br>
-            React: ${data.reactionAdj ?? "?"}
-          `;
-          break;
-        }
-      }
-
-      panel.innerHTML = `
-        <div class="ability-name">${name.toUpperCase()} ${value}</div>
-        <div class="ability-details">${bonusDetails}</div>
-      `;
-      
-      return panel;
-    }
-
-    // Add each ability panel
-    abilitiesGrid.appendChild(createAbilityPanel("STR", abilities.str?.value ?? 10));
-    abilitiesGrid.appendChild(createAbilityPanel("INT", abilities.int?.value ?? 10));
-    abilitiesGrid.appendChild(createAbilityPanel("WIS", abilities.wis?.value ?? 10));
-    abilitiesGrid.appendChild(createAbilityPanel("DEX", abilities.dex?.value ?? 10));
-    abilitiesGrid.appendChild(createAbilityPanel("CON", abilities.con?.value ?? 10));
-    abilitiesGrid.appendChild(createAbilityPanel("CHA", abilities.cha?.value ?? 10));
-
-
-/*     
-    // Abilities headers
-    const abilityNames = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
-    const abilityKeys = ["str", "dex", "con", "int", "wis", "cha"];
     
-    // Create ability boxes
-    abilityKeys.forEach((key, index) => {
-      const abilityBox = document.createElement("div");
-      abilityBox.style.border = "1px solid #ccc";
-      abilityBox.style.borderRadius = "3px";
-      abilityBox.style.padding = "5px";
-      abilityBox.style.textAlign = "center";
-      
-      const abilityName = document.createElement("div");
-      abilityName.textContent = abilityNames[index];
-      abilityName.style.fontWeight = "bold";
-      
-      const abilityValue = document.createElement("div");
-      abilityValue.textContent = actor.system?.abilities?.[key]?.value || "10";
-      abilityValue.style.fontSize = "24px";
-      abilityValue.style.fontWeight = "bold";
-      
-      // Add percent for STR if it exists
-      if (key === "str" && actor.system?.abilities?.str?.percent) {
-        const percentValue = actor.system.abilities.str.percent;
-        if (percentValue > 0) {
-          const percent = document.createElement("div");
-          percent.textContent = `${percentValue}%`;
-          percent.style.fontSize = "12px";
-          abilityBox.appendChild(percent);
-        }
-      }
-      
-      abilityBox.appendChild(abilityName);
-      abilityBox.appendChild(abilityValue);
-      abilitiesGrid.appendChild(abilityBox);
-    });
+    // ─── Abilities Tables ───
+    // Create ability table layout similar to the screenshot
+    const abilitiesSection = document.createElement("div");
+    abilitiesSection.style.display = "flex";
+    abilitiesSection.style.flexDirection = "column";
+    abilitiesSection.style.gap = "10px";
     
-    tab.appendChild(abilitiesGrid); */
+    // STR Table
+    const strTable = createAbilityTable(actor, "STR", 
+      ["", "%", "Hit Adj", "Damage Adj", "Carry", "Open Doors", "Bend Bars"],
+      ["STR", getPercent(actor, "str"), getHitAdj(actor), getDamageAdj(actor), 
+       getCarryWeight(actor), getOpenDoors(actor), getBendBars(actor)]
+    );
+    abilitiesSection.appendChild(strTable);
     
-    // Saves section
+    // DEX Table
+    const dexTable = createAbilityTable(actor, "DEX", 
+      ["", "%", "Reaction Adj", "Missile Adj", "Def. Adj"],
+      ["DEX", "0", getReactionAdj(actor), getMissileAdj(actor), getDefAdj(actor)]
+    );
+    abilitiesSection.appendChild(dexTable);
+    
+    // CON Table
+    const conTable = createAbilityTable(actor, "CON", 
+      ["", "%", "Hit Points", "System Shock", "Res. Survival", "Poison Adj", "Regeneration"],
+      ["CON", "0", getHPBonus(actor), getSystemShock(actor), 
+       getResurrection(actor), getPoisonAdj(actor), getRegeneration(actor)]
+    );
+    abilitiesSection.appendChild(conTable);
+    
+    // INT Table
+    const intTable = createAbilityTable(actor, "INT", 
+      ["", "%", "# Languages", "Spell Level", "Learn Chance", "Max Spells", "Immunity"],
+      ["INT", "0", getLanguages(actor), getSpellLevel(actor), 
+       getLearnChance(actor), getMaxSpells(actor), getSpellImmunity(actor)]
+    );
+    abilitiesSection.appendChild(intTable);
+    
+    // WIS Table
+    const wisTable = createAbilityTable(actor, "WIS", 
+      ["", "%", "Magic Adj", "Spell Bonuses", "Spell Failure", "Immunity"],
+      ["WIS", "0", getMagicAdj(actor), getSpellBonuses(actor), 
+       getSpellFailure(actor), getWisImmunity(actor)]
+    );
+    abilitiesSection.appendChild(wisTable);
+    
+    // CHA Table
+    const chaTable = createAbilityTable(actor, "CHA", 
+      ["", "%", "Max Henchmen", "Loyalty Base", "Reaction Adj"],
+      ["CHA", "0", getMaxHenchmen(actor), getLoyaltyBase(actor), 
+       getChaReactionAdj(actor)]
+    );
+    abilitiesSection.appendChild(chaTable);
+    
+    tab.appendChild(abilitiesSection);
+    
+    // ─── Saves Section ───
     const savesHeader = document.createElement("div");
     savesHeader.textContent = "Saves";
     savesHeader.style.textAlign = "center";
-    savesHeader.style.borderBottom = "1px solid #ccc";
-    savesHeader.style.marginTop = "20px";
-    savesHeader.style.marginBottom = "10px";
-    savesHeader.style.fontSize = "14px";
+    savesHeader.style.fontSize = "16px";
+    savesHeader.style.fontWeight = "bold";
+    savesHeader.style.margin = "20px 0 10px 0";
     tab.appendChild(savesHeader);
     
-    // Saves grid
+    // Create saves grid with similar styling to the screenshot
     const savesGrid = document.createElement("div");
     savesGrid.style.display = "grid";
     savesGrid.style.gridTemplateColumns = "repeat(5, 1fr)";
-    savesGrid.style.gap = "5px";
+    savesGrid.style.gap = "8px";
+    savesGrid.style.background = "#e8e8d8";
+    savesGrid.style.padding = "10px";
+    savesGrid.style.borderRadius = "5px";
     
     // Save types
     const saveTypes = [
-      { key: "paralyzation", label: "Para" },
-      { key: "poison", label: "Poison" },
-      { key: "death", label: "Death" },
-      { key: "rod", label: "Rod" },
-      { key: "staff", label: "Staff" },
-      { key: "wand", label: "Wand" },
-      { key: "petrification", label: "Petri" },
-      { key: "polymorph", label: "Poly" },
-      { key: "breath", label: "Breath" },
-      { key: "spell", label: "Spell" }
+      { key: "paralyzation", label: "Para", value: actor.system?.saves?.paralyzation?.value || "7" },
+      { key: "poison", label: "Poison", value: actor.system?.saves?.poison?.value || "7" },
+      { key: "death", label: "Death", value: actor.system?.saves?.death?.value || "7" },
+      { key: "rod", label: "Rod", value: actor.system?.saves?.rod?.value || "11" },
+      { key: "staff", label: "Staff", value: actor.system?.saves?.staff?.value || "11" },
+      { key: "wand", label: "Wand", value: actor.system?.saves?.wand?.value || "11" },
+      { key: "petrification", label: "Petri", value: actor.system?.saves?.petrification?.value || "10" },
+      { key: "polymorph", label: "Poly", value: actor.system?.saves?.polymorph?.value || "10" },
+      { key: "breath", label: "Breath", value: actor.system?.saves?.breath?.value || "12" },
+      { key: "spell", label: "Spell", value: actor.system?.saves?.spell?.value || "12" }
     ];
     
     // Create save boxes
     saveTypes.forEach((save) => {
       const saveBox = document.createElement("div");
       saveBox.style.border = "1px solid #ccc";
-      saveBox.style.borderRadius = "3px";
+      saveBox.style.borderRadius = "4px";
       saveBox.style.padding = "5px";
       saveBox.style.textAlign = "center";
+      saveBox.style.background = "#f0f0e8";
       
       const saveName = document.createElement("div");
       saveName.textContent = save.label;
+      saveName.style.fontWeight = "bold";
+      saveName.style.fontSize = "12px";
+      saveName.style.marginBottom = "5px";
       
       const saveValue = document.createElement("div");
-      saveValue.textContent = actor.system?.saves?.[save.key]?.value || "15";
+      saveValue.textContent = save.value;
       saveValue.style.fontSize = "18px";
-      saveValue.style.fontWeight = "bold";
       saveValue.style.borderRadius = "50%";
       saveValue.style.width = "30px";
       saveValue.style.height = "30px";
@@ -990,7 +917,8 @@ export function getStoredCharacters() {
       saveValue.style.alignItems = "center";
       saveValue.style.justifyContent = "center";
       saveValue.style.margin = "0 auto";
-      saveValue.style.background = "#e0e0d0";
+      saveValue.style.background = "#ddd";
+      saveValue.style.fontWeight = "bold";
       
       saveBox.appendChild(saveName);
       saveBox.appendChild(saveValue);
@@ -999,14 +927,15 @@ export function getStoredCharacters() {
     
     tab.appendChild(savesGrid);
     
-    // Items section (checkbox)
+    // Items checkbox at bottom
     const itemsBox = document.createElement("div");
-    itemsBox.style.border = "1px solid #ccc";
-    itemsBox.style.borderRadius = "3px";
-    itemsBox.style.padding = "5px";
-    itemsBox.style.textAlign = "center";
-    itemsBox.style.marginTop = "10px";
-    itemsBox.style.background = "#e0e0d0";
+    itemsBox.style.display = "flex";
+    itemsBox.style.alignItems = "center";
+    itemsBox.style.justifyContent = "center";
+    itemsBox.style.marginTop = "20px";
+    itemsBox.style.background = "#e8e8d8";
+    itemsBox.style.padding = "8px";
+    itemsBox.style.borderRadius = "5px";
     
     const itemsCheck = document.createElement("div");
     itemsCheck.innerHTML = "✓ Items";
@@ -1016,6 +945,416 @@ export function getStoredCharacters() {
     tab.appendChild(itemsBox);
     
     return tab;
+  }
+  
+  // Helper function to create ability tables that match the ARS style
+  function createAbilityTable(actor, abilKey, headers, values) {
+    const abilities = actor.system?.abilities || {};
+    const abilityValue = abilities[abilKey.toLowerCase()]?.value || 10;
+    
+    // Create table container
+    const tableContainer = document.createElement("div");
+    tableContainer.style.marginBottom = "5px";
+    
+    // Create the table
+    const table = document.createElement("table");
+    table.style.width = "100%";
+    table.style.borderCollapse = "collapse";
+    table.style.border = "1px solid #aaa";
+    table.style.background = "#f0f0e8";
+    
+    // Create header row
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    
+    headers.forEach(text => {
+      const th = document.createElement("th");
+      th.textContent = text;
+      th.style.padding = "4px";
+      th.style.fontSize = "11px";
+      th.style.fontWeight = "bold";
+      th.style.borderBottom = "1px solid #aaa";
+      th.style.background = "#ddd";
+      headerRow.appendChild(th);
+    });
+    
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+    
+    // Create value row
+    const tbody = document.createElement("tbody");
+    const valueRow = document.createElement("tr");
+    
+    // Special handling for the ability value cell
+    const abilityCell = document.createElement("td");
+    abilityCell.style.padding = "4px";
+    abilityCell.style.textAlign = "center";
+    abilityCell.style.border = "1px solid #ccc";
+    abilityCell.style.fontWeight = "bold";
+    abilityCell.style.fontSize = "18px";
+    abilityCell.style.background = "#f8f8f0";
+    
+    const abilitySpan = document.createElement("span");
+    abilitySpan.textContent = abilityValue;
+    abilityCell.appendChild(abilitySpan);
+    valueRow.appendChild(abilityCell);
+    
+    // Add the rest of the values
+    for (let i = 1; i < values.length; i++) {
+      const td = document.createElement("td");
+      td.textContent = values[i];
+      td.style.padding = "4px";
+      td.style.textAlign = "center";
+      td.style.border = "1px solid #ccc";
+      td.style.fontSize = "12px";
+      valueRow.appendChild(td);
+    }
+    
+    tbody.appendChild(valueRow);
+    table.appendChild(tbody);
+    tableContainer.appendChild(table);
+    
+    return tableContainer;
+  }
+  
+  // Helper functions to get ability bonuses based on ability scores
+  function getPercent(actor, ability) {
+    if (ability === "str") {
+      return actor.system?.abilities?.strExceptional || "0";
+    }
+    return "0";
+  }
+  
+  function getHitAdj(actor) {
+    const str = actor.system?.abilities?.str?.value || 10;
+    if (str <= 5) return "-2";
+    if (str <= 7) return "-1";
+    if (str <= 15) return "0";
+    if (str === 16) return "0";
+    if (str === 17) return "1";
+    if (str === 18) {
+      const pct = actor.system?.abilities?.strExceptional || 0;
+      if (pct >= 91) return "2";
+      return "1";
+    }
+    return "3"; // Str 19+
+  }
+  
+  function getDamageAdj(actor) {
+    const str = actor.system?.abilities?.str?.value || 10;
+    if (str <= 5) return "-1";
+    if (str <= 15) return "0";
+    if (str === 16) return "1";
+    if (str === 17) return "1";
+    if (str === 18) {
+      const pct = actor.system?.abilities?.strExceptional || 0;
+      if (pct <= 50) return "3";
+      if (pct <= 75) return "3";
+      if (pct <= 90) return "4";
+      if (pct <= 99) return "5";
+      return "6"; // 18/00
+    }
+    return "4"; // Str 19+
+  }
+  
+  function getCarryWeight(actor) {
+    const str = actor.system?.abilities?.str?.value || 10;
+    if (str === 3) return "5";
+    if (str <= 5) return "10";
+    if (str === 6) return "20";
+    if (str === 7) return "35";
+    if (str === 8) return "40";
+    if (str === 9) return "45";
+    if (str === 10) return "50";
+    if (str === 11) return "55";
+    if (str === 12) return "60";
+    if (str === 13) return "65";
+    if (str === 14) return "70";
+    if (str === 15) return "75";
+    if (str === 16) return "80";
+    if (str === 17) return "90";
+    if (str === 18) {
+      const pct = actor.system?.abilities?.strExceptional || 0;
+      if (pct <= 50) return "135";
+      if (pct <= 75) return "160";
+      if (pct <= 90) return "185";
+      if (pct <= 99) return "235";
+      return "335"; // 18/00
+    }
+    return "150"; // Str 19+
+  }
+  
+  function getOpenDoors(actor) {
+    const str = actor.system?.abilities?.str?.value || 10;
+    if (str <= 14) return "1d6(1-4)";
+    if (str <= 16) return "2d6";
+    return "2d6+1";
+  }
+  
+  function getBendBars(actor) {
+    const str = actor.system?.abilities?.str?.value || 10;
+    if (str === 3) return "1%";
+    if (str === 4) return "2%";
+    if (str === 5) return "4%";
+    if (str === 6) return "7%";
+    if (str === 7) return "10%";
+    if (str === 8) return "13%";
+    if (str === 9) return "16%";
+    if (str === 10) return "20%";
+    if (str === 11) return "25%";
+    if (str === 12) return "30%";
+    if (str === 13) return "35%";
+    if (str === 14) return "40%";
+    if (str === 15) return "50%";
+    if (str === 16) return "60%";
+    if (str === 17) return "70%";
+    if (str === 18) {
+      const pct = actor.system?.abilities?.strExceptional || 0;
+      if (pct <= 50) return "90%";
+      if (pct <= 75) return "95%";
+      if (pct <= 90) return "99%";
+      if (pct <= 99) return "99%";
+      return "100%"; // 18/00
+    }
+    return "30%"; // Default
+  }
+  
+  // Similar helper functions for other abilities
+  function getReactionAdj(actor) {
+    const dex = actor.system?.abilities?.dex?.value || 10;
+    if (dex <= 5) return "-2";
+    if (dex <= 7) return "-1";
+    if (dex <= 12) return "0";
+    if (dex <= 14) return "1";
+    if (dex <= 16) return "2";
+    return "3"; // Dex 17+
+  }
+  
+  function getMissileAdj(actor) {
+    const dex = actor.system?.abilities?.dex?.value || 10;
+    if (dex <= 5) return "-2";
+    if (dex <= 7) return "-1";
+    if (dex <= 12) return "0";
+    if (dex <= 14) return "1";
+    if (dex <= 16) return "2";
+    return "3"; // Dex 17+
+  }
+  
+  function getDefAdj(actor) {
+    const dex = actor.system?.abilities?.dex?.value || 10;
+    if (dex === 3) return "+4";
+    if (dex === 4) return "+3";
+    if (dex === 5) return "+2";
+    if (dex === 6) return "+1";
+    if (dex <= 14) return "0";
+    if (dex === 15) return "-1";
+    if (dex === 16) return "-2";
+    if (dex === 17) return "-3";
+    return "-4"; // Dex 18+
+  }
+  
+  function getHPBonus(actor) {
+    const con = actor.system?.abilities?.con?.value || 10;
+    if (con === 3) return "-2";
+    if (con <= 6) return "-1";
+    if (con <= 12) return "0";
+    if (con <= 15) return "1";
+    if (con <= 17) return "2";
+    return "2,5"; // Con 18+
+  }
+  
+  function getSystemShock(actor) {
+    const con = actor.system?.abilities?.con?.value || 10;
+    if (con === 3) return "35%";
+    if (con === 4) return "40%";
+    if (con === 5) return "45%";
+    if (con === 6) return "50%";
+    if (con === 7) return "55%";
+    if (con === 8) return "60%";
+    if (con === 9) return "65%";
+    if (con === 10) return "70%";
+    if (con === 11) return "75%";
+    if (con === 12) return "80%";
+    if (con === 13) return "85%";
+    if (con === 14) return "88%";
+    if (con === 15) return "90%";
+    if (con === 16) return "95%";
+    if (con === 17) return "97%";
+    return "99%"; // Con 18+
+  }
+  
+  function getResurrection(actor) {
+    const con = actor.system?.abilities?.con?.value || 10;
+    if (con === 3) return "40%";
+    if (con === 4) return "45%";
+    if (con === 5) return "50%";
+    if (con === 6) return "55%";
+    if (con === 7) return "60%";
+    if (con === 8) return "65%";
+    if (con === 9) return "70%";
+    if (con === 10) return "75%";
+    if (con === 11) return "80%";
+    if (con === 12) return "85%";
+    if (con === 13) return "90%";
+    if (con === 14) return "92%";
+    if (con === 15) return "94%";
+    if (con === 16) return "96%";
+    if (con === 17) return "98%";
+    return "100%"; // Con 18+
+  }
+  
+  function getPoisonAdj(actor) {
+    const con = actor.system?.abilities?.con?.value || 10;
+    if (con <= 12) return "0";
+    if (con <= 17) return "0";
+    return "1"; // Con 18+
+  }
+  
+  function getRegeneration(actor) {
+    const con = actor.system?.abilities?.con?.value || 10;
+    if (con <= 18) return "None";
+    return "1/6 turns"; // Con 19+
+  }
+  
+  function getLanguages(actor) {
+    const int = actor.system?.abilities?.int?.value || 10;
+    if (int <= 7) return "1";
+    if (int <= 10) return "2";
+    if (int <= 14) return "3";
+    if (int <= 16) return "4";
+    return "2"; // Default
+  }
+  
+  function getSpellLevel(actor) {
+    const int = actor.system?.abilities?.int?.value || 10;
+    if (int <= 12) return "5";
+    if (int <= 14) return "6";
+    if (int <= 16) return "7";
+    return "5"; // Default
+  }
+  
+  function getLearnChance(actor) {
+    const int = actor.system?.abilities?.int?.value || 10;
+    if (int <= 8) return "0%";
+    if (int === 9) return "35%";
+    if (int === 10) return "40%";
+    if (int === 11) return "45%";
+    if (int === 12) return "50%";
+    if (int === 13) return "55%";
+    if (int === 14) return "60%";
+    if (int === 15) return "65%";
+    if (int === 16) return "70%";
+    if (int === 17) return "75%";
+    return "40%"; // Default
+  }
+  
+  function getMaxSpells(actor) {
+    const int = actor.system?.abilities?.int?.value || 10;
+    if (int <= 9) return "6";
+    if (int <= 12) return "7";
+    if (int <= 14) return "9";
+    if (int <= 16) return "11";
+    return "7"; // Default
+  }
+  
+  function getSpellImmunity(actor) {
+    const int = actor.system?.abilities?.int?.value || 10;
+    return "None"; // Default
+  }
+  
+  function getMagicAdj(actor) {
+    const wis = actor.system?.abilities?.wis?.value || 10;
+    if (wis === 3) return "-3";
+    if (wis <= 5) return "-2";
+    if (wis <= 7) return "-1";
+    if (wis <= 14) return "0";
+    if (wis === 15) return "+1";
+    if (wis === 16) return "+2";
+    if (wis === 17) return "+3";
+    return "3"; // Default
+  }
+  
+  function getSpellBonuses(actor) {
+    const wis = actor.system?.abilities?.wis?.value || 10;
+    if (wis <= 12) return "None";
+    if (wis === 13) return "None";
+    if (wis === 14) return "1 x 1st";
+    if (wis === 15) return "1 x 2nd";
+    if (wis === 16) return "1 x 2nd + 1 x 1st";
+    if (wis === 17) return "1 x 3rd + 1 x 2nd";
+    return "Various"; // Default for high wisdom
+  }
+  
+  function getSpellFailure(actor) {
+    const wis = actor.system?.abilities?.wis?.value || 10;
+    if (wis === 3) return "80%";
+    if (wis === 4) return "60%";
+    if (wis === 5) return "50%";
+    if (wis === 6) return "40%";
+    if (wis === 7) return "30%";
+    if (wis <= 9) return "20%";
+    if (wis === 10) return "15%";
+    if (wis === 11) return "10%";
+    if (wis === 12) return "5%";
+    return "0%"; // Wis 13+
+  }
+  
+  function getWisImmunity(actor) {
+    return "None"; // Default
+  }
+  
+  function getMaxHenchmen(actor) {
+    const cha = actor.system?.abilities?.cha?.value || 10;
+    if (cha === 3) return "1";
+    if (cha <= 6) return "2";
+    if (cha === 7) return "3";
+    if (cha <= 11) return "4";
+    if (cha <= 12) return "5";
+    if (cha === 13) return "5";
+    if (cha === 14) return "6";
+    if (cha === 15) return "7";
+    if (cha === 16) return "8";
+    if (cha === 17) return "10";
+    return "4"; // Default
+  }
+  
+  function getLoyaltyBase(actor) {
+    const cha = actor.system?.abilities?.cha?.value || 10;
+    if (cha === 3) return "-8";
+    if (cha === 4) return "-7";
+    if (cha === 5) return "-6";
+    if (cha === 6) return "-5";
+    if (cha === 7) return "-4";
+    if (cha === 8) return "-3";
+    if (cha === 9) return "-2";
+    if (cha === 10) return "-1";
+    if (cha === 11) return "0";
+    if (cha === 12) return "0";
+    if (cha === 13) return "+1";
+    if (cha === 14) return "+2";
+    if (cha === 15) return "+3";
+    if (cha === 16) return "+4";
+    if (cha === 17) return "+5";
+    return "0"; // Default
+  }
+  
+  function getChaReactionAdj(actor) {
+    const cha = actor.system?.abilities?.cha?.value || 10;
+    if (cha === 3) return "-7";
+    if (cha === 4) return "-6";
+    if (cha === 5) return "-5";
+    if (cha === 6) return "-4";
+    if (cha === 7) return "-3";
+    if (cha === 8) return "-2";
+    if (cha === 9) return "-1";
+    if (cha <= 11) return "0";
+    if (cha === 12) return "+1";
+    if (cha === 13) return "+1";
+    if (cha === 14) return "+2";
+    if (cha === 15) return "+3";
+    if (cha === 16) return "+4";
+    if (cha === 17) return "+5";
+    return "0"; // Default
   }
   
   // Then add the createItemsTab function
