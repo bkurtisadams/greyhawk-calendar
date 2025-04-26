@@ -102,8 +102,8 @@ export function getStoredCharacters() {
     return wrapper;
   }
   
-  function calculateArmorClass(actor) {
-    console.log(`🔎 Calculating Armor Class for: ${actor.name}`);
+  function calculateArmorClass(modifiedActor) {
+    console.log(`🔎 Calculating Armor Class for: ${modifiedActor.name}`);
   
     let baseAC = 10;
     let armorMagicBonus = 0;
@@ -112,7 +112,7 @@ export function getStoredCharacters() {
     let protectionBonus = 0;
   
     // Step 1: Find equipped armor (MUST be real armor, not ring or cloak!)
-    const armor = actor.items?.find(i => 
+    const armor = modifiedActor.items?.find(i => 
       i.type === "armor" &&
       i.system?.location?.state === "equipped" &&
       ["armor", "bracers", "warding"].includes((i.system?.protection?.type || "").toLowerCase())
@@ -643,14 +643,15 @@ export function getStoredCharacters() {
     sidebar.appendChild(deleteBtn);
     
     // Create tab contents
-    const characterTab = createCharacterTab(actor);
-    const matrixTab = createMatrixTab(actor);
-    const weaponsTab = createWeaponsTab(actor);
-    const actionsTab = createActionsTab(actor);
-    const itemsTab = createItemsTab(actor);
-    const skillsTab = createSkillsTab(actor);
-    const spellsTab = createSpellsTab(actor);
-    const proficienciesTab = createProficienciesTab(actor);
+    // Create tab contents - use modifiedActor instead of actor
+    const characterTab = createCharacterTab(modifiedActor);
+    const matrixTab = createMatrixTab(modifiedActor);
+    const weaponsTab = createWeaponsTab(modifiedActor);
+    const actionsTab = createActionsTab(modifiedActor);
+    const itemsTab = createItemsTab(modifiedActor);
+    const skillsTab = createSkillsTab(modifiedActor);
+    const spellsTab = createSpellsTab(modifiedActor);
+    const proficienciesTab = createProficienciesTab(modifiedActor);
     
     // Add tabs to content area
     contentArea.appendChild(characterTab);
