@@ -348,6 +348,13 @@ export function saveStoredCharacters(chars) {
     portraitImg.style.width = "100%";
     portraitImg.style.height = "100%";
     portraitImg.style.objectFit = "cover";
+    
+    // fallback if the image fails to load
+    portraitImg.onerror = function() {
+        this.onerror = null; // Prevent infinite loop if backup also fails
+        this.src = "icons/svg/item-bag.svg"; // generic backup icon
+    };
+    
     portrait.appendChild(portraitImg);
     
     // Character name input
@@ -1762,15 +1769,22 @@ export function saveStoredCharacters(chars) {
         // Icon
         const iconTd = document.createElement("td");
         iconTd.style.textAlign = "center";
-        
+
         const img = document.createElement("img");
-        img.src = item.img;
+        img.src = item.img || "icons/svg/item-bag.svg"; // default if missing
         img.alt = "";
         img.style.width = "20px";
         img.style.height = "20px";
-        
+
+        // 🛡️ fallback if loading fails (404)
+        img.onerror = function() {
+            this.onerror = null; // Prevent infinite loop if backup fails
+            this.src = "icons/svg/item-bag.svg"; // fallback image
+        };
+
         iconTd.appendChild(img);
         tr.appendChild(iconTd);
+
         
         // Name
         const nameTd = document.createElement("td");
