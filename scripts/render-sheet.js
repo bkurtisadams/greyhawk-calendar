@@ -1838,7 +1838,9 @@ export function getStoredCharacters() {
       
       // If this is a container, add its contents indented
       if (item.type === "container" && item.system?.itemList && item.system.itemList.length > 0) {
-        const containerId = `container-${item.name.replace(/\s+/g, '-').toLowerCase()}`;
+        // When creating the container ID, we need to properly sanitize the name
+        // to create a valid CSS selector by removing special characters
+        const containerId = `container-${item.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
         const contents = item.system.itemList;
         
         contents.forEach(subItem => {
