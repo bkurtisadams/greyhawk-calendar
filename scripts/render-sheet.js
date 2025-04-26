@@ -279,43 +279,47 @@ export function getStoredCharacters() {
     combatStats.style.display = "flex";
     combatStats.style.justifyContent = "space-between";
     
-    // AC section
+    // AC section (new clean version)
     const acSection = document.createElement("div");
     acSection.style.display = "flex";
+    acSection.style.flexDirection = "column";
     acSection.style.alignItems = "center";
-
-    const acValue = document.createElement("div");
-    acValue.className = "ac-value";
-    acValue.style.display = "flex";
-    acValue.style.flexDirection = "column";
-    acValue.style.alignItems = "center";
-    acValue.style.background = "#e0e0d0";
-    acValue.style.borderRadius = "50%";
-    acValue.style.width = "50px";
-    acValue.style.height = "50px";
-    acValue.style.padding = "5px";
-    acValue.style.marginRight = "10px";
-    acValue.style.justifyContent = "center";
-
-    const acLabel = document.createElement("div");
-    acLabel.textContent = "Armor Class";
-    acLabel.style.fontSize = "10px";
+    acSection.style.backgroundColor = "#e0e0d0";
+    acSection.style.borderRadius = "5px";
+    acSection.style.padding = "10px";
+    acSection.style.minWidth = "80px";
 
     const acValues = calculateArmorClass(actor);
 
-    // 🛡️ Armor and shield info
-    const armor = actor.items?.find(i => 
-      i.type === "armor" &&
-      i.system?.location?.state === "equipped" &&
-      ["armor", "bracers", "warding"].includes((i.system?.protection?.type || "").toLowerCase())
-    );
+    // Main Armor Class value
+    const acMainValue = document.createElement("div");
+    acMainValue.textContent = acValues.normal;
+    acMainValue.style.fontSize = "32px";
+    acMainValue.style.fontWeight = "bold";
+    acMainValue.style.marginBottom = "4px";
+    acSection.appendChild(acMainValue);
 
-    const shield = actor.items?.find(i => 
-      (i.type === "armor" || i.type === "equipment") &&
-      i.name?.toLowerCase().includes("shield") &&
-      i.system?.location?.state === "equipped"
-    );
+    // Label "Armor Class"
+    const acMainLabel = document.createElement("div");
+    acMainLabel.textContent = "Armor Class";
+    acMainLabel.style.fontSize = "12px";
+    acMainLabel.style.fontWeight = "bold";
+    acMainLabel.style.marginBottom = "6px";
+    acSection.appendChild(acMainLabel);
 
+    // Shieldless and Rear
+    const acSubValues = document.createElement("div");
+    acSubValues.style.fontSize = "10px";
+    acSubValues.style.display = "flex";
+    acSubValues.style.flexDirection = "column";
+    acSubValues.style.alignItems = "center";
+    acSubValues.innerHTML = `
+      <div>Shieldless: ${acValues.shieldless}</div>
+      <div>Rear: ${acValues.rear}</div>
+    `;
+    acSection.appendChild(acSubValues);
+
+/* 
     // Build visible equipment text (multi-line)
     let equipmentLines = [];
 
@@ -330,7 +334,7 @@ export function getStoredCharacters() {
     if (shield) {
       const mod = shield.system?.protection?.modifier ?? 0;
       equipmentLines.push(`${shield.name} (+${1 + mod} AC)`);
-    }
+    } */
 
     // Find protection items
     const protectionItems = actor.items?.filter(i => {
