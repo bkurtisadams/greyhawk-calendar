@@ -1142,22 +1142,25 @@ function loadContentFromLocalStorage() {
     }
 
     const savedCharacters = localStorage.getItem('greyhawk-characters');
-if (savedCharacters) {
-    try {
-        const parsedCharacters = JSON.parse(savedCharacters);
-        parsedCharacters.forEach(character => {
-            if (character?.id && character?.name) {
-                if (!CHARACTERS.some(c => c.id === character.id)) {
-                    CHARACTERS.push(character);
+    if (savedCharacters) {
+        try {
+            const parsedCharacters = JSON.parse(savedCharacters);
+            parsedCharacters.forEach(character => {
+                // Don't attempt to process characters in calendar.js
+                // Just let render-sheet.js handle its own character data
+                console.log("Found character:", character.name);
+                
+                // Only process characters in a format that calendar.js understands
+                if (character?.id && character?.name && !character.system) {
+                    if (!CHARACTERS.some(c => c.id === character.id)) {
+                        CHARACTERS.push(character);
+                    }
                 }
-            } else {
-                console.warn("Skipped invalid character:", character);
-            }
-        });
-    } catch (err) {
-        console.error("Failed to parse stored characters:", err);
+            });
+        } catch (err) {
+            console.error("Failed to parse stored characters:", err);
+        }
     }
-}
 
     const savedDate = localStorage.getItem('greyhawk-campaign-date');
     if (savedDate) {
