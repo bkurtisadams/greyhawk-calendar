@@ -796,35 +796,20 @@ export function getStoredCharacters() {
     
     // ─── Abilities Section ───
     const abilitiesHeader = document.createElement("div");
-    abilitiesHeader.className = "section-header";
+    abilitiesHeader.className = "abilities-header";
     abilitiesHeader.textContent = "Abilities";
-    abilitiesHeader.style.backgroundColor = "#271744";
-    abilitiesHeader.style.color = "white";
-    abilitiesHeader.style.padding = "5px 10px";
-    abilitiesHeader.style.marginTop = "15px";
-    abilitiesHeader.style.borderRadius = "3px";
     tab.appendChild(abilitiesHeader);
 
     const abilitiesGrid = document.createElement("div");
-    abilitiesGrid.className = "character-grid";
-    abilitiesGrid.style.display = "grid";
-    abilitiesGrid.style.gridTemplateColumns = "repeat(3, 1fr)";
-    abilitiesGrid.style.gap = "10px";
-    abilitiesGrid.style.background = "#e8e8d8";
-    abilitiesGrid.style.padding = "10px";
-    abilitiesGrid.style.borderRadius = "5px";
+    abilitiesGrid.className = "abilities-grid";
     tab.appendChild(abilitiesGrid);
 
     const abilities = actor.system?.abilities || {};
 
     function createAbilityPanel(name, value) {
       const panel = document.createElement("div");
-      panel.style.background = "#fff";
-      panel.style.border = "1px solid #ccc";
-      panel.style.borderRadius = "5px";
-      panel.style.padding = "8px";
-      panel.style.minHeight = "100px";
-      
+      panel.className = "ability-panel";
+
       let bonusDetails = "";
 
       switch (name.toLowerCase()) {
@@ -840,65 +825,65 @@ export function getStoredCharacters() {
           }
           const data = STRENGTH_TABLE[strKey] || {};
           bonusDetails = `
-            <small>Hit: ${data.hitBonus ?? "?"}, Dmg: ${data.dmgBonus ?? "?"}<br>
+            Hit: ${data.hitBonus ?? "?"}, Dmg: ${data.dmgBonus ?? "?"}<br>
             Carry: ${data.weightAllowance ?? "?"}<br>
-            Open Doors: ${data.openDoors ?? "?"}<br>
-            Bend Bars: ${data.bendBars ?? "?"}</small>
+            Open: ${data.openDoors ?? "?"}<br>
+            Bars: ${data.bendBars ?? "?"}
           `;
           break;
         }
         case "int": {
           const data = INTELLIGENCE_TABLE[value] || {};
           bonusDetails = `
-            <small>Langs: ${data.languages ?? "?"}<br>
+            Lang: ${data.languages ?? "?"}<br>
             Learn: ${data.learnSpellChance ?? "?"}<br>
-            Max Spells: ${data.maxSpellsPerLevel ?? "?"}<br>
-            Immunity: ${data.spellImmunity ?? "None"}</small>
+            Max: ${data.maxSpellsPerLevel ?? "?"}<br>
+            Immunity: ${data.spellImmunity ?? "None"}
           `;
           break;
         }
         case "wis": {
           const data = WISDOM_TABLE[value] || {};
           bonusDetails = `
-            <small>Save Adj: ${data.magicDefenseAdj ?? "?"}<br>
-            Bonus Spells: ${data.bonusSpells ?? "None"}<br>
-            Fail Chance: ${data.spellFailureChance ?? "?"}</small>
+            Save Adj: ${data.magicDefenseAdj ?? "?"}<br>
+            Bonus: ${data.bonusSpells ?? "None"}<br>
+            Fail: ${data.spellFailureChance ?? "?"}
           `;
           break;
         }
         case "dex": {
           const data = DEXTERITY_TABLE[value] || {};
           bonusDetails = `
-            <small>React: ${data.reactionAdj ?? "?"}<br>
+            React: ${data.reactionAdj ?? "?"}<br>
             Missile: ${data.missileAdj ?? "?"}<br>
-            Defense: ${data.defensiveAdj ?? "?"}</small>
+            Defense: ${data.defensiveAdj ?? "?"}
           `;
           break;
         }
         case "con": {
           const data = CONSTITUTION_TABLE[value] || {};
           bonusDetails = `
-            <small>HP Adj: ${data.hpAdj ?? "?"}<br>
+            HP: ${data.hpAdj ?? "?"}<br>
             Shock: ${data.systemShock ?? "?"}<br>
             Raise: ${data.resurrection ?? "?"}<br>
-            Regen: ${data.regeneration ?? "None"}</small>
+            Regen: ${data.regeneration ?? "None"}
           `;
           break;
         }
         case "cha": {
           const data = CHARISMA_TABLE[value] || {};
           bonusDetails = `
-            <small>Henchmen: ${data.maxHenchmen ?? "?"}<br>
+            Hench: ${data.maxHenchmen ?? "?"}<br>
             Loyalty: ${data.loyaltyBase ?? "?"}<br>
-            React: ${data.reactionAdj ?? "?"}</small>
+            React: ${data.reactionAdj ?? "?"}
           `;
           break;
         }
       }
 
       panel.innerHTML = `
-        <div style="font-weight:bold; font-size:16px;">${name.toUpperCase()} ${value}</div>
-        <div style="margin-top:6px;">${bonusDetails}</div>
+        <div class="ability-name">${name.toUpperCase()} ${value}</div>
+        <div class="ability-details">${bonusDetails}</div>
       `;
       
       return panel;
@@ -911,6 +896,7 @@ export function getStoredCharacters() {
     abilitiesGrid.appendChild(createAbilityPanel("DEX", abilities.dex?.value ?? 10));
     abilitiesGrid.appendChild(createAbilityPanel("CON", abilities.con?.value ?? 10));
     abilitiesGrid.appendChild(createAbilityPanel("CHA", abilities.cha?.value ?? 10));
+
 
 /*     
     // Abilities headers
