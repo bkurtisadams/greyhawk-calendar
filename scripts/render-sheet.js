@@ -3497,11 +3497,11 @@ function applyRacialModifiers(actor) {
     infoGrid.style.marginBottom = "20px";
   
     const fields = [
-      { label: "Age", value: actor.system?.age ?? "Unknown" },
-      { label: "Sex", value: actor.system?.sex ?? "Unknown" },
+      { label: "Age", value: actor.system?.details?.age ?? "Unknown" },
+      { label: "Sex", value: actor.system?.details?.sex ?? "Unknown" },
       { label: "Deity", value: actor.system?.details?.deity || "None" },
-      { label: "Height", value: actor.system?.height ?? "Unknown" },
-      { label: "Weight", value: actor.system?.weight ?? "Unknown" },
+      { label: "Height", value: actor.system?.details?.height ?? "Unknown" },
+      { label: "Weight", value: actor.system?.details?.weight ?? "Unknown" },
       { label: "Patron", value: actor.system?.details?.patron || "None" }
     ];
   
