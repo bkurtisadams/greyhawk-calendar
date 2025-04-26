@@ -3550,7 +3550,7 @@ function applyRacialModifiers(actor) {
     notesBox.style.whiteSpace = "pre-wrap"; // Preserve line breaks
     notesBox.style.fontSize = "14px";
   
-    notesBox.textContent = actor.system?.biography || "No description available.";
+    notesBox.innerHTML = actor.system?.details?.biography?.value || "No description available.";
   
     tab.appendChild(notesBox);
   
