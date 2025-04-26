@@ -251,7 +251,12 @@ function generateInventoryHTML(items) {
 // Function to generate the holidays list
 function generateHolidaysList() {
     const container = document.getElementById('holiday-container');
-    container.innerHTML = ''; // Clear existing content
+    if (!container) {
+        console.warn("⚠️ No holiday-container found — skipping holiday generation for now.");
+        return;
+    }
+
+    container.innerHTML = ''; // Safe: Clear existing content
 
     // Sort holidays by month and day
     const sortedHolidays = [...GREYHAWK_HOLIDAYS].sort((a, b) => {
