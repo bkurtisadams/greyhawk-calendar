@@ -1161,7 +1161,10 @@ if (savedCharacters) {
 
     const savedDate = localStorage.getItem('greyhawk-campaign-date');
     if (savedDate) {
-        CAMPAIGN_DATE = JSON.parse(savedDate);
+        const parsedDate = JSON.parse(savedDate);
+        CAMPAIGN_DATE.year = parsedDate.year;
+        CAMPAIGN_DATE.month = parsedDate.month;
+        CAMPAIGN_DATE.day = parsedDate.day;
     }
 }
 
