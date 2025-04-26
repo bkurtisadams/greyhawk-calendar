@@ -1843,7 +1843,7 @@ export function getStoredCharacters() {
         const containerId = `container-${item.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
         const contents = item.system.itemList;
         
-        addContainerContents(contents, containerId);
+        addContainerContents(tbody, contents, containerId);
 
       }
     });
@@ -3074,7 +3074,8 @@ function applyRacialModifiers(actor) {
   return modifiedActor;
 }
   
-function addContainerContents(contents, parentContainerId, depth = 1) {
+function addContainerContents(tbody, contents, parentContainerId, depth = 1) {
+
   contents.forEach(subItem => {
     const subRow = document.createElement("tr");
     const sanitizedName = subItem.name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
