@@ -887,8 +887,8 @@ export function saveStoredCharacters(chars) {
     // Class
     const [classLabel, classValue] = createFieldRow("Class", "");
     let classDisplay = "Unknown";
-    if (actor.activeClasses && Array.isArray(actor.activeClasses)) {
-      const classes = actor.activeClasses.map(c => `${c.name} ${c.system?.level ?? "?"}`);
+    if (actor.system?.activeClasses && typeof actor.system.activeClasses === "object") {
+      const classes = Object.values(actor.system.activeClasses).map(c => `${c.name} ${c.levels ?? "?"}`);
       classDisplay = classes.join(" / ");
     } else if (actor.items) {
       const classItems = actor.items.filter(i => i.type === "class");
@@ -897,6 +897,7 @@ export function saveStoredCharacters(chars) {
         classDisplay = classes.join(" / ");
       }
     }
+    
     classValue.textContent = classDisplay;
   
     // Race
