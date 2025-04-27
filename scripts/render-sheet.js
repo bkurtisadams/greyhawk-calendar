@@ -1179,7 +1179,7 @@ export function saveStoredCharacters(chars) {
   function createSTRTable(actor) {
     const abilities = actor.system?.abilities || {};
     const strValue = abilities.str?.value || 10;
-    const strPercent = abilities.str?.exceptional || 0;
+    const strPercent = abilities.str?.percent || 0;
     
     // Create table container
     const tableContainer = document.createElement("div");
@@ -1260,7 +1260,12 @@ export function saveStoredCharacters(chars) {
     
     // Percent cell
     const percentCell = document.createElement("td");
-    percentCell.textContent = strPercent;
+    if (strValue === 18 && strPercent > 0) {
+      percentCell.textContent = `${strPercent}%`;  // add % sign automatically
+    } else {
+      percentCell.textContent = "";
+    }
+    
     percentCell.style.padding = "4px";
     percentCell.style.textAlign = "center";
     percentCell.style.border = "1px solid #ccc";
