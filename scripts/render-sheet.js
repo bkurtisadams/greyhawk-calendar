@@ -885,12 +885,12 @@ export function saveStoredCharacters(chars) {
       }
     }
 
-    // 2. Try to find level from advancement (highest level)
+    // 2. Find current level from advancement
     let currentLevel = "?";
     if (Array.isArray(actor.advancement) && actor.advancement.length > 0) {
       const levels = actor.advancement.map(a => a.level || 0);
       currentLevel = Math.max(...levels);
-      console.log("✅ Highest level found from advancement:", currentLevel);
+      console.log("✅ Highest level from advancement:", currentLevel);
     } else {
       console.log("❌ No advancement data found.");
     }
@@ -901,6 +901,7 @@ export function saveStoredCharacters(chars) {
 
     // 4. Create the field
     const [classLabel, classValue] = createFieldRow("Class", classDisplay);
+
   
     // Race
     const raceItem = actor.items?.find(i => i.type === "race");
