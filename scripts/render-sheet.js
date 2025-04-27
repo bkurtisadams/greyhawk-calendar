@@ -347,19 +347,21 @@ export function saveStoredCharacters(chars) {
 
     let imgSrc = actor.img || "icons/svg/mystery-man.svg";
 
-    // 🔥 Fix Windows paths and bad folders
+    // 🔥 Fix Windows export paths into correct GitHub URLs
     if (imgSrc.includes('pc counters') || imgSrc.includes('characters') || imgSrc.startsWith('C:')) {
-      const filename = imgSrc.split(/[/\\]/).pop();  // get "Kerrak.webp"
-      imgSrc = `/images/characters/${filename}`.replace(/ /g, "%20");  // correct URL path
+      const filename = imgSrc.split(/[/\\]/).pop();
+      imgSrc = `/images/characters/${filename}`.replace(/ /g, "%20");
+      console.warn(`Rewriting actor portrait to ${imgSrc}`);
     }
 
     portraitImg.src = imgSrc;
 
-    // fallback if image fails
     portraitImg.onerror = function() {
       this.onerror = null;
       this.src = "/icons/svg/mystery-man.svg";
+      console.error(`❌ Failed to load portrait: ${imgSrc}`);
     };
+
 
     portraitImg.style.width = "100%";
     portraitImg.style.height = "100%";
