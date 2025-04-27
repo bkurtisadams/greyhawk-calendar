@@ -134,7 +134,9 @@ async function loadCampaignData() {
 
 // Function to initialize the calendar application
 function initializeCalendar() {
-    loadContentFromLocalStorage();
+    //loadContentFromLocalStorage();
+    // load characters
+    loadCharactersFromServer();
 
     loadCampaignData().then(() => {
         // Update the display with the current campaign date
@@ -159,9 +161,6 @@ function initializeCalendar() {
         // Setup and restore view tab state
         setupTabButtons();
         restoreLastActiveView();  // <-- restore saved tab
-
-        // load characters
-        loadCharactersFromServer();
 
     });
 }
