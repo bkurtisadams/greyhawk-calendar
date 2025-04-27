@@ -349,11 +349,20 @@ export function saveStoredCharacters(chars) {
     // Determine the image source
     let imgSrc = actor.img || "icons/svg/mystery-man.svg";
 
-    // 🛠 THIS MUST HAPPEN BEFORE assigning portraitImg.src
-    if (imgSrc.includes('pc counters') || imgSrc.includes('characters') || imgSrc.startsWith('C:')) {
-      const filename = imgSrc.split(/[/\\]/).pop();
-      imgSrc = `/images/characters/${filename}`.replace(/ /g, "%20");
-      console.warn(`Rewriting actor portrait to ${imgSrc}`);
+    // Handle URL-encoded paths and extract filename
+    if (imgSrc) {
+      // First decode any URL-encoded characters like %20
+      imgSrc = decodeURIComponent(imgSrc);
+      
+      // Check if it contains our target paths
+      if (imgSrc.includes('pc counters') || imgSrc.includes('characters') || imgSrc.startsWith('C:')) {
+        // Extract just the filename from the path
+        const filename = imgSrc.split(/[/\\]/).pop();
+        
+        // Rewrite to use our images/characters directory
+        imgSrc = `/images/characters/${filename}`;
+        console.warn(`Rewriting actor portrait from ${actor.img} to ${imgSrc}`);
+      }
     }
 
     // Now assign the corrected imgSrc
@@ -371,7 +380,7 @@ export function saveStoredCharacters(chars) {
     };
 
     portrait.appendChild(portraitImg);
-
+    
     // Character name input
     const nameInput = document.createElement("input");
     nameInput.type = "text";
