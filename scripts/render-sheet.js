@@ -1179,7 +1179,7 @@ export function saveStoredCharacters(chars) {
   function createSTRTable(actor) {
     const abilities = actor.system?.abilities || {};
     const strValue = abilities.str?.value || 10;
-    const strPercent = abilities.strExceptional || 0;
+    const strPercent = abilities.str?.exceptional || 0;
     
     // Create table container
     const tableContainer = document.createElement("div");
@@ -1303,97 +1303,117 @@ export function saveStoredCharacters(chars) {
   
   function getHitAdj(actor) {
     const str = actor.system?.abilities?.str?.value || 10;
+    const pct = actor.system?.abilities?.str?.exceptional || 0;
+    
+    if (str === 3) return "-3";
     if (str <= 5) return "-2";
     if (str <= 7) return "-1";
     if (str <= 15) return "0";
     if (str === 16) return "0";
-    if (str === 17) return "1";
+    if (str === 17) return "+1";
     if (str === 18) {
-      const pct = actor.system?.abilities?.strExceptional || 0;
-      if (pct >= 91) return "2";
-      return "1";
+      if (pct === 0) return "+1";
+      if (pct <= 50) return "+1";
+      if (pct <= 75) return "+2";
+      if (pct <= 99) return "+2";
+      return "+3"; // 18/00
     }
-    return "3"; // Str 19+
+    return "+3"; // 19+
   }
   
   function getDamageAdj(actor) {
     const str = actor.system?.abilities?.str?.value || 10;
+    const pct = actor.system?.abilities?.str?.exceptional || 0;
+  
+    if (str === 3) return "-1";
     if (str <= 5) return "-1";
+    if (str <= 7) return "0";
     if (str <= 15) return "0";
-    if (str === 16) return "1";
-    if (str === 17) return "1";
+    if (str === 16) return "+1";
+    if (str === 17) return "+1";
     if (str === 18) {
-      const pct = actor.system?.abilities?.strExceptional || 0;
-      if (pct <= 50) return "3";
-      if (pct <= 75) return "3";
-      if (pct <= 90) return "4";
-      if (pct <= 99) return "5";
-      return "6"; // 18/00
+      if (pct === 0) return "+2";
+      if (pct <= 50) return "+3";
+      if (pct <= 75) return "+3";
+      if (pct <= 90) return "+4";
+      if (pct <= 99) return "+5";
+      return "+6"; // 18/00
     }
-    return "4"; // Str 19+
+    return "+6"; // 19+
   }
   
   function getCarryWeight(actor) {
     const str = actor.system?.abilities?.str?.value || 10;
-    if (str === 3) return "5";
-    if (str <= 5) return "10";
-    if (str === 6) return "20";
-    if (str === 7) return "35";
-    if (str === 8) return "40";
-    if (str === 9) return "45";
-    if (str === 10) return "50";
-    if (str === 11) return "55";
-    if (str === 12) return "60";
-    if (str === 13) return "65";
-    if (str === 14) return "70";
-    if (str === 15) return "75";
-    if (str === 16) return "80";
-    if (str === 17) return "90";
+    const pct = actor.system?.abilities?.str?.exceptional || 0;
+  
+    if (str === 3) return "-350";
+    if (str <= 5) return "-250";
+    if (str <= 7) return "-150";
+    if (str <= 11) return "normal";
+    if (str === 12) return "+100";
+    if (str === 13) return "+100";
+    if (str === 14) return "+200";
+    if (str === 15) return "+200";
+    if (str === 16) return "+350";
+    if (str === 17) return "+500";
     if (str === 18) {
-      const pct = actor.system?.abilities?.strExceptional || 0;
-      if (pct <= 50) return "135";
-      if (pct <= 75) return "160";
-      if (pct <= 90) return "185";
-      if (pct <= 99) return "235";
-      return "335"; // 18/00
+      if (pct === 0) return "+750";
+      if (pct <= 50) return "+1000";
+      if (pct <= 75) return "+1250";
+      if (pct <= 90) return "+1500";
+      if (pct <= 99) return "+2000";
+      return "+3000"; // 18/00
     }
-    return "150"; // Str 19+
+    return "+3000"; // 19+
   }
   
   function getOpenDoors(actor) {
     const str = actor.system?.abilities?.str?.value || 10;
-    if (str <= 14) return "1d6(1-4)";
-    if (str <= 16) return "2d6";
-    return "2d6+1";
+    const pct = actor.system?.abilities?.str?.exceptional || 0;
+  
+    if (str <= 7) return "1";
+    if (str <= 15) return "1-2";
+    if (str === 16) return "1-2";
+    if (str === 17) return "1-3";
+    if (str === 18) {
+      if (pct === 0) return "1-3";
+      if (pct <= 75) return "1-3";
+      if (pct <= 90) return "1-4";
+      if (pct <= 99) return "1-4 (1)";
+      return "1-5 (2)"; // 18/00
+    }
+    return "1-5 (2)"; // 19+
   }
   
   function getBendBars(actor) {
     const str = actor.system?.abilities?.str?.value || 10;
-    if (str === 3) return "1%";
-    if (str === 4) return "2%";
-    if (str === 5) return "4%";
-    if (str === 6) return "7%";
-    if (str === 7) return "10%";
-    if (str === 8) return "13%";
-    if (str === 9) return "16%";
-    if (str === 10) return "20%";
-    if (str === 11) return "25%";
-    if (str === 12) return "30%";
-    if (str === 13) return "35%";
-    if (str === 14) return "40%";
-    if (str === 15) return "50%";
-    if (str === 16) return "60%";
-    if (str === 17) return "70%";
+    const pct = actor.system?.abilities?.str?.exceptional || 0;
+  
+    if (str === 3) return "0%";
+    if (str <= 5) return "0%";
+    if (str === 6) return "0%";
+    if (str === 7) return "0%";
+    if (str === 8) return "1%";
+    if (str === 9) return "1%";
+    if (str === 10) return "2%";
+    if (str === 11) return "2%";
+    if (str === 12) return "4%";
+    if (str === 13) return "4%";
+    if (str === 14) return "7%";
+    if (str === 15) return "7%";
+    if (str === 16) return "10%";
+    if (str === 17) return "13%";
     if (str === 18) {
-      const pct = actor.system?.abilities?.strExceptional || 0;
-      if (pct <= 50) return "90%";
-      if (pct <= 75) return "95%";
-      if (pct <= 90) return "99%";
-      if (pct <= 99) return "99%";
-      return "100%"; // 18/00
+      if (pct === 0) return "16%";
+      if (pct <= 50) return "20%";
+      if (pct <= 75) return "25%";
+      if (pct <= 90) return "30%";
+      if (pct <= 99) return "35%";
+      return "40%"; // 18/00
     }
-    return "30%"; // Default
+    return "40%"; // 19+
   }
+  
   
   // Similar helper functions for other abilities
   function getReactionAdj(actor) {
