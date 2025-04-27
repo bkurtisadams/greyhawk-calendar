@@ -873,37 +873,37 @@ export function saveStoredCharacters(chars) {
     let classDisplay = "Unknown";
     console.log("🔍 Debugging class display for:", actor.name);
 
-    // 1. Try to find class name from items
-    let className = "Unknown";
+    // 1. Find all class items
     if (actor.items) {
-      const classItem = actor.items.find(i => i.type === "class");
-      if (classItem) {
-        className = classItem.name || "Unknown";
-        console.log("✅ Found class item:", classItem.name);
+      const classItems = actor.items.filter(i => i.type === "class");
+
+      if (classItems.length > 0) {
+        const classes = classItems.map(classItem => {
+          const className = classItem.name || "Unknown";
+          let currentLevel = "?";
+
+          if (Array.isArray(classItem.system?.advancement) && classItem.system.advancement.length > 0) {
+            const levels = classItem.system.advancement.map(a => a.level || 0);
+            currentLevel = Math.max(...levels);
+          } else {
+            console.log(`⚠ No advancement data found inside class item: ${className}`);
+          }
+
+          console.log(`✅ Class found: ${className} ${currentLevel}`);
+          return `${className} ${currentLevel}`;
+        });
+
+        classDisplay = classes.join(" / ");
       } else {
-        console.log("❌ No class item found in items.");
+        console.log("❌ No class items found in actor.items.");
       }
-    }
-
-    // 2. Find current level from advancement
-    let currentLevel = "?";
-    if (Array.isArray(actor.system?.advancement) && actor.system.advancement.length > 0) {
-      //const levels = actor.advancement.map(a => a.level || 0);
-      const levels = actor.system.advancement.map(a => a.level || 0);
-
-      currentLevel = Math.max(...levels);
-      console.log("✅ Highest level from advancement:", currentLevel);
     } else {
-      console.log("❌ No advancement data found.");
+      console.log("❌ No actor.items found.");
     }
 
-    // 3. Final classDisplay
-    classDisplay = `${className} ${currentLevel}`;
+    // 2. Create the field
     console.log("🎯 Final class display value:", classDisplay);
-
-    // 4. Create the field
     const [classLabel, classValue] = createFieldRow("Class", classDisplay);
-
   
     // Race
     const raceItem = actor.items?.find(i => i.type === "race");
