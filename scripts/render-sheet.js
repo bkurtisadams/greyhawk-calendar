@@ -350,7 +350,7 @@ export function saveStoredCharacters(chars) {
     // 🔥 Fix Windows path -> web path
     if (imgSrc.includes('pc counters')) {
       const filename = imgSrc.split(/[/\\]/).pop();  // get just the file name
-      imgSrc = `/images/pc_counters/${filename}`;
+      imgSrc = `/images/characters/${filename}`;
     }
 
     portraitImg.src = imgSrc;
