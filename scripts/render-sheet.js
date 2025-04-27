@@ -871,18 +871,41 @@ export function saveStoredCharacters(chars) {
   
     // Class
     let classDisplay = "Unknown";
+    console.log("🔍 Debugging class display for:", actor.name);
+    console.log("Actor activeClasses:", actor.activeClasses);
+    console.log("Type of activeClasses:", typeof actor.activeClasses);
+
     if (actor.activeClasses && typeof actor.activeClasses === 'object') {
+      console.log("✅ activeClasses is an object");
+      console.log("Object.entries result:", Object.entries(actor.activeClasses));
+      
       const classes = Object.entries(actor.activeClasses).map(([key, classData]) => {
+        console.log(`Processing class key: ${key}, classData:`, classData);
+        console.log(`classData.name: ${classData.name}, classData.levels: ${classData.levels}`);
         return `${classData.name} ${classData.levels ?? "?"}`;
       });
+      
+      console.log("Mapped classes:", classes);
       classDisplay = classes.join(" / ");
+      console.log("Final classDisplay:", classDisplay);
     } else if (actor.items) {
+      console.log("❌ activeClasses not found or not an object, checking items");
+      console.log("Actor items:", actor.items);
+      
       const classItems = actor.items.filter(i => i.type === "class");
+      console.log("Found class items:", classItems);
+      
       if (classItems.length > 0) {
-        const classes = classItems.map(c => `${c.name} ${c.system?.level ?? "?"}`);
+        const classes = classItems.map(c => {
+          console.log("Class item:", c);
+          console.log(`Class name: ${c.name}, level: ${c.system?.level}`);
+          return `${c.name} ${c.system?.level ?? "?"}`;
+        });
         classDisplay = classes.join(" / ");
+        console.log("Class display from items:", classDisplay);
       }
     }
+    console.log("🎯 Final class display value:", classDisplay);
     const [classLabel, classValue] = createFieldRow("Class", classDisplay);
   
     // Race
