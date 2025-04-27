@@ -852,43 +852,27 @@ export function saveStoredCharacters(chars) {
     basicInfo.style.border = "1px solid #ccc";
   
     // Helper function to create a field row
-    const createFieldRow = (label, value, isDropdown = false) => {
+    const createFieldRow = (label, value) => {
       const labelDiv = document.createElement("div");
       labelDiv.textContent = label;
       labelDiv.style.fontWeight = "bold";
       labelDiv.style.textAlign = "right";
       
       const valueDiv = document.createElement("div");
+      valueDiv.textContent = value;
       
-      if (isDropdown) {
-        const select = document.createElement("select");
-        select.style.width = "100%";
-        select.style.padding = "2px";
-        select.style.border = "1px solid #aaa";
-        select.style.borderRadius = "3px";
-        
-        const option = document.createElement("option");
-        option.value = value;
-        option.textContent = value;
-        select.appendChild(option);
-        
-        select.disabled = true;
-        valueDiv.appendChild(select);
-      } else {
-        valueDiv.textContent = value;
-        if (label === "Race") {
-          valueDiv.style.fontWeight = "bold";
-        }
+      if (label === "Background" && value === "Click to add...") {
+        valueDiv.style.color = "#888";
+        valueDiv.style.fontStyle = "italic";
       }
       
       return [labelDiv, valueDiv];
     };
   
     // Class
-    const [classLabel, classValue] = createFieldRow("Class", "");
     let classDisplay = "Unknown";
-    if (actor.system?.activeClasses && typeof actor.system.activeClasses === "object") {
-      const classes = Object.values(actor.system.activeClasses).map(c => `${c.name} ${c.levels ?? "?"}`);
+    if (actor.activeClasses && Array.isArray(actor.activeClasses)) {
+      const classes = actor.activeClasses.map(c => `${c.name} ${c.system?.level ?? "?"}`);
       classDisplay = classes.join(" / ");
     } else if (actor.items) {
       const classItems = actor.items.filter(i => i.type === "class");
@@ -897,26 +881,24 @@ export function saveStoredCharacters(chars) {
         classDisplay = classes.join(" / ");
       }
     }
-    
-    classValue.textContent = classDisplay;
+    const [classLabel, classValue] = createFieldRow("Class", classDisplay);
   
     // Race
-    const [raceLabel, raceValue] = createFieldRow("Race", "");
     const raceItem = actor.items?.find(i => i.type === "race");
-    raceValue.textContent = raceItem?.name || actor.system?.details?.race?.name || "Unknown";
+    const raceDisplay = raceItem?.name || actor.system?.details?.race?.name || "Unknown";
+    const [raceLabel, raceValue] = createFieldRow("Race", raceDisplay);
   
     // Alignment
     const alignmentValue = formatAlignment(actor.system?.alignment || actor.system?.details?.alignment || "Unknown");
-    const [alignmentLabel, alignmentValueDiv] = createFieldRow("Alignment", alignmentValue, true);
+    const [alignmentLabel, alignmentValueDiv] = createFieldRow("Alignment", alignmentValue);
   
     // Background
     const backgroundValue = actor.system?.backgroundname || "Click to add...";
     const [backgroundLabel, backgroundValueDiv] = createFieldRow("Background", backgroundValue);
-    backgroundValueDiv.style.color = backgroundValue === "Click to add..." ? "#888" : "inherit";
   
     // Size
     const sizeValue = actor.system?.details?.size || actor.system?.attributes?.size || "Medium";
-    const [sizeLabel, sizeValueDiv] = createFieldRow("Size", sizeValue, true);
+    const [sizeLabel, sizeValueDiv] = createFieldRow("Size", sizeValue);
   
     // Add all fields to grid
     basicInfo.appendChild(classLabel);
