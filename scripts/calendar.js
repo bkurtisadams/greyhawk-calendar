@@ -667,6 +667,10 @@ function buildTimeline() {
     const container = document.getElementById('timeline-container');
     container.innerHTML = ''; // Clear previous content
 
+    // Create the outer timeline wrapper
+    const timelineWrapper = document.createElement('div');
+    timelineWrapper.className = 'timeline';
+
     // Sort events by date
     const sortedEvents = [...CAMPAIGN_EVENTS].sort((a, b) => {
         if (a.date.year !== b.date.year) {
@@ -682,39 +686,42 @@ function buildTimeline() {
     sortedEvents.forEach((event, index) => {
         if (!event.date || typeof event.date.month !== 'number' || !GREYHAWK_MONTHS[event.date.month]) {
             console.warn('Skipping event with invalid date:', event);
-            return; // Skip rendering this event
+            return; // Skip invalid events
         }
-    
+
         const timelineItem = document.createElement('div');
         timelineItem.className = `timeline-container ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}`;
-    
+
         const content = document.createElement('div');
         content.className = 'timeline-content';
-    
+
         const title = document.createElement('h3');
         title.textContent = event.title;
-    
+
         const dateStr = document.createElement('div');
         dateStr.className = 'event-date';
         dateStr.textContent = `${GREYHAWK_MONTHS[event.date.month].name} ${event.date.day}, ${event.date.year} CY`;
-    
+
         const summary = document.createElement('p');
         summary.textContent = event.summary;
-    
+
         content.classList.add(event.type);
         content.appendChild(title);
         content.appendChild(dateStr);
         content.appendChild(summary);
-    
+
         content.addEventListener('click', function () {
             showEventDetails(event);
         });
-    
+
         timelineItem.appendChild(content);
-        container.appendChild(timelineItem);
+        timelineWrapper.appendChild(timelineItem);
     });
-    
+
+    // Append the fully built timeline into the container
+    container.appendChild(timelineWrapper);
 }
+
 
 function buildCharacterList() {
     const container = document.getElementById('character-container');
