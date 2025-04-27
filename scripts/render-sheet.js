@@ -872,40 +872,34 @@ export function saveStoredCharacters(chars) {
     // Class
     let classDisplay = "Unknown";
     console.log("🔍 Debugging class display for:", actor.name);
-    console.log("Actor activeClasses:", actor.activeClasses);
-    console.log("Type of activeClasses:", typeof actor.activeClasses);
 
-    if (actor.activeClasses && typeof actor.activeClasses === 'object') {
-      console.log("✅ activeClasses is an object");
-      console.log("Object.entries result:", Object.entries(actor.activeClasses));
-      
-      const classes = Object.entries(actor.activeClasses).map(([key, classData]) => {
-        console.log(`Processing class key: ${key}, classData:`, classData);
-        console.log(`classData.name: ${classData.name}, classData.levels: ${classData.levels}`);
-        return `${classData.name} ${classData.levels ?? "?"}`;
-      });
-      
-      console.log("Mapped classes:", classes);
-      classDisplay = classes.join(" / ");
-      console.log("Final classDisplay:", classDisplay);
-    } else if (actor.items) {
-      console.log("❌ activeClasses not found or not an object, checking items");
-      console.log("Actor items:", actor.items);
-      
-      const classItems = actor.items.filter(i => i.type === "class");
-      console.log("Found class items:", classItems);
-      
-      if (classItems.length > 0) {
-        const classes = classItems.map(c => {
-          console.log("Class item:", c);
-          console.log(`Class name: ${c.name}, level: ${c.system?.level}`);
-          return `${c.name} ${c.system?.level ?? "?"}`;
-        });
-        classDisplay = classes.join(" / ");
-        console.log("Class display from items:", classDisplay);
+    // 1. Try to find class name from items
+    let className = "Unknown";
+    if (actor.items) {
+      const classItem = actor.items.find(i => i.type === "class");
+      if (classItem) {
+        className = classItem.name || "Unknown";
+        console.log("✅ Found class item:", classItem.name);
+      } else {
+        console.log("❌ No class item found in items.");
       }
     }
+
+    // 2. Try to find level from advancement (highest level)
+    let currentLevel = "?";
+    if (Array.isArray(actor.advancement) && actor.advancement.length > 0) {
+      const levels = actor.advancement.map(a => a.level || 0);
+      currentLevel = Math.max(...levels);
+      console.log("✅ Highest level found from advancement:", currentLevel);
+    } else {
+      console.log("❌ No advancement data found.");
+    }
+
+    // 3. Final classDisplay
+    classDisplay = `${className} ${currentLevel}`;
     console.log("🎯 Final class display value:", classDisplay);
+
+    // 4. Create the field
     const [classLabel, classValue] = createFieldRow("Class", classDisplay);
   
     // Race
