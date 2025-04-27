@@ -349,29 +349,29 @@ export function saveStoredCharacters(chars) {
     // Determine the image source
     let imgSrc = actor.img || "icons/svg/mystery-man.svg";
 
-    // Fix Windows export paths into correct GitHub URLs
+    // 🛠 THIS MUST HAPPEN BEFORE assigning portraitImg.src
     if (imgSrc.includes('pc counters') || imgSrc.includes('characters') || imgSrc.startsWith('C:')) {
       const filename = imgSrc.split(/[/\\]/).pop();
       imgSrc = `/images/characters/${filename}`.replace(/ /g, "%20");
       console.warn(`Rewriting actor portrait to ${imgSrc}`);
     }
 
+    // Now assign the corrected imgSrc
     portraitImg.src = imgSrc;
 
-    // Style the portrait image
+    // Style and fallback
     portraitImg.style.width = "100%";
     portraitImg.style.height = "100%";
     portraitImg.style.objectFit = "cover";
 
-    // Fallback if the image fails to load
     portraitImg.onerror = function() {
-      this.onerror = null; // Prevent infinite loop if backup fails
-      this.src = "/icons/svg/mystery-man.svg"; // Use mystery-man as backup
+      this.onerror = null;
+      this.src = "/icons/svg/mystery-man.svg";
       console.error(`❌ Failed to load portrait: ${imgSrc}`);
     };
 
     portrait.appendChild(portraitImg);
-    
+
     // Character name input
     const nameInput = document.createElement("input");
     nameInput.type = "text";
