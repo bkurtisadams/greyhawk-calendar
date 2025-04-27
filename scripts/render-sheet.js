@@ -333,7 +333,7 @@ export function saveStoredCharacters(chars) {
     nameContainer.style.alignItems = "center";
     nameContainer.style.marginBottom = "10px";
     
-    // Character portrait
+    // Character portrait container
     const portrait = document.createElement("div");
     portrait.style.width = "64px";
     portrait.style.height = "64px";
@@ -342,12 +342,14 @@ export function saveStoredCharacters(chars) {
     portrait.style.borderRadius = "5px";
     portrait.style.overflow = "hidden";
     portrait.style.flexShrink = "0";
-    
+
+    // Portrait image
     const portraitImg = document.createElement("img");
 
+    // Determine the image source
     let imgSrc = actor.img || "icons/svg/mystery-man.svg";
 
-    // 🔥 Fix Windows export paths into correct GitHub URLs
+    // Fix Windows export paths into correct GitHub URLs
     if (imgSrc.includes('pc counters') || imgSrc.includes('characters') || imgSrc.startsWith('C:')) {
       const filename = imgSrc.split(/[/\\]/).pop();
       imgSrc = `/images/characters/${filename}`.replace(/ /g, "%20");
@@ -356,23 +358,18 @@ export function saveStoredCharacters(chars) {
 
     portraitImg.src = imgSrc;
 
-    portraitImg.onerror = function() {
-      this.onerror = null;
-      this.src = "/icons/svg/mystery-man.svg";
-      console.error(`❌ Failed to load portrait: ${imgSrc}`);
-    };
-
-
+    // Style the portrait image
     portraitImg.style.width = "100%";
     portraitImg.style.height = "100%";
     portraitImg.style.objectFit = "cover";
-    
-    // fallback if the image fails to load
+
+    // Fallback if the image fails to load
     portraitImg.onerror = function() {
-        this.onerror = null; // Prevent infinite loop if backup also fails
-        this.src = "icons/svg/item-bag.svg"; // generic backup icon
+      this.onerror = null; // Prevent infinite loop if backup fails
+      this.src = "/icons/svg/mystery-man.svg"; // Use mystery-man as backup
+      console.error(`❌ Failed to load portrait: ${imgSrc}`);
     };
-    
+
     portrait.appendChild(portraitImg);
     
     // Character name input
