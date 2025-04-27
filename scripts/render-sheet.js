@@ -347,10 +347,9 @@ export function saveStoredCharacters(chars) {
 
     let imgSrc = actor.img || "icons/svg/mystery-man.svg";
 
-    // 🔥 Full fix for old Foundry paths
-    if (imgSrc.includes('pc counters') || imgSrc.includes('characters')) {
-      const filename = imgSrc.split(/[/\\]/).pop();  // safely get just the file name
-      imgSrc = `/images/characters/${filename}`.replace(/ /g, "%20");  // correct relative path
+    // 🔥 If it looks like a Windows path, fix it to file:/// URL
+    if (imgSrc.startsWith('C:\\') || imgSrc.startsWith('C:/')) {
+      imgSrc = 'file:///' + imgSrc.replace(/\\/g, '/');  // replace \ with / and add file:///
     }
 
     portraitImg.src = imgSrc;
