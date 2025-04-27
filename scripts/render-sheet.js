@@ -2316,49 +2316,11 @@ function createActionsTab(actor) {
   const actionList = document.createElement("div");
   actionList.className = "action-list";
   
-  // Extract action groups and actions
+  // Extract action groups and actions - look for the actionGroups property first
   const actionGroups = actor.actionGroups || [];
-  const actions = actor.actions || [];
-  
-  // Find action items - these can be in various formats depending on export
-  let actionItems = [];
-  
-  // If actionGroups exist, use those
-  if (actionGroups.length > 0) {
-    actionItems = actionGroups;
-  } 
-  // Otherwise check for actions directly
-  else if (actions.length > 0) {
-    // Group actions by parent/type
-    const groupedActions = {};
-    actions.forEach(action => {
-      const groupName = action.name.split(':')[0] || 'Miscellaneous';
-      if (!groupedActions[groupName]) {
-        groupedActions[groupName] = {
-          name: groupName,
-          img: action.img,
-          actions: []
-        };
-      }
-      groupedActions[groupName].actions.push(action);
-    });
-    actionItems = Object.values(groupedActions);
-  }
-  // Finally check for items with actions
-  else {
-    const itemsWithActions = actor.items 
-      ? actor.items.filter(i => i.actions && i.actions.length > 0)
-      : [];
-    
-    actionItems = itemsWithActions.map(item => ({
-      name: item.name,
-      img: item.img,
-      actions: item.actions || []
-    }));
-  }
   
   // Render each action group
-  actionItems.forEach(group => {
+  actionGroups.forEach(group => {
     const groupDiv = document.createElement("div");
     groupDiv.className = "action-group";
     groupDiv.style.marginBottom = "4px";
@@ -2429,6 +2391,41 @@ function createActionsTab(actor) {
     content.className = "action-content";
     content.style.display = "none";
     content.style.borderTop = "1px solid #ccc";
+    content.style.padding = "10px";
+    
+    // Render the actions within this group
+    if (group.actions && group.actions.length > 0) {
+      group.actions.forEach(action => {
+        const actionDiv = document.createElement("div");
+        actionDiv.style.display = "flex";
+        actionDiv.style.alignItems = "center";
+        actionDiv.style.padding = "5px";
+        actionDiv.style.borderBottom = "1px solid #eee";
+        
+        const actionIcon = document.createElement("img");
+        actionIcon.src = action.img || "icons/svg/mystery-man.svg";
+        actionIcon.alt = "";
+        actionIcon.style.width = "16px";
+        actionIcon.style.height = "16px";
+        actionIcon.style.marginRight = "8px";
+        
+        const actionName = document.createElement("span");
+        actionName.textContent = action.name;
+        actionName.style.flex = "1";
+        
+        const actionType = document.createElement("span");
+        actionType.textContent = action.type || "action";
+        actionType.style.color = "#666";
+        actionType.style.fontSize = "0.9em";
+        actionType.style.marginLeft = "8px";
+        
+        actionDiv.appendChild(actionIcon);
+        actionDiv.appendChild(actionName);
+        actionDiv.appendChild(actionType);
+        
+        content.appendChild(actionDiv);
+      });
+    }
     
     // Add toggle functionality
     header.addEventListener('click', (e) => {
@@ -2449,6 +2446,16 @@ function createActionsTab(actor) {
     groupDiv.appendChild(content);
     actionList.appendChild(groupDiv);
   });
+  
+  // If no action groups, show a message
+  if (actionGroups.length === 0) {
+    const noActions = document.createElement("div");
+    noActions.textContent = "No actions available";
+    noActions.style.padding = "10px";
+    noActions.style.color = "#666";
+    noActions.style.textAlign = "center";
+    actionList.appendChild(noActions);
+  }
   
   tab.appendChild(actionList);
   return tab;
