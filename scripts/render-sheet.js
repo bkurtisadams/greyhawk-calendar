@@ -2333,6 +2333,31 @@ function createActionsTab(actor) {
     actionGroups = actionGroups.concat(actor.actionGroups);
   }
   
+  // Add equipped weapons as action groups
+  if (actor.items) {
+    const equippedWeapons = actor.items.filter(item => 
+      item.type === "weapon" && 
+      item.system?.location?.state === "equipped"
+    );
+    
+    equippedWeapons.forEach(weapon => {
+      const weaponActionGroup = {
+        id: weapon._id,
+        name: weapon.name,
+        img: weapon.img,
+        actions: [{
+          name: `Attack with ${weapon.name}`,
+          img: weapon.img,
+          type: weapon.system?.attack?.type || "weapon",
+          misc: `${weapon.system?.attack?.type || "melee"} attack`,
+          properties: []
+        }]
+      };
+      
+      actionGroups.push(weaponActionGroup);
+    });
+  }
+  
   // Render each action group
   actionGroups.forEach(group => {
     const groupDiv = document.createElement("div");
