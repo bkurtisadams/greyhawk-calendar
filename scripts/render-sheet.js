@@ -1692,11 +1692,17 @@ export function saveStoredCharacters(chars) {
         contHeader.style.borderRadius = "3px";
         
         const contIcon = document.createElement("img");
-        contIcon.src = container.img;
-        contIcon.alt = "";
+        contIcon.src = container.img || "icons/svg/item-bag.svg"; // fallback if missing initially
+        contIcon.alt = container.name || "";
         contIcon.style.width = "24px";
         contIcon.style.height = "24px";
         contIcon.style.marginRight = "10px";
+
+        // Add fallback for broken container images
+        contIcon.onerror = function() {
+            this.onerror = null;
+            this.src = "icons/svg/item-bag.svg";
+        };
         
         const contName = document.createElement("strong");
         contName.textContent = container.name;
@@ -1712,7 +1718,21 @@ export function saveStoredCharacters(chars) {
         const contents = container.system?.itemList || [];
         contents.forEach(item => {
           const li = document.createElement("li");
-          li.textContent = `${item.name} (${item.quantity || 1})`;
+          const img = document.createElement("img");
+          img.src = item.img || "icons/svg/item-bag.svg";
+          img.alt = item.name || "";
+          img.style.width = "16px";
+          img.style.height = "16px";
+          img.style.marginRight = "5px";
+
+          // fallback if image fails
+          img.onerror = function() {
+              this.onerror = null;
+              this.src = "icons/svg/item-bag.svg";
+          };
+
+          li.appendChild(img);
+          li.appendChild(document.createTextNode(` ${item.name} (${item.quantity || 1})`));
           contentsList.appendChild(li);
         });
         
