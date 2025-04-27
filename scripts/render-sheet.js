@@ -347,9 +347,9 @@ export function saveStoredCharacters(chars) {
 
     let imgSrc = actor.img || "icons/svg/mystery-man.svg";
 
-    // 🔥 Fix Windows path -> web path
-    if (imgSrc.includes('pc counters')) {
-      const filename = imgSrc.split(/[/\\]/).pop();  // get just the file name
+    // 🔥 Fix Windows export path -> web URL
+    if (imgSrc.includes('pc counters') || imgSrc.includes('characters')) {
+      const filename = imgSrc.split(/[/\\]/).pop();  // safely get the file name
       imgSrc = `/images/characters/${filename}`;
     }
 
