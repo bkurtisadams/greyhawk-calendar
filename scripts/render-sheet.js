@@ -1384,6 +1384,11 @@ export function saveStoredCharacters(chars) {
     const entry = CONSTITUTION_TABLE[con];
     return entry?.regeneration || "None";
   }
+
+  function getPoisonAdj(actor) {
+    const con = actor.system?.abilities?.con?.value || 10;
+    return (con >= 19) ? "+1" : "0";
+  }
   
   function getLanguages(actor) {
     const int = actor.system?.abilities?.int?.value || 10;
