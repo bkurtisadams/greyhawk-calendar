@@ -359,8 +359,8 @@ export function saveStoredCharacters(chars) {
         // Extract just the filename from the path
         const filename = imgSrc.split(/[/\\]/).pop();
         
-        // Rewrite to use our images/characters directory
-        imgSrc = `/images/characters/${filename}`;
+        // Rewrite to use our images/characters directory with correct base path
+        imgSrc = `/greyhawk-calendar/images/characters/${filename}`;
         console.warn(`Rewriting actor portrait from ${actor.img} to ${imgSrc}`);
       }
     }
