@@ -1303,16 +1303,21 @@ export function saveStoredCharacters(chars) {
 
   function getSTRKey(actor) {
     const str = actor.system?.abilities?.str?.value || 10;
-    const pct = actor.system?.abilities?.str?.exceptional || 0;
+    const pct = actor.system?.abilities?.str?.percent || 0;
     
-    if (str !== 18) return str;
-    if (pct === 0) return 18;
-    if (pct <= 50) return "18/01-50";
-    if (pct <= 75) return "18/51-75";
-    if (pct <= 90) return "18/76-90";
-    if (pct <= 99) return "18/91-99";
-    return "18/00"; // 18/00
+    if (str < 18) return str;           // 3–17 → normal STR score lookup
+    if (str === 18) {
+      if (pct === 0) return 18;          // plain 18, no exceptional strength
+      if (pct <= 50) return "18/01-50";
+      if (pct <= 75) return "18/51-75";
+      if (pct <= 90) return "18/76-90";
+      if (pct <= 99) return "18/91-99";
+      return "18/00";                    // 18/00
+    }
+    return str;                          // 19–25 → no % check, direct lookup
   }
+  
+  
   function getHitAdj(actor) {
     const key = getSTRKey(actor);
     const entry = STRENGTH_TABLE[key];
