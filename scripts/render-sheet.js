@@ -405,7 +405,7 @@ export function saveStoredCharacters(chars) {
     combatSection.style.border = "1px solid #ccc";
     combatSection.style.borderRadius = "5px";
     combatSection.style.marginBottom = "10px";
-    
+
     // Combat header
     const combatHeader = document.createElement("div");
     combatHeader.className = "section-header";
@@ -416,95 +416,46 @@ export function saveStoredCharacters(chars) {
     combatHeader.style.fontWeight = "bold";
     combatHeader.style.borderRadius = "3px";
     combatHeader.style.marginBottom = "10px";
-    
+
     // Combat stats container
     const combatStats = document.createElement("div");
     combatStats.className = "combat-stats";
     combatStats.style.display = "flex";
     combatStats.style.justifyContent = "space-between";
-    
+
     // AC section
     const acSection = document.createElement("div");
     acSection.style.display = "flex";
+    acSection.style.flexDirection = "column";
     acSection.style.alignItems = "center";
-
-    const acValue = document.createElement("div");
-    acValue.className = "ac-value";
-    acValue.style.display = "flex";
-    acValue.style.flexDirection = "column";
-    acValue.style.alignItems = "center";
-    acValue.style.background = "#e0e0d0";
-    acValue.style.borderRadius = "50%";
-    acValue.style.width = "50px";
-    acValue.style.height = "50px";
-    acValue.style.padding = "5px";
-    acValue.style.marginRight = "10px";
-    acValue.style.justifyContent = "center";
+    acSection.style.minWidth = "150px";
+    acSection.style.backgroundColor = "#d0d0c0";
+    acSection.style.padding = "10px";
+    acSection.style.borderRadius = "5px";
 
     const acLabel = document.createElement("div");
     acLabel.textContent = "Armor Class";
-    acLabel.style.fontSize = "10px";
+    acLabel.style.fontSize = "12px";
+    acLabel.style.fontWeight = "bold";
+    acLabel.style.marginBottom = "5px";
+
+    const acValue = document.createElement("div");
+    acValue.style.fontSize = "36px";
+    acValue.style.fontWeight = "bold";
+    acValue.style.backgroundColor = "#e0e0d0";
+    acValue.style.borderRadius = "8px";
+    acValue.style.width = "60px";
+    acValue.style.height = "60px";
+    acValue.style.display = "flex";
+    acValue.style.alignItems = "center";
+    acValue.style.justifyContent = "center";
+    acValue.style.marginBottom = "10px";
 
     const acValues = calculateArmorClass(actor);
+    acValue.textContent = acValues.normal;
 
-    // 🛡️ Armor and shield info
-    const armor = actor.items?.find(i => 
-      i.type === "armor" &&
-      i.system?.location?.state === "equipped" &&
-      ["armor", "bracers", "warding"].includes((i.system?.protection?.type || "").toLowerCase())
-    );
-
-    const shield = actor.items?.find(i => 
-      (i.type === "armor" || i.type === "equipment") &&
-      i.name?.toLowerCase().includes("shield") &&
-      i.system?.location?.state === "equipped"
-    );
-
-    // Build visible equipment text (multi-line)
-    let equipmentLines = [];
-
-    if (armor) {
-      const base = armor.system?.protection?.ac ?? "?";
-      const mod = armor.system?.protection?.modifier ?? 0;
-      equipmentLines.push(`${armor.name} (AC ${base}, +${mod} magic)`);
-    } else {
-      equipmentLines.push(`No Armor`);
-    }
-
-    if (shield) {
-      const mod = shield.system?.protection?.modifier ?? 0;
-      equipmentLines.push(`${shield.name} (+${1 + mod} AC)`);
-    }
-
-    // Find protection items
-    const protectionItems = actor.items?.filter(i => {
-      const name = i.name?.toLowerCase() || "";
-      return (name.includes("ring of protection") ||
-              name.includes("cloak of protection") ||
-              name.includes("amulet of protection")) &&
-            i.system?.location?.state === "equipped";
-    }) || [];
-
-    if (protectionItems.length > 0) {
-      protectionItems.forEach(item => {
-        const bonus = item.system?.attributes?.bonus ?? 1;
-        equipmentLines.push(`${item.name} (+${bonus} AC)`);
-      });
-    }
-
-    // Final display text (multi-line)
-    const equipmentText = equipmentLines.join('<br>');
-
-    // Create div under AC showing armor/shield/magic worn
-    const equipmentDiv = document.createElement("div");
-    equipmentDiv.style.fontSize = "10px";
-    equipmentDiv.style.marginTop = "4px";
-    equipmentDiv.style.textAlign = "center";
-    equipmentDiv.innerHTML = equipmentText || "No Armor";
-
-    // Full hover tooltip with sources
+    // AC hover tooltip
     let tooltip = "";
-
     if (armor) {
       const base = armor.system?.protection?.ac ?? "?";
       const mod = armor.system?.protection?.modifier ?? 0;
@@ -520,7 +471,6 @@ export function saveStoredCharacters(chars) {
       tooltip += `🛡️ Shield: None\n`;
     }
 
-    // Real DEX adjustment
     const dex = actor.system?.abilities?.dex?.value ?? 10;
     let dexBonus = 0;
     if (dex === 3) dexBonus = +4;
@@ -544,71 +494,78 @@ export function saveStoredCharacters(chars) {
       tooltip += `💍 No additional protection items\n`;
     }
 
-    // Attach tooltip to AC value
     acValue.title = tooltip.trim();
 
-    // Create AC number display
-    const acNum = document.createElement("div");
-    acNum.textContent = acValues.normal;
-    acNum.style.fontSize = "24px";
-    acNum.style.fontWeight = "bold";
-
-    acValue.appendChild(acLabel);
-    acValue.appendChild(acNum);
-
-    // Create shieldless and rear AC rows
+    // Shieldless and rear AC rows
     const acDetails = document.createElement("div");
     acDetails.style.display = "flex";
     acDetails.style.flexDirection = "column";
+    acDetails.style.width = "100%";
+    acDetails.style.gap = "5px";
 
     const shieldlessRow = document.createElement("div");
-    shieldlessRow.innerHTML = `<span>Shieldless</span> <span>${acValues.shieldless}</span>`;
     shieldlessRow.style.display = "flex";
     shieldlessRow.style.justifyContent = "space-between";
+    const shieldlessLabel = document.createElement("span");
+    shieldlessLabel.textContent = "Shieldless";
+    shieldlessLabel.style.fontSize = "12px";
+    shieldlessLabel.style.fontWeight = "bold";
+    const shieldlessValue = document.createElement("span");
+    shieldlessValue.textContent = acValues.shieldless;
+    shieldlessValue.style.fontSize = "14px";
+    shieldlessValue.style.fontWeight = "bold";
+    shieldlessRow.appendChild(shieldlessLabel);
+    shieldlessRow.appendChild(shieldlessValue);
 
     const rearRow = document.createElement("div");
-    rearRow.innerHTML = `<span>Rear</span> <span>${acValues.rear}</span>`;
     rearRow.style.display = "flex";
     rearRow.style.justifyContent = "space-between";
+    const rearLabel = document.createElement("span");
+    rearLabel.textContent = "Rear";
+    rearLabel.style.fontSize = "12px";
+    rearLabel.style.fontWeight = "bold";
+    const rearValue = document.createElement("span");
+    rearValue.textContent = acValues.rear;
+    rearValue.style.fontSize = "14px";
+    rearValue.style.fontWeight = "bold";
+    rearRow.appendChild(rearLabel);
+    rearRow.appendChild(rearValue);
 
     acDetails.appendChild(shieldlessRow);
     acDetails.appendChild(rearRow);
 
-    // Add everything to acSection
+    acSection.appendChild(acLabel);
     acSection.appendChild(acValue);
-    acSection.appendChild(equipmentDiv);
     acSection.appendChild(acDetails);
 
-    
     // Hit Points section
     const hpSection = document.createElement("div");
     hpSection.style.flex = "1";
     hpSection.style.display = "flex";
     hpSection.style.flexDirection = "column";
-    hpSection.style.margin = "0 10px";
-    
+    hpSection.style.margin = "0 20px";
+
     const hpLabel = document.createElement("div");
     hpLabel.textContent = "Current Hit Points";
     hpLabel.style.fontSize = "12px";
-    
-    const hpBar = document.createElement("div");
-    hpBar.style.display = "flex";
-    hpBar.style.alignItems = "center";
-    hpBar.style.margin = "5px 0";
-    
+    hpLabel.style.fontWeight = "bold";
+    hpLabel.style.textAlign = "center";
+    hpLabel.style.marginBottom = "5px";
+
     const hpValue = document.createElement("div");
     hpValue.textContent = actor.system?.attributes?.hp?.value || "0";
-    hpValue.style.fontSize = "32px";
+    hpValue.style.fontSize = "48px";
     hpValue.style.fontWeight = "bold";
-    hpValue.style.marginRight = "10px";
-    
+    hpValue.style.textAlign = "center";
+
     const progressContainer = document.createElement("div");
-    progressContainer.style.flex = "1";
+    progressContainer.style.width = "100%";
     progressContainer.style.height = "10px";
     progressContainer.style.background = "#ccc";
     progressContainer.style.borderRadius = "5px";
     progressContainer.style.overflow = "hidden";
-    
+    progressContainer.style.margin = "10px 0";
+
     const progressBar = document.createElement("div");
     const hpValue2 = actor.system?.attributes?.hp?.value || 0;
     const hpMax = actor.system?.attributes?.hp?.max || 0;
@@ -617,125 +574,106 @@ export function saveStoredCharacters(chars) {
     progressBar.style.height = "100%";
     progressBar.style.background = "linear-gradient(to right, #83c783, #56ab56)";
     progressContainer.appendChild(progressBar);
-    
-    hpBar.appendChild(hpValue);
-    hpBar.appendChild(progressContainer);
-    
-    const hpStat = document.createElement("div");
-    hpStat.style.display = "flex";
-    hpStat.style.justifyContent = "space-between";
-    
-    const maxLabel = document.createElement("div");
-    maxLabel.textContent = "Max";
-    
-    const maxValue = document.createElement("div");
-    maxValue.textContent = actor.system?.attributes?.hp?.max || "0";
-    
-    const currentLabel = document.createElement("div");
-    currentLabel.textContent = "Current";
-    
-    const currentValue = document.createElement("div");
-    currentValue.textContent = actor.system?.attributes?.hp?.value || "0";
-    
-    hpStat.appendChild(maxLabel);
-    hpStat.appendChild(maxValue);
-    hpStat.appendChild(currentLabel);
-    hpStat.appendChild(currentValue);
-    
+
+    const hpStats = document.createElement("div");
+    hpStats.style.display = "flex";
+    hpStats.style.justifyContent = "space-between";
+    hpStats.style.fontSize = "14px";
+
+    const maxDiv = document.createElement("div");
+    maxDiv.innerHTML = `Max <span style="font-weight: bold">${actor.system?.attributes?.hp?.max || "0"}</span>`;
+
+    const currentDiv = document.createElement("div");
+    currentDiv.innerHTML = `Current <span style="font-weight: bold">${actor.system?.attributes?.hp?.value || "0"}</span>`;
+
+    hpStats.appendChild(maxDiv);
+    hpStats.appendChild(currentDiv);
+
     hpSection.appendChild(hpLabel);
-    hpSection.appendChild(hpBar);
-    hpSection.appendChild(hpStat);
-    
+    hpSection.appendChild(hpValue);
+    hpSection.appendChild(progressContainer);
+    hpSection.appendChild(hpStats);
+
     // Movement section
     const moveSection = document.createElement("div");
     moveSection.style.display = "flex";
+    moveSection.style.flexDirection = "column";
     moveSection.style.alignItems = "center";
-    
-    const moveIcon = document.createElement("div");
-    moveIcon.style.width = "40px";
-    moveIcon.style.height = "40px";
-    moveIcon.style.backgroundColor = "#e0e0d0";
-    moveIcon.style.borderRadius = "50%";
-    moveIcon.style.display = "flex";
-    moveIcon.style.justifyContent = "center";
-    moveIcon.style.alignItems = "center";
-    moveIcon.style.marginRight = "10px";
-    moveIcon.innerHTML = "Move";
-    
-    const moveDetails = document.createElement("div");
-    moveDetails.style.display = "flex";
-    moveDetails.style.flexDirection = "column";
-    
+    moveSection.style.minWidth = "150px";
+    moveSection.style.marginRight = "20px";
+
+    const moveLabel = document.createElement("div");
+    moveLabel.textContent = "Move";
+    moveLabel.style.fontSize = "12px";
+    moveLabel.style.fontWeight = "bold";
+    moveLabel.style.marginBottom = "5px";
+
     const moveValue = document.createElement("div");
-    moveValue.style.fontSize = "32px";
-    moveValue.style.fontWeight = "bold";
     moveValue.textContent = actor.system?.attributes?.movement?.value || "90";
-    
-    const moveBase = document.createElement("div");
-    moveBase.style.display = "flex";
-    moveBase.style.justifyContent = "space-between";
-    
+    moveValue.style.fontSize = "48px";
+    moveValue.style.fontWeight = "bold";
+
     const baseLabel = document.createElement("div");
-    baseLabel.textContent = "Base";
-    
-    const baseValue = document.createElement("div");
-    baseValue.textContent = actor.system?.attributes?.movement?.value || "90";
-    
-    const progressContainer2 = document.createElement("div");
-    progressContainer2.style.width = "100px";
-    progressContainer2.style.height = "10px";
-    progressContainer2.style.background = "#ccc";
-    progressContainer2.style.borderRadius = "5px";
-    progressContainer2.style.overflow = "hidden";
-    progressContainer2.style.margin = "5px 0";
-    
-    const progressBar2 = document.createElement("div");
-    progressBar2.style.width = "100%";
-    progressBar2.style.height = "100%";
-    progressBar2.style.background = "linear-gradient(to right, #83c783, #56ab56)";
-    progressContainer2.appendChild(progressBar2);
-    
-    moveBase.appendChild(baseLabel);
-    moveBase.appendChild(baseValue);
-    
-    moveDetails.appendChild(moveValue);
-    moveDetails.appendChild(moveBase);
-    moveDetails.appendChild(progressContainer2);
-    
-    moveSection.appendChild(moveIcon);
-    moveSection.appendChild(moveDetails);
-    
+    baseLabel.innerHTML = `Base <span style="font-weight: bold">${actor.system?.attributes?.movement?.value || "90"}</span>`;
+    baseLabel.style.fontSize = "14px";
+    baseLabel.style.marginTop = "10px";
+
+    const moveProgressContainer = document.createElement("div");
+    moveProgressContainer.style.width = "100px";
+    moveProgressContainer.style.height = "10px";
+    moveProgressContainer.style.background = "#ccc";
+    moveProgressContainer.style.borderRadius = "5px";
+    moveProgressContainer.style.overflow = "hidden";
+    moveProgressContainer.style.margin = "5px 0";
+
+    const moveProgressBar = document.createElement("div");
+    moveProgressBar.style.width = "100%";
+    moveProgressBar.style.height = "100%";
+    moveProgressBar.style.background = "linear-gradient(to right, #83c783, #56ab56)";
+    moveProgressContainer.appendChild(moveProgressBar);
+
+    moveSection.appendChild(moveLabel);
+    moveSection.appendChild(moveValue);
+    moveSection.appendChild(baseLabel);
+    moveSection.appendChild(moveProgressContainer);
+
     // Attack Matrix section
     const matrixSection = document.createElement("div");
     matrixSection.style.display = "flex";
     matrixSection.style.alignItems = "center";
-    
+    matrixSection.style.marginLeft = "auto";
+
     const matrixIcon = document.createElement("div");
-    matrixIcon.style.width = "40px";
-    matrixIcon.style.height = "40px";
-    matrixIcon.style.backgroundImage = "url('icons/svg/sword.svg')";
-    matrixIcon.style.backgroundSize = "contain";
-    matrixIcon.style.backgroundPosition = "center";
-    matrixIcon.style.backgroundRepeat = "no-repeat";
-    matrixIcon.style.opacity = "0.5";
-    
-    const matrixText = document.createElement("div");
-    matrixText.textContent = "Attack Matrix";
-    matrixText.style.marginLeft = "10px";
-    
+    matrixIcon.textContent = "Attack\nMatrix";
+    matrixIcon.style.width = "60px";
+    matrixIcon.style.height = "60px";
+    matrixIcon.style.backgroundColor = "#d0d0c0";
+    matrixIcon.style.borderRadius = "8px";
+    matrixIcon.style.display = "flex";
+    matrixIcon.style.alignItems = "center";
+    matrixIcon.style.justifyContent = "center";
+    matrixIcon.style.textAlign = "center";
+    matrixIcon.style.fontSize = "12px";
+    matrixIcon.style.fontWeight = "bold";
+    matrixIcon.style.color = "#666";
+    matrixIcon.style.lineHeight = "1.2";
+
     matrixSection.appendChild(matrixIcon);
-    matrixSection.appendChild(matrixText);
-    
+
     // Add all sections to combat stats
     combatStats.appendChild(acSection);
     combatStats.appendChild(hpSection);
     combatStats.appendChild(moveSection);
     combatStats.appendChild(matrixSection);
-    
+
+    // Add combat header and stats to combat section
     combatSection.appendChild(combatHeader);
     combatSection.appendChild(combatStats);
-    
+
+    // Add combat section to header section
     headerSection.appendChild(combatSection);
+
+    // Finally add header section to wrapper
     wrapper.appendChild(headerSection);
     
     // Main content area with tab system
