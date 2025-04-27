@@ -887,8 +887,10 @@ export function saveStoredCharacters(chars) {
 
     // 2. Find current level from advancement
     let currentLevel = "?";
-    if (Array.isArray(actor.advancement) && actor.advancement.length > 0) {
-      const levels = actor.advancement.map(a => a.level || 0);
+    if (Array.isArray(actor.system?.advancement) && actor.system.advancement.length > 0) {
+      //const levels = actor.advancement.map(a => a.level || 0);
+      const levels = actor.system.advancement.map(a => a.level || 0);
+
       currentLevel = Math.max(...levels);
       console.log("✅ Highest level from advancement:", currentLevel);
     } else {
