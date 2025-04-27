@@ -1300,8 +1300,164 @@ export function saveStoredCharacters(chars) {
     }
     return "0";
   }
-  
+
+  function getSTRKey(actor) {
+    const str = actor.system?.abilities?.str?.value || 10;
+    const pct = actor.system?.abilities?.str?.exceptional || 0;
+    
+    if (str !== 18) return str;
+    if (pct === 0) return 18;
+    if (pct <= 50) return "18/01-50";
+    if (pct <= 75) return "18/51-75";
+    if (pct <= 90) return "18/76-90";
+    if (pct <= 99) return "18/91-99";
+    return "18/00"; // 18/00
+  }
   function getHitAdj(actor) {
+    const key = getSTRKey(actor);
+    const entry = STRENGTH_TABLE[key];
+    return entry ? (entry.hitBonus >= 0 ? `+${entry.hitBonus}` : `${entry.hitBonus}`) : "0";
+  }
+  
+  function getDamageAdj(actor) {
+    const key = getSTRKey(actor);
+    const entry = STRENGTH_TABLE[key];
+    return entry ? (entry.dmgBonus >= 0 ? `+${entry.dmgBonus}` : `${entry.dmgBonus}`) : "0";
+  }
+  
+  function getCarryWeight(actor) {
+    const key = getSTRKey(actor);
+    const entry = STRENGTH_TABLE[key];
+    return entry ? `${entry.weightAllowance}` : "0";
+  }
+  
+  function getOpenDoors(actor) {
+    const key = getSTRKey(actor);
+    const entry = STRENGTH_TABLE[key];
+    return entry ? entry.openDoors : "1/6";
+  }
+  
+  function getBendBars(actor) {
+    const key = getSTRKey(actor);
+    const entry = STRENGTH_TABLE[key];
+    return entry ? entry.bendBars : "0%";
+  }
+  
+  function getReactionAdj(actor) {
+    const dex = actor.system?.abilities?.dex?.value || 10;
+    const entry = DEXTERITY_TABLE[dex];
+    return entry ? entry.reactionAdj : "0";
+  }
+  
+  function getMissileAdj(actor) {
+    const dex = actor.system?.abilities?.dex?.value || 10;
+    const entry = DEXTERITY_TABLE[dex];
+    return entry ? entry.missileAdj : "0";
+  }
+  
+  function getDefAdj(actor) {
+    const dex = actor.system?.abilities?.dex?.value || 10;
+    const entry = DEXTERITY_TABLE[dex];
+    return entry ? entry.defensiveAdj : "0";
+  }
+
+  function getHPBonus(actor) {
+    const con = actor.system?.abilities?.con?.value || 10;
+    const entry = CONSTITUTION_TABLE[con];
+    return entry ? entry.hpAdj : "0";
+  }
+  
+  function getSystemShock(actor) {
+    const con = actor.system?.abilities?.con?.value || 10;
+    const entry = CONSTITUTION_TABLE[con];
+    return entry ? entry.systemShock : "0%";
+  }
+  
+  function getResurrection(actor) {
+    const con = actor.system?.abilities?.con?.value || 10;
+    const entry = CONSTITUTION_TABLE[con];
+    return entry ? entry.resurrection : "0%";
+  }
+  
+  function getRegeneration(actor) {
+    const con = actor.system?.abilities?.con?.value || 10;
+    const entry = CONSTITUTION_TABLE[con];
+    return entry?.regeneration || "None";
+  }
+  
+  function getLanguages(actor) {
+    const int = actor.system?.abilities?.int?.value || 10;
+    const entry = INTELLIGENCE_TABLE[int];
+    return entry ? `${entry.languages}` : "0";
+  }
+  
+  function getSpellLevel(actor) {
+    const int = actor.system?.abilities?.int?.value || 10;
+    const entry = INTELLIGENCE_TABLE[int];
+    return entry ? `${entry.spellLevelLimit}` : "None";
+  }
+  
+  function getLearnChance(actor) {
+    const int = actor.system?.abilities?.int?.value || 10;
+    const entry = INTELLIGENCE_TABLE[int];
+    return entry ? `${entry.learnSpellChance}` : "0%";
+  }
+  
+  function getMaxSpells(actor) {
+    const int = actor.system?.abilities?.int?.value || 10;
+    const entry = INTELLIGENCE_TABLE[int];
+    return entry ? `${entry.maxSpellsPerLevel}` : "0";
+  }
+  
+  function getSpellImmunity(actor) {
+    const int = actor.system?.abilities?.int?.value || 10;
+    const entry = INTELLIGENCE_TABLE[int];
+    return entry?.Immunity || "None";
+  }
+
+  function getMagicAdj(actor) {
+    const wis = actor.system?.abilities?.wis?.value || 10;
+    const entry = WISDOM_TABLE[wis];
+    return entry ? `${entry.magicDefenseAdj}` : "0";
+  }
+  
+  function getSpellBonuses(actor) {
+    const wis = actor.system?.abilities?.wis?.value || 10;
+    const entry = WISDOM_TABLE[wis];
+    return entry ? `${entry.bonusSpells}` : "None";
+  }
+  
+  function getSpellFailure(actor) {
+    const wis = actor.system?.abilities?.wis?.value || 10;
+    const entry = WISDOM_TABLE[wis];
+    return entry ? `${entry.spellFailureChance}` : "0%";
+  }
+  
+  function getWisImmunity(actor) {
+    // You have no Immunity defined for Wisdom in your table, just return None
+    return "None";
+  }
+  
+  function getMaxHenchmen(actor) {
+    const cha = actor.system?.abilities?.cha?.value || 10;
+    const entry = CHARISMA_TABLE[cha];
+    return entry ? `${entry.maxHenchmen}` : "0";
+  }
+  
+  function getLoyaltyBase(actor) {
+    const cha = actor.system?.abilities?.cha?.value || 10;
+    const entry = CHARISMA_TABLE[cha];
+    return entry ? `${entry.loyaltyBase}` : "0%";
+  }
+  
+  function getChaReactionAdj(actor) {
+    const cha = actor.system?.abilities?.cha?.value || 10;
+    const entry = CHARISMA_TABLE[cha];
+    return entry ? `${entry.reactionAdj}` : "0%";
+  }
+  
+  
+  /* function getHitAdj(actor) {
     const str = actor.system?.abilities?.str?.value || 10;
     const pct = actor.system?.abilities?.str?.exceptional || 0;
     
@@ -1413,9 +1569,9 @@ export function saveStoredCharacters(chars) {
     }
     return "40%"; // 19+
   }
+   */
   
-  
-  // Similar helper functions for other abilities
+  /* // Similar helper functions for other abilities
   function getReactionAdj(actor) {
     const dex = actor.system?.abilities?.dex?.value || 10;
     if (dex <= 5) return "-2";
@@ -1651,7 +1807,7 @@ export function saveStoredCharacters(chars) {
     if (cha === 16) return "+4";
     if (cha === 17) return "+5";
     return "0"; // Default
-  }
+  } */
   
   // Then add the createItemsTab function
   function createItemsTab(actor) {
