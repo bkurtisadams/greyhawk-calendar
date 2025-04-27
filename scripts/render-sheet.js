@@ -871,8 +871,10 @@ export function saveStoredCharacters(chars) {
   
     // Class
     let classDisplay = "Unknown";
-    if (actor.activeClasses && Array.isArray(actor.activeClasses)) {
-      const classes = actor.activeClasses.map(c => `${c.name} ${c.system?.level ?? "?"}`);
+    if (actor.activeClasses && typeof actor.activeClasses === 'object') {
+      const classes = Object.entries(actor.activeClasses).map(([key, classData]) => {
+        return `${classData.name} ${classData.levels ?? "?"}`;
+      });
       classDisplay = classes.join(" / ");
     } else if (actor.items) {
       const classItems = actor.items.filter(i => i.type === "class");
