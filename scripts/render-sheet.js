@@ -454,7 +454,29 @@ export function saveStoredCharacters(chars) {
     const acValues = calculateArmorClass(actor);
     acValue.textContent = acValues.normal;
 
-    // AC hover tooltip
+    // Define armor and shield before using them
+    const armor = actor.items?.find(i => 
+      i.type === "armor" &&
+      i.system?.location?.state === "equipped" &&
+      ["armor", "bracers", "warding"].includes((i.system?.protection?.type || "").toLowerCase())
+    );
+
+    const shield = actor.items?.find(i => 
+      (i.type === "armor" || i.type === "equipment") &&
+      i.name?.toLowerCase().includes("shield") &&
+      i.system?.location?.state === "equipped"
+    );
+
+    // Find protection items
+    const protectionItems = actor.items?.filter(i => {
+      const name = i.name?.toLowerCase() || "";
+      return (name.includes("ring of protection") ||
+              name.includes("cloak of protection") ||
+              name.includes("amulet of protection")) &&
+            i.system?.location?.state === "equipped";
+    }) || [];
+
+    // Now create the tooltip
     let tooltip = "";
     if (armor) {
       const base = armor.system?.protection?.ac ?? "?";
@@ -495,6 +517,8 @@ export function saveStoredCharacters(chars) {
     }
 
     acValue.title = tooltip.trim();
+
+    // ... rest of the code continues ...
 
     // Shieldless and rear AC rows
     const acDetails = document.createElement("div");
