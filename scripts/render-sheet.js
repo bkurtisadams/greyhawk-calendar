@@ -2316,8 +2316,22 @@ function createActionsTab(actor) {
   const actionList = document.createElement("div");
   actionList.className = "action-list";
   
-  // Extract action groups and actions - look for the actionGroups property first
-  const actionGroups = actor.actionGroups || [];
+  // Extract action groups from items -> system -> actionGroups
+  let actionGroups = [];
+  
+  // Search through all items to find any that have actionGroups
+  if (actor.items) {
+    actor.items.forEach(item => {
+      if (item.system?.actionGroups) {
+        actionGroups = actionGroups.concat(item.system.actionGroups);
+      }
+    });
+  }
+  
+  // Also check if there are actionGroups directly on the actor
+  if (actor.actionGroups) {
+    actionGroups = actionGroups.concat(actor.actionGroups);
+  }
   
   // Render each action group
   actionGroups.forEach(group => {
