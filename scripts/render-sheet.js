@@ -344,7 +344,17 @@ export function saveStoredCharacters(chars) {
     portrait.style.flexShrink = "0";
     
     const portraitImg = document.createElement("img");
-    portraitImg.src = actor.img || "icons/svg/mystery-man.svg";
+
+    let imgSrc = actor.img || "icons/svg/mystery-man.svg";
+
+    // 🔥 Fix Windows path -> web path
+    if (imgSrc.includes('pc counters')) {
+      const filename = imgSrc.split(/[/\\]/).pop();  // get just the file name
+      imgSrc = `/images/pc_counters/${filename}`;
+    }
+
+    portraitImg.src = imgSrc;
+
     portraitImg.style.width = "100%";
     portraitImg.style.height = "100%";
     portraitImg.style.objectFit = "cover";
