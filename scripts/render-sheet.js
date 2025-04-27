@@ -840,19 +840,52 @@ export function saveStoredCharacters(chars) {
     
     tab.appendChild(header);
     
-    // Character Info Grid (Fixed for multiclass correctly)
+    // Character Info Grid
     const basicInfo = document.createElement("div");
     basicInfo.style.display = "grid";
-    basicInfo.style.gridTemplateColumns = "1fr 1fr";
-    basicInfo.style.gap = "10px";
+    basicInfo.style.gridTemplateColumns = "80px 1fr 120px 1fr";
+    basicInfo.style.gap = "8px 15px";
     basicInfo.style.marginTop = "10px";
-
-    // ➔ Correct class + levels display
-    const classLabel = document.createElement("div");
-    classLabel.textContent = "Class";
-    classLabel.style.fontWeight = "bold";
-
-    const classValue = document.createElement("div");
+    basicInfo.style.backgroundColor = "#f0f0e8";
+    basicInfo.style.padding = "10px";
+    basicInfo.style.borderRadius = "5px";
+    basicInfo.style.border = "1px solid #ccc";
+  
+    // Helper function to create a field row
+    const createFieldRow = (label, value, isDropdown = false) => {
+      const labelDiv = document.createElement("div");
+      labelDiv.textContent = label;
+      labelDiv.style.fontWeight = "bold";
+      labelDiv.style.textAlign = "right";
+      
+      const valueDiv = document.createElement("div");
+      
+      if (isDropdown) {
+        const select = document.createElement("select");
+        select.style.width = "100%";
+        select.style.padding = "2px";
+        select.style.border = "1px solid #aaa";
+        select.style.borderRadius = "3px";
+        
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = value;
+        select.appendChild(option);
+        
+        select.disabled = true;
+        valueDiv.appendChild(select);
+      } else {
+        valueDiv.textContent = value;
+        if (label === "Race") {
+          valueDiv.style.fontWeight = "bold";
+        }
+      }
+      
+      return [labelDiv, valueDiv];
+    };
+  
+    // Class
+    const [classLabel, classValue] = createFieldRow("Class", "");
     let classDisplay = "Unknown";
     if (actor.activeClasses && Array.isArray(actor.activeClasses)) {
       const classes = actor.activeClasses.map(c => `${c.name} ${c.system?.level ?? "?"}`);
@@ -865,134 +898,125 @@ export function saveStoredCharacters(chars) {
       }
     }
     classValue.textContent = classDisplay;
-
-    // ➔ Race
-    const raceLabel = document.createElement("div");
-    raceLabel.textContent = "Race";
-    raceLabel.style.fontWeight = "bold";
-
-    const raceValue = document.createElement("div");
+  
+    // Race
+    const [raceLabel, raceValue] = createFieldRow("Race", "");
     const raceItem = actor.items?.find(i => i.type === "race");
     raceValue.textContent = raceItem?.name || actor.system?.details?.race?.name || "Unknown";
-
-    // ➔ Alignment
-    const alignmentLabel = document.createElement("div");
-    alignmentLabel.textContent = "Alignment";
-    alignmentLabel.style.fontWeight = "bold";
-
-    const alignmentValue = document.createElement("div");
-    alignmentValue.textContent = formatAlignment(actor.system?.alignment || actor.system?.details?.alignment || "Unknown");
-
-    // ➔ Background
-    const backgroundLabel = document.createElement("div");
-    backgroundLabel.textContent = "Background";
-    backgroundLabel.style.fontWeight = "bold";
-
-    const backgroundValue = document.createElement("div");
-    backgroundValue.textContent = actor.system?.backgroundname || "None";
-
-    // ➔ Size
-    const sizeLabel = document.createElement("div");
-    sizeLabel.textContent = "Size";
-    sizeLabel.style.fontWeight = "bold";
-
-    const sizeValue = document.createElement("div");
-    sizeValue.textContent = actor.system?.details?.size || actor.system?.attributes?.size || "Medium";
-
-    // ➔ Add all to grid
+  
+    // Alignment
+    const alignmentValue = formatAlignment(actor.system?.alignment || actor.system?.details?.alignment || "Unknown");
+    const [alignmentLabel, alignmentValueDiv] = createFieldRow("Alignment", alignmentValue, true);
+  
+    // Background
+    const backgroundValue = actor.system?.backgroundname || "Click to add...";
+    const [backgroundLabel, backgroundValueDiv] = createFieldRow("Background", backgroundValue);
+    backgroundValueDiv.style.color = backgroundValue === "Click to add..." ? "#888" : "inherit";
+  
+    // Size
+    const sizeValue = actor.system?.details?.size || actor.system?.attributes?.size || "Medium";
+    const [sizeLabel, sizeValueDiv] = createFieldRow("Size", sizeValue, true);
+  
+    // Add all fields to grid
     basicInfo.appendChild(classLabel);
     basicInfo.appendChild(classValue);
     basicInfo.appendChild(raceLabel);
     basicInfo.appendChild(raceValue);
     basicInfo.appendChild(alignmentLabel);
-    basicInfo.appendChild(alignmentValue);
+    basicInfo.appendChild(alignmentValueDiv);
     basicInfo.appendChild(backgroundLabel);
-    basicInfo.appendChild(backgroundValue);
+    basicInfo.appendChild(backgroundValueDiv);
     basicInfo.appendChild(sizeLabel);
-    basicInfo.appendChild(sizeValue);
-
+    basicInfo.appendChild(sizeValueDiv);
+  
     tab.appendChild(basicInfo);
-
-    
-    // ─── Abilities Header ───
+  
+    // Abilities Header
     const abilitiesHeader = document.createElement("div");
     abilitiesHeader.textContent = "Abilities";
     abilitiesHeader.style.textAlign = "center";
     abilitiesHeader.style.fontSize = "16px";
     abilitiesHeader.style.fontWeight = "bold";
-    abilitiesHeader.style.margin = "10px 0";
+    abilitiesHeader.style.margin = "20px 0 10px 0";
     tab.appendChild(abilitiesHeader);
-
-    // ─── Abilities Tables ───
+  
+    // Create divider line
+    const divider = document.createElement("hr");
+    divider.style.border = "0";
+    divider.style.borderTop = "1px solid #888";
+    divider.style.margin = "10px 0";
+    tab.appendChild(divider);
+  
+    // Abilities section - compact layout
     const abilitiesSection = document.createElement("div");
     abilitiesSection.style.display = "flex";
     abilitiesSection.style.flexDirection = "column";
-    abilitiesSection.style.gap = "10px";
-
-    // Special case for STR table with percentile strength
+    abilitiesSection.style.gap = "3px";
+  
+    // STR table with compact styling
     const strTable = createSTRTable(actor);
     abilitiesSection.appendChild(strTable);
-
-    // DEX Table
+  
+    // Other ability tables with compact styling
     const dexTable = createAbilityTable(actor, "DEX", 
       ["%", "Reaction Adj", "Missile Adj", "Def. Adj"],
       ["0", getReactionAdj(actor), getMissileAdj(actor), getDefAdj(actor)]
     );
     abilitiesSection.appendChild(dexTable);
-
-    // CON Table
+  
     const conTable = createAbilityTable(actor, "CON", 
       ["%", "Hit Points", "System Shock", "Res. Survival", "Poison Adj", "Regeneration"],
       ["0", getHPBonus(actor), getSystemShock(actor), 
       getResurrection(actor), getPoisonAdj(actor), getRegeneration(actor)]
     );
     abilitiesSection.appendChild(conTable);
-
-    // INT Table
+  
     const intTable = createAbilityTable(actor, "INT", 
       ["%", "# Languages", "Spell Level", "Learn Chance", "Max Spells", "Immunity"],
       ["0", getLanguages(actor), getSpellLevel(actor), 
       getLearnChance(actor), getMaxSpells(actor), getSpellImmunity(actor)]
     );
     abilitiesSection.appendChild(intTable);
-
-    // WIS Table
+  
     const wisTable = createAbilityTable(actor, "WIS", 
       ["%", "Magic Adj", "Spell Bonuses", "Spell Failure", "Immunity"],
       ["0", getMagicAdj(actor), getSpellBonuses(actor), 
       getSpellFailure(actor), getWisImmunity(actor)]
     );
     abilitiesSection.appendChild(wisTable);
-
-    // CHA Table
+  
     const chaTable = createAbilityTable(actor, "CHA", 
       ["%", "Max Henchmen", "Loyalty Base", "Reaction Adj"],
       ["0", getMaxHenchmen(actor), getLoyaltyBase(actor), 
       getChaReactionAdj(actor)]
     );
     abilitiesSection.appendChild(chaTable);
-
+  
     tab.appendChild(abilitiesSection);
-    
-    // ─── Saves Section ───
+  
+    // Saves section
+    const savesDivider = document.createElement("hr");
+    savesDivider.style.border = "0";
+    savesDivider.style.borderTop = "1px solid #888";
+    savesDivider.style.margin = "15px 0";
+    tab.appendChild(savesDivider);
+  
     const savesHeader = document.createElement("div");
     savesHeader.textContent = "Saves";
-    savesHeader.style.textAlign = "center";
+    savesHeader.style.textAlign = "right";
     savesHeader.style.fontSize = "16px";
     savesHeader.style.fontWeight = "bold";
-    savesHeader.style.margin = "20px 0 10px 0";
+    savesHeader.style.marginBottom = "10px";
     tab.appendChild(savesHeader);
-    
-    // Create saves grid with similar styling to the screenshot
+  
+    // Saves grid with compact layout to match sheet
     const savesGrid = document.createElement("div");
     savesGrid.style.display = "grid";
     savesGrid.style.gridTemplateColumns = "repeat(5, 1fr)";
     savesGrid.style.gap = "8px";
-    savesGrid.style.background = "#e8e8d8";
-    savesGrid.style.padding = "10px";
-    savesGrid.style.borderRadius = "5px";
-    
-    // Save types
+    savesGrid.style.width = "100%";
+    savesGrid.style.marginTop = "10px";
+  
     const saveTypes = [
       { key: "paralyzation", label: "Para", value: actor.system?.saves?.paralyzation?.value || "7" },
       { key: "poison", label: "Poison", value: actor.system?.saves?.poison?.value || "7" },
@@ -1005,59 +1029,62 @@ export function saveStoredCharacters(chars) {
       { key: "breath", label: "Breath", value: actor.system?.saves?.breath?.value || "12" },
       { key: "spell", label: "Spell", value: actor.system?.saves?.spell?.value || "12" }
     ];
-    
-    // Create save boxes
-    saveTypes.forEach((save) => {
+  
+    saveTypes.forEach((save, index) => {
       const saveBox = document.createElement("div");
-      saveBox.style.border = "1px solid #ccc";
-      saveBox.style.borderRadius = "4px";
-      saveBox.style.padding = "5px";
       saveBox.style.textAlign = "center";
-      saveBox.style.background = "#f0f0e8";
-      
+      saveBox.style.border = "1px solid #999";
+      saveBox.style.borderRadius = "4px";
+      saveBox.style.padding = "4px";
+      saveBox.style.backgroundColor = "#f0f0e8";
+  
       const saveName = document.createElement("div");
       saveName.textContent = save.label;
       saveName.style.fontWeight = "bold";
       saveName.style.fontSize = "12px";
-      saveName.style.marginBottom = "5px";
-      
+      saveName.style.marginBottom = "3px";
+  
       const saveValue = document.createElement("div");
       saveValue.textContent = save.value;
       saveValue.style.fontSize = "18px";
+      saveValue.style.border = "1px solid #ccc";
       saveValue.style.borderRadius = "50%";
-      saveValue.style.width = "30px";
-      saveValue.style.height = "30px";
+      saveValue.style.width = "28px";
+      saveValue.style.height = "28px";
       saveValue.style.display = "flex";
       saveValue.style.alignItems = "center";
       saveValue.style.justifyContent = "center";
       saveValue.style.margin = "0 auto";
-      saveValue.style.background = "#ddd";
-      saveValue.style.fontWeight = "bold";
-      
+      saveValue.style.backgroundColor = "#fff";
+  
       saveBox.appendChild(saveName);
       saveBox.appendChild(saveValue);
       savesGrid.appendChild(saveBox);
     });
-    
+  
     tab.appendChild(savesGrid);
-    
-    // Items checkbox at bottom
+  
+    // Items checkbox
     const itemsBox = document.createElement("div");
     itemsBox.style.display = "flex";
     itemsBox.style.alignItems = "center";
     itemsBox.style.justifyContent = "center";
-    itemsBox.style.marginTop = "20px";
-    itemsBox.style.background = "#e8e8d8";
-    itemsBox.style.padding = "8px";
-    itemsBox.style.borderRadius = "5px";
-    
+    itemsBox.style.marginTop = "15px";
+    itemsBox.style.backgroundColor = "#e8e8d8";
+    itemsBox.style.border = "1px solid #ccc";
+    itemsBox.style.borderRadius = "3px";
+    itemsBox.style.padding = "5px 10px";
+    itemsBox.style.width = "fit-content";
+    itemsBox.style.margin = "15px auto 0";
+  
     const itemsCheck = document.createElement("div");
     itemsCheck.innerHTML = "✓ Items";
     itemsCheck.style.fontWeight = "bold";
-    
+    itemsCheck.style.fontSize = "14px";
+  
     itemsBox.appendChild(itemsCheck);
     tab.appendChild(itemsBox);
-    
+  
     return tab;
   }
   
