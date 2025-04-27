@@ -159,6 +159,10 @@ function initializeCalendar() {
         // Setup and restore view tab state
         setupTabButtons();
         restoreLastActiveView();  // <-- restore saved tab
+
+        // load characters
+        loadCharactersFromServer();
+
     });
 }
 
@@ -1546,12 +1550,29 @@ function setupEventFilters() {
     });
 }
 
+async function loadCharactersFromServer() {
+    try {
+        const response = await fetch('/greyhawk-calendar/data/characters/index.json');
+        if (!response.ok) throw new Error('Failed to load character index.');
 
+        const characterFiles = await response.json();
 
+        const characterPromises = characterFiles.map(async (file) => {
+            const charResponse = await fetch(`/greyhawk-calendar/data/characters/${file}`);
+            if (!charResponse.ok) throw new Error(`Failed to load character: ${file}`);
+            return await charResponse.json();
+        });
 
+        const characters = await Promise.all(characterPromises);
 
+        // Now render each character
+        characters.forEach(actor => {
+            renderCharacterSheet(actor);
+        });
 
-
-
-
+        console.log(`✅ Loaded ${characters.length} characters from server.`);
+    } catch (err) {
+        console.error('❌ Error loading characters:', err);
+    }
+}
 
