@@ -618,6 +618,17 @@ export function saveStoredCharacters(chars) {
     hpSection.appendChild(progressContainer);
     hpSection.appendChild(hpStats);
 
+    // Get current movement
+    const currentMove = actor.system?.attributes?.movement?.value || "90";
+
+    // Find base movement from item
+    const baseMoveItem = actor.items?.find(item => item.name?.startsWith("Base Movement"));
+    let baseMove = "???";
+    if (baseMoveItem) {
+      const match = baseMoveItem.name.match(/\d+/);
+      if (match) baseMove = match[0];
+    }
+
     // Movement section
     const moveSection = document.createElement("div");
     moveSection.style.display = "flex";
@@ -633,12 +644,12 @@ export function saveStoredCharacters(chars) {
     moveLabel.style.marginBottom = "5px";
 
     const moveValue = document.createElement("div");
-    moveValue.textContent = actor.system?.attributes?.movement?.value || "90";
+    moveValue.textContent = currentMove;
     moveValue.style.fontSize = "48px";
     moveValue.style.fontWeight = "bold";
 
     const baseLabel = document.createElement("div");
-    baseLabel.innerHTML = `Base <span style="font-weight: bold">${actor.system?.attributes?.movement?.value || "90"}</span>`;
+    baseLabel.innerHTML = `Base <span style="font-weight: bold">${baseMove}</span>`;
     baseLabel.style.fontSize = "14px";
     baseLabel.style.marginTop = "10px";
 
