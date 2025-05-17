@@ -195,9 +195,38 @@ export function saveStoredCharacters(chars) {
 
       // Handle nested containers
       if (resolvedItem.type === "container") {
+        // Create a wrapper for the nested container
+        const nestedWrapper = document.createElement("li");
+        nestedWrapper.className = "nested-container-wrapper";
+        nestedWrapper.style.listStyle = "none";
+        nestedWrapper.style.padding = 0;
+        nestedWrapper.style.margin = 0;
+        
+        // Render the nested container with increased indentation
         const nested = renderContainer(resolvedItem, true, itemMap);
-        nested.style.marginLeft = "20px";
-        list.appendChild(nested);
+        
+        // Apply visual styling for nested containers
+        nested.style.marginLeft = nested ? "30px" : "20px"; // More indentation for deeply nested items
+        nested.style.borderLeft = "2px dashed #aaa"; // Add a visual connector line
+        nested.style.paddingLeft = "10px";
+        nested.style.marginTop = "5px";
+        nested.style.marginBottom = "5px";
+        
+        // Apply different background for nested containers to visually distinguish them
+        const lists = nested.querySelectorAll(".inventory-list");
+        lists.forEach(list => {
+          list.style.background = "#e8e8d0"; // Slightly different background
+        });
+        
+        // Add a prefix to indicate nesting in the header
+        const summary = nested.querySelector("summary");
+        if (summary) {
+          summary.innerHTML = `📦 ${summary.textContent}`;
+          summary.style.fontStyle = "italic";
+        }
+        
+        nestedWrapper.appendChild(nested);
+        list.appendChild(nestedWrapper);
       }
     }
 
