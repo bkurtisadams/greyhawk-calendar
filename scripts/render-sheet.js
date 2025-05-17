@@ -86,6 +86,10 @@ export function saveStoredCharacters(chars) {
     const items = containerItem.system?.itemList || [];
     for (let subItem of items) {
       const li = document.createElement("li");
+      li.setAttribute("draggable", "true");
+      li.dataset.uuid = subItem.uuid || "";
+
+      // Item icon
       const img = document.createElement("img");
       img.src = subItem.img || "icons/svg/item-bag.svg";
       img.alt = subItem.name || "";
@@ -96,17 +100,41 @@ export function saveStoredCharacters(chars) {
         this.onerror = null;
         this.src = "icons/svg/item-bag.svg";
       };
-
       li.appendChild(img);
-      li.appendChild(document.createTextNode(`${subItem.name} x${subItem.quantity ?? 1}`));
-      li.setAttribute("draggable", "true");
-      li.dataset.uuid = subItem.uuid || "";
-      if (subItem.type === "container") {
-        const nestedBlock = renderContainer(subItem, true);
-        li.appendChild(nestedBlock);
+
+      // Name and basic info
+      const nameText = document.createElement("span");
+      nameText.textContent = `${subItem.name} x${subItem.quantity ?? 1}`;
+      li.appendChild(nameText);
+
+      // Optional info block
+      const info = [];
+
+      // Weight
+      if (subItem.system?.weight) info.push(`${subItem.system.weight} lbs`);
+
+      // Magical
+      if (subItem.system?.attributes?.magic) info.push("✨ Magic");
+
+      // Identified
+      if (subItem.system?.attributes?.identified === false) info.push("❓Unidentified");
+
+      // Number (if stored separately from quantity)
+      if (subItem.system?.number) info.push(`#${subItem.system.number}`);
+
+      // Combine and append if any info
+      if (info.length > 0) {
+        const infoSpan = document.createElement("span");
+        infoSpan.style.marginLeft = "10px";
+        infoSpan.style.fontStyle = "italic";
+        infoSpan.style.color = "#666";
+        infoSpan.textContent = `(${info.join(", ")})`;
+        li.appendChild(infoSpan);
       }
+
       list.appendChild(li);
     }
+    
     makeListDraggable(list);
     toggle.appendChild(list);
     wrapper.appendChild(toggle);
