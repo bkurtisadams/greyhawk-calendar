@@ -73,16 +73,19 @@ export function saveStoredCharacters(chars) {
     });
   }
   
-  function renderInventoryRow(subItem) {
+  function renderInventoryRow(subItem, itemMap = new Map()) {
+    // Resolve full item if this is a shallow reference
+    const fullItem = itemMap.get(subItem._id || subItem.uuid) || subItem;
+
     const li = document.createElement("li");
     li.className = "inventory-row";
     li.setAttribute("draggable", "true");
-    li.dataset.uuid = subItem.uuid || "";
+    li.dataset.uuid = fullItem.uuid || "";
 
     // Icon
     const icon = document.createElement("img");
     icon.className = "inventory-icon";
-    icon.src = subItem.img || "greyhawk-calendar/icons/item-bag.svg";
+    icon.src = fullItem.img || "greyhawk-calendar/icons/item-bag.svg";
     icon.alt = "";
     icon.onerror = () => (icon.src = "greyhawk-calendar/icons/item-bag.svg");
     li.appendChild(icon);
@@ -90,26 +93,26 @@ export function saveStoredCharacters(chars) {
     // Name
     const name = document.createElement("span");
     name.className = "item-name";
-    name.textContent = subItem.name ?? "(Unnamed)";
-    if (subItem.system?.attributes?.magic) name.classList.add("magic");
+    name.textContent = fullItem.name ?? "(Unnamed)";
+    if (fullItem.system?.attributes?.magic) name.classList.add("magic");
     li.appendChild(name);
 
     // Status icons
     const statusIcons = document.createElement("span");
     statusIcons.className = "status-icons";
 
-    const loc = subItem.system?.location?.state;
+    const loc = fullItem.system?.location?.state;
     const locIcon = document.createElement("span");
     locIcon.textContent = loc === "equipped" ? "🛡️" : loc === "carried" ? "🎒" : "📦";
     statusIcons.appendChild(locIcon);
 
-    if (subItem.system?.attributes?.magic) {
+    if (fullItem.system?.attributes?.magic) {
       const mag = document.createElement("span");
       mag.textContent = "✦";
       statusIcons.appendChild(mag);
     }
 
-    const id = subItem.system?.attributes?.identified;
+    const id = fullItem.system?.attributes?.identified;
     const idIcon = document.createElement("span");
     idIcon.textContent = id === false ? "👁️" : "✅";
     statusIcons.appendChild(idIcon);
@@ -117,20 +120,23 @@ export function saveStoredCharacters(chars) {
     li.appendChild(statusIcons);
 
     // Quantity
-    const qtyVal = subItem.system?.quantity ?? 1;
+    const qtyVal = Number(fullItem.system?.quantity);
     const qty = document.createElement("span");
-    qty.textContent = qtyVal;
+    qty.textContent = !isNaN(qtyVal) && qtyVal > 0 ? qtyVal : 1;
     qty.className = "center-text";
     li.appendChild(qty);
 
-    const wtVal = subItem.system?.weight ?? 0;
+    // Total weight = quantity * unit weight
+    const wtPer = Number(fullItem.system?.weight);
+    const totalWeight = (!isNaN(qtyVal) && !isNaN(wtPer)) ? qtyVal * wtPer : 0;
     const weight = document.createElement("span");
-    weight.textContent = (qtyVal * wtVal).toFixed(2);
+    weight.textContent = totalWeight > 0 ? totalWeight.toFixed(2) : "-";
     weight.className = "center-text";
     li.appendChild(weight);
 
     return li;
   }
+
 
   function renderContainer(containerItem, nested = false) {
     const wrapper = document.createElement("div");
@@ -1607,6 +1613,12 @@ export function saveStoredCharacters(chars) {
       ["weapon", "armor", "equipment", "consumable", "container"].includes(i.type)
     );
 
+    // Create item lookup map for resolving container references
+    const itemMap = new Map();
+    inventoryItems.forEach(item => {
+      itemMap.set(item._id || item.uuid, item);
+    });
+
     // 1. Loose top-level items (equipped or carried)
     const topLevelLooseItems = inventoryItems.filter(i =>
       i.type !== "container" &&
@@ -1626,18 +1638,19 @@ export function saveStoredCharacters(chars) {
       looseLabel.textContent = "Loose Items";
       tab.appendChild(looseLabel);
 
-      const looseTable = renderLooseItemsTable(topLevelLooseItems);
+      const looseTable = renderLooseItemsTable(topLevelLooseItems, itemMap);
       tab.appendChild(looseTable);
     }
 
     // 4. Render top-level containers (each with nested contents)
     for (const container of topLevelContainers) {
-      const containerBlock = renderContainer(container);
+      const containerBlock = renderContainer(container, false, itemMap);
       tab.appendChild(containerBlock);
     }
 
     return tab;
   }
+
 
 
   // Make sure to create and append the items tab in the main render function
