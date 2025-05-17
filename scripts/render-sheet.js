@@ -129,8 +129,8 @@ export function saveStoredCharacters(chars) {
 
     // Total weight = quantity * unit weight
     const wtPer = Number(fullItem.system?.weight ?? 0);
-    //const totalWeight = (!isNaN(qtyVal) && !isNaN(wtPer)) ? qtyVal * wtPer : 0;
-    const totalWeight = qtyVal * wtPer;
+    const totalWeight = (!isNaN(qtyVal) && !isNaN(wtPer)) ? qtyVal * wtPer : 0;
+    //const totalWeight = qtyVal * wtPer;
     const weight = document.createElement("span");
     weight.textContent = totalWeight > 0 ? totalWeight.toFixed(2) : "-";
     weight.className = "center-text";
