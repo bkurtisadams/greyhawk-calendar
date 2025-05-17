@@ -75,7 +75,8 @@ export function saveStoredCharacters(chars) {
   
   function renderInventoryRow(subItem, itemMap = new Map()) {
     // Resolve full item if this is a shallow reference
-    const fullItem = itemMap.get(subItem._id || subItem.uuid) || subItem;
+    const fullItem =
+      itemMap.get(subItem._id || subItem.uuid || subItem.id) || subItem;
 
     const li = document.createElement("li");
     li.className = "inventory-row";
@@ -120,15 +121,16 @@ export function saveStoredCharacters(chars) {
     li.appendChild(statusIcons);
 
     // Quantity
-    const qtyVal = Number(fullItem.system?.quantity);
+    const qtyVal = Number(fullItem.system?.quantity ?? 1);
     const qty = document.createElement("span");
     qty.textContent = !isNaN(qtyVal) && qtyVal > 0 ? qtyVal : 1;
     qty.className = "center-text";
     li.appendChild(qty);
 
     // Total weight = quantity * unit weight
-    const wtPer = Number(fullItem.system?.weight);
-    const totalWeight = (!isNaN(qtyVal) && !isNaN(wtPer)) ? qtyVal * wtPer : 0;
+    const wtPer = Number(fullItem.system?.weight ?? 0);
+    //const totalWeight = (!isNaN(qtyVal) && !isNaN(wtPer)) ? qtyVal * wtPer : 0;
+    const totalWeight = qtyVal * wtPer;
     const weight = document.createElement("span");
     weight.textContent = totalWeight > 0 ? totalWeight.toFixed(2) : "-";
     weight.className = "center-text";
@@ -1624,6 +1626,8 @@ export function saveStoredCharacters(chars) {
     (actor.items || []).forEach(item => {
       itemMap.set(item._id, item);
       if (item.uuid) itemMap.set(item.uuid, item);
+      if (item.id) itemMap.set(item.id, item);
+
     });
 
     // 1. Loose top-level items (equipped or carried)
