@@ -117,14 +117,15 @@ export function saveStoredCharacters(chars) {
     li.appendChild(statusIcons);
 
     // Quantity
+    const qtyVal = subItem.system?.quantity ?? 1;
     const qty = document.createElement("span");
-    qty.textContent = subItem.quantity ?? 1;
+    qty.textContent = qtyVal;
     qty.className = "center-text";
     li.appendChild(qty);
 
-    // Weight
+    const wtVal = subItem.system?.weight ?? 0;
     const weight = document.createElement("span");
-    weight.textContent = subItem.system?.weight?.toFixed?.(2) ?? "-";
+    weight.textContent = (qtyVal * wtVal).toFixed(2);
     weight.className = "center-text";
     li.appendChild(weight);
 
