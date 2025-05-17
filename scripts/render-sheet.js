@@ -86,7 +86,19 @@ export function saveStoredCharacters(chars) {
     const items = containerItem.system?.itemList || [];
     for (let subItem of items) {
       const li = document.createElement("li");
-      li.textContent = `${subItem.name} x${subItem.quantity ?? 1}`;
+      const img = document.createElement("img");
+      img.src = subItem.img || "icons/svg/item-bag.svg";
+      img.alt = subItem.name || "";
+      img.style.width = "16px";
+      img.style.height = "16px";
+      img.style.marginRight = "5px";
+      img.onerror = function () {
+        this.onerror = null;
+        this.src = "icons/svg/item-bag.svg";
+      };
+
+      li.appendChild(img);
+      li.appendChild(document.createTextNode(`${subItem.name} x${subItem.quantity ?? 1}`));
       li.setAttribute("draggable", "true");
       li.dataset.uuid = subItem.uuid || "";
       if (subItem.type === "container") {
