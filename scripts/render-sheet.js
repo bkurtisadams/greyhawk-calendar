@@ -84,6 +84,46 @@ export function saveStoredCharacters(chars) {
   
     const list = document.createElement("ul");
     const items = containerItem.system?.itemList || [];
+    // Header row
+    const header = document.createElement("li");
+    header.style.display = "flex";
+    header.style.alignItems = "center";
+    header.style.fontWeight = "bold";
+    header.style.borderBottom = "1px solid #ccc";
+    header.style.padding = "4px 0";
+    header.style.marginBottom = "4px";
+
+    const colName = document.createElement("span");
+    colName.textContent = "Name";
+    colName.style.flex = "1";
+    header.appendChild(colName);
+
+    const colType = document.createElement("span");
+    colType.textContent = "Type";
+    colType.style.width = "40px";
+    colType.style.textAlign = "center";
+    header.appendChild(colType);
+
+    const colIdent = document.createElement("span");
+    colIdent.textContent = "ID";
+    colIdent.style.width = "30px";
+    colIdent.style.textAlign = "center";
+    header.appendChild(colIdent);
+
+    const colQty = document.createElement("span");
+    colQty.textContent = "#";
+    colQty.style.width = "2em";
+    colQty.style.textAlign = "center";
+    header.appendChild(colQty);
+
+    const colWeight = document.createElement("span");
+    colWeight.textContent = "Wt";
+    colWeight.style.width = "2.5em";
+    colWeight.style.textAlign = "right";
+    header.appendChild(colWeight);
+
+    list.appendChild(header);
+
     for (let subItem of items) {
       const li = document.createElement("li");
       li.setAttribute("draggable", "true");
