@@ -88,59 +88,82 @@ export function saveStoredCharacters(chars) {
       const li = document.createElement("li");
       li.setAttribute("draggable", "true");
       li.dataset.uuid = subItem.uuid || "";
+      li.style.display = "flex";
+      li.style.alignItems = "center";
+      li.style.gap = "8px";
+      li.style.padding = "4px 0";
 
-      // Item icon
+      // Icon
       const img = document.createElement("img");
       img.src = subItem.img || "icons/svg/item-bag.svg";
       img.alt = subItem.name || "";
-      img.style.width = "16px";
-      img.style.height = "16px";
-      img.style.marginRight = "5px";
+      img.style.width = "24px";
+      img.style.height = "24px";
       img.onerror = function () {
         this.onerror = null;
         this.src = "icons/svg/item-bag.svg";
       };
       li.appendChild(img);
 
-      // Name and basic info
-      const nameText = document.createElement("span");
-      nameText.textContent = `${subItem.name} x${subItem.quantity ?? 1}`;
-      li.appendChild(nameText);
+      // Name (with container toggle if needed)
+      const name = document.createElement("span");
+      name.textContent = subItem.name || "(Unnamed)";
+      name.style.flex = "1";
+      name.style.color = subItem.type === "container" ? "#3b4cc0" : "#000";
+      name.style.cursor = "default";
+      li.appendChild(name);
 
-      // Optional info block
-      const info = [];
+      // Type icon
+      // Type icon (from icons folder, fallback if not found)
+      const typeIcon = document.createElement("img");
+      typeIcon.src = subItem.img || "greyhawk-calendar/icons/item-bag.svg";
+      typeIcon.alt = subItem.type || "item";
+      typeIcon.style.width = "20px";
+      typeIcon.style.height = "20px";
+      typeIcon.onerror = function () {
+        this.onerror = null;
+        this.src = "greyhawk-calendar/icons/item-bag.svg"; // fallback icon
+      };
+      li.appendChild(typeIcon);
+
+
+      // Identified status
+      const identified = subItem.system?.attributes?.identified;
+      const idIcon = document.createElement("span");
+      idIcon.textContent = identified === false ? "👁️" : "✅";
+      idIcon.title = identified === false ? "Unidentified" : "Identified";
+      li.appendChild(idIcon);
+
+      // Quantity
+      const qty = document.createElement("span");
+      qty.textContent = subItem.quantity ?? 1;
+      qty.style.width = "2em";
+      qty.style.textAlign = "center";
+      li.appendChild(qty);
 
       // Weight
-      if (subItem.system?.weight) info.push(`${subItem.system.weight} lbs`);
+      const weight = document.createElement("span");
+      weight.textContent = subItem.system?.weight ?? "-";
+      weight.style.width = "2.5em";
+      weight.style.textAlign = "right";
+      li.appendChild(weight);
 
-      // Magical
-      if (subItem.system?.attributes?.magic) info.push("✨ Magic");
-
-      // Identified
-      if (subItem.system?.attributes?.identified === false) info.push("❓Unidentified");
-
-      // Number (if stored separately from quantity)
-      if (subItem.system?.number) info.push(`#${subItem.system.number}`);
-
-      // Combine and append if any info
-      if (info.length > 0) {
-        const infoSpan = document.createElement("span");
-        infoSpan.style.marginLeft = "10px";
-        infoSpan.style.fontStyle = "italic";
-        infoSpan.style.color = "#666";
-        infoSpan.textContent = `(${info.join(", ")})`;
-        li.appendChild(infoSpan);
+      // Nested container support
+      if (subItem.type === "container") {
+        const nestedBlock = renderContainer(subItem, true);
+        nestedBlock.style.marginLeft = "24px";
+        li.appendChild(nestedBlock);
       }
 
       list.appendChild(li);
     }
-    
+
     makeListDraggable(list);
     toggle.appendChild(list);
     wrapper.appendChild(toggle);
     return wrapper;
   }
-  
+
   function calculateArmorClass(actor) {
     console.log(`🔎 Calculating Armor Class for: ${actor.name}`);
   
