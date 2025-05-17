@@ -11340,9 +11340,9 @@
       },
       "hp": {
         "base": 0,
-        "value": 35,
+        "value": 41,
         "min": -10,
-        "max": 35,
+        "max": 41,
         "temp": 0,
         "tempmax": 0
       },
@@ -65954,8 +65954,8 @@
   ],
   "effects": [
     {
-      "name": "Hawk Familiar HP Bonus",
-      "img": "greyhawk/tokens/animals/birds/FS1_Hawk.webp",
+      "name": "Familiar HP Bonus",
+      "img": "greyhawk/tokens/dragons/Pseudodragon.webp",
       "origin": "Actor.tlSJ5WGXEhxJoPQf",
       "duration": {
         "rounds": null,
@@ -65974,7 +65974,7 @@
         {
           "key": "system.attributes.hp.base",
           "mode": 2,
-          "value": "4",
+          "value": "10",
           "priority": null
         }
       ],
@@ -65987,16 +65987,16 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "12.331",
+        "coreVersion": "12.343",
         "systemId": "ars",
         "systemVersion": "2024.11.22",
         "createdTime": 1733065923294,
-        "modifiedTime": 1741834117464,
+        "modifiedTime": 1747487238261,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
     },
     {
-      "name": "Tome of Clear Though",
+      "name": "Tome of Clear Thought",
       "img": "icons/sundries/books/book-embossed-steel-brown.webp",
       "origin": "Actor.tlSJ5WGXEhxJoPQf",
       "duration": {
@@ -66029,11 +66029,11 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "12.331",
+        "coreVersion": "12.343",
         "systemId": "ars",
         "systemVersion": "2025.04.10",
         "createdTime": 1745611937906,
-        "modifiedTime": 1745612137858,
+        "modifiedTime": 1747487269303,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
     }
@@ -66185,7 +66185,7 @@
       ]
     },
     "ars-battlesystem-tab": {
-      "_activeTab": "items",
+      "_activeTab": "effects",
       "heroArmyName": [
         "",
         ""
@@ -66216,7 +66216,7 @@
       "sp": "10",
       "heroHD": "1",
       "heroWeaponDamage": "",
-      "heroHP": "35/35",
+      "heroHP": "41/41",
       "heroMV": "120",
       "thaco": "16",
       "heroAttackModifiers": "",
@@ -66264,7 +66264,7 @@
     "systemId": "ars",
     "systemVersion": "2025.04.20",
     "createdTime": 1733064015024,
-    "modifiedTime": 1747445370635,
+    "modifiedTime": 1747487291798,
     "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
   }
 }

@@ -4739,28 +4739,28 @@
           },
           "3": {
             "0": {
-              "name": null,
+              "name": "Create Food and Water",
               "level": "3",
-              "img": null,
-              "cast": false,
-              "id": null,
-              "uuid": null,
+              "img": "icons/magic/nature/cornucopia-orange.webp",
+              "cast": true,
+              "id": "XHhl01uaf8Ni3zBi",
+              "uuid": "Compendium.osric-compendium.items.Item.XHhl01uaf8Ni3zBi",
               "owned": false,
               "spellItem": {
-                "_id": "5t4X6aNoWTtc992S",
-                "name": "Prayer",
+                "_id": "XHhl01uaf8Ni3zBi",
+                "name": "Create Food and Water",
                 "type": "spell",
-                "img": "icons/magic/control/buff-luck-fortune-gold.webp",
+                "img": "icons/magic/nature/cornucopia-orange.webp",
                 "effects": [],
                 "folder": "uDkm9alduVSmBocz",
-                "sort": 1500000,
+                "sort": 700000,
                 "flags": {
                   "scene-packer": {
-                    "hash": "c9af71c59fee6cfbc9a5d348ee533cb98ff8a971",
-                    "sourceId": "Item.5t4X6aNoWTtc992S"
+                    "hash": "490a3b1e89fa46ce4d93c1cc85f768a4fb4950a3",
+                    "sourceId": "Item.XHhl01uaf8Ni3zBi"
                   },
                   "core": {
-                    "sourceId": "Compendium.world.osric-pc-item.5t4X6aNoWTtc992S"
+                    "sourceId": "Compendium.world.osric-pc-item.XHhl01uaf8Ni3zBi"
                   },
                   "cf": null,
                   "osric": {
@@ -4973,7 +4973,7 @@
                   }
                 },
                 "system": {
-                  "description": "<p><em>[Foundry Note: although Prayer's description neglects to mention the caster's enemies, they're also affected (with penalties) as discussed in the referenced Chant spell.</em></p>\n<p><em>two aura versions of this spell are provided (one where the benefits are provided to players and allies, and another casting for enemy actors which reverses the buff/debuff fields). The player aura version is recommended as the mechanical changes are automatically transmitted to all combatants in the caster-centered AOE via the aura. The caster need only self-apply both buff/debuff spell actions.</em></p>\n<p><em>A legacy non-aura version is also provided if auras aren't preferred.&nbsp; As \"friendlies\" and \"enemies\" is always from the POV of the players (only), enemy casters should apply the buff when targeting \"hostiles\" and debuff when targeting \"friendlies\". </em><em>- Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>General</h2>\n<p>Casting prayer is a matter of intoning an invocation to the cleric's god(s), following which <strong>any of the cleric's allies who were in the spell's area of effect</strong>&nbsp;will gain, for the duration of the spell, the same benefits as if they were affected by an ongoing <span style=\"text-decoration: underline;\"><em>Chant</em></span> spell.</p>\n<p>Note that the cleric is able to move and take other actions while the <em>Prayer</em> spell is in effect, which is not the case with the more restricted <em>Chant</em> spell.</p>\n<p>&nbsp;</p>\n<h2>Combat/Damage</h2>\n<p><em><span style=\"text-decoration: underline;\">REFERENCED TEXT</span>:</em>&nbsp;</p>\n<p>...his or her allies (within the area of effect) gain a bonus of +1 to all <strong>attack rolls, damage rolls, and saving throws</strong>.</p>\n<p>Enemies within the spell's area of effect also suffer a -1 to all such die rolls.</p>",
+                  "description": "<h2>General</h2>\n<p>Upon completion of the ritual words of this spell, food and/or water will appear from thin air. A caster of fifth level can conjure up enough food and water to sustain a person or even a horse for five full days.</p>\n<p>The volume of food and water produced by the spell is <strong>approximately one cubic ft per level</strong> of the caster.</p>",
                   "dmonlytext": "",
                   "itemList": [],
                   "alias": "",
@@ -5021,7 +5021,7 @@
                         "changes": [],
                         "toolTip": ""
                       },
-                      "speed": 6,
+                      "speed": 99,
                       "damagetype": "slashing",
                       "resource": {
                         "type": "none",
@@ -5036,9 +5036,8 @@
                       },
                       "magicpotency": 0,
                       "properties": [
-                        "Prayer",
-                        "Conjuration Summoning",
-                        "De/Buff",
+                        "Create Food and Water",
+                        "Transmutation Alteration",
                         "Level 3"
                       ],
                       "dmonlytext": "",
@@ -5051,743 +5050,11 @@
                         "type": "none",
                         "formula": ""
                       },
-                      "id": "p6oa78c2bamgugma",
+                      "id": "1yco86dlhnwxqtre",
                       "index": 0,
-                      "name": "Prayer",
+                      "name": "Create Food and Water",
                       "description": "",
-                      "parentuuid": "Item.5t4X6aNoWTtc992S",
-                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done).</li>\n</ul>\n<ul>\n<li><strong>(Optional)</strong>&nbsp;Use the&nbsp;<img src=\"icons/magic/symbols/triangle-glowing-green.webp\" alt=\"Castshape Action\" width=\"24\" height=\"24\">&nbsp;<strong>castshape</strong>&nbsp;action to visualize the area of effect (you can delete AOE templates if the Templates menu is active)</li>\n</ul>\n<ul>\n<li>Target&nbsp;<strong>friendly actors</strong> in the AOE&nbsp;and click the <img src=\"icons/svg/d20-highlight.svg\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Allied Prayer Buffs - Indefinite (F)\"</strong>&nbsp;action</li>\n<li>Target&nbsp;<strong>enemy actors</strong> in the AOE and click the <img src=\"icons/svg/d20-black.svg\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Enemy Prayer Buffs - Indefinite (E)\"</strong>&nbsp;action</li>\n</ul>"
-                    },
-                    {
-                      "img": "icons/magic/symbols/triangle-glowing-green.webp",
-                      "ability": "none",
-                      "type": "castshape",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "round"
-                        },
-                        "changes": [],
-                        "toolTip": ""
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "castShapeLength": {
-                        "formula": ""
-                      },
-                      "castShapeWidth": {
-                        "formula": ""
-                      },
-                      "castShapeRadius": {
-                        "formula": ""
-                      },
-                      "castShapeAngle": {
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "B1d2bGwndcyJ7hEp",
-                      "index": 1,
-                      "name": "Prayer",
-                      "parentuuid": "Item.5t4X6aNoWTtc992S",
-                      "misc": "Friendly AOE",
-                      "castShapeProperties": {
-                        "range": {
-                          "formula": ""
-                        },
-                        "fillColor": "#692afe",
-                        "castShapeRadius": {
-                          "formula": "60"
-                        },
-                        "inRangeColor": "#696df2",
-                        "outOfRangeColor": "#a80000"
-                      },
-                      "targetShape": {
-                        "type": "circle"
-                      },
-                      "targetShapeSelection": {
-                        "type": "all"
-                      }
-                    },
-                    {
-                      "img": "icons/magic/symbols/triangle-glowing-green.webp",
-                      "ability": "none",
-                      "type": "castshape",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "round"
-                        },
-                        "changes": [],
-                        "toolTip": ""
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "castShapeLength": {
-                        "formula": ""
-                      },
-                      "castShapeWidth": {
-                        "formula": ""
-                      },
-                      "castShapeRadius": {
-                        "formula": ""
-                      },
-                      "castShapeAngle": {
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "PugvHF9X5B2eR7NX",
-                      "index": 2,
-                      "name": "Prayer",
-                      "parentuuid": "Item.5t4X6aNoWTtc992S",
-                      "targetShapeSelection": {
-                        "type": "hostile"
-                      },
-                      "castShapeProperties": {
-                        "range": {
-                          "formula": ""
-                        },
-                        "inRangeColor": "#696df2",
-                        "outOfRangeColor": "#a80000",
-                        "castShapeRadius": {
-                          "formula": "60"
-                        }
-                      },
-                      "misc": "Hostile AOE",
-                      "targetShape": {
-                        "type": "circle"
-                      }
-                    },
-                    {
-                      "img": "icons/magic/unholy/hand-light-green.webp",
-                      "ability": "none",
-                      "type": "cast",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "round"
-                        },
-                        "changes": [],
-                        "toolTip": ""
-                      },
-                      "speed": 6,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [
-                        "Prayer",
-                        "Conjuration Summoning",
-                        "De/Buff",
-                        "Level 3"
-                      ],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "2htotZghuZd15oZq",
-                      "index": 3,
-                      "name": "Prayer (Aura Version - Player Cast)",
-                      "parentuuid": "Item.5t4X6aNoWTtc992S",
-                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n<li>Target <strong>the caster</strong> and click the <img src=\"icons/magic/light/explosion-star-glow-silhouette.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Allied Prayer Buffs - Indefinite (F)\"</strong>&nbsp;action</li>\n<li>Target <strong>the caster</strong> and click the <img src=\"icons/magic/light/explosion-star-glow-silhouette.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Enemy Prayer Debuffs - Indefinite (E)\"</strong> action</li>\n</ul>"
-                    },
-                    {
-                      "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "(@rank.levels.divine)",
-                          "type": "round"
-                        },
-                        "changes": [
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.attack.value",
-                            "value": "1"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.damage.value",
-                            "value": "1"
-                          },
-                          {
-                            "key": "aura.system.mods.saves.all",
-                            "mode": 0,
-                            "value": "{\"formula\":\"1\",\"properties\":\"\"}"
-                          },
-                          {
-                            "mode": 0,
-                            "key": "special.aura",
-                            "value": "{\"distance\": 60, \"color\": \"purple\", \"faction\": \"friendly\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"}"
-                          }
-                        ],
-                        "toolTip": "(aura.system.mods.attack.value/1), (aura.system.mods.damage.value/1), (aura.system.mods.saves.all/{\"formula\":\"1\",\"properties\":\"\"}), (special.aura/{\"distance\": 60, \"color\": \"purple\", \"faction\": \"friendly\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"})"
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "wvSlUDfsDFfNdM1G",
-                      "index": 4,
-                      "name": "Prayer (Aura Version - Player Cast)",
-                      "parentuuid": "Item.5t4X6aNoWTtc992S",
-                      "misc": "Allied Prayer Buffs - Duration (F)"
-                    },
-                    {
-                      "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "(@rank.levels.divine)",
-                          "type": "round"
-                        },
-                        "changes": [
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.attack.value",
-                            "value": "-1"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.damage.value",
-                            "value": "-1"
-                          },
-                          {
-                            "key": "aura.system.mods.saves.all",
-                            "mode": 0,
-                            "value": "{\"formula\":\"-1\",\"properties\":\"\"}"
-                          },
-                          {
-                            "mode": 0,
-                            "key": "special.aura",
-                            "value": "{\"distance\": 60, \"color\": \"purple\", \"faction\": \"enemy\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"}"
-                          }
-                        ],
-                        "toolTip": "(aura.system.mods.attack.value/-1), (aura.system.mods.damage.value/-1), (aura.system.mods.saves.all/{\"formula\":\"-1\",\"properties\":\"\"}), (special.aura/{\"distance\": 60, \"color\": \"purple\", \"faction\": \"enemy\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"})"
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "kkqQCFyFBHDIaUig",
-                      "index": 5,
-                      "name": "Prayer (Aura Version - Player Cast)",
-                      "parentuuid": "Item.5t4X6aNoWTtc992S",
-                      "misc": "Enemy Prayer Debuffs - Duration (E)"
-                    },
-                    {
-                      "img": "icons/svg/d20-highlight.svg",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "(@rank.levels.divine)",
-                          "type": "round"
-                        },
-                        "changes": [
-                          {
-                            "key": "system.mods.attack.value",
-                            "value": "1",
-                            "mode": 2
-                          },
-                          {
-                            "key": "system.mods.damage.value",
-                            "value": "1",
-                            "mode": 2
-                          },
-                          {
-                            "key": "system.mods.saves.all",
-                            "mode": 0,
-                            "value": "{\"formula\":\"1\",\"properties\":\"\"}"
-                          }
-                        ],
-                        "toolTip": "(system.mods.attack.value/1), (system.mods.damage.value/1), (system.mods.saves.all/{\"formula\":\"1\",\"properties\":\"\"})"
-                      },
-                      "speed": null,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "ufl12hbgafbxjupu",
-                      "index": 6,
-                      "name": "Prayer",
-                      "misc": "Allied Prayer Buffs - Duration (F)",
-                      "description": "",
-                      "changes": {
-                        "0": {
-                          "key": "system.mods.attack.value"
-                        },
-                        "1": {
-                          "key": "system.mods.damage.value"
-                        },
-                        "2": {
-                          "key": "system.mods.saves.all"
-                        }
-                      },
-                      "parentuuid": "Item.5t4X6aNoWTtc992S"
-                    },
-                    {
-                      "img": "icons/magic/unholy/hand-light-green.webp",
-                      "ability": "none",
-                      "type": "cast",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "round"
-                        },
-                        "changes": [],
-                        "toolTip": ""
-                      },
-                      "speed": 6,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [
-                        "Prayer",
-                        "Conjuration Summoning",
-                        "De/Buff",
-                        "Level 3"
-                      ],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "castShapeLength": {
-                        "formula": ""
-                      },
-                      "castShapeWidth": {
-                        "formula": ""
-                      },
-                      "castShapeRadius": {
-                        "formula": ""
-                      },
-                      "castShapeAngle": {
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "xRx70qN0NGdhPuhb",
-                      "index": 7,
-                      "name": "Prayer (Aura Version - Enemy of Players Cast)",
-                      "parentuuid": "Item.5t4X6aNoWTtc992S",
-                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n<li>Target <strong>the caster</strong> and click the <img src=\"icons/magic/light/explosion-star-glow-silhouette.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Allied Prayer Buffs - Indefinite (F)\"</strong>&nbsp;action</li>\n<li>Target <strong>the caster</strong> and click the <img src=\"icons/magic/light/explosion-star-glow-silhouette.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Enemy Prayer Debuffs - Indefinite (E)\"</strong> action</li>\n</ul>"
-                    },
-                    {
-                      "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "(@rank.levels.divine)",
-                          "type": "round"
-                        },
-                        "changes": [
-                          {
-                            "mode": 0,
-                            "key": "special.aura",
-                            "value": "{\"distance\": 60, \"color\": \"purple\", \"faction\": \"enemy\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"}"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.attack.value",
-                            "value": "1"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.damage.value",
-                            "value": "1"
-                          },
-                          {
-                            "key": "aura.system.mods.saves.all",
-                            "mode": 0,
-                            "value": "{\"formula\":\"1\",\"properties\":\"\"}"
-                          }
-                        ],
-                        "toolTip": "(special.aura/{\"distance\": 60, \"color\": \"purple\", \"faction\": \"enemy\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"}), (aura.system.mods.attack.value/1), (aura.system.mods.damage.value/1), (aura.system.mods.saves.all/{\"formula\":\"1\",\"properties\":\"\"})"
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "castShapeLength": {
-                        "formula": ""
-                      },
-                      "castShapeWidth": {
-                        "formula": ""
-                      },
-                      "castShapeRadius": {
-                        "formula": ""
-                      },
-                      "castShapeAngle": {
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "mgV8s3eQY8bl5Qs1",
-                      "index": 8,
-                      "name": "Prayer (Aura Version - Enemy of Players Cast)",
-                      "parentuuid": "Item.5t4X6aNoWTtc992S",
-                      "misc": "Allied Prayer Buffs - Duration (F)"
-                    },
-                    {
-                      "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "(@rank.levels.divine)",
-                          "type": "round"
-                        },
-                        "changes": [
-                          {
-                            "mode": 0,
-                            "key": "special.aura",
-                            "value": "{\"distance\": 60, \"color\": \"purple\", \"faction\": \"friendly\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"}"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.attack.value",
-                            "value": "-1"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.damage.value",
-                            "value": "-1"
-                          },
-                          {
-                            "key": "aura.system.mods.saves.all",
-                            "mode": 0,
-                            "value": "{\"formula\":\"-1\",\"properties\":\"\"}"
-                          }
-                        ],
-                        "toolTip": "(special.aura/{\"distance\": 60, \"color\": \"purple\", \"faction\": \"friendly\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"}), (aura.system.mods.attack.value/-1), (aura.system.mods.damage.value/-1), (aura.system.mods.saves.all/{\"formula\":\"-1\",\"properties\":\"\"})"
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "castShapeLength": {
-                        "formula": ""
-                      },
-                      "castShapeWidth": {
-                        "formula": ""
-                      },
-                      "castShapeRadius": {
-                        "formula": ""
-                      },
-                      "castShapeAngle": {
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "KuSKXTxUqOULSi4C",
-                      "index": 9,
-                      "name": "Prayer (Aura Version - Enemy of Players Cast)",
-                      "parentuuid": "Item.5t4X6aNoWTtc992S",
-                      "misc": "Enemy Prayer Debuffs - Duration (E)"
-                    },
-                    {
-                      "img": "icons/svg/d20-black.svg",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "(@rank.levels.divine)",
-                          "type": "round"
-                        },
-                        "changes": [
-                          {
-                            "key": "system.mods.attack.value",
-                            "value": "-1",
-                            "mode": 2
-                          },
-                          {
-                            "key": "system.mods.damage.value",
-                            "value": "-1",
-                            "mode": 2
-                          },
-                          {
-                            "key": "system.mods.saves.all",
-                            "mode": 0,
-                            "value": "{\"formula\":\"-1\",\"properties\":\"\"}"
-                          }
-                        ],
-                        "toolTip": "(system.mods.attack.value/-1), (system.mods.damage.value/-1), (system.mods.saves.all/{\"formula\":\"-1\",\"properties\":\"\"})"
-                      },
-                      "speed": null,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "xkix58gtvuij613j",
-                      "index": 10,
-                      "name": "Prayer",
-                      "misc": "Enemy Prayer Debuffs - Duration (E)",
-                      "description": "",
-                      "changes": {
-                        "0": {
-                          "key": "system.mods.attack.value"
-                        },
-                        "1": {
-                          "key": "system.mods.damage.value"
-                        },
-                        "2": {
-                          "key": "system.mods.saves.all"
-                        }
-                      },
-                      "parentuuid": "Item.5t4X6aNoWTtc992S"
+                      "parentuuid": "Item.XHhl01uaf8Ni3zBi"
                     }
                   ],
                   "quantity": 0,
@@ -5808,28 +5075,28 @@
                   "type": "Divine",
                   "level": 3,
                   "learned": false,
-                  "school": "Conjuration, Summoning",
-                  "sphere": "Clerical, Shaman",
-                  "range": "Caster",
+                  "school": "Transmutation, Alteration",
+                  "sphere": "Clerical",
+                  "range": "10 ft",
                   "components": {
                     "verbal": true,
                     "somatic": true,
-                    "material": true
+                    "material": false
                   },
-                  "durationText": "1 round/level",
-                  "castingTime": "6",
-                  "areaOfEffect": "60 ft radius",
+                  "durationText": "Instantaneous (permanent)",
+                  "castingTime": "1 turn",
+                  "areaOfEffect": "A day's ration per caster level",
                   "save": "None",
                   "actionGroups": [
                     {
-                      "id": "8UnNNEr3Ma74wCii",
-                      "name": "Prayer",
-                      "img": "icons/magic/control/buff-luck-fortune-gold.webp",
-                      "description": "<p><em>[Foundry Note: although Prayer's description neglects to mention the caster's enemies, they're also affected (with penalties) as discussed in the referenced Chant spell.</em></p>\n<p><em>two aura versions of this spell are provided (one where the benefits are provided to players and allies, and another casting for enemy actors which reverses the buff/debuff fields). The player aura version is recommended as the mechanical changes are automatically transmitted to all combatants in the caster-centered AOE via the aura. The caster need only self-apply both buff/debuff spell actions.</em></p>\n<p><em>A legacy non-aura version is also provided if auras aren't preferred.&nbsp; As \"friendlies\" and \"enemies\" is always from the POV of the players (only), enemy casters should apply the buff when targeting \"hostiles\" and debuff when targeting \"friendlies\". </em><em>- Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>General</h2>\n<p>Casting prayer is a matter of intoning an invocation to the cleric's god(s), following which <strong>any of the cleric's allies who were in the spell's area of effect</strong>&nbsp;will gain, for the duration of the spell, the same benefits as if they were affected by an ongoing <span style=\"text-decoration: underline;\"><em>Chant</em></span> spell.</p>\n<p>Note that the cleric is able to move and take other actions while the <em>Prayer</em> spell is in effect, which is not the case with the more restricted <em>Chant</em> spell.</p>\n<p>&nbsp;</p>\n<h2>Combat/Damage</h2>\n<p><em><span style=\"text-decoration: underline;\">REFERENCED TEXT</span>:</em>&nbsp;</p>\n<p>...his or her allies (within the area of effect) gain a bonus of +1 to all <strong>attack rolls, damage rolls, and saving throws</strong>.</p>\n<p>Enemies within the spell's area of effect also suffer a -1 to all such die rolls.</p>",
+                      "id": "kuN9n6yZT9WVP4td",
+                      "name": "Create Food and Water",
+                      "img": "icons/magic/nature/cornucopia-orange.webp",
+                      "description": "<h2>General</h2>\n<p>Upon completion of the ritual words of this spell, food and/or water will appear from thin air. A caster of fifth level can conjure up enough food and water to sustain a person or even a horse for five full days.</p>\n<p>The volume of food and water produced by the spell is <strong>approximately one cubic ft per level</strong> of the caster.</p>",
                       "actions": [
                         {
                           "sort": 0,
-                          "name": "Prayer",
+                          "name": "Create Food and Water",
                           "img": "icons/magic/unholy/hand-light-green.webp",
                           "castShape": {
                             "shape": {
@@ -5876,7 +5143,7 @@
                             "toolTip": ""
                           },
                           "itemList": [],
-                          "speed": 6,
+                          "speed": 99,
                           "damagetype": "slashing",
                           "dmonlytext": "",
                           "resource": {
@@ -5891,11 +5158,10 @@
                             }
                           },
                           "magicpotency": 0,
-                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done).</li>\n</ul>\n<ul>\n<li><strong>(Optional)</strong>&nbsp;Use the&nbsp;<img src=\"icons/magic/symbols/triangle-glowing-green.webp\" alt=\"Castshape Action\" width=\"24\" height=\"24\">&nbsp;<strong>castshape</strong>&nbsp;action to visualize the area of effect (you can delete AOE templates if the Templates menu is active)</li>\n</ul>\n<ul>\n<li>Target&nbsp;<strong>friendly actors</strong> in the AOE&nbsp;and click the <img src=\"icons/svg/d20-highlight.svg\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Allied Prayer Buffs - Indefinite (F)\"</strong>&nbsp;action</li>\n<li>Target&nbsp;<strong>enemy actors</strong> in the AOE and click the <img src=\"icons/svg/d20-black.svg\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Enemy Prayer Buffs - Indefinite (E)\"</strong>&nbsp;action</li>\n</ul>",
+                          "misc": "",
                           "properties": [
-                            "Prayer",
-                            "Conjuration Summoning",
-                            "De/Buff",
+                            "Create Food and Water",
+                            "Transmutation Alteration",
                             "Level 3"
                           ],
                           "saveCheck": {
@@ -5907,647 +5173,12 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Item.5t4X6aNoWTtc992S",
-                          "id": "p6oa78c2bamgugma",
-                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
-                        },
-                        {
-                          "sort": 1,
-                          "name": "Prayer",
-                          "img": "icons/magic/symbols/triangle-glowing-green.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {},
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": "60"
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {},
-                              "length": {},
-                              "width": {},
-                              "inRangeColor": "#696df2",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "castshape",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "",
-                              "type": "round"
-                            },
-                            "changes": [],
-                            "toolTip": ""
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Friendly AOE",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.5t4X6aNoWTtc992S",
-                          "id": "B1d2bGwndcyJ7hEp",
-                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
-                        },
-                        {
-                          "sort": 2,
-                          "name": "Prayer",
-                          "img": "icons/magic/symbols/triangle-glowing-green.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {},
-                            "selection": {
-                              "type": "hostile"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": "60"
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {},
-                              "length": {},
-                              "width": {},
-                              "inRangeColor": "#696df2",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "castshape",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "",
-                              "type": "round"
-                            },
-                            "changes": [],
-                            "toolTip": ""
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Hostile AOE",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.5t4X6aNoWTtc992S",
-                          "id": "PugvHF9X5B2eR7NX",
-                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
-                        },
-                        {
-                          "sort": 3,
-                          "name": "Prayer",
-                          "img": "icons/svg/d20-highlight.svg",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "effect",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "(@rank.levels.divine)",
-                              "type": "round"
-                            },
-                            "changes": [
-                              {
-                                "key": "system.mods.attack.value",
-                                "value": "1",
-                                "mode": 2
-                              },
-                              {
-                                "key": "system.mods.damage.value",
-                                "value": "1",
-                                "mode": 2
-                              },
-                              {
-                                "key": "system.mods.saves.all",
-                                "mode": 0,
-                                "value": "{\"formula\":\"1\",\"properties\":\"\"}"
-                              }
-                            ],
-                            "toolTip": "(system.mods.attack.value/1), (system.mods.damage.value/1), (system.mods.saves.all/{\"formula\":\"1\",\"properties\":\"\"})"
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Allied Prayer Buffs - Duration (F)",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.5t4X6aNoWTtc992S",
-                          "id": "ufl12hbgafbxjupu",
-                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
-                        },
-                        {
-                          "sort": 4,
-                          "name": "Prayer",
-                          "img": "icons/svg/d20-black.svg",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "effect",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "(@rank.levels.divine)",
-                              "type": "round"
-                            },
-                            "changes": [
-                              {
-                                "key": "system.mods.attack.value",
-                                "value": "-1",
-                                "mode": 2
-                              },
-                              {
-                                "key": "system.mods.damage.value",
-                                "value": "-1",
-                                "mode": 2
-                              },
-                              {
-                                "key": "system.mods.saves.all",
-                                "mode": 0,
-                                "value": "{\"formula\":\"-1\",\"properties\":\"\"}"
-                              }
-                            ],
-                            "toolTip": "(system.mods.attack.value/-1), (system.mods.damage.value/-1), (system.mods.saves.all/{\"formula\":\"-1\",\"properties\":\"\"})"
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Enemy Prayer Debuffs - Duration (E)",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.5t4X6aNoWTtc992S",
-                          "id": "xkix58gtvuij613j",
-                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
+                          "parentuuid": "Item.XHhl01uaf8Ni3zBi",
+                          "id": "1yco86dlhnwxqtre",
+                          "sourceuuid": "Item.XHhl01uaf8Ni3zBi"
                         }
                       ],
-                      "sourceuuid": "Item.5t4X6aNoWTtc992S"
-                    },
-                    {
-                      "id": "CgEBtnjDGDXOFld6",
-                      "name": "Prayer: Prayer (Aura Version)",
-                      "img": "icons/magic/control/buff-luck-fortune-gold.webp",
-                      "description": "<p><em>[Foundry Note: although Prayer's description neglects to mention the caster's enemies, they're also affected (with penalties) as discussed in the referenced Chant spell.</em></p>\n<p><em>two aura versions of this spell are provided (one where the benefits are provided to players and allies, and another casting for enemy actors which reverses the buff/debuff fields). The player aura version is recommended as the mechanical changes are automatically transmitted to all combatants in the caster-centered AOE via the aura. The caster need only self-apply both buff/debuff spell actions.</em></p>\n<p><em>A legacy non-aura version is also provided if auras aren't preferred.&nbsp; As \"friendlies\" and \"enemies\" is always from the POV of the players (only), enemy casters should apply the buff when targeting \"hostiles\" and debuff when targeting \"friendlies\". </em><em>- Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>General</h2>\n<p>Casting prayer is a matter of intoning an invocation to the cleric's god(s), following which <strong>any of the cleric's allies who were in the spell's area of effect</strong>&nbsp;will gain, for the duration of the spell, the same benefits as if they were affected by an ongoing <span style=\"text-decoration: underline;\"><em>Chant</em></span> spell.</p>\n<p>Note that the cleric is able to move and take other actions while the <em>Prayer</em> spell is in effect, which is not the case with the more restricted <em>Chant</em> spell.</p>\n<p>&nbsp;</p>\n<h2>Combat/Damage</h2>\n<p><em><span style=\"text-decoration: underline;\">REFERENCED TEXT</span>:</em>&nbsp;</p>\n<p>...his or her allies (within the area of effect) gain a bonus of +1 to all <strong>attack rolls, damage rolls, and saving throws</strong>.</p>\n<p>Enemies within the spell's area of effect also suffer a -1 to all such die rolls.</p>",
-                      "actions": [
-                        {
-                          "sort": 0,
-                          "name": "Prayer (Aura Version)",
-                          "img": "icons/magic/unholy/hand-light-green.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "cast",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "",
-                              "type": "round"
-                            },
-                            "changes": [],
-                            "toolTip": ""
-                          },
-                          "itemList": [],
-                          "speed": 6,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n<li>Target <strong>the caster</strong> and click the <img src=\"icons/magic/light/explosion-star-glow-silhouette.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Allied Prayer Buffs - Indefinite (F)\"</strong>&nbsp;action</li>\n<li>Target <strong>the caster</strong> and click the <img src=\"icons/magic/light/explosion-star-glow-silhouette.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Enemy Prayer Debuffs - Indefinite (E)\"</strong> action</li>\n</ul>",
-                          "properties": [
-                            "Prayer",
-                            "Conjuration Summoning",
-                            "De/Buff",
-                            "Level 3"
-                          ],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.5t4X6aNoWTtc992S",
-                          "id": "2htotZghuZd15oZq",
-                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
-                        },
-                        {
-                          "sort": 1,
-                          "name": "Prayer (Aura Version)",
-                          "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "effect",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "(@rank.levels.divine)",
-                              "type": "round"
-                            },
-                            "changes": [
-                              {
-                                "mode": 2,
-                                "key": "aura.system.mods.attack.value",
-                                "value": "1"
-                              },
-                              {
-                                "mode": 2,
-                                "key": "aura.system.mods.damage.value",
-                                "value": "1"
-                              },
-                              {
-                                "key": "aura.system.mods.saves.all",
-                                "mode": 0,
-                                "value": "{\"formula\":\"1\",\"properties\":\"\"}"
-                              },
-                              {
-                                "mode": 0,
-                                "key": "special.aura",
-                                "value": "{\"distance\":60,\"color\":\"purple\",\"faction\":\"friendly\",\"permission\":\"owner\",\"opacity\":\"0.10\",\"shape\":\"round\"}"
-                              },
-                              {
-                                "key": "special.status",
-                                "mode": 0,
-                                "value": "level 3"
-                              }
-                            ],
-                            "toolTip": "(aura.system.mods.attack.value/1), (aura.system.mods.damage.value/1), (aura.system.mods.saves.all/{\"formula\":\"1\",\"properties\":\"\"}), (special.aura/{\"distance\": 60, \"color\": \"purple\", \"faction\": \"friendly\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"})"
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Allied Prayer Buffs - Duration (F)",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.5t4X6aNoWTtc992S",
-                          "id": "wvSlUDfsDFfNdM1G",
-                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
-                        },
-                        {
-                          "sort": 2,
-                          "name": "Prayer (Aura Version)",
-                          "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "effect",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "(@rank.levels.divine)",
-                              "type": "round"
-                            },
-                            "changes": [
-                              {
-                                "mode": 2,
-                                "key": "aura.system.mods.attack.value",
-                                "value": "-1"
-                              },
-                              {
-                                "mode": 2,
-                                "key": "aura.system.mods.damage.value",
-                                "value": "-1"
-                              },
-                              {
-                                "key": "aura.system.mods.saves.all",
-                                "mode": 0,
-                                "value": "{\"formula\":\"-1\",\"properties\":\"\"}"
-                              },
-                              {
-                                "mode": 0,
-                                "key": "special.aura",
-                                "value": "{\"distance\":60,\"color\":\"purple\",\"faction\":\"enemy\",\"permission\":\"owner\",\"opacity\":\"0.10\",\"shape\":\"round\"}"
-                              },
-                              {
-                                "key": "special.status",
-                                "mode": 0,
-                                "value": "level 3"
-                              }
-                            ],
-                            "toolTip": "(aura.system.mods.attack.value/-1), (aura.system.mods.damage.value/-1), (aura.system.mods.saves.all/{\"formula\":\"-1\",\"properties\":\"\"}), (special.aura/{\"distance\": 60, \"color\": \"purple\", \"faction\": \"enemy\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"})"
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Enemy Prayer Debuffs - Duration (E)",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.5t4X6aNoWTtc992S",
-                          "id": "kkqQCFyFBHDIaUig",
-                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
-                        }
-                      ],
-                      "sourceuuid": "Item.5t4X6aNoWTtc992S"
+                      "sourceuuid": "Item.XHhl01uaf8Ni3zBi"
                     }
                   ],
                   "migrate": false,
@@ -6565,7 +5196,7 @@
                   "Nf3ofNhweHQ31QEU": 3
                 },
                 "_stats": {
-                  "compendiumSource": "Compendium.world.osric-pc-item.5t4X6aNoWTtc992S",
+                  "compendiumSource": "Compendium.world.osric-pc-item.XHhl01uaf8Ni3zBi",
                   "duplicateSource": null,
                   "coreVersion": "12.331",
                   "systemId": "ars",
@@ -16832,131 +15463,11 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "12.331",
+        "coreVersion": "12.343",
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741736550891,
-        "modifiedTime": 1742244080238,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
-      }
-    },
-    {
-      "_id": "0000000000vh2wfj",
-      "img": "icons/svg/aura.svg",
-      "origin": "Actor.HEMIAxBrkxDbMaKf",
-      "duration": {
-        "startTime": 95342482,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "transfer": false,
-      "changes": [
-        {
-          "key": "attacker.alignment",
-          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "attacker.alignment",
-          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "attacker.type",
-          "value": "{\"trigger\": \"pfe\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "statuses": [],
-      "system": {
-        "aura": {
-          "originUuid": "Actor.HEMIAxBrkxDbMaKf",
-          "effectUuid": "Actor.HEMIAxBrkxDbMaKf.Item.wW2UCMaRDemhvtWB.ActiveEffect.Kh0cYzTA0CUY8Nxe",
-          "isAura": true
-        }
-      },
-      "name": "Within AURA:Protection From Evil 10 ft",
-      "type": "base",
-      "disabled": false,
-      "description": "",
-      "tint": "#ffffff",
-      "sort": 0,
-      "flags": {},
-      "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "coreVersion": "12.343",
-        "systemId": "ars",
-        "systemVersion": "2025.04.20",
-        "createdTime": 1746899356177,
-        "modifiedTime": 1746899356177,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
-      }
-    },
-    {
-      "_id": "000000000080zbjm",
-      "img": "icons/svg/aura.svg",
-      "origin": "Actor.uhA2f7Tj1MSHkT4H",
-      "duration": {
-        "startTime": 95342482,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "transfer": false,
-      "changes": [
-        {
-          "key": "attacker.alignment",
-          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "attacker.alignment",
-          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "attacker.type",
-          "value": "{\"trigger\": \"ghoul\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "statuses": [],
-      "system": {
-        "aura": {
-          "originUuid": "Actor.uhA2f7Tj1MSHkT4H",
-          "effectUuid": "Actor.uhA2f7Tj1MSHkT4H.Item.Ow9Gf0U2XHTzIscp.ActiveEffect.Kh0cYzTA0CUY8Nxe",
-          "isAura": true
-        }
-      },
-      "name": "Within AURA:Protection From Evil 10 ft",
-      "type": "base",
-      "disabled": false,
-      "description": "",
-      "tint": "#ffffff",
-      "sort": 0,
-      "flags": {},
-      "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "coreVersion": "12.343",
-        "systemId": "ars",
-        "systemVersion": "2025.04.20",
-        "createdTime": 1746899412702,
-        "modifiedTime": 1746899412702,
+        "modifiedTime": 1747486471829,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
     }
@@ -17082,7 +15593,47 @@
       "languageToggleState": "visible"
     },
     "ars-battlesystem-tab": {
-      "_activeTab": "spells"
+      "_activeTab": "spells",
+      "heroArmyName": [
+        "",
+        ""
+      ],
+      "heroPlayerName": [
+        "",
+        ""
+      ],
+      "unitBrigade": [
+        "",
+        ""
+      ],
+      "heroName": "Ousseawin",
+      "heroClassLevel": " ",
+      "strength": "17",
+      "intelligence": "14",
+      "wisdom": "15",
+      "dexterity": "7",
+      "constitution": "11",
+      "charisma": "13",
+      "heroMagicResistance": "",
+      "heroAC": 10,
+      "heroRace": "Half Elf",
+      "ppd": "9",
+      "pp": "12",
+      "rsw": "13",
+      "bw": "15",
+      "sp": "14",
+      "heroHD": "1",
+      "heroWeaponDamage": "",
+      "heroHP": "33/33",
+      "heroMV": "90",
+      "thaco": "18",
+      "heroAttackModifiers": "",
+      "heroSpecialAbilities": "",
+      "unitName": "Ousseawin",
+      "unitType": "individual",
+      "unitAC": 10,
+      "numFigures": 1,
+      "commander": ""
     },
     "exportSource": {
       "world": "greyhawk-wars",
@@ -17092,11 +15643,11 @@
     }
   },
   "_stats": {
-    "coreVersion": "12.331",
+    "coreVersion": "12.343",
     "systemId": "ars",
     "systemVersion": "2025.04.20",
     "createdTime": 1727308158282,
-    "modifiedTime": 1746585731176,
-    "lastModifiedBy": "ADGYZlaqUtxA8QxS"
+    "modifiedTime": 1747486560447,
+    "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
   }
 }
