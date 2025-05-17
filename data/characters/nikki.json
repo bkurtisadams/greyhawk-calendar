@@ -7120,6 +7120,180 @@
         "modifiedTime": 1742948310018,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
+    },
+    {
+      "_id": "luMfwgLJ394ADALY",
+      "name": "Sword, Long +1",
+      "type": "weapon",
+      "img": "icons/weapons/swords/sword-guard-engraved-worn.webp",
+      "effects": [
+        {
+          "origin": "Item.EX8rQvXw9kF3soVT",
+          "duration": {
+            "startTime": 83336054,
+            "seconds": null,
+            "combat": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "disabled": true,
+          "_id": "jaR2KxExZuCEYHog",
+          "changes": [
+            {
+              "key": "special.light",
+              "mode": 0,
+              "value": "{\"color\":\"#c8f0ff\",\"dim\":20,\"bright\":20,\"angle\":360,\"animation\":\"none\", \"alpha\": 0.2, \"luminosity\": 0.3}",
+              "priority": null
+            }
+          ],
+          "tint": "#ffffff",
+          "transfer": true,
+          "flags": {},
+          "description": "",
+          "statuses": [],
+          "name": "Light 20 ft radius",
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "coreVersion": "12.331",
+            "systemId": "ars",
+            "systemVersion": "2025.04.20",
+            "createdTime": null,
+            "modifiedTime": null,
+            "lastModifiedBy": null
+          },
+          "img": "icons/svg/light.svg",
+          "type": "base",
+          "system": {},
+          "sort": 0
+        }
+      ],
+      "folder": "rHKoLzCmUK4zDZ8A",
+      "sort": 2975000,
+      "flags": {
+        "scene-packer": {
+          "hash": "46b6946edb509d9ab5d2fe79887ef2388695bed6"
+        },
+        "core": {
+          "sourceId": "Compendium.world.osric-gm-item.EX8rQvXw9kF3soVT"
+        },
+        "LocknKey": {
+          "IDKeysFlag": "",
+          "RemoveKeyonUseFlag": false,
+          "LPFormulaFlag": "",
+          "LPFormulaOverrideFlag": false,
+          "LBFormulaFlag": "",
+          "LBFormulaOverrideFlag": false,
+          "CCFormulaFlag": "",
+          "CCFormulaOverrideFlag": false,
+          "ReplacementItemFlag": ""
+        }
+      },
+      "system": {
+        "description": "<h2>Allowed Classes</h2>\n<p>AFPRT</p>",
+        "dmonlytext": "<p>GPV: 2,000gp</p>",
+        "itemList": [],
+        "alias": "Sword, Long",
+        "attributes": {
+          "rarity": "Rare",
+          "type": "",
+          "subtype": "",
+          "magic": true,
+          "properties": [],
+          "skillmods": [],
+          "conditionals": [],
+          "identified": true,
+          "infiniteammo": false,
+          "size": "medium",
+          "material": "metal"
+        },
+        "charges": {
+          "value": 0,
+          "min": 0,
+          "max": 0,
+          "reuse": "none"
+        },
+        "location": {
+          "state": "equipped",
+          "parent": ""
+        },
+        "resource": {
+          "itemId": ""
+        },
+        "actions": [],
+        "quantity": 1,
+        "weight": 6,
+        "cost": {
+          "value": 2000,
+          "currency": "gp"
+        },
+        "source": "",
+        "xp": 200,
+        "audio": {
+          "file": "",
+          "volume": 0.5,
+          "effect": "",
+          "success": "",
+          "failure": ""
+        },
+        "attack": {
+          "speed": 0,
+          "type": "melee",
+          "perRound": "1/1",
+          "modifier": 0,
+          "magicBonus": 1,
+          "magicPotency": 1,
+          "range": {
+            "short": "",
+            "medium": "",
+            "long": ""
+          },
+          "primary": false,
+          "speedmod": ""
+        },
+        "damage": {
+          "type": "slashing",
+          "normal": "1d8",
+          "large": "1d12",
+          "otherdmg": [],
+          "modifier": 0,
+          "magicBonus": 1
+        },
+        "weaponstyle": "sword, long",
+        "migrate": false,
+        "actionGroups": [],
+        "onHit": {
+          "script": ""
+        },
+        "onMiss": {
+          "script": ""
+        },
+        "sourceUuid": "Actor.tlSJ5WGXEhxJoPQf.Item.stQNWLHFoy12Xx0a",
+        "rank": {
+          "levels": {
+            "max": 1,
+            "arcane": 1,
+            "divine": 1
+          }
+        }
+      },
+      "ownership": {
+        "default": 0,
+        "PXJxlGCNBzbPFTjR": 3,
+        "TvWo5oQ0sPDIdJsd": 3
+      },
+      "_stats": {
+        "compendiumSource": "Item.f46CSRxQmo9Go0gv",
+        "duplicateSource": null,
+        "coreVersion": "12.331",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746574693018,
+        "modifiedTime": 1746574693098,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
     }
   ],
   "effects": [
@@ -7128,7 +7302,7 @@
       "img": "icons/svg/aura.svg",
       "origin": "Actor.HEMIAxBrkxDbMaKf",
       "duration": {
-        "startTime": 83356497,
+        "startTime": 95342482,
         "seconds": null,
         "combat": null,
         "rounds": null,
@@ -7175,11 +7349,125 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "12.331",
+        "coreVersion": "12.343",
         "systemId": "ars",
-        "systemVersion": "2025.03.10",
-        "createdTime": 1744163748209,
-        "modifiedTime": 1745437491329,
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746467857363,
+        "modifiedTime": 1746899355796,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
+    },
+    {
+      "_id": "000000000080zbjm",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.uhA2f7Tj1MSHkT4H",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.type",
+          "value": "{\"trigger\": \"ghoul\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.uhA2f7Tj1MSHkT4H",
+          "effectUuid": "Actor.uhA2f7Tj1MSHkT4H.Item.Ow9Gf0U2XHTzIscp.ActiveEffect.Kh0cYzTA0CUY8Nxe",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:Protection From Evil 10 ft",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746587128418,
+        "modifiedTime": 1746898961548,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
+    },
+    {
+      "_id": "0000000000c4twbb",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.UMPjO8EN4ztOgc9V",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "system.mods.ac.value",
+          "value": "0",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.mods.saves.all",
+          "value": "{\"formula\":\"1\",\"properties\":\"\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.UMPjO8EN4ztOgc9V",
+          "effectUuid": "Actor.UMPjO8EN4ztOgc9V.Item.Lz4CJ17MkpWSTrK6.ActiveEffect.ArEHCdxBrogpSHkE",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:5 ft Protection Aura",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899555528,
+        "modifiedTime": 1746899555528,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
     }
@@ -7231,19 +7519,22 @@
     "world": {
       "henchman": true
     },
+    "ars-battlesystem-tab": {
+      "_activeTab": "nwp"
+    },
     "exportSource": {
       "world": "greyhawk-wars",
       "system": "ars",
-      "coreVersion": "12.331",
-      "systemVersion": "2025.04.10"
+      "coreVersion": "12.343",
+      "systemVersion": "2025.04.20"
     }
   },
   "_stats": {
-    "coreVersion": "12.331",
+    "coreVersion": "12.343",
     "systemId": "ars",
-    "systemVersion": "2025.04.10",
+    "systemVersion": "2025.04.20",
     "createdTime": 1734566304448,
-    "modifiedTime": 1745423055554,
+    "modifiedTime": 1746895398830,
     "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
   }
 }

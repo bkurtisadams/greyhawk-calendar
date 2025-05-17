@@ -2368,864 +2368,12 @@
           },
           "2": {
             "0": {
-              "name": "Spiritual Weapon",
-              "level": "2",
-              "img": "icons/weapons/hammers/hammer-double-glowing-yellow.webp",
-              "cast": false,
-              "id": "EgbkpSNrpzsKT9z5",
-              "uuid": "Compendium.world.osric-items-pc-copy.Item.EgbkpSNrpzsKT9z5",
-              "owned": false,
-              "spellItem": {
-                "_id": "EgbkpSNrpzsKT9z5",
-                "name": "Spiritual Weapon",
-                "type": "spell",
-                "img": "icons/weapons/hammers/hammer-double-glowing-yellow.webp",
-                "effects": [],
-                "folder": "UI3jvQEaJfYDFoHG",
-                "sort": 1200000,
-                "flags": {
-                  "scene-packer": {
-                    "hash": "9bd48863a7052a7ac595fe4fc0f26fca37140dbc",
-                    "sourceId": "Item.EgbkpSNrpzsKT9z5"
-                  },
-                  "core": {
-                    "sourceId": "Compendium.world.osric-pc-item.EgbkpSNrpzsKT9z5"
-                  },
-                  "cf": null,
-                  "osric": {
-                    "actions": {
-                      "Spiritual Weapon": {
-                        "display": {
-                          "collapsedState": "none"
-                        }
-                      }
-                    }
-                  },
-                  "ars": {
-                    "actions": {
-                      "Spiritual Weapon": {
-                        "display": {
-                          "collapsedState": "none"
-                        }
-                      },
-                      "IbaWQgoqku0DtaHh": {
-                        "display": {
-                          "collapsedState": "none"
-                        }
-                      }
-                    }
-                  }
-                },
-                "system": {
-                  "description": "<p><em>[Foundry Note: there are five spell NPCs with the name \"spiritual weapon\" and noted as +1 through +5 respectively, although these are not \"combat plusses\" as the spell below details.&nbsp; </em></p>\n<p><em>When a cleric casts the spell, place the spell NPC on the board; the GM will need to move the NPC and roll dice for it.&nbsp;</em></p>\n<p><em>As the NPC attacks with whatever bonuses the cleric has - Strength or Dexterity, or whatever other bonuses as may be applicable - the spell NPC 's \"stats\" should be modified in these respects to match the cleric.&nbsp; </em></p>\n<p><em>Or perhaps bonuses can be added to the Spell NPC's \"weapon\" if the cleric has unusual bonuses not tied to attributes (such as a misc. magic item granting a bonus to all melee or thrown attacks, etc.) - Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>General</h2>\n<p>To cast this spell, the cleric throws a real war hammer into the air, invoking the power of his or her god(s). The real hammer disappears, replaced with a mist-like shape of divine force that attacks at the cleric's will.</p>\n<p>&nbsp;</p>\n<h2>Saves and Other Impediments</h2>\n<p>The cleric must<em>&nbsp;</em>concentrate upon maintaining it (limited, of course, to the duration of the spell).</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p>The hammer strikes as a magical weapon for purposes of affecting creatures <strong>hit only by magic weapons </strong>as if it were a +1 weapon, with an additional +1 per three levels of the caster above 3rd level, but <strong>it has no intrinsic bonus on</strong> <strong>rolls</strong>, either<strong> </strong>to hit or damage.</p>\n<p>The spiritual weapon attacks as if it were wielded <strong>by the cleric</strong>, at the <strong>cleric's level</strong> and with any appropriate <strong>to hit and damage bonuses</strong> (or penalties) derived from the cleric, or other magic items which would modify a similar attack made by that cleric (i.e.,&nbsp; <em>Bracers of Mighty Throws</em>, if such existed).</p>\n<p>The weapon does base damage as a normal war hammer.</p>\n<p>&nbsp;</p>\n<p>@UUID[Compendium.osric-compendium.actor.Actor.AwkbVAnrbL07kwsP]{Spiritual Weapon +1}</p>\n<p>@UUID[Compendium.osric-compendium.actor.Actor.Y8eINGyEwjLA9u3q]{Spiritual Weapon +2}</p>\n<p>@UUID[Compendium.osric-compendium.actor.Actor.OCrruaFGZHu8CJZh]{Spiritual Weapon +3}</p>\n<p>@UUID[Compendium.osric-compendium.actor.Actor.50zIglWpNN1A5I9I]{Spiritual Weapon +4}</p>\n<p>@UUID[Compendium.osric-compendium.actor.Actor.GAwxHrJLRw7HFU2a]{Spiritual Weapon +5}</p>",
-                  "dmonlytext": "",
-                  "itemList": [],
-                  "alias": "",
-                  "attributes": {
-                    "rarity": "",
-                    "type": "",
-                    "subtype": "",
-                    "magic": false,
-                    "properties": [],
-                    "skillmods": [],
-                    "conditionals": [],
-                    "identified": true,
-                    "infiniteammo": false,
-                    "material": "leather_book",
-                    "size": "medium"
-                  },
-                  "charges": {
-                    "value": 0,
-                    "min": 0,
-                    "max": 0,
-                    "reuse": "none"
-                  },
-                  "location": {
-                    "state": "carried",
-                    "parent": ""
-                  },
-                  "resource": {
-                    "itemId": ""
-                  },
-                  "actions": [
-                    {
-                      "img": "icons/magic/unholy/hand-light-green.webp",
-                      "ability": "none",
-                      "type": "cast",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "round"
-                        },
-                        "changes": [],
-                        "toolTip": ""
-                      },
-                      "speed": 5,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "item",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [
-                        "Spiritual Weapon",
-                        "Invocation",
-                        "Damage",
-                        "Level 2"
-                      ],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "XWgu2Xu19oUalEN5",
-                      "index": 0,
-                      "name": "Spiritual Weapon",
-                      "parentuuid": "Item.EgbkpSNrpzsKT9z5",
-                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n</ul>\n<ul>\n<li>When summoned, add whichever spell NPC applies the level of the cleric casting the spell ( @UUID[Compendium.osric-compendium.actor.Actor.AwkbVAnrbL07kwsP]{Spiritual Weapon +1}, @UUID[Compendium.osric-compendium.actor.Actor.Y8eINGyEwjLA9u3q]{Spiritual Weapon +2}, @UUID[Compendium.osric-compendium.actor.Actor.OCrruaFGZHu8CJZh]{Spiritual Weapon +3}, @UUID[Compendium.osric-compendium.actor.Actor.50zIglWpNN1A5I9I]{Spiritual Weapon +4}, @UUID[Compendium.osric-compendium.actor.Actor.GAwxHrJLRw7HFU2a]{Spiritual Weapon +5} ) to the scene</li>\n</ul>\n<ul>\n<li>Add the <em style=\"font-family: var(--font-primary); font-size: var(--font-size-14);\">Spiritual Weapon&nbsp;</em>token to the combat tracker - this is necessary for the automatic token death to work</li>\n</ul>\n<ul>\n<li>Target&nbsp;the <em style=\"font-family: var(--font-primary); font-size: var(--font-size-14);\">Spiritual Weapon&nbsp;</em>token and then click on the <img src=\"icons/magic/time/clock-stopwatch-white-blue.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Spiritual Weapon - Duration Autokill\"</strong> effect</li>\n</ul>\n<ul>\n<li>The GM uses the token to make attacks as desired by the caster</li>\n</ul>"
-                    },
-                    {
-                      "img": "icons/magic/time/clock-stopwatch-white-blue.webp",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "round"
-                        },
-                        "changes": [
-                          {
-                            "mode": 0,
-                            "key": "special.ongoing",
-                            "value": "{\"type\":\"damage\", \"rate\":\"{{((@rank.levels.divine)+1)}}\", \"cycle\": \"round\", \"dmgType\": \"gas\", \"formula\": \"1000\"}"
-                          }
-                        ],
-                        "toolTip": "(special.ongoing/{\"type\":\"damage\", \"rate\":\"{{((@rank.levels.divine)+1)}}\", \"cycle\": \"round\", \"dmgType\": \"gas\", \"formula\": \"1000\"})"
-                      },
-                      "speed": null,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "m5g7qqzxn1htlyml",
-                      "index": 1,
-                      "name": "Spiritual Weapon",
-                      "misc": "Spiritual Weapon - Duration Autokill",
-                      "description": "",
-                      "parentuuid": "Item.EgbkpSNrpzsKT9z5"
-                    }
-                  ],
-                  "quantity": 0,
-                  "weight": 0,
-                  "cost": {
-                    "value": 0,
-                    "currency": "gp"
-                  },
-                  "source": "OSRIC",
-                  "xp": 0,
-                  "audio": {
-                    "file": "",
-                    "volume": 0.5,
-                    "effect": "",
-                    "success": "",
-                    "failure": ""
-                  },
-                  "type": "Divine",
-                  "level": 2,
-                  "learned": false,
-                  "school": "Invocation",
-                  "sphere": "Clerical",
-                  "range": "30 ft",
-                  "components": {
-                    "verbal": true,
-                    "somatic": true,
-                    "material": true
-                  },
-                  "durationText": "1 round/level",
-                  "castingTime": "5",
-                  "areaOfEffect": "Hammer-shaped divine force",
-                  "save": "None",
-                  "actionGroups": [
-                    {
-                      "id": "IbaWQgoqku0DtaHh",
-                      "name": "Spiritual Weapon",
-                      "img": "icons/weapons/hammers/hammer-double-glowing-yellow.webp",
-                      "description": "<p><em>[Foundry Note: there are five spell NPCs with the name \"spiritual weapon\" and noted as +1 through +5 respectively, although these are not \"combat plusses\" as the spell below details.&nbsp; </em></p>\n<p><em>When a cleric casts the spell, place the spell NPC on the board; the GM will need to move the NPC and roll dice for it.&nbsp;</em></p>\n<p><em>As the NPC attacks with whatever bonuses the cleric has - Strength or Dexterity, or whatever other bonuses as may be applicable - the spell NPC 's \"stats\" should be modified in these respects to match the cleric.&nbsp; </em></p>\n<p><em>Or perhaps bonuses can be added to the Spell NPC's \"weapon\" if the cleric has unusual bonuses not tied to attributes (such as a misc. magic item granting a bonus to all melee or thrown attacks, etc.) - Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>General</h2>\n<p>To cast this spell, the cleric throws a real war hammer into the air, invoking the power of his or her god(s). The real hammer disappears, replaced with a mist-like shape of divine force that attacks at the cleric's will.</p>\n<p>&nbsp;</p>\n<h2>Saves and Other Impediments</h2>\n<p>The cleric must<em>&nbsp;</em>concentrate upon maintaining it (limited, of course, to the duration of the spell).</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p>The hammer strikes as a magical weapon for purposes of affecting creatures <strong>hit only by magic weapons </strong>as if it were a +1 weapon, with an additional +1 per three levels of the caster above 3rd level, but <strong>it has no intrinsic bonus on</strong> <strong>rolls</strong>, either<strong> </strong>to hit or damage.</p>\n<p>The spiritual weapon attacks as if it were wielded <strong>by the cleric</strong>, at the <strong>cleric's level</strong> and with any appropriate <strong>to hit and damage bonuses</strong> (or penalties) derived from the cleric, or other magic items which would modify a similar attack made by that cleric (i.e.,&nbsp; <em>Bracers of Mighty Throws</em>, if such existed).</p>\n<p>The weapon does base damage as a normal war hammer.</p>\n<p>&nbsp;</p>\n<p>@UUID[Compendium.osric-compendium.actor.Actor.AwkbVAnrbL07kwsP]{Spiritual Weapon +1}</p>\n<p>@UUID[Compendium.osric-compendium.actor.Actor.Y8eINGyEwjLA9u3q]{Spiritual Weapon +2}</p>\n<p>@UUID[Compendium.osric-compendium.actor.Actor.OCrruaFGZHu8CJZh]{Spiritual Weapon +3}</p>\n<p>@UUID[Compendium.osric-compendium.actor.Actor.50zIglWpNN1A5I9I]{Spiritual Weapon +4}</p>\n<p>@UUID[Compendium.osric-compendium.actor.Actor.GAwxHrJLRw7HFU2a]{Spiritual Weapon +5}</p>",
-                      "actions": [
-                        {
-                          "sort": 0,
-                          "name": "Spiritual Weapon",
-                          "img": "icons/magic/unholy/hand-light-green.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "cast",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "",
-                              "type": "round"
-                            },
-                            "changes": [],
-                            "toolTip": ""
-                          },
-                          "itemList": [],
-                          "speed": 5,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "item",
-                            "itemId": "AmKQxN7x5EoUOFi0",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n</ul>\n<ul>\n<li>When summoned, add whichever spell NPC applies the level of the cleric casting the spell ( @UUID[Compendium.osric-compendium.actor.Actor.AwkbVAnrbL07kwsP]{Spiritual Weapon +1}, @UUID[Compendium.osric-compendium.actor.Actor.Y8eINGyEwjLA9u3q]{Spiritual Weapon +2}, @UUID[Compendium.osric-compendium.actor.Actor.OCrruaFGZHu8CJZh]{Spiritual Weapon +3}, @UUID[Compendium.osric-compendium.actor.Actor.50zIglWpNN1A5I9I]{Spiritual Weapon +4}, @UUID[Compendium.osric-compendium.actor.Actor.GAwxHrJLRw7HFU2a]{Spiritual Weapon +5} ) to the scene</li>\n</ul>\n<ul>\n<li>Add the <em style=\"font-family: var(--font-primary); font-size: var(--font-size-14);\">Spiritual Weapon&nbsp;</em>token to the combat tracker - this is necessary for the automatic token death to work</li>\n</ul>\n<ul>\n<li>Target&nbsp;the <em style=\"font-family: var(--font-primary); font-size: var(--font-size-14);\">Spiritual Weapon&nbsp;</em>token and then click on the <img src=\"icons/magic/time/clock-stopwatch-white-blue.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Spiritual Weapon - Duration Autokill\"</strong> effect</li>\n</ul>\n<ul>\n<li>The GM uses the token to make attacks as desired by the caster</li>\n</ul>",
-                          "properties": [
-                            "Spiritual Weapon",
-                            "Invocation",
-                            "Damage",
-                            "Level 2"
-                          ],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Compendium.osric-compendium.items.Item.EgbkpSNrpzsKT9z5",
-                          "id": "XWgu2Xu19oUalEN5",
-                          "macro": {
-                            "script": ""
-                          },
-                          "sourceuuid": "Compendium.osric-compendium.items.Item.EgbkpSNrpzsKT9z5"
-                        },
-                        {
-                          "sort": 1,
-                          "name": "Spiritual Weapon",
-                          "img": "icons/magic/time/clock-stopwatch-white-blue.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "effect",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "",
-                              "type": "round"
-                            },
-                            "changes": [
-                              {
-                                "mode": 0,
-                                "key": "special.ongoing",
-                                "value": "{\"type\":\"damage\", \"rate\":\"{{((@rank.levels.divine)+1)}}\", \"cycle\": \"round\", \"dmgType\": \"gas\", \"formula\": \"1000\"}"
-                              }
-                            ],
-                            "toolTip": "(special.ongoing/{\"type\":\"damage\", \"rate\":\"{{((@rank.levels.divine)+1)}}\", \"cycle\": \"round\", \"dmgType\": \"gas\", \"formula\": \"1000\"})"
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Spiritual Weapon - Duration Autokill",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Compendium.osric-compendium.items.Item.EgbkpSNrpzsKT9z5",
-                          "id": "m5g7qqzxn1htlyml",
-                          "macro": {
-                            "script": ""
-                          },
-                          "sourceuuid": "Compendium.osric-compendium.items.Item.EgbkpSNrpzsKT9z5"
-                        }
-                      ],
-                      "sourceuuid": "Compendium.osric-compendium.items.Item.EgbkpSNrpzsKT9z5"
-                    }
-                  ],
-                  "migrate": false,
-                  "rank": {
-                    "levels": {
-                      "max": 1,
-                      "arcane": 1,
-                      "divine": 1
-                    }
-                  }
-                },
-                "ownership": {
-                  "default": 0,
-                  "PXJxlGCNBzbPFTjR": 3,
-                  "Nf3ofNhweHQ31QEU": 3
-                },
-                "_stats": {
-                  "systemId": "ars",
-                  "systemVersion": "2025.03.10",
-                  "coreVersion": "12.331",
-                  "createdTime": 1725337612403,
-                  "modifiedTime": 1744161173434,
-                  "lastModifiedBy": "TvWo5oQ0sPDIdJsd",
-                  "compendiumSource": "Compendium.world.osric-pc-item.EgbkpSNrpzsKT9z5",
-                  "duplicateSource": null
-                }
-              }
-            },
-            "1": {
-              "name": "Find Traps",
-              "level": "2",
-              "img": "icons/environment/traps/trap-jaw-green.webp",
-              "cast": false,
-              "id": "73tl2sVtZngptosE",
-              "uuid": "Compendium.world.osric-items-pc-copy.Item.73tl2sVtZngptosE",
-              "owned": false,
-              "spellItem": {
-                "_id": "73tl2sVtZngptosE",
-                "name": "Find Traps",
-                "type": "spell",
-                "img": "icons/environment/traps/trap-jaw-green.webp",
-                "effects": [],
-                "folder": "UI3jvQEaJfYDFoHG",
-                "sort": 400000,
-                "flags": {
-                  "scene-packer": {
-                    "hash": "82b099c392022e8e29f2560527b71153298f5cd1",
-                    "sourceId": "Item.73tl2sVtZngptosE"
-                  },
-                  "core": {
-                    "sourceId": "Compendium.world.osric-pc-item.73tl2sVtZngptosE"
-                  },
-                  "cf": null,
-                  "osric": {
-                    "actions": {
-                      "Find Traps": {
-                        "display": {
-                          "collapsedState": "none"
-                        }
-                      }
-                    }
-                  },
-                  "ars": {
-                    "actions": {
-                      "Find Traps": {
-                        "display": {
-                          "collapsedState": "none"
-                        }
-                      },
-                      "x5Q2GpFxyVUV8Sdo": {
-                        "display": {
-                          "collapsedState": "none"
-                        }
-                      }
-                    }
-                  }
-                },
-                "system": {
-                  "description": "<h2>General</h2>\n<p>This spell permits the cleric to discern the existence of traps, both of magical and mechanical nature. <strong>The cleric must be looking at a trap in order to perceive it</strong>.</p>",
-                  "dmonlytext": "",
-                  "itemList": [],
-                  "alias": "",
-                  "attributes": {
-                    "rarity": "",
-                    "type": "",
-                    "subtype": "",
-                    "magic": false,
-                    "properties": [],
-                    "skillmods": [],
-                    "conditionals": [],
-                    "identified": true,
-                    "infiniteammo": false,
-                    "material": "leather_book",
-                    "size": "medium"
-                  },
-                  "charges": {
-                    "value": 0,
-                    "min": 0,
-                    "max": 0,
-                    "reuse": "none"
-                  },
-                  "location": {
-                    "state": "carried",
-                    "parent": ""
-                  },
-                  "resource": {
-                    "itemId": ""
-                  },
-                  "actions": [
-                    {
-                      "img": "icons/magic/unholy/hand-light-green.webp",
-                      "ability": "none",
-                      "type": "cast",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "round"
-                        },
-                        "changes": [],
-                        "toolTip": ""
-                      },
-                      "speed": 5,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [
-                        "Find Traps",
-                        "Divination",
-                        "Level 2"
-                      ],
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "9hm8nqg5zn8z3pee",
-                      "index": 0,
-                      "name": "Find Traps",
-                      "description": "",
-                      "parentuuid": "Item.73tl2sVtZngptosE",
-                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done).</li>\n</ul>\n<ul>\n<li><strong>(Optional)</strong>&nbsp;Use the&nbsp;<img src=\"icons/magic/symbols/triangle-glowing-green.webp\" alt=\"Castshape Action\" width=\"24\" height=\"24\">&nbsp;<strong>castshape</strong>&nbsp;action to visualize the area of effect (you can delete AOE templates if the Templates menu is active)</li>\n</ul>\n<ul>\n<li>Target&nbsp;<strong>the caster</strong>&nbsp;and click the <img src=\"icons/environment/traps/trap-jaw-green.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Detecting Traps - Duration (C)\"</strong>&nbsp;action</li>\n</ul>"
-                    },
-                    {
-                      "img": "icons/environment/traps/trap-jaw-green.webp",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "+3",
-                          "type": "turn"
-                        },
-                        "changes": [],
-                        "toolTip": ""
-                      },
-                      "speed": null,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "10io4mnz6ih6jezo",
-                      "index": 1,
-                      "name": "Find Traps",
-                      "misc": "Finding Traps - Duration",
-                      "description": "",
-                      "parentuuid": "Item.73tl2sVtZngptosE"
-                    }
-                  ],
-                  "quantity": 0,
-                  "weight": 0,
-                  "cost": {
-                    "value": 0,
-                    "currency": "gp"
-                  },
-                  "source": "OSRIC",
-                  "xp": 0,
-                  "audio": {
-                    "file": "",
-                    "volume": 0.5,
-                    "effect": "",
-                    "success": "",
-                    "failure": ""
-                  },
-                  "type": "Divine",
-                  "level": 2,
-                  "learned": false,
-                  "school": "Divination",
-                  "sphere": "Clerical",
-                  "range": "30 ft",
-                  "components": {
-                    "verbal": true,
-                    "somatic": true,
-                    "material": false
-                  },
-                  "durationText": "3 turns",
-                  "castingTime": "5",
-                  "areaOfEffect": "10 ft wide path",
-                  "save": "None",
-                  "actionGroups": [
-                    {
-                      "id": "x5Q2GpFxyVUV8Sdo",
-                      "name": "Find Traps",
-                      "img": "icons/environment/traps/trap-jaw-green.webp",
-                      "description": "<h2>General</h2>\n<p>This spell permits the cleric to discern the existence of traps, both of magical and mechanical nature. <strong>The cleric must be looking at a trap in order to perceive it</strong>.</p>",
-                      "actions": [
-                        {
-                          "sort": 0,
-                          "name": "Find Traps",
-                          "img": "icons/magic/unholy/hand-light-green.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "cast",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "",
-                              "type": "round"
-                            },
-                            "changes": [],
-                            "toolTip": ""
-                          },
-                          "itemList": [],
-                          "speed": 5,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done).</li>\n</ul>\n<ul>\n<li><strong>(Optional)</strong>&nbsp;Use the&nbsp;<img src=\"icons/magic/symbols/triangle-glowing-green.webp\" alt=\"Castshape Action\" width=\"24\" height=\"24\">&nbsp;<strong>castshape</strong>&nbsp;action to visualize the area of effect (you can delete AOE templates if the Templates menu is active)</li>\n</ul>\n<ul>\n<li>Target&nbsp;<strong>the caster</strong>&nbsp;and click the <img src=\"icons/environment/traps/trap-jaw-green.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Detecting Traps - Duration (C)\"</strong>&nbsp;action</li>\n</ul>",
-                          "properties": [
-                            "Find Traps",
-                            "Divination",
-                            "Level 2"
-                          ],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.73tl2sVtZngptosE",
-                          "id": "9hm8nqg5zn8z3pee",
-                          "sourceuuid": "Item.73tl2sVtZngptosE"
-                        },
-                        {
-                          "sort": 1,
-                          "name": "Find Traps",
-                          "img": "icons/environment/traps/trap-jaw-green.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "effect",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "+3",
-                              "type": "turn"
-                            },
-                            "changes": [
-                              {
-                                "key": "special.status",
-                                "mode": 0,
-                                "value": "find traps duration"
-                              }
-                            ],
-                            "toolTip": ""
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Finding Traps - Duration (C)",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.73tl2sVtZngptosE",
-                          "id": "10io4mnz6ih6jezo",
-                          "sourceuuid": "Item.73tl2sVtZngptosE"
-                        }
-                      ],
-                      "sourceuuid": "Item.73tl2sVtZngptosE"
-                    }
-                  ],
-                  "migrate": false,
-                  "rank": {
-                    "levels": {
-                      "max": 1,
-                      "arcane": 1,
-                      "divine": 1
-                    }
-                  }
-                },
-                "ownership": {
-                  "default": 0,
-                  "PXJxlGCNBzbPFTjR": 3,
-                  "Nf3ofNhweHQ31QEU": 3
-                },
-                "_stats": {
-                  "systemId": "ars",
-                  "systemVersion": "2024.08.09",
-                  "coreVersion": "12.331",
-                  "createdTime": 1725337612403,
-                  "modifiedTime": 1725337612403,
-                  "lastModifiedBy": "Nf3ofNhweHQ31QEU",
-                  "compendiumSource": "Compendium.world.osric-pc-item.73tl2sVtZngptosE",
-                  "duplicateSource": null
-                }
-              }
-            },
-            "2": {
               "name": "Hold Person",
               "level": "2",
               "img": "icons/magic/control/encase-creature-humanoid-hold.webp",
               "cast": false,
               "id": "nlF7eQlologOvaMY",
-              "uuid": "Compendium.world.osric-items-pc-copy.Item.nlF7eQlologOvaMY",
+              "uuid": "Compendium.osric-compendium.items.Item.nlF7eQlologOvaMY",
               "owned": false,
               "spellItem": {
                 "_id": "nlF7eQlologOvaMY",
@@ -3246,6 +2394,11 @@
                   "cf": null,
                   "osric": {
                     "actions": {
+                      "Spiritual Weapon": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
                       "Hold Person (Two Targets)": {
                         "display": {
                           "collapsedState": "none"
@@ -3270,6 +2423,16 @@
                   },
                   "ars": {
                     "actions": {
+                      "Spiritual Weapon": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "IbaWQgoqku0DtaHh": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
                       "Hold Person (Three or Four Targets)": {
                         "display": {
                           "collapsedState": "none"
@@ -4278,6 +3441,925 @@
                   "modifiedTime": 1725337612403,
                   "lastModifiedBy": "Nf3ofNhweHQ31QEU",
                   "compendiumSource": "Compendium.world.osric-pc-item.nlF7eQlologOvaMY",
+                  "duplicateSource": null
+                }
+              }
+            },
+            "1": {
+              "name": "Find Traps",
+              "level": "2",
+              "img": "icons/environment/traps/trap-jaw-green.webp",
+              "cast": true,
+              "id": "73tl2sVtZngptosE",
+              "uuid": "Compendium.world.osric-items-pc-copy.Item.73tl2sVtZngptosE",
+              "owned": false,
+              "spellItem": {
+                "_id": "73tl2sVtZngptosE",
+                "name": "Find Traps",
+                "type": "spell",
+                "img": "icons/environment/traps/trap-jaw-green.webp",
+                "effects": [],
+                "folder": "UI3jvQEaJfYDFoHG",
+                "sort": 400000,
+                "flags": {
+                  "scene-packer": {
+                    "hash": "82b099c392022e8e29f2560527b71153298f5cd1",
+                    "sourceId": "Item.73tl2sVtZngptosE"
+                  },
+                  "core": {
+                    "sourceId": "Compendium.world.osric-pc-item.73tl2sVtZngptosE"
+                  },
+                  "cf": null,
+                  "osric": {
+                    "actions": {
+                      "Find Traps": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      }
+                    }
+                  },
+                  "ars": {
+                    "actions": {
+                      "Find Traps": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "x5Q2GpFxyVUV8Sdo": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "description": "<h2>General</h2>\n<p>This spell permits the cleric to discern the existence of traps, both of magical and mechanical nature. <strong>The cleric must be looking at a trap in order to perceive it</strong>.</p>",
+                  "dmonlytext": "",
+                  "itemList": [],
+                  "alias": "",
+                  "attributes": {
+                    "rarity": "",
+                    "type": "",
+                    "subtype": "",
+                    "magic": false,
+                    "properties": [],
+                    "skillmods": [],
+                    "conditionals": [],
+                    "identified": true,
+                    "infiniteammo": false,
+                    "material": "leather_book",
+                    "size": "medium"
+                  },
+                  "charges": {
+                    "value": 0,
+                    "min": 0,
+                    "max": 0,
+                    "reuse": "none"
+                  },
+                  "location": {
+                    "state": "carried",
+                    "parent": ""
+                  },
+                  "resource": {
+                    "itemId": ""
+                  },
+                  "actions": [
+                    {
+                      "img": "icons/magic/unholy/hand-light-green.webp",
+                      "ability": "none",
+                      "type": "cast",
+                      "targeting": "",
+                      "successAction": "none",
+                      "formula": "",
+                      "otherdmg": [],
+                      "effectList": [],
+                      "effect": {
+                        "duration": {
+                          "formula": "",
+                          "type": "round"
+                        },
+                        "changes": [],
+                        "toolTip": ""
+                      },
+                      "speed": 5,
+                      "damagetype": "slashing",
+                      "resource": {
+                        "type": "none",
+                        "itemId": "",
+                        "reusetime": "",
+                        "count": {
+                          "cost": 1,
+                          "min": 0,
+                          "max": 1,
+                          "value": 0
+                        }
+                      },
+                      "magicpotency": 0,
+                      "properties": [
+                        "Find Traps",
+                        "Divination",
+                        "Level 2"
+                      ],
+                      "dmonlytext": "",
+                      "itemList": [],
+                      "saveCheck": {
+                        "type": "none",
+                        "formula": ""
+                      },
+                      "abilityCheck": {
+                        "type": "none",
+                        "formula": ""
+                      },
+                      "id": "9hm8nqg5zn8z3pee",
+                      "index": 0,
+                      "name": "Find Traps",
+                      "description": "",
+                      "parentuuid": "Item.73tl2sVtZngptosE",
+                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done).</li>\n</ul>\n<ul>\n<li><strong>(Optional)</strong>&nbsp;Use the&nbsp;<img src=\"icons/magic/symbols/triangle-glowing-green.webp\" alt=\"Castshape Action\" width=\"24\" height=\"24\">&nbsp;<strong>castshape</strong>&nbsp;action to visualize the area of effect (you can delete AOE templates if the Templates menu is active)</li>\n</ul>\n<ul>\n<li>Target&nbsp;<strong>the caster</strong>&nbsp;and click the <img src=\"icons/environment/traps/trap-jaw-green.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Detecting Traps - Duration (C)\"</strong>&nbsp;action</li>\n</ul>"
+                    },
+                    {
+                      "img": "icons/environment/traps/trap-jaw-green.webp",
+                      "ability": "none",
+                      "type": "effect",
+                      "targeting": "",
+                      "successAction": "none",
+                      "formula": "",
+                      "otherdmg": [],
+                      "effectList": [],
+                      "effect": {
+                        "duration": {
+                          "formula": "+3",
+                          "type": "turn"
+                        },
+                        "changes": [],
+                        "toolTip": ""
+                      },
+                      "speed": null,
+                      "damagetype": "slashing",
+                      "resource": {
+                        "type": "none",
+                        "itemId": "",
+                        "reusetime": "",
+                        "count": {
+                          "cost": 1,
+                          "min": 0,
+                          "max": 1,
+                          "value": 0
+                        }
+                      },
+                      "magicpotency": 0,
+                      "properties": [],
+                      "dmonlytext": "",
+                      "itemList": [],
+                      "saveCheck": {
+                        "type": "none",
+                        "formula": ""
+                      },
+                      "abilityCheck": {
+                        "type": "none",
+                        "formula": ""
+                      },
+                      "id": "10io4mnz6ih6jezo",
+                      "index": 1,
+                      "name": "Find Traps",
+                      "misc": "Finding Traps - Duration",
+                      "description": "",
+                      "parentuuid": "Item.73tl2sVtZngptosE"
+                    }
+                  ],
+                  "quantity": 0,
+                  "weight": 0,
+                  "cost": {
+                    "value": 0,
+                    "currency": "gp"
+                  },
+                  "source": "OSRIC",
+                  "xp": 0,
+                  "audio": {
+                    "file": "",
+                    "volume": 0.5,
+                    "effect": "",
+                    "success": "",
+                    "failure": ""
+                  },
+                  "type": "Divine",
+                  "level": 2,
+                  "learned": false,
+                  "school": "Divination",
+                  "sphere": "Clerical",
+                  "range": "30 ft",
+                  "components": {
+                    "verbal": true,
+                    "somatic": true,
+                    "material": false
+                  },
+                  "durationText": "3 turns",
+                  "castingTime": "5",
+                  "areaOfEffect": "10 ft wide path",
+                  "save": "None",
+                  "actionGroups": [
+                    {
+                      "id": "x5Q2GpFxyVUV8Sdo",
+                      "name": "Find Traps",
+                      "img": "icons/environment/traps/trap-jaw-green.webp",
+                      "description": "<h2>General</h2>\n<p>This spell permits the cleric to discern the existence of traps, both of magical and mechanical nature. <strong>The cleric must be looking at a trap in order to perceive it</strong>.</p>",
+                      "actions": [
+                        {
+                          "sort": 0,
+                          "name": "Find Traps",
+                          "img": "icons/magic/unholy/hand-light-green.webp",
+                          "castShape": {
+                            "shape": {
+                              "type": "circle"
+                            },
+                            "coneShape": {
+                              "type": "circle"
+                            },
+                            "selection": {
+                              "type": "all"
+                            },
+                            "properties": {
+                              "radius": {
+                                "formula": ""
+                              },
+                              "range": {
+                                "formula": ""
+                              },
+                              "angle": {
+                                "formula": ""
+                              },
+                              "length": {
+                                "formula": ""
+                              },
+                              "width": {
+                                "formula": ""
+                              },
+                              "inRangeColor": "#f2ed69",
+                              "outOfRangeColor": "#a80000"
+                            }
+                          },
+                          "type": "cast",
+                          "targeting": "",
+                          "successAction": "none",
+                          "formula": "",
+                          "otherdmg": [],
+                          "effectList": [],
+                          "effect": {
+                            "duration": {
+                              "formula": "",
+                              "type": "round"
+                            },
+                            "changes": [],
+                            "toolTip": ""
+                          },
+                          "itemList": [],
+                          "speed": 5,
+                          "damagetype": "slashing",
+                          "dmonlytext": "",
+                          "resource": {
+                            "type": "none",
+                            "itemId": "",
+                            "reusetime": "",
+                            "count": {
+                              "cost": 1,
+                              "min": 0,
+                              "max": 1,
+                              "value": 0
+                            }
+                          },
+                          "magicpotency": 0,
+                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done).</li>\n</ul>\n<ul>\n<li><strong>(Optional)</strong>&nbsp;Use the&nbsp;<img src=\"icons/magic/symbols/triangle-glowing-green.webp\" alt=\"Castshape Action\" width=\"24\" height=\"24\">&nbsp;<strong>castshape</strong>&nbsp;action to visualize the area of effect (you can delete AOE templates if the Templates menu is active)</li>\n</ul>\n<ul>\n<li>Target&nbsp;<strong>the caster</strong>&nbsp;and click the <img src=\"icons/environment/traps/trap-jaw-green.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Detecting Traps - Duration (C)\"</strong>&nbsp;action</li>\n</ul>",
+                          "properties": [
+                            "Find Traps",
+                            "Divination",
+                            "Level 2"
+                          ],
+                          "saveCheck": {
+                            "type": "none",
+                            "formula": ""
+                          },
+                          "ability": "none",
+                          "abilityCheck": {
+                            "type": "none",
+                            "formula": ""
+                          },
+                          "parentuuid": "Item.73tl2sVtZngptosE",
+                          "id": "9hm8nqg5zn8z3pee",
+                          "sourceuuid": "Item.73tl2sVtZngptosE"
+                        },
+                        {
+                          "sort": 1,
+                          "name": "Find Traps",
+                          "img": "icons/environment/traps/trap-jaw-green.webp",
+                          "castShape": {
+                            "shape": {
+                              "type": "circle"
+                            },
+                            "coneShape": {
+                              "type": "circle"
+                            },
+                            "selection": {
+                              "type": "all"
+                            },
+                            "properties": {
+                              "radius": {
+                                "formula": ""
+                              },
+                              "range": {
+                                "formula": ""
+                              },
+                              "angle": {
+                                "formula": ""
+                              },
+                              "length": {
+                                "formula": ""
+                              },
+                              "width": {
+                                "formula": ""
+                              },
+                              "inRangeColor": "#f2ed69",
+                              "outOfRangeColor": "#a80000"
+                            }
+                          },
+                          "type": "effect",
+                          "targeting": "",
+                          "successAction": "none",
+                          "formula": "",
+                          "otherdmg": [],
+                          "effectList": [],
+                          "effect": {
+                            "duration": {
+                              "formula": "+3",
+                              "type": "turn"
+                            },
+                            "changes": [
+                              {
+                                "key": "special.status",
+                                "mode": 0,
+                                "value": "find traps duration"
+                              }
+                            ],
+                            "toolTip": ""
+                          },
+                          "itemList": [],
+                          "speed": 0,
+                          "damagetype": "slashing",
+                          "dmonlytext": "",
+                          "resource": {
+                            "type": "none",
+                            "itemId": "",
+                            "reusetime": "",
+                            "count": {
+                              "cost": 1,
+                              "min": 0,
+                              "max": 1,
+                              "value": 0
+                            }
+                          },
+                          "magicpotency": 0,
+                          "misc": "Finding Traps - Duration (C)",
+                          "properties": [],
+                          "saveCheck": {
+                            "type": "none",
+                            "formula": ""
+                          },
+                          "ability": "none",
+                          "abilityCheck": {
+                            "type": "none",
+                            "formula": ""
+                          },
+                          "parentuuid": "Item.73tl2sVtZngptosE",
+                          "id": "10io4mnz6ih6jezo",
+                          "sourceuuid": "Item.73tl2sVtZngptosE"
+                        }
+                      ],
+                      "sourceuuid": "Item.73tl2sVtZngptosE"
+                    }
+                  ],
+                  "migrate": false,
+                  "rank": {
+                    "levels": {
+                      "max": 1,
+                      "arcane": 1,
+                      "divine": 1
+                    }
+                  }
+                },
+                "ownership": {
+                  "default": 0,
+                  "PXJxlGCNBzbPFTjR": 3,
+                  "Nf3ofNhweHQ31QEU": 3
+                },
+                "_stats": {
+                  "systemId": "ars",
+                  "systemVersion": "2024.08.09",
+                  "coreVersion": "12.331",
+                  "createdTime": 1725337612403,
+                  "modifiedTime": 1725337612403,
+                  "lastModifiedBy": "Nf3ofNhweHQ31QEU",
+                  "compendiumSource": "Compendium.world.osric-pc-item.73tl2sVtZngptosE",
+                  "duplicateSource": null
+                }
+              }
+            },
+            "2": {
+              "name": "Resist Fire",
+              "level": "2",
+              "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
+              "cast": false,
+              "id": "WU0NeFjrnfp0hmVT",
+              "uuid": "Compendium.osric-compendium.items.Item.WU0NeFjrnfp0hmVT",
+              "owned": false,
+              "spellItem": {
+                "_id": "WU0NeFjrnfp0hmVT",
+                "name": "Resist Fire",
+                "type": "spell",
+                "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
+                "effects": [],
+                "folder": "UI3jvQEaJfYDFoHG",
+                "sort": 700000,
+                "flags": {
+                  "scene-packer": {
+                    "hash": "b63be26ddb134eb30daa512962c30cf9c9645d95",
+                    "sourceId": "Item.WU0NeFjrnfp0hmVT"
+                  },
+                  "core": {
+                    "sourceId": "Compendium.world.osric-pc-item.WU0NeFjrnfp0hmVT"
+                  },
+                  "cf": null,
+                  "osric": {
+                    "actions": {
+                      "Hold Person (Two Targets)": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Hold Person (One Target)": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Hold Person (Three or Four Targets)": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Hold Person": {
+                        "display": {
+                          "collapsedState": "block"
+                        }
+                      },
+                      "Resist Fire": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      }
+                    }
+                  },
+                  "ars": {
+                    "actions": {
+                      "Hold Person (Three or Four Targets)": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Hold Person (Two Targets)": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Hold Person (One Target)": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "JVW6K3aLYQ66kyfu": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "A6GY8QaRdZwJULCn": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "zvUbn4sLPA6WqQhy": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Resist Fire": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "description": "<h2>General</h2>\n<p>When this spell is cast, the recipient gains resistance to fire and heat, being able to endure boiling temperatures without discomfort. A person under the influence of this spell <strong>can stand unharmed in the middle of a bonfire</strong>, and even gains a measure of resistance to magical fire.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p><em>[Foundry Note: the system isn't going to automatically roll saves when a cold-based action doesn't normally allow a saving throw.&nbsp; It will be up to the player and GM to recognize this exception and roll a save manually, reversing or changing effects/damage as necessary. - Ed.]&nbsp;</em></p>\n<p>The subject gains a saving throw bonus of +3 against magical fire, taking one half damage if the save is not successful and one quarter damage if the save is successful.&nbsp;<strong>The saving throw is permitted even against attacks that would not ordinarily allow a saving throw</strong>.</p>",
+                  "dmonlytext": "",
+                  "itemList": [],
+                  "alias": "",
+                  "attributes": {
+                    "rarity": "",
+                    "type": "",
+                    "subtype": "",
+                    "magic": false,
+                    "properties": [],
+                    "skillmods": [],
+                    "conditionals": [],
+                    "identified": true,
+                    "infiniteammo": false,
+                    "material": "leather_book",
+                    "size": "medium"
+                  },
+                  "charges": {
+                    "value": 0,
+                    "min": 0,
+                    "max": 0,
+                    "reuse": "none"
+                  },
+                  "location": {
+                    "state": "carried",
+                    "parent": ""
+                  },
+                  "resource": {
+                    "itemId": ""
+                  },
+                  "actions": [
+                    {
+                      "img": "icons/magic/unholy/hand-light-green.webp",
+                      "ability": "none",
+                      "type": "cast",
+                      "targeting": "",
+                      "successAction": "none",
+                      "formula": "",
+                      "otherdmg": [],
+                      "effectList": [],
+                      "effect": {
+                        "duration": {
+                          "formula": "",
+                          "type": "round"
+                        },
+                        "changes": [],
+                        "toolTip": ""
+                      },
+                      "speed": 5,
+                      "damagetype": "slashing",
+                      "resource": {
+                        "type": "none",
+                        "itemId": "",
+                        "reusetime": "",
+                        "count": {
+                          "cost": 1,
+                          "min": 0,
+                          "max": 1,
+                          "value": 0
+                        }
+                      },
+                      "magicpotency": 0,
+                      "properties": [
+                        "Resist Fire",
+                        "Transmutation Alteration",
+                        "Level 2"
+                      ],
+                      "dmonlytext": "",
+                      "itemList": [],
+                      "saveCheck": {
+                        "type": "none",
+                        "formula": ""
+                      },
+                      "abilityCheck": {
+                        "type": "none",
+                        "formula": ""
+                      },
+                      "id": "frdyyanqpcus4nmf",
+                      "index": 0,
+                      "name": "Resist Fire",
+                      "description": "",
+                      "parentuuid": "Item.WU0NeFjrnfp0hmVT",
+                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n<li>Target <strong>an actor</strong>&nbsp;and click the <img src=\"icons/magic/defensive/shield-barrier-glowing-triangle-red.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Fire Resistance - Duration (T)\"</strong>&nbsp;action</li>\n</ul>"
+                    },
+                    {
+                      "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
+                      "ability": "none",
+                      "type": "effect",
+                      "targeting": "",
+                      "successAction": "none",
+                      "formula": "",
+                      "otherdmg": [],
+                      "effectList": [],
+                      "effect": {
+                        "duration": {
+                          "formula": "(@rank.levels.divine)",
+                          "type": "turn"
+                        },
+                        "changes": [
+                          {
+                            "mode": 0,
+                            "key": "system.mods.resist",
+                            "value": "fire"
+                          },
+                          {
+                            "mode": 0,
+                            "key": "system.mods.saves.all",
+                            "value": "{\"formula\":\"3\",\"properties\":\"fire\"}"
+                          }
+                        ],
+                        "toolTip": "(system.mods.resist/fire), (system.mods.saves.all/{\"formula\":\"3\",\"properties\":\"fire\"})"
+                      },
+                      "speed": null,
+                      "damagetype": "slashing",
+                      "resource": {
+                        "type": "none",
+                        "itemId": "",
+                        "reusetime": "",
+                        "count": {
+                          "cost": 1,
+                          "min": 0,
+                          "max": 1,
+                          "value": 0
+                        }
+                      },
+                      "magicpotency": 0,
+                      "properties": [],
+                      "dmonlytext": "",
+                      "itemList": [],
+                      "saveCheck": {
+                        "type": "none",
+                        "formula": ""
+                      },
+                      "abilityCheck": {
+                        "type": "none",
+                        "formula": ""
+                      },
+                      "id": "zeonanau4y189bc9",
+                      "index": 1,
+                      "name": "Resist Fire",
+                      "misc": "Fire Resistance - Duration (T)",
+                      "description": "",
+                      "changes": {
+                        "0": {
+                          "key": "system.mods.resist"
+                        },
+                        "1": {
+                          "key": "system.mods.saves.rod"
+                        },
+                        "2": {
+                          "key": "system.mods.saves.staff"
+                        },
+                        "3": {
+                          "key": "system.mods.saves.wand"
+                        },
+                        "4": {
+                          "key": "system.mods.saves.breath"
+                        },
+                        "5": {
+                          "key": "system.mods.saves.spell"
+                        }
+                      },
+                      "parentuuid": "Item.WU0NeFjrnfp0hmVT"
+                    }
+                  ],
+                  "quantity": 0,
+                  "weight": 0,
+                  "cost": {
+                    "value": 0,
+                    "currency": "gp"
+                  },
+                  "source": "OSRIC",
+                  "xp": 0,
+                  "audio": {
+                    "file": "",
+                    "volume": 0.5,
+                    "effect": "",
+                    "success": "",
+                    "failure": ""
+                  },
+                  "type": "Divine",
+                  "level": 2,
+                  "learned": false,
+                  "school": "Transmutation, Alteration",
+                  "sphere": "Clerical, Shaman",
+                  "range": "Touch",
+                  "components": {
+                    "verbal": true,
+                    "somatic": true,
+                    "material": true
+                  },
+                  "durationText": "1 turn/level",
+                  "castingTime": "5",
+                  "areaOfEffect": "Creature touched",
+                  "save": "None",
+                  "actionGroups": [
+                    {
+                      "id": "2HsFIS2JS6MkzHgt",
+                      "name": "Resist Fire",
+                      "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
+                      "description": "<h2>General</h2>\n<p>When this spell is cast, the recipient gains resistance to fire and heat, being able to endure boiling temperatures without discomfort. A person under the influence of this spell <strong>can stand unharmed in the middle of a bonfire</strong>, and even gains a measure of resistance to magical fire.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p><em>[Foundry Note: the system isn't going to automatically roll saves when a cold-based action doesn't normally allow a saving throw.&nbsp; It will be up to the player and GM to recognize this exception and roll a save manually, reversing or changing effects/damage as necessary. - Ed.]&nbsp;</em></p>\n<p>The subject gains a saving throw bonus of +3 against magical fire, taking one half damage if the save is not successful and one quarter damage if the save is successful.&nbsp;<strong>The saving throw is permitted even against attacks that would not ordinarily allow a saving throw</strong>.</p>",
+                      "actions": [
+                        {
+                          "sort": 0,
+                          "name": "Resist Fire",
+                          "img": "icons/magic/unholy/hand-light-green.webp",
+                          "castShape": {
+                            "shape": {
+                              "type": "circle"
+                            },
+                            "coneShape": {
+                              "type": "circle"
+                            },
+                            "selection": {
+                              "type": "all"
+                            },
+                            "properties": {
+                              "radius": {
+                                "formula": ""
+                              },
+                              "range": {
+                                "formula": ""
+                              },
+                              "angle": {
+                                "formula": ""
+                              },
+                              "length": {
+                                "formula": ""
+                              },
+                              "width": {
+                                "formula": ""
+                              },
+                              "inRangeColor": "#f2ed69",
+                              "outOfRangeColor": "#a80000"
+                            }
+                          },
+                          "type": "cast",
+                          "targeting": "",
+                          "successAction": "none",
+                          "formula": "",
+                          "otherdmg": [],
+                          "effectList": [],
+                          "effect": {
+                            "duration": {
+                              "formula": "",
+                              "type": "round"
+                            },
+                            "changes": [],
+                            "toolTip": ""
+                          },
+                          "itemList": [],
+                          "speed": 5,
+                          "damagetype": "slashing",
+                          "dmonlytext": "",
+                          "resource": {
+                            "type": "none",
+                            "itemId": "",
+                            "reusetime": "",
+                            "count": {
+                              "cost": 1,
+                              "min": 0,
+                              "max": 1,
+                              "value": 0
+                            }
+                          },
+                          "magicpotency": 0,
+                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n<li>Target <strong>an actor</strong>&nbsp;and click the <img src=\"icons/magic/defensive/shield-barrier-glowing-triangle-red.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Fire Resistance - Duration (T)\"</strong>&nbsp;action</li>\n</ul>",
+                          "properties": [
+                            "Resist Fire",
+                            "Transmutation Alteration",
+                            "Level 2"
+                          ],
+                          "saveCheck": {
+                            "type": "none",
+                            "formula": ""
+                          },
+                          "ability": "none",
+                          "abilityCheck": {
+                            "type": "none",
+                            "formula": ""
+                          },
+                          "parentuuid": "Item.WU0NeFjrnfp0hmVT",
+                          "id": "frdyyanqpcus4nmf",
+                          "sourceuuid": "Item.WU0NeFjrnfp0hmVT"
+                        },
+                        {
+                          "sort": 1,
+                          "name": "Resist Fire",
+                          "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
+                          "castShape": {
+                            "shape": {
+                              "type": "circle"
+                            },
+                            "coneShape": {
+                              "type": "circle"
+                            },
+                            "selection": {
+                              "type": "all"
+                            },
+                            "properties": {
+                              "radius": {
+                                "formula": ""
+                              },
+                              "range": {
+                                "formula": ""
+                              },
+                              "angle": {
+                                "formula": ""
+                              },
+                              "length": {
+                                "formula": ""
+                              },
+                              "width": {
+                                "formula": ""
+                              },
+                              "inRangeColor": "#f2ed69",
+                              "outOfRangeColor": "#a80000"
+                            }
+                          },
+                          "type": "effect",
+                          "targeting": "",
+                          "successAction": "none",
+                          "formula": "",
+                          "otherdmg": [],
+                          "effectList": [],
+                          "effect": {
+                            "duration": {
+                              "formula": "(@rank.levels.divine)",
+                              "type": "turn"
+                            },
+                            "changes": [
+                              {
+                                "mode": 0,
+                                "key": "system.mods.resist",
+                                "value": "fire"
+                              },
+                              {
+                                "mode": 0,
+                                "key": "system.mods.saves.all",
+                                "value": "{\"formula\":\"3\",\"properties\":\"fire\"}"
+                              }
+                            ],
+                            "toolTip": "(system.mods.resist/fire), (system.mods.saves.all/{\"formula\":\"3\",\"properties\":\"fire\"})"
+                          },
+                          "itemList": [],
+                          "speed": 0,
+                          "damagetype": "slashing",
+                          "dmonlytext": "",
+                          "resource": {
+                            "type": "none",
+                            "itemId": "",
+                            "reusetime": "",
+                            "count": {
+                              "cost": 1,
+                              "min": 0,
+                              "max": 1,
+                              "value": 0
+                            }
+                          },
+                          "magicpotency": 0,
+                          "misc": "Fire Resistance - Duration (T)",
+                          "properties": [],
+                          "saveCheck": {
+                            "type": "none",
+                            "formula": ""
+                          },
+                          "ability": "none",
+                          "abilityCheck": {
+                            "type": "none",
+                            "formula": ""
+                          },
+                          "parentuuid": "Item.WU0NeFjrnfp0hmVT",
+                          "id": "zeonanau4y189bc9",
+                          "sourceuuid": "Item.WU0NeFjrnfp0hmVT"
+                        }
+                      ],
+                      "sourceuuid": "Item.WU0NeFjrnfp0hmVT"
+                    }
+                  ],
+                  "migrate": false,
+                  "rank": {
+                    "levels": {
+                      "max": 1,
+                      "arcane": 1,
+                      "divine": 1
+                    }
+                  }
+                },
+                "ownership": {
+                  "default": 0,
+                  "PXJxlGCNBzbPFTjR": 3,
+                  "Nf3ofNhweHQ31QEU": 3
+                },
+                "_stats": {
+                  "systemId": "ars",
+                  "systemVersion": "2024.08.09",
+                  "coreVersion": "12.331",
+                  "createdTime": 1725337612403,
+                  "modifiedTime": 1725337612403,
+                  "lastModifiedBy": "Nf3ofNhweHQ31QEU",
+                  "compendiumSource": "Compendium.world.osric-pc-item.WU0NeFjrnfp0hmVT",
                   "duplicateSource": null
                 }
               }
@@ -5298,12 +5380,12 @@
               "name": "Prayer",
               "level": "3",
               "img": "icons/magic/control/buff-luck-fortune-gold.webp",
-              "cast": false,
-              "id": "SmOMGkBGaBVHofrQ",
-              "uuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ",
-              "owned": true,
+              "cast": true,
+              "id": "5t4X6aNoWTtc992S",
+              "uuid": "Compendium.osric-compendium.items.Item.5t4X6aNoWTtc992S",
+              "owned": false,
               "spellItem": {
-                "_id": "SmOMGkBGaBVHofrQ",
+                "_id": "5t4X6aNoWTtc992S",
                 "name": "Prayer",
                 "type": "spell",
                 "img": "icons/magic/control/buff-luck-fortune-gold.webp",
@@ -5322,6 +5404,11 @@
                   "osric": {
                     "actions": {
                       "Prayer": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Create Food and Water": {
                         "display": {
                           "collapsedState": "none"
                         }
@@ -5362,7 +5449,12 @@
                       },
                       "CgEBtnjDGDXOFld6": {
                         "display": {
-                          "collapsedState": "block"
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Create Food and Water": {
+                        "display": {
+                          "collapsedState": "none"
                         }
                       }
                     }
@@ -6186,7 +6278,7 @@
                       "parentuuid": "Item.5t4X6aNoWTtc992S"
                     }
                   ],
-                  "quantity": 1,
+                  "quantity": 0,
                   "weight": 0,
                   "cost": {
                     "value": 0,
@@ -6303,12 +6395,9 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ",
+                          "parentuuid": "Item.5t4X6aNoWTtc992S",
                           "id": "p6oa78c2bamgugma",
-                          "macro": {
-                            "script": ""
-                          },
-                          "sourceuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ"
+                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
                         },
                         {
                           "sort": 1,
@@ -6377,12 +6466,9 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ",
+                          "parentuuid": "Item.5t4X6aNoWTtc992S",
                           "id": "B1d2bGwndcyJ7hEp",
-                          "macro": {
-                            "script": ""
-                          },
-                          "sourceuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ"
+                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
                         },
                         {
                           "sort": 2,
@@ -6451,12 +6537,9 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ",
+                          "parentuuid": "Item.5t4X6aNoWTtc992S",
                           "id": "PugvHF9X5B2eR7NX",
-                          "macro": {
-                            "script": ""
-                          },
-                          "sourceuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ"
+                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
                         },
                         {
                           "sort": 3,
@@ -6549,12 +6632,9 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ",
+                          "parentuuid": "Item.5t4X6aNoWTtc992S",
                           "id": "ufl12hbgafbxjupu",
-                          "macro": {
-                            "script": ""
-                          },
-                          "sourceuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ"
+                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
                         },
                         {
                           "sort": 4,
@@ -6647,15 +6727,12 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ",
+                          "parentuuid": "Item.5t4X6aNoWTtc992S",
                           "id": "xkix58gtvuij613j",
-                          "macro": {
-                            "script": ""
-                          },
-                          "sourceuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ"
+                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
                         }
                       ],
-                      "sourceuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ"
+                      "sourceuuid": "Item.5t4X6aNoWTtc992S"
                     },
                     {
                       "id": "CgEBtnjDGDXOFld6",
@@ -6743,12 +6820,9 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ",
+                          "parentuuid": "Item.5t4X6aNoWTtc992S",
                           "id": "2htotZghuZd15oZq",
-                          "macro": {
-                            "script": ""
-                          },
-                          "sourceuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ"
+                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
                         },
                         {
                           "sort": 1,
@@ -6822,11 +6896,7 @@
                                 "value": "level 3"
                               }
                             ],
-                            "toolTip": "(aura.system.mods.attack.value/1), (aura.system.mods.damage.value/1), (aura.system.mods.saves.all/{\"formula\":\"1\",\"properties\":\"\"}), (special.aura/{\"distance\": 60, \"color\": \"purple\", \"faction\": \"friendly\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"})",
-                            "system": {
-                              "applyself": true,
-                              "visibility": "default"
-                            }
+                            "toolTip": "(aura.system.mods.attack.value/1), (aura.system.mods.damage.value/1), (aura.system.mods.saves.all/{\"formula\":\"1\",\"properties\":\"\"}), (special.aura/{\"distance\": 60, \"color\": \"purple\", \"faction\": \"friendly\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"})"
                           },
                           "itemList": [],
                           "speed": 0,
@@ -6855,12 +6925,9 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ",
+                          "parentuuid": "Item.5t4X6aNoWTtc992S",
                           "id": "wvSlUDfsDFfNdM1G",
-                          "macro": {
-                            "script": ""
-                          },
-                          "sourceuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ"
+                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
                         },
                         {
                           "sort": 2,
@@ -6934,11 +7001,7 @@
                                 "value": "level 3"
                               }
                             ],
-                            "toolTip": "(aura.system.mods.attack.value/-1), (aura.system.mods.damage.value/-1), (aura.system.mods.saves.all/{\"formula\":\"-1\",\"properties\":\"\"}), (special.aura/{\"distance\": 60, \"color\": \"purple\", \"faction\": \"enemy\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"})",
-                            "system": {
-                              "applyself": true,
-                              "visibility": "default"
-                            }
+                            "toolTip": "(aura.system.mods.attack.value/-1), (aura.system.mods.damage.value/-1), (aura.system.mods.saves.all/{\"formula\":\"-1\",\"properties\":\"\"}), (special.aura/{\"distance\": 60, \"color\": \"purple\", \"faction\": \"enemy\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"})"
                           },
                           "itemList": [],
                           "speed": 0,
@@ -6967,15 +7030,12 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ",
+                          "parentuuid": "Item.5t4X6aNoWTtc992S",
                           "id": "kkqQCFyFBHDIaUig",
-                          "macro": {
-                            "script": ""
-                          },
-                          "sourceuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ"
+                          "sourceuuid": "Item.5t4X6aNoWTtc992S"
                         }
                       ],
-                      "sourceuuid": "Actor.8pXCWFmP63Rbpu2O.Item.SmOMGkBGaBVHofrQ"
+                      "sourceuuid": "Item.5t4X6aNoWTtc992S"
                     }
                   ],
                   "migrate": false,
@@ -6996,11 +7056,11 @@
                 },
                 "_stats": {
                   "systemId": "ars",
-                  "systemVersion": "2025.02.03",
+                  "systemVersion": "2024.08.09",
                   "coreVersion": "12.331",
-                  "createdTime": null,
-                  "modifiedTime": null,
-                  "lastModifiedBy": null,
+                  "createdTime": 1725337612403,
+                  "modifiedTime": 1725337612403,
+                  "lastModifiedBy": "Nf3ofNhweHQ31QEU",
                   "compendiumSource": "Compendium.world.osric-pc-item.5t4X6aNoWTtc992S",
                   "duplicateSource": null
                 }
@@ -7012,7 +7072,7 @@
               "img": "icons/magic/control/buff-luck-fortune-gold.webp",
               "cast": false,
               "id": "5t4X6aNoWTtc992S",
-              "uuid": "Compendium.world.osric-items-pc-copy.Item.5t4X6aNoWTtc992S",
+              "uuid": "Compendium.osric-compendium.items.Item.5t4X6aNoWTtc992S",
               "owned": false,
               "spellItem": {
                 "_id": "5t4X6aNoWTtc992S",
@@ -7034,6 +7094,11 @@
                   "osric": {
                     "actions": {
                       "Prayer": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Create Food and Water": {
                         "display": {
                           "collapsedState": "none"
                         }
@@ -7073,6 +7138,11 @@
                         }
                       },
                       "CgEBtnjDGDXOFld6": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Create Food and Water": {
                         "display": {
                           "collapsedState": "none"
                         }
@@ -8688,7 +8758,7 @@
               "name": "Remove Curse",
               "level": "3",
               "img": "icons/magic/holy/prayer-hands-glowing-yellow-green.webp",
-              "cast": true,
+              "cast": false,
               "id": "lrHUdGnaDKc5oeFq",
               "uuid": "Compendium.osric-compendium.items.Item.lrHUdGnaDKc5oeFq",
               "owned": false,
@@ -8722,6 +8792,11 @@
                         }
                       },
                       "Remove Curse": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Create Food and Water": {
                         "display": {
                           "collapsedState": "none"
                         }
@@ -8781,6 +8856,11 @@
                         }
                       },
                       "K5xH0sOHolbXW8uZ": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Create Food and Water": {
                         "display": {
                           "collapsedState": "none"
                         }
@@ -9058,6 +9138,11 @@
                         "display": {
                           "collapsedState": "none"
                         }
+                      },
+                      "Create Food and Water": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
                       }
                     }
                   },
@@ -9069,6 +9154,11 @@
                         }
                       },
                       "mcvs01upOUYn6LSB": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Create Food and Water": {
                         "display": {
                           "collapsedState": "none"
                         }
@@ -10369,13 +10459,13 @@
         "value": 10
       },
       "thaco": {
-        "value": 14
+        "value": 13
       },
       "hp": {
         "base": 0,
-        "value": 71,
+        "value": 75,
         "min": -10,
-        "max": 71,
+        "max": 75,
         "temp": 0,
         "tempmax": 0
       },
@@ -10406,7 +10496,7 @@
       },
       "alignment": "lg",
       "xp": 232896,
-      "applyxp": 4996,
+      "applyxp": 0,
       "age": "",
       "sex": "",
       "deity": "",
@@ -10538,7 +10628,7 @@
     },
     "sight": {
       "enabled": true,
-      "range": 0,
+      "range": 60,
       "angle": 360,
       "visionMode": "basic",
       "color": null,
@@ -13468,7 +13558,7 @@
           }
         ],
         "active": true,
-        "xp": 125345,
+        "xp": 128093,
         "xpbonus": 10,
         "advancement": [
           {
@@ -14734,10 +14824,10 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
+        "systemVersion": "2025.04.20",
         "createdTime": null,
-        "modifiedTime": 1745373727499,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746574900411,
+        "lastModifiedBy": "m67FPzGiyfoLtojg"
       }
     },
     {
@@ -14827,7 +14917,7 @@
           }
         ],
         "active": true,
-        "xp": 125345,
+        "xp": 128093,
         "xpbonus": 10,
         "advancement": [
           {
@@ -14857,6 +14947,10 @@
           {
             "level": 7,
             "hp": 3
+          },
+          {
+            "level": 8,
+            "hp": 4
           }
         ],
         "features": {
@@ -15897,10 +15991,10 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
+        "systemVersion": "2025.04.20",
         "createdTime": null,
-        "modifiedTime": 1745373727523,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746574945443,
+        "lastModifiedBy": "m67FPzGiyfoLtojg"
       }
     },
     {
@@ -21139,8 +21233,8 @@
           },
           "flags": {
             "world": {
-              "lastOngoingTime": 83355297,
-              "ongoingCount": 16
+              "lastOngoingTime": 95340082,
+              "ongoingCount": 18
             }
           },
           "origin": null,
@@ -21151,11 +21245,11 @@
           "_stats": {
             "compendiumSource": null,
             "duplicateSource": null,
-            "coreVersion": "12.331",
+            "coreVersion": "12.343",
             "systemId": "ars",
             "systemVersion": "2025.02.03",
             "createdTime": null,
-            "modifiedTime": 1745437450544,
+            "modifiedTime": 1746898651568,
             "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
           },
           "img": "icons/equipment/neck/amulet-round-gold-green.webp",
@@ -21726,6 +21820,19 @@
             "cost": 0,
             "level": 0,
             "skilltarget": 0
+          },
+          {
+            "id": "R5IpHLWn3L8R7xHs",
+            "uuid": "Actor.LwAUpzZTXkAcmsQe.Item.R5IpHLWn3L8R7xHs",
+            "img": "icons/commodities/leather/leather-bolt-brown.webp",
+            "name": "Mercury",
+            "type": "item",
+            "quantity": 2,
+            "sourceuuid": "",
+            "count": 0,
+            "cost": 0,
+            "level": 0,
+            "skilltarget": 0
           }
         ],
         "alias": "",
@@ -21799,10 +21906,10 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
+        "systemVersion": "2025.04.20",
         "createdTime": null,
-        "modifiedTime": 1745442595922,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746584969017,
+        "lastModifiedBy": "m67FPzGiyfoLtojg"
       },
       "_id": "WFY94QIgpfwlhgmM"
     },
@@ -21913,10 +22020,10 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.02.03",
+        "systemVersion": "2025.04.20",
         "createdTime": null,
-        "modifiedTime": 1742948137540,
-        "lastModifiedBy": "m67FPzGiyfoLtojg"
+        "modifiedTime": 1746577424473,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       },
       "_id": "iR4KNmao89R2d6Yl"
     },
@@ -26118,148 +26225,6 @@
       }
     },
     {
-      "name": "Javelin (Troglodyte)",
-      "type": "weapon",
-      "img": "icons/weapons/polearms/javelin.webp",
-      "effects": [],
-      "folder": "aoVPTMkHywApz9EO",
-      "sort": 10200000,
-      "flags": {
-        "scene-packer": {
-          "hash": "10667023c1ac57195c3b1637dc079cc31a195a8a",
-          "sourceId": "Item.cmYKIcGA0UdRvBEE"
-        },
-        "core": {
-          "sourceId": "Compendium.world.osric-pc-item.cmYKIcGA0UdRvBEE"
-        },
-        "cf": null,
-        "osric": {
-          "actions": {
-            "Javelin (melee)": {
-              "display": {
-                "collapsedState": "block"
-              }
-            }
-          }
-        },
-        "LocknKey": {
-          "IDKeysFlag": "",
-          "RemoveKeyonUseFlag": false,
-          "LPFormulaFlag": "",
-          "LPFormulaOverrideFlag": false,
-          "LBFormulaFlag": "",
-          "LBFormulaOverrideFlag": false,
-          "CCFormulaFlag": "",
-          "CCFormulaOverrideFlag": false,
-          "ReplacementItemFlag": ""
-        }
-      },
-      "system": {
-        "description": "<p><em>[Foundry Note: </em><em>Use the damage style dropdown menu in the \"apply health adjustment\"&nbsp; box to multiply the damage x2, similar to a thief backstabbing an opponent, when receiving a charge. - Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>Allowed Classes</h2>\n<p>N/A, usable only by troglodytes without special training over a period of time from a troglodyte (good luck)</p>\n<p>&nbsp;</p>\n<h2>Details</h2>\n<p>Long-hafted, pointed weapons, such as the spear, lance (when used dismounted), pole arm, or trident, <strong>inflict double damage</strong> when set to receive a charge and the foe actually charges.</p>\n<p>Strength damage bonus with missile weapons is restricted to hurled/thrown weapons (axes, hammers, clubs, daggers, darts, javelins and spears).</p>\n<p>&nbsp;</p>\n<p><strong>Range Penalties</strong></p>\n<table style=\"width: 62.0609%; height: 68px;\" border=\"1\"><colgroup><col style=\"width: 51.5051%;\"><col style=\"width: 48.4949%;\"></colgroup>\n<tbody>\n<tr style=\"height: 17px;\">\n<th style=\"height: 17px;\">Range as Missile</th>\n<th style=\"height: 17px;\">To-Hit Penalty</th>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Short (1-20 ft)</td>\n<td style=\"height: 17px; text-align: center;\">None</td>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Medium (21-40 ft)</td>\n<td style=\"height: 17px; text-align: center;\">-2</td>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Long (41-60 ft)</td>\n<td style=\"height: 17px; text-align: center;\">-5</td>\n</tr>\n</tbody>\n</table>",
-        "dmonlytext": "<p/>",
-        "itemList": [],
-        "alias": "Javelin (Troglodyte)",
-        "attributes": {
-          "rarity": "",
-          "type": "",
-          "subtype": "",
-          "magic": false,
-          "properties": [],
-          "skillmods": [],
-          "conditionals": [],
-          "identified": true,
-          "infiniteammo": false,
-          "size": "medium",
-          "material": "wood_thick"
-        },
-        "charges": {
-          "value": 0,
-          "min": 0,
-          "max": 0,
-          "reuse": "none"
-        },
-        "location": {
-          "state": "equipped",
-          "parent": ""
-        },
-        "resource": {
-          "itemId": "jMjOBAvqvnzyPgsH"
-        },
-        "actions": [],
-        "quantity": 1,
-        "weight": 4,
-        "cost": {
-          "value": 5,
-          "currency": "sp"
-        },
-        "source": "",
-        "xp": 0,
-        "audio": {
-          "file": "",
-          "volume": 0.5,
-          "effect": "",
-          "success": "",
-          "failure": ""
-        },
-        "attack": {
-          "speed": 0,
-          "type": "thrown",
-          "perRound": "1/1",
-          "modifier": 0,
-          "magicBonus": 3,
-          "magicPotency": 0,
-          "range": {
-            "short": "20",
-            "medium": "40",
-            "long": "60"
-          },
-          "primary": false,
-          "speedmod": ""
-        },
-        "damage": {
-          "type": "piercing",
-          "normal": "2d4",
-          "large": "2d4",
-          "otherdmg": [],
-          "modifier": 0,
-          "magicBonus": 0
-        },
-        "weaponstyle": "",
-        "migrate": false,
-        "actionGroups": [],
-        "sourceUuid": "Actor.WZnhlBe5ru0AkXQi.Item.U94Rkr4ZuARR2UoF",
-        "onHit": {
-          "script": ""
-        },
-        "onMiss": {
-          "script": ""
-        },
-        "rank": {
-          "levels": {
-            "max": 1,
-            "arcane": 1,
-            "divine": 1
-          }
-        }
-      },
-      "ownership": {
-        "default": 0,
-        "PXJxlGCNBzbPFTjR": 3,
-        "TvWo5oQ0sPDIdJsd": 3
-      },
-      "_stats": {
-        "compendiumSource": "Item.U94Rkr4ZuARR2UoF",
-        "duplicateSource": null,
-        "coreVersion": "12.331",
-        "systemId": "ars",
-        "systemVersion": "2025.03.10",
-        "createdTime": null,
-        "modifiedTime": 1742948137540,
-        "lastModifiedBy": "m67FPzGiyfoLtojg"
-      },
-      "_id": "jMjOBAvqvnzyPgsH"
-    },
-    {
       "_id": "63FuAvEfxzDKcfdM",
       "name": "Axe, Hand",
       "type": "weapon",
@@ -26945,242 +26910,6 @@
       }
     },
     {
-      "folder": "KHASZgDl4TWpMAKy",
-      "name": "Arrow",
-      "type": "weapon",
-      "img": "icons/weapons/ammunition/arrow-broadhead-green.webp",
-      "system": {
-        "description": "",
-        "dmonlytext": "",
-        "itemList": [],
-        "alias": "",
-        "attributes": {
-          "rarity": "",
-          "type": "Ammunition",
-          "subtype": "",
-          "magic": false,
-          "properties": [],
-          "skillmods": [],
-          "conditionals": [],
-          "identified": true,
-          "infiniteammo": false,
-          "size": "medium",
-          "material": "wood_thin"
-        },
-        "charges": {
-          "value": 0,
-          "min": 0,
-          "max": 0,
-          "reuse": "none"
-        },
-        "location": {
-          "state": "equipped",
-          "parent": ""
-        },
-        "resource": {
-          "itemId": ""
-        },
-        "actions": [],
-        "quantity": 11,
-        "weight": 0.2,
-        "cost": {
-          "value": 2,
-          "currency": "gp"
-        },
-        "source": "",
-        "xp": 0,
-        "audio": {
-          "file": "",
-          "volume": 0.5,
-          "effect": "",
-          "success": "",
-          "failure": ""
-        },
-        "attack": {
-          "speed": 0,
-          "type": "ranged",
-          "perRound": "2/1",
-          "modifier": 0,
-          "magicBonus": 0,
-          "magicPotency": 0,
-          "range": {
-            "short": null,
-            "medium": null,
-            "long": null
-          },
-          "primary": false,
-          "speedmod": ""
-        },
-        "damage": {
-          "type": "piercing",
-          "normal": "1d6",
-          "large": "1d6",
-          "otherdmg": [],
-          "modifier": 0,
-          "magicBonus": 0
-        },
-        "weaponstyle": "",
-        "migrate": false,
-        "actionGroups": [],
-        "sourceUuid": "Actor.7ukyJW6cY9pfEoQJ.Item.TZEiOFOlS2lbYLsU",
-        "onHit": {
-          "script": ""
-        },
-        "onMiss": {
-          "script": ""
-        },
-        "rank": {
-          "levels": {
-            "max": 1,
-            "arcane": 1,
-            "divine": 1
-          }
-        }
-      },
-      "effects": [],
-      "sort": 11200000,
-      "ownership": {
-        "default": 0,
-        "PXJxlGCNBzbPFTjR": 3,
-        "TvWo5oQ0sPDIdJsd": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Actor.yqrDpPAjKJOZcxRJ.Item.6TQit1x5WWCJKDiN"
-        },
-        "scene-packer": {
-          "hash": "379d87a22476008fbf6c13af02702a5b69c1aa76"
-        }
-      },
-      "_stats": {
-        "compendiumSource": "Actor.yqrDpPAjKJOZcxRJ.Item.6TQit1x5WWCJKDiN",
-        "duplicateSource": null,
-        "coreVersion": "12.331",
-        "systemId": "ars",
-        "systemVersion": "2025.03.10",
-        "createdTime": null,
-        "modifiedTime": 1742948137540,
-        "lastModifiedBy": "m67FPzGiyfoLtojg"
-      },
-      "_id": "CqpyILgt1kYsnp2D"
-    },
-    {
-      "folder": "KHASZgDl4TWpMAKy",
-      "name": "Quiver (holds 24 arrows)",
-      "type": "container",
-      "img": "icons/containers/ammunition/arrows-quiver-green-brown.webp",
-      "system": {
-        "description": "",
-        "dmonlytext": "",
-        "itemList": [
-          {
-            "uuid": "Actor.8pXCWFmP63Rbpu2O.Item.CqpyILgt1kYsnp2D",
-            "sourceuuid": "",
-            "type": "weapon",
-            "name": "Arrow",
-            "img": "icons/weapons/ammunition/arrow-broadhead-green.webp",
-            "id": "CqpyILgt1kYsnp2D",
-            "quantity": 1,
-            "count": 0,
-            "cost": 0,
-            "level": 0,
-            "skilltarget": 0
-          },
-          {
-            "uuid": "Actor.8pXCWFmP63Rbpu2O.Item.lcaG8fXrwfJxjr2U",
-            "sourceuuid": "",
-            "type": "item",
-            "name": "Rope, silk (per 50 ft)",
-            "img": "icons/sundries/survival/rope-wrapped-purple.webp",
-            "id": "lcaG8fXrwfJxjr2U",
-            "quantity": 1,
-            "count": 0,
-            "cost": 0,
-            "level": 0,
-            "skilltarget": 0
-          }
-        ],
-        "alias": "",
-        "attributes": {
-          "rarity": "",
-          "type": "",
-          "subtype": "",
-          "magic": false,
-          "properties": [],
-          "skillmods": [],
-          "conditionals": [],
-          "identified": true,
-          "infiniteammo": false,
-          "size": "medium",
-          "material": "leather_book"
-        },
-        "charges": {
-          "value": 0,
-          "min": 0,
-          "max": 0,
-          "reuse": "none"
-        },
-        "location": {
-          "state": "carried",
-          "parent": ""
-        },
-        "resource": {
-          "itemId": ""
-        },
-        "actions": [],
-        "quantity": 1,
-        "weight": 2,
-        "cost": {
-          "value": 25,
-          "currency": "sp"
-        },
-        "source": "",
-        "xp": 0,
-        "capacity": {
-          "value": 0,
-          "weightreduction": 0,
-          "max": 0,
-          "min": 0
-        },
-        "migrate": false,
-        "actionGroups": [],
-        "sourceUuid": "Actor.WZnhlBe5ru0AkXQi.Item.AppVsTaRXxTi9oPV",
-        "rank": {
-          "levels": {
-            "max": 1,
-            "arcane": 1,
-            "divine": 1
-          }
-        }
-      },
-      "effects": [],
-      "sort": 10500000,
-      "ownership": {
-        "default": 0,
-        "PXJxlGCNBzbPFTjR": 3,
-        "TvWo5oQ0sPDIdJsd": 3
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Actor.yqrDpPAjKJOZcxRJ.Item.aH6lhnLfxiNxAhn2"
-        },
-        "scene-packer": {
-          "hash": "2a4da95ecb470e1f39c9877980c0ebf69c711bd1"
-        }
-      },
-      "_stats": {
-        "compendiumSource": "Actor.yqrDpPAjKJOZcxRJ.Item.aH6lhnLfxiNxAhn2",
-        "duplicateSource": null,
-        "coreVersion": "12.331",
-        "systemId": "ars",
-        "systemVersion": "2025.02.03",
-        "createdTime": null,
-        "modifiedTime": 1742948137540,
-        "lastModifiedBy": "m67FPzGiyfoLtojg"
-      },
-      "_id": "LEOs4DUIXG2HuZa9"
-    },
-    {
       "_id": "huzUt9PKfG52U7jr",
       "name": "Blanket, woollen",
       "type": "item",
@@ -27820,7 +27549,7 @@
           "itemId": ""
         },
         "actions": [],
-        "quantity": 7,
+        "quantity": 4,
         "weight": 1,
         "cost": {
           "value": 6,
@@ -27849,10 +27578,10 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
+        "systemVersion": "2025.04.20",
         "createdTime": null,
-        "modifiedTime": 1745370049906,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746577373194,
+        "lastModifiedBy": "m67FPzGiyfoLtojg"
       }
     },
     {
@@ -28112,10 +27841,10 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.02.03",
+        "systemVersion": "2025.04.20",
         "createdTime": null,
-        "modifiedTime": 1742948137540,
-        "lastModifiedBy": "m67FPzGiyfoLtojg"
+        "modifiedTime": 1746577287275,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       },
       "_id": "jbOmUAGC5LqPTgps"
     },
@@ -29376,11 +29105,24 @@
             "skilltarget": 0
           },
           {
-            "id": "kAN3w1Vd7nxg2qJh",
             "uuid": "Actor.LwAUpzZTXkAcmsQe.Item.kAN3w1Vd7nxg2qJh",
-            "img": "icons/consumables/potions/bottle-round-corked-pink.webp",
-            "name": "Potion of Vitality",
+            "sourceuuid": "",
             "type": "item",
+            "name": "Potion of Vitality",
+            "img": "icons/consumables/potions/bottle-round-corked-pink.webp",
+            "id": "kAN3w1Vd7nxg2qJh",
+            "quantity": 1,
+            "count": 0,
+            "cost": 0,
+            "level": 0,
+            "skilltarget": 0
+          },
+          {
+            "id": "cLbaG5U9SWFD1I44",
+            "uuid": "Actor.LwAUpzZTXkAcmsQe.Item.cLbaG5U9SWFD1I44",
+            "img": "icons/consumables/potions/bottle-round-corked-pink.webp",
+            "name": "Elixir of Fire Breath",
+            "type": "potion",
             "quantity": 1,
             "sourceuuid": "",
             "count": 0,
@@ -29467,9 +29209,9 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.02.03",
+        "systemVersion": "2025.04.20",
         "createdTime": null,
-        "modifiedTime": 1742948137540,
+        "modifiedTime": 1746574854432,
         "lastModifiedBy": "m67FPzGiyfoLtojg"
       },
       "_id": "tVnYJ14lOvFaUOJy"
@@ -29890,10 +29632,36 @@
             "skilltarget": 0
           },
           {
-            "id": "EsFwIc9ImcK8sSV2",
             "uuid": "Actor.LwAUpzZTXkAcmsQe.Item.EsFwIc9ImcK8sSV2",
-            "img": "icons/commodities/leather/leather-bolt-brown.webp",
+            "sourceuuid": "",
+            "type": "item",
             "name": "Wagon, small",
+            "img": "icons/commodities/leather/leather-bolt-brown.webp",
+            "id": "EsFwIc9ImcK8sSV2",
+            "quantity": 1,
+            "count": 0,
+            "cost": 0,
+            "level": 0,
+            "skilltarget": 0
+          },
+          {
+            "uuid": "Actor.LwAUpzZTXkAcmsQe.Item.1ZSpDbgZcTlittCA",
+            "sourceuuid": "",
+            "type": "container",
+            "name": "Spell Book (Blank)",
+            "img": "icons/sundries/books/book-embossed-bound-brown.webp",
+            "id": "1ZSpDbgZcTlittCA",
+            "quantity": 1,
+            "count": 0,
+            "cost": 0,
+            "level": 0,
+            "skilltarget": 0
+          },
+          {
+            "id": "fXcEU9ZDIj8MBFzR",
+            "uuid": "Actor.LwAUpzZTXkAcmsQe.Item.fXcEU9ZDIj8MBFzR",
+            "img": "icons/sundries/books/book-tooled-blue-yellow.webp",
+            "name": "Manual of Bodily Health",
             "type": "item",
             "quantity": 1,
             "sourceuuid": "",
@@ -29973,10 +29741,10 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.03.10",
+        "systemVersion": "2025.04.20",
         "createdTime": null,
-        "modifiedTime": 1743007146075,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746585026491,
+        "lastModifiedBy": "m67FPzGiyfoLtojg"
       }
     },
     {
@@ -31409,7 +31177,7 @@
           "itemId": ""
         },
         "actions": [],
-        "quantity": 7,
+        "quantity": 11,
         "weight": 1,
         "cost": {
           "value": 1,
@@ -31439,10 +31207,10 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
+        "systemVersion": "2025.04.20",
         "createdTime": null,
-        "modifiedTime": 1745370049944,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746577418678,
+        "lastModifiedBy": "m67FPzGiyfoLtojg"
       },
       "_id": "Kj0HAkb2Wb2htFJh"
     },
@@ -31496,7 +31264,7 @@
           "itemId": ""
         },
         "actions": [],
-        "quantity": 12,
+        "quantity": 15,
         "weight": 1,
         "cost": {
           "value": 6,
@@ -31526,9 +31294,9 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.02.03",
+        "systemVersion": "2025.04.20",
         "createdTime": null,
-        "modifiedTime": 1742948137540,
+        "modifiedTime": 1746577424269,
         "lastModifiedBy": "m67FPzGiyfoLtojg"
       }
     },
@@ -32274,7 +32042,7 @@
           "itemId": ""
         },
         "actions": [],
-        "quantity": 8,
+        "quantity": 4,
         "weight": 1,
         "cost": {
           "value": 1,
@@ -32304,9 +32072,9 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.02.03",
+        "systemVersion": "2025.04.20",
         "createdTime": null,
-        "modifiedTime": 1742948137540,
+        "modifiedTime": 1746577361831,
         "lastModifiedBy": "m67FPzGiyfoLtojg"
       },
       "_id": "8qDNa4FRhsqq8A26"
@@ -33013,89 +32781,6 @@
       },
       "_stats": {
         "compendiumSource": null,
-        "duplicateSource": null,
-        "coreVersion": "12.331",
-        "systemId": "ars",
-        "systemVersion": "2025.02.03",
-        "createdTime": null,
-        "modifiedTime": 1742948137540,
-        "lastModifiedBy": "m67FPzGiyfoLtojg"
-      }
-    },
-    {
-      "_id": "lcaG8fXrwfJxjr2U",
-      "name": "Rope, silk (per 50 ft)",
-      "type": "item",
-      "img": "icons/sundries/survival/rope-wrapped-purple.webp",
-      "effects": [],
-      "folder": "wekYAAoQ7ow15Ad0",
-      "sort": 11000000,
-      "flags": {
-        "scene-packer": {
-          "hash": "5b18a516dfff91d7f90a4ebf0cbd5a5af12ca60f",
-          "sourceId": "Item.S5BN0UXVXI7l56Fm"
-        },
-        "core": {},
-        "cf": null
-      },
-      "system": {
-        "description": "<p/>",
-        "dmonlytext": "<p/>",
-        "itemList": [],
-        "alias": "",
-        "attributes": {
-          "rarity": "Common",
-          "type": "Gear",
-          "subtype": "",
-          "magic": false,
-          "properties": [],
-          "skillmods": [],
-          "conditionals": [],
-          "identified": true,
-          "infiniteammo": false,
-          "material": "leather_book",
-          "size": "medium"
-        },
-        "charges": {
-          "value": 0,
-          "min": 0,
-          "max": 0,
-          "reuse": "none"
-        },
-        "location": {
-          "state": "carried",
-          "parent": ""
-        },
-        "resource": {
-          "itemId": ""
-        },
-        "actions": [],
-        "quantity": 1,
-        "weight": 5,
-        "cost": {
-          "value": 10,
-          "currency": "gp"
-        },
-        "source": "",
-        "xp": 0,
-        "migrate": false,
-        "sourceUuid": "Compendium.world.osric-items-pc-copy.Item.S5BN0UXVXI7l56Fm",
-        "actionGroups": [],
-        "rank": {
-          "levels": {
-            "max": 1,
-            "arcane": 1,
-            "divine": 1
-          }
-        }
-      },
-      "ownership": {
-        "default": 0,
-        "PXJxlGCNBzbPFTjR": 3,
-        "m67FPzGiyfoLtojg": 3
-      },
-      "_stats": {
-        "compendiumSource": "Actor.8pXCWFmP63Rbpu2O.Item.Gt0LKUE6MRXtChLo",
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
@@ -35343,7 +35028,7 @@
       "img": "icons/sundries/books/book-tooled-blue-yellow.webp",
       "effects": [],
       "folder": "wwBD4E6Tzl4hQ73I",
-      "sort": 3050000,
+      "sort": 13625000,
       "flags": {
         "scene-packer": {
           "hash": "c46e638a3bf42335dd84d4278a27709419d55f15"
@@ -35584,7 +35269,7 @@
         "systemId": "ars",
         "systemVersion": "2025.03.10",
         "createdTime": 1742946972452,
-        "modifiedTime": 1742949312214,
+        "modifiedTime": 1746585026614,
         "lastModifiedBy": "m67FPzGiyfoLtojg"
       }
     },
@@ -35893,7 +35578,7 @@
           "itemId": ""
         },
         "actions": [],
-        "quantity": 5,
+        "quantity": 4,
         "weight": 0.1,
         "cost": {
           "value": 50,
@@ -35923,10 +35608,10 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
+        "systemVersion": "2025.04.20",
         "createdTime": 1742947979290,
-        "modifiedTime": 1745442653950,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746584858984,
+        "lastModifiedBy": "m67FPzGiyfoLtojg"
       },
       "_id": "rf0kMxf1tkUdR7pj"
     },
@@ -36010,7 +35695,7 @@
       "img": "icons/consumables/potions/bottle-round-corked-pink.webp",
       "effects": [],
       "folder": "zb1I9hZPjEsvQxSB",
-      "sort": 100000,
+      "sort": 13250000,
       "flags": {
         "scene-packer": {
           "hash": "fa4554a6923510e2565bfbeab258f601aa582c1a"
@@ -37253,8 +36938,8 @@
         "systemId": "ars",
         "systemVersion": "2025.04.10",
         "createdTime": 1744167334645,
-        "modifiedTime": 1745667593560,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746574854576,
+        "lastModifiedBy": "m67FPzGiyfoLtojg"
       }
     },
     {
@@ -37320,7 +37005,7 @@
         "sourceUuid": "Scene.kH09pp5dyKhhp4ES.Token.iZofEdmf7TpO0NOT.Actor.mDOM6g0F8zHAwGB1.Item.IMgDL5mVOIJeawX5"
       },
       "effects": [],
-      "sort": 4450000,
+      "sort": 13650000,
       "ownership": {
         "default": 0,
         "PXJxlGCNBzbPFTjR": 3,
@@ -37336,7 +37021,7 @@
         "systemId": "ars",
         "systemVersion": "2025.03.10",
         "createdTime": 1744167342922,
-        "modifiedTime": 1744167342922,
+        "modifiedTime": 1746576915167,
         "lastModifiedBy": "m67FPzGiyfoLtojg"
       },
       "_id": "1ZSpDbgZcTlittCA"
@@ -37424,15 +37109,92 @@
         "modifiedTime": 1745442748308,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
+    },
+    {
+      "folder": "U2or9Ph5gQdZ1xAi",
+      "name": "Mercury",
+      "type": "item",
+      "_id": "R5IpHLWn3L8R7xHs",
+      "img": "icons/commodities/leather/leather-bolt-brown.webp",
+      "system": {
+        "migrate": false,
+        "description": "",
+        "dmonlytext": "",
+        "attributes": {
+          "material": "metal_soft",
+          "rarity": "",
+          "type": "",
+          "subtype": "",
+          "magic": false,
+          "properties": [],
+          "skillmods": [],
+          "conditionals": [],
+          "identified": true,
+          "infiniteammo": false,
+          "size": "medium"
+        },
+        "charges": {
+          "value": 0,
+          "min": 0,
+          "max": 0,
+          "reuse": "none"
+        },
+        "location": {
+          "state": "carried",
+          "parent": ""
+        },
+        "resource": {
+          "itemId": ""
+        },
+        "quantity": 2,
+        "weight": 0,
+        "itemList": [],
+        "source": "",
+        "xp": 0,
+        "actions": [],
+        "actionGroups": [],
+        "cost": {
+          "value": 0,
+          "currency": "pp"
+        },
+        "alias": "",
+        "rank": {
+          "levels": {
+            "max": 1,
+            "arcane": 1,
+            "divine": 1
+          }
+        },
+        "sourceUuid": "Compendium.osric-compendium.items.Item.NDGyo47xzo3EVQX8"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.331",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746584953014,
+        "modifiedTime": 1746584969150,
+        "lastModifiedBy": "m67FPzGiyfoLtojg"
+      },
+      "sort": 10625000,
+      "ownership": {
+        "default": 0,
+        "PXJxlGCNBzbPFTjR": 3,
+        "Nf3ofNhweHQ31QEU": 3,
+        "m67FPzGiyfoLtojg": 3
+      }
     }
   ],
   "effects": [
     {
       "_id": "ygJJfLRw90gy03dF",
-      "name": "STATUSEFFECT.encumbrance-moderate",
-      "img": "systems/ars/icons/general/encumbrance-moderate.png",
+      "name": "STATUSEFFECT.encumbrance-light",
+      "img": "systems/ars/icons/general/encumbrance-light.png",
       "statuses": [
-        "encumbrance-moderate"
+        "encumbrance-light"
       ],
       "type": "base",
       "system": {},
@@ -37460,8 +37222,8 @@
         "systemId": "ars",
         "systemVersion": "2025.04.10",
         "createdTime": 1745442522523,
-        "modifiedTime": 1745442585359,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746577272991,
+        "lastModifiedBy": "m67FPzGiyfoLtojg"
       }
     },
     {
@@ -37469,7 +37231,7 @@
       "img": "icons/svg/aura.svg",
       "origin": "Actor.uhA2f7Tj1MSHkT4H",
       "duration": {
-        "startTime": 83356497,
+        "startTime": 95342482,
         "seconds": null,
         "combat": null,
         "rounds": null,
@@ -37516,11 +37278,125 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "12.331",
+        "coreVersion": "12.343",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
-        "createdTime": 1745670513626,
-        "modifiedTime": 1745670513626,
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899356669,
+        "modifiedTime": 1746899356669,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
+    },
+    {
+      "_id": "0000000000vh2wfj",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.HEMIAxBrkxDbMaKf",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.type",
+          "value": "{\"trigger\": \"pfe\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.HEMIAxBrkxDbMaKf",
+          "effectUuid": "Actor.HEMIAxBrkxDbMaKf.Item.wW2UCMaRDemhvtWB.ActiveEffect.Kh0cYzTA0CUY8Nxe",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:Protection From Evil 10 ft",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899406817,
+        "modifiedTime": 1746899406817,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
+    },
+    {
+      "_id": "0000000000c4twbb",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.UMPjO8EN4ztOgc9V",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "system.mods.ac.value",
+          "value": "0",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.mods.saves.all",
+          "value": "{\"formula\":\"1\",\"properties\":\"\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.UMPjO8EN4ztOgc9V",
+          "effectUuid": "Actor.UMPjO8EN4ztOgc9V.Item.Lz4CJ17MkpWSTrK6.ActiveEffect.ArEHCdxBrogpSHkE",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:5 ft Protection Aura",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899438538,
+        "modifiedTime": 1746899438538,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
     }
@@ -37585,8 +37461,8 @@
     "exportSource": {
       "world": "greyhawk-wars",
       "system": "ars",
-      "coreVersion": "12.331",
-      "systemVersion": "2025.04.10"
+      "coreVersion": "12.343",
+      "systemVersion": "2025.04.20"
     },
     "adnd-2e-nwp": {
       "nwp": [
@@ -37631,14 +37507,17 @@
           "description": "A character proficient in healing knows how to use natural medicines and basic principles of first aid and doctoring. If the character tends another within one round of wounding (and makes a successful proficiency check), his ministrations restore 1d3 hit points (but no more hit points can be restored than were lost in the previous round)."
         }
       ]
+    },
+    "ars-battlesystem-tab": {
+      "_activeTab": "effects"
     }
   },
   "_stats": {
     "coreVersion": "12.331",
     "systemId": "ars",
-    "systemVersion": "2025.04.10",
+    "systemVersion": "2025.04.20",
     "createdTime": 1741304121792,
-    "modifiedTime": 1745443763078,
+    "modifiedTime": 1746841104707,
     "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
   }
 }

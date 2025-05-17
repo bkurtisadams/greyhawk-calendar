@@ -168,7 +168,7 @@
       },
       "hp": {
         "base": 0,
-        "value": 67,
+        "value": 62,
         "min": -10,
         "max": 67,
         "temp": 0,
@@ -4008,7 +4008,7 @@
         }
       ],
       "folder": "oJwmB46FOG2e00Ot",
-      "sort": 3700000,
+      "sort": 328125,
       "flags": {
         "scene-packer": {
           "hash": "cc3ad3e4e67495b5f483841817e99f35defd3021"
@@ -4081,7 +4081,7 @@
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741831629833,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746585961336,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -4195,7 +4195,7 @@
         }
       ],
       "folder": "2knmMBDAT28IgUij",
-      "sort": 3900000,
+      "sort": 331250,
       "flags": {
         "scene-packer": {
           "hash": "d124575296541e6046fff9d4668ddd43effad634"
@@ -4289,7 +4289,7 @@
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741831644226,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746585953493,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -4343,7 +4343,7 @@
         }
       ],
       "folder": "0tFQv8hu4tjTGuUY",
-      "sort": 4000000,
+      "sort": 306250,
       "flags": {
         "scene-packer": {
           "hash": "eb2b1d01301eebf064b11bd36a310d7d0de699a3"
@@ -4453,7 +4453,7 @@
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741831665103,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746585971988,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -4464,7 +4464,7 @@
       "img": "icons/weapons/crossbows/crossbow-purple.webp",
       "effects": [],
       "folder": "TstlWVqtPO7TnUE0",
-      "sort": 4600000,
+      "sort": 312500,
       "flags": {
         "scene-packer": {
           "hash": "73ec1ff435e2328d3829fd6c91d435664b34030c"
@@ -4574,7 +4574,7 @@
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741831713034,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746585969064,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -4641,7 +4641,7 @@
         "sourceUuid": "Compendium.osric-compendium.items-gm.Item.eYTaRu2XFdMeoNRO"
       },
       "effects": [],
-      "sort": 3500000,
+      "sort": 351076,
       "ownership": {
         "default": 0,
         "PXJxlGCNBzbPFTjR": 3,
@@ -4656,7 +4656,7 @@
         "systemId": "ars",
         "systemVersion": "2025.03.10",
         "createdTime": 1741831728447,
-        "modifiedTime": 1744167395158,
+        "modifiedTime": 1746586278253,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       },
       "_id": "BLv40QocwKqAy1dL"
@@ -4690,19 +4690,6 @@
             "name": "Potion of Longevity",
             "img": "icons/consumables/potions/bottle-round-corked-pink.webp",
             "id": "ezxHLVmP1Twm6SLC",
-            "quantity": 1,
-            "count": 0,
-            "cost": 0,
-            "level": 0,
-            "skilltarget": 0
-          },
-          {
-            "uuid": "Actor.zbRxI16dgSdxVZD4.Item.PcEtIkiBXalDTCaF",
-            "sourceuuid": "",
-            "type": "item",
-            "name": "Everburning Incense",
-            "img": "icons/commodities/leather/leather-bolt-brown.webp",
-            "id": "PcEtIkiBXalDTCaF",
             "quantity": 1,
             "count": 0,
             "cost": 0,
@@ -4764,7 +4751,7 @@
         "sourceUuid": "Compendium.osric-compendium.items.Item.70D6l0hNuVnOkRX0"
       },
       "effects": [],
-      "sort": 3200000,
+      "sort": 350856,
       "ownership": {
         "default": 0,
         "PXJxlGCNBzbPFTjR": 3,
@@ -4777,10 +4764,10 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
+        "systemVersion": "2025.04.20",
         "createdTime": 1741831793894,
-        "modifiedTime": 1745441658974,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746586286069,
+        "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       },
       "_id": "9iboJJhXYXr1czRJ"
     },
@@ -4820,19 +4807,6 @@
             "skilltarget": 0
           },
           {
-            "uuid": "Actor.zbRxI16dgSdxVZD4.Item.mHGlJC0j1hGm9OOl",
-            "sourceuuid": "",
-            "type": "weapon",
-            "name": "Oil, Lamp (per pint)",
-            "img": "icons/consumables/potions/potion-tube-corked-orange.webp",
-            "id": "mHGlJC0j1hGm9OOl",
-            "quantity": 6,
-            "count": 0,
-            "cost": 0,
-            "level": 0,
-            "skilltarget": 0
-          },
-          {
             "uuid": "Actor.zbRxI16dgSdxVZD4.Item.DVURcLX0UCch7VyB",
             "sourceuuid": "",
             "type": "item",
@@ -4859,12 +4833,38 @@
             "skilltarget": 0
           },
           {
+            "uuid": "Actor.zbRxI16dgSdxVZD4.Item.uI6uVgohDA9eMEQl",
+            "sourceuuid": "",
+            "type": "item",
+            "name": "Oil",
+            "img": "icons/commodities/leather/leather-bolt-brown.webp",
+            "id": "uI6uVgohDA9eMEQl",
+            "quantity": 6,
+            "count": 0,
+            "cost": 0,
+            "level": 0,
+            "skilltarget": 0
+          },
+          {
             "uuid": "Actor.zbRxI16dgSdxVZD4.Item.P7LgVJ8Xw25ACLPr",
             "sourceuuid": "",
             "type": "item",
             "name": "Signal whistle",
             "img": "icons/commodities/leather/leather-bolt-brown.webp",
             "id": "P7LgVJ8Xw25ACLPr",
+            "quantity": 1,
+            "count": 0,
+            "cost": 0,
+            "level": 0,
+            "skilltarget": 0
+          },
+          {
+            "uuid": "Actor.zbRxI16dgSdxVZD4.Item.PcEtIkiBXalDTCaF",
+            "sourceuuid": "",
+            "type": "item",
+            "name": "Everburning Incense",
+            "img": "icons/commodities/leather/leather-bolt-brown.webp",
+            "id": "PcEtIkiBXalDTCaF",
             "quantity": 1,
             "count": 0,
             "cost": 0,
@@ -4879,32 +4879,6 @@
             "img": "icons/sundries/gaming/dice-runed-tan.webp",
             "id": "db1ZJTWOa34tJzCJ",
             "quantity": 1,
-            "count": 0,
-            "cost": 0,
-            "level": 0,
-            "skilltarget": 0
-          },
-          {
-            "uuid": "Actor.zbRxI16dgSdxVZD4.Item.wlIKuBE9rIJ364oY",
-            "sourceuuid": "",
-            "type": "currency",
-            "name": "Platinum Coins",
-            "img": "icons/commodities/currency/coin-inset-lightning-silver.webp",
-            "id": "wlIKuBE9rIJ364oY",
-            "quantity": 40,
-            "count": 0,
-            "cost": 0,
-            "level": 0,
-            "skilltarget": 0
-          },
-          {
-            "uuid": "Actor.zbRxI16dgSdxVZD4.Item.kb1GSpoGRLgtOfAR",
-            "sourceuuid": "",
-            "type": "item",
-            "name": "Topaz (500 gp)",
-            "img": "icons/commodities/gems/gem-faceted-octagon-yellow.webp",
-            "id": "kb1GSpoGRLgtOfAR",
-            "quantity": 7,
             "count": 0,
             "cost": 0,
             "level": 0,
@@ -4930,7 +4904,33 @@
             "name": "Carnelian (50 gp)",
             "img": "icons/commodities/gems/gem-rough-rectangle-red.webp",
             "id": "BQgGGsNooBNZNEpq",
-            "quantity": 1,
+            "quantity": 2,
+            "count": 0,
+            "cost": 0,
+            "level": 0,
+            "skilltarget": 0
+          },
+          {
+            "uuid": "Actor.zbRxI16dgSdxVZD4.Item.kb1GSpoGRLgtOfAR",
+            "sourceuuid": "",
+            "type": "item",
+            "name": "Topaz (500 gp)",
+            "img": "icons/commodities/gems/gem-faceted-octagon-yellow.webp",
+            "id": "kb1GSpoGRLgtOfAR",
+            "quantity": 5,
+            "count": 0,
+            "cost": 0,
+            "level": 0,
+            "skilltarget": 0
+          },
+          {
+            "uuid": "Actor.zbRxI16dgSdxVZD4.Item.wlIKuBE9rIJ364oY",
+            "sourceuuid": "",
+            "type": "currency",
+            "name": "Platinum Coins",
+            "img": "icons/commodities/currency/coin-inset-lightning-silver.webp",
+            "id": "wlIKuBE9rIJ364oY",
+            "quantity": 37,
             "count": 0,
             "cost": 0,
             "level": 0,
@@ -4991,7 +4991,7 @@
         "sourceUuid": "Compendium.osric-compendium.items.Item.SxMOxCTWjVlAtolH"
       },
       "effects": [],
-      "sort": 3100000,
+      "sort": 354298,
       "ownership": {
         "default": 0,
         "PXJxlGCNBzbPFTjR": 3,
@@ -5004,109 +5004,12 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
+        "systemVersion": "2025.04.20",
         "createdTime": 1741831799225,
-        "modifiedTime": 1745449784140,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
-      },
-      "_id": "BDeTMPmhoKUO7VQg"
-    },
-    {
-      "folder": "QLdS6RdA6osQ1eBH",
-      "name": "Sack, Large",
-      "type": "container",
-      "img": "icons/containers/bags/sack-leather-blue-brown.webp",
-      "system": {
-        "description": "<p>Capacity: 4 cu. ft. or 40 lbs</p>",
-        "dmonlytext": "",
-        "itemList": [
-          {
-            "uuid": "Actor.zbRxI16dgSdxVZD4.Item.xvJxV0waMNht3WdD",
-            "sourceuuid": "",
-            "type": "item",
-            "name": "Saddle and stirrups",
-            "img": "icons/commodities/leather/leather-bolt-brown.webp",
-            "id": "xvJxV0waMNht3WdD",
-            "quantity": 1,
-            "count": 0,
-            "cost": 0,
-            "level": 0,
-            "skilltarget": 0
-          }
-        ],
-        "alias": "",
-        "attributes": {
-          "rarity": "",
-          "type": "",
-          "subtype": "",
-          "magic": false,
-          "properties": [],
-          "skillmods": [],
-          "conditionals": [],
-          "identified": true,
-          "infiniteammo": false,
-          "material": "rope",
-          "size": "medium"
-        },
-        "charges": {
-          "value": 0,
-          "min": 0,
-          "max": 0,
-          "reuse": "none"
-        },
-        "location": {
-          "state": "carried",
-          "parent": ""
-        },
-        "resource": {
-          "itemId": ""
-        },
-        "actions": [],
-        "quantity": 1,
-        "weight": 1,
-        "cost": {
-          "value": 15,
-          "currency": "cp"
-        },
-        "source": "",
-        "xp": 0,
-        "capacity": {
-          "value": 0,
-          "weightreduction": 0,
-          "max": 40,
-          "min": 0
-        },
-        "migrate": false,
-        "actionGroups": [],
-        "rank": {
-          "levels": {
-            "max": 1,
-            "arcane": 1,
-            "divine": 1
-          }
-        },
-        "sourceUuid": "Compendium.osric-compendium.items.Item.dl1IMFNlmMxAkpZe"
-      },
-      "effects": [],
-      "sort": 3400000,
-      "ownership": {
-        "default": 0,
-        "PXJxlGCNBzbPFTjR": 3,
-        "Nf3ofNhweHQ31QEU": 3,
-        "TvWo5oQ0sPDIdJsd": 3
-      },
-      "flags": {},
-      "_stats": {
-        "compendiumSource": "Item.dl1IMFNlmMxAkpZe",
-        "duplicateSource": null,
-        "coreVersion": "12.331",
-        "systemId": "ars",
-        "systemVersion": "2025.03.10",
-        "createdTime": 1741831816893,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746586214590,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       },
-      "_id": "rSXcjLsBnNNkYfdK"
+      "_id": "BDeTMPmhoKUO7VQg"
     },
     {
       "_id": "Vfrm8hhJRA4EBzjv",
@@ -5115,7 +5018,7 @@
       "img": "icons/equipment/feet/boots-leather-brown.webp",
       "effects": [],
       "folder": "4ATejtUHdseEVUID",
-      "sort": 428125,
+      "sort": 350807,
       "flags": {
         "scene-packer": {
           "hash": "6b46c3f99b8e0e411dd6e1928110a027e4c3a742",
@@ -5190,7 +5093,7 @@
         "systemId": "ars",
         "systemVersion": "2025.03.10",
         "createdTime": 1741831999866,
-        "modifiedTime": 1744167409770,
+        "modifiedTime": 1746586287718,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -5278,7 +5181,7 @@
       "img": "icons/equipment/chest/shirt-collared-brown.webp",
       "effects": [],
       "folder": "4ATejtUHdseEVUID",
-      "sort": 362500,
+      "sort": 350782,
       "flags": {
         "scene-packer": {
           "hash": "f8be9ba76dba7a4fbb6c4f7de1dc554fd17e3aaa",
@@ -5353,7 +5256,7 @@
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741832014043,
-        "modifiedTime": 1744167443313,
+        "modifiedTime": 1746586230353,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -5364,7 +5267,7 @@
       "img": "icons/commodities/leather/leather-bolt-brown.webp",
       "effects": [],
       "folder": "wekYAAoQ7ow15Ad0",
-      "sort": 1700000,
+      "sort": 1225000,
       "flags": {
         "scene-packer": {
           "hash": "3619389d1b1522858c6ddc90e3b938334df0418c",
@@ -5439,7 +5342,7 @@
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741832039179,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746585344159,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -5647,7 +5550,7 @@
         "sourceUuid": "Compendium.osric-compendium.items.Item.E5xU8fbInQnn4mCj"
       },
       "effects": [],
-      "sort": 3000000,
+      "sort": 392188,
       "ownership": {
         "default": 0,
         "PXJxlGCNBzbPFTjR": 3,
@@ -5660,9 +5563,9 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.03.10",
+        "systemVersion": "2025.04.20",
         "createdTime": 1741832080434,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746586200380,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       },
       "_id": "X87ScTbtn7dzVQgj"
@@ -5674,7 +5577,7 @@
       "img": "icons/equipment/hand/gloves-leather-tan.webp",
       "effects": [],
       "folder": "4ATejtUHdseEVUID",
-      "sort": 356250,
+      "sort": 350795,
       "flags": {
         "scene-packer": {
           "hash": "3047965edb8efb3ecd7bd356de788c011920b2e5",
@@ -5749,7 +5652,7 @@
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741832107764,
-        "modifiedTime": 1744167450560,
+        "modifiedTime": 1746586289310,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -6318,7 +6221,7 @@
       "img": "icons/sundries/survival/rope-wrapped-purple.webp",
       "effects": [],
       "folder": "wekYAAoQ7ow15Ad0",
-      "sort": 1300000,
+      "sort": 1237500,
       "flags": {
         "scene-packer": {
           "hash": "5b18a516dfff91d7f90a4ebf0cbd5a5af12ca60f",
@@ -6393,7 +6296,7 @@
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741832232263,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746585347947,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -6404,7 +6307,7 @@
       "img": "icons/commodities/stone/paver-cobble-white.webp",
       "effects": [],
       "folder": "wekYAAoQ7ow15Ad0",
-      "sort": 1500000,
+      "sort": 1575000,
       "flags": {
         "scene-packer": {
           "hash": "d0c90647fc6ea55ea5c1dc32f7ffc2c8a6dd7b61",
@@ -6479,7 +6382,7 @@
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741832240591,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746585292942,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -6490,7 +6393,7 @@
       "img": "icons/commodities/metal/ingot-worn-iron.webp",
       "effects": [],
       "folder": "wekYAAoQ7ow15Ad0",
-      "sort": 1600000,
+      "sort": 1250000,
       "flags": {
         "scene-packer": {
           "hash": "c511f6d30b41e925527a7d939a02dde360dfffbc",
@@ -6565,474 +6468,7 @@
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741832246539,
-        "modifiedTime": 1744167315501,
-        "lastModifiedBy": "oC7GdQB1OgZIJzDm"
-      }
-    },
-    {
-      "folder": "wekYAAoQ7ow15Ad0",
-      "name": "Oil, Lamp (per pint)",
-      "type": "weapon",
-      "_id": "mHGlJC0j1hGm9OOl",
-      "img": "icons/consumables/potions/potion-tube-corked-orange.webp",
-      "system": {
-        "description": "<p><em>[Foundry Note: the system will want this assigned to a proficiency.&nbsp; If you as GM want to closely track WP points (and so don't want to create an unnecessary proficiency for this item that would skew the \"count\") then it can be assigned to any proficiency an actor already has, such as grappling or brawling.&nbsp; It doesn't really matter which proficiency, it's just an assignment to remove the non-WP penalty the system defaults to on any item usable as a \"weapon\". </em></p>\n<p><em>If a direct hit is scored, apply the ongoing effect in the same round you apply the direct \"weapon\" damage. - Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>Allowed Classes</h2>\n<p>All</p>\n<p>&nbsp;</p>\n<h2>Details</h2>\n<p>The GM may use some form of scatter table to determine where misses land.</p>\n<p>See Actions tab for ongoing damage effect.&nbsp; Apply when rolling the normal damage above as the ongoing damage starts the following round.</p>\n<p>&nbsp;</p>\n<table style=\"width: 62.0609%; height: 68px;\" border=\"1\"><colgroup><col style=\"width: 51.5051%;\"><col style=\"width: 48.4949%;\"></colgroup>\n<tbody>\n<tr style=\"height: 17px;\">\n<th style=\"height: 17px;\">Range as Missile</th>\n<th style=\"height: 17px;\">To-Hit Penalty</th>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Short (1-10 ft)</td>\n<td style=\"height: 17px; text-align: center;\">None</td>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Medium (11-20 ft)</td>\n<td style=\"height: 17px; text-align: center;\">-2</td>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Long (21-30 ft)</td>\n<td style=\"height: 17px; text-align: center;\">-5</td>\n</tr>\n</tbody>\n</table>",
-        "dmonlytext": "",
-        "itemList": [],
-        "alias": "",
-        "attributes": {
-          "rarity": "",
-          "type": "",
-          "subtype": "",
-          "magic": false,
-          "properties": [],
-          "skillmods": [],
-          "conditionals": [],
-          "identified": true,
-          "infiniteammo": false,
-          "material": "oils",
-          "size": "medium"
-        },
-        "charges": {
-          "value": 0,
-          "min": 0,
-          "max": 0,
-          "reuse": "none"
-        },
-        "location": {
-          "state": "carried",
-          "parent": ""
-        },
-        "resource": {
-          "itemId": ""
-        },
-        "actions": [
-          {
-            "img": "icons/magic/fire/explosion-flame-lightning-strike.webp",
-            "ability": "none",
-            "type": "effect",
-            "targeting": "",
-            "successAction": "none",
-            "formula": "",
-            "otherdmg": [],
-            "effectList": [],
-            "effect": {
-              "duration": {
-                "formula": "1",
-                "type": "round"
-              },
-              "changes": [
-                {
-                  "mode": 0,
-                  "key": "special.ongoing",
-                  "value": "{\"type\":\"damage\", \"rate\":\"1\", \"cycle\": \"round\", \"dmgType\": \"fire\", \"formula\": \"1d6\"}"
-                }
-              ],
-              "toolTip": "(special.ongoing/{\"type\":\"damage\", \"rate\":\"1\", \"cycle\": \"round\", \"dmgType\": \"fire\", \"formula\": \"1d6\"})"
-            },
-            "speed": 0,
-            "damagetype": "slashing",
-            "resource": {
-              "type": "none",
-              "itemId": "",
-              "reusetime": "",
-              "count": {
-                "cost": 1,
-                "min": 0,
-                "max": 1,
-                "value": 0
-              }
-            },
-            "magicpotency": 0,
-            "properties": [],
-            "description": "",
-            "dmonlytext": "",
-            "itemList": [],
-            "saveCheck": {
-              "type": "none",
-              "formula": ""
-            },
-            "abilityCheck": {
-              "type": "none",
-              "formula": ""
-            },
-            "id": "06vy0EXsdkzZrc8q",
-            "index": 0,
-            "name": "Round 2 Dmg (1d6)",
-            "parentuuid": "Item.ibE27x3qJTJAomnA",
-            "misc": "Ongoing Damage - Duration (T)"
-          },
-          {
-            "img": "icons/magic/fire/explosion-flame-lightning-strike.webp",
-            "ability": "none",
-            "type": "damage",
-            "targeting": "",
-            "successAction": "none",
-            "formula": "1d3",
-            "otherdmg": [],
-            "effectList": [],
-            "effect": {
-              "duration": {
-                "formula": "",
-                "type": "round"
-              },
-              "changes": [],
-              "toolTip": ""
-            },
-            "speed": 0,
-            "damagetype": "fire",
-            "resource": {
-              "type": "none",
-              "itemId": "",
-              "reusetime": "",
-              "count": {
-                "cost": 1,
-                "min": 0,
-                "max": 1,
-                "value": 0
-              }
-            },
-            "magicpotency": 0,
-            "properties": [],
-            "description": "",
-            "dmonlytext": "",
-            "itemList": [],
-            "saveCheck": {
-              "type": "none",
-              "formula": ""
-            },
-            "abilityCheck": {
-              "type": "none",
-              "formula": ""
-            },
-            "id": "7cvL08TYauxVROfk",
-            "index": 1,
-            "name": "Splash Damage",
-            "parentuuid": "Item.ibE27x3qJTJAomnA",
-            "misc": "1d3 Splash Fire",
-            "formulaEvaluated": "1d3"
-          }
-        ],
-        "quantity": 4,
-        "weight": 1,
-        "cost": {
-          "value": 1,
-          "currency": "sp"
-        },
-        "source": "",
-        "xp": 0,
-        "audio": {
-          "file": "",
-          "volume": 0.5,
-          "effect": "",
-          "success": "",
-          "failure": ""
-        },
-        "attack": {
-          "speed": 0,
-          "type": "thrown",
-          "perRound": "1/1",
-          "modifier": 0,
-          "magicBonus": 0,
-          "magicPotency": 0,
-          "range": {
-            "short": "10",
-            "medium": "20",
-            "long": "30"
-          },
-          "primary": false,
-          "speedmod": "-(@abilities.dex.reaction)"
-        },
-        "damage": {
-          "type": "fire",
-          "normal": "2d6",
-          "large": "2d6",
-          "otherdmg": [],
-          "modifier": 0,
-          "magicBonus": 0
-        },
-        "weaponstyle": "",
-        "actionGroups": [
-          {
-            "id": "9WuJkBJo7Lc0TYnZ",
-            "name": "Oil, Lamp (per pint): Round 2 Dmg (1d6)",
-            "img": "icons/consumables/potions/potion-tube-corked-orange.webp",
-            "description": "<p><em>[Foundry Note: the system will want this assigned to a proficiency.&nbsp; If you as GM want to closely track WP points (and so don't want to create an unnecessary proficiency for this item that would skew the \"count\") then it can be assigned to any proficiency an actor already has, such as grappling or brawling.&nbsp; It doesn't really matter which proficiency, it's just an assignment to remove the non-WP penalty the system defaults to on any item usable as a \"weapon\". </em></p>\n<p><em>If a direct hit is scored, apply the ongoing effect in the same round you apply the direct \"weapon\" damage. - Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>Allowed Classes</h2>\n<p>All</p>\n<p>&nbsp;</p>\n<h2>Details</h2>\n<p>The GM may use some form of scatter table to determine where misses land.</p>\n<p>See Actions tab for ongoing damage effect.&nbsp; Apply when rolling the normal damage above as the ongoing damage starts the following round.</p>\n<p>&nbsp;</p>\n<table style=\"width: 62.0609%; height: 68px;\" border=\"1\"><colgroup><col style=\"width: 51.5051%;\"><col style=\"width: 48.4949%;\"></colgroup>\n<tbody>\n<tr style=\"height: 17px;\">\n<th style=\"height: 17px;\">Range as Missile</th>\n<th style=\"height: 17px;\">To-Hit Penalty</th>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Short (1-10 ft)</td>\n<td style=\"height: 17px; text-align: center;\">None</td>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Medium (11-20 ft)</td>\n<td style=\"height: 17px; text-align: center;\">-2</td>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Long (21-30 ft)</td>\n<td style=\"height: 17px; text-align: center;\">-5</td>\n</tr>\n</tbody>\n</table>",
-            "actions": [
-              {
-                "sort": 0,
-                "name": "Round 2 Dmg (1d6)",
-                "img": "icons/magic/fire/explosion-flame-lightning-strike.webp",
-                "castShape": {
-                  "shape": {
-                    "type": "circle"
-                  },
-                  "coneShape": {
-                    "type": "circle"
-                  },
-                  "selection": {
-                    "type": "all"
-                  },
-                  "properties": {
-                    "radius": {
-                      "formula": ""
-                    },
-                    "range": {
-                      "formula": ""
-                    },
-                    "angle": {
-                      "formula": ""
-                    },
-                    "length": {
-                      "formula": ""
-                    },
-                    "width": {
-                      "formula": ""
-                    },
-                    "inRangeColor": "#f2ed69",
-                    "outOfRangeColor": "#a80000"
-                  }
-                },
-                "type": "effect",
-                "targeting": "",
-                "successAction": "none",
-                "formula": "",
-                "otherdmg": [],
-                "effectList": [],
-                "effect": {
-                  "duration": {
-                    "formula": "1",
-                    "type": "round"
-                  },
-                  "changes": [
-                    {
-                      "mode": 0,
-                      "key": "special.ongoing",
-                      "value": "{\"type\":\"damage\", \"rate\":\"1\", \"cycle\": \"round\", \"dmgType\": \"fire\", \"formula\": \"1d6\"}"
-                    }
-                  ],
-                  "toolTip": "(special.ongoing/{\"type\":\"damage\", \"rate\":\"1\", \"cycle\": \"round\", \"dmgType\": \"fire\", \"formula\": \"1d6\"})",
-                  "system": {
-                    "applyself": false,
-                    "visibility": "default"
-                  }
-                },
-                "itemList": [],
-                "speed": 0,
-                "damagetype": "slashing",
-                "dmonlytext": "",
-                "resource": {
-                  "type": "none",
-                  "itemId": "",
-                  "reusetime": "",
-                  "count": {
-                    "cost": 1,
-                    "min": 0,
-                    "max": 1,
-                    "value": 0
-                  }
-                },
-                "magicpotency": 0,
-                "misc": "Ongoing Damage - Duration (T)",
-                "properties": [],
-                "saveCheck": {
-                  "type": "none",
-                  "formula": ""
-                },
-                "ability": "none",
-                "abilityCheck": {
-                  "type": "none",
-                  "formula": ""
-                },
-                "parentuuid": "Actor.zbRxI16dgSdxVZD4.Item.mHGlJC0j1hGm9OOl",
-                "id": "06vy0EXsdkzZrc8q",
-                "macro": {
-                  "script": ""
-                },
-                "sourceuuid": "Actor.zbRxI16dgSdxVZD4.Item.mHGlJC0j1hGm9OOl"
-              }
-            ],
-            "sourceuuid": "Actor.zbRxI16dgSdxVZD4.Item.mHGlJC0j1hGm9OOl"
-          },
-          {
-            "id": "Y1XYOViRviFcRXqQ",
-            "name": "Oil, Lamp (per pint): Splash Damage",
-            "img": "icons/consumables/potions/potion-tube-corked-orange.webp",
-            "description": "<p><em>[Foundry Note: the system will want this assigned to a proficiency.&nbsp; If you as GM want to closely track WP points (and so don't want to create an unnecessary proficiency for this item that would skew the \"count\") then it can be assigned to any proficiency an actor already has, such as grappling or brawling.&nbsp; It doesn't really matter which proficiency, it's just an assignment to remove the non-WP penalty the system defaults to on any item usable as a \"weapon\". </em></p>\n<p><em>If a direct hit is scored, apply the ongoing effect in the same round you apply the direct \"weapon\" damage. - Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>Allowed Classes</h2>\n<p>All</p>\n<p>&nbsp;</p>\n<h2>Details</h2>\n<p>The GM may use some form of scatter table to determine where misses land.</p>\n<p>See Actions tab for ongoing damage effect.&nbsp; Apply when rolling the normal damage above as the ongoing damage starts the following round.</p>\n<p>&nbsp;</p>\n<table style=\"width: 62.0609%; height: 68px;\" border=\"1\"><colgroup><col style=\"width: 51.5051%;\"><col style=\"width: 48.4949%;\"></colgroup>\n<tbody>\n<tr style=\"height: 17px;\">\n<th style=\"height: 17px;\">Range as Missile</th>\n<th style=\"height: 17px;\">To-Hit Penalty</th>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Short (1-10 ft)</td>\n<td style=\"height: 17px; text-align: center;\">None</td>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Medium (11-20 ft)</td>\n<td style=\"height: 17px; text-align: center;\">-2</td>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Long (21-30 ft)</td>\n<td style=\"height: 17px; text-align: center;\">-5</td>\n</tr>\n</tbody>\n</table>",
-            "actions": [
-              {
-                "sort": 0,
-                "name": "Splash Damage",
-                "img": "icons/magic/fire/explosion-flame-lightning-strike.webp",
-                "castShape": {
-                  "shape": {
-                    "type": "circle"
-                  },
-                  "coneShape": {
-                    "type": "circle"
-                  },
-                  "selection": {
-                    "type": "all"
-                  },
-                  "properties": {
-                    "radius": {
-                      "formula": ""
-                    },
-                    "range": {
-                      "formula": ""
-                    },
-                    "angle": {
-                      "formula": ""
-                    },
-                    "length": {
-                      "formula": ""
-                    },
-                    "width": {
-                      "formula": ""
-                    },
-                    "inRangeColor": "#f2ed69",
-                    "outOfRangeColor": "#a80000"
-                  }
-                },
-                "type": "damage",
-                "targeting": "",
-                "successAction": "none",
-                "formula": "1d3",
-                "otherdmg": [],
-                "effectList": [],
-                "effect": {
-                  "duration": {
-                    "formula": "",
-                    "type": "round"
-                  },
-                  "changes": [],
-                  "toolTip": ""
-                },
-                "itemList": [],
-                "speed": 0,
-                "damagetype": "fire",
-                "dmonlytext": "",
-                "resource": {
-                  "type": "none",
-                  "itemId": "",
-                  "reusetime": "",
-                  "count": {
-                    "cost": 1,
-                    "min": 0,
-                    "max": 1,
-                    "value": 0
-                  }
-                },
-                "magicpotency": 0,
-                "misc": "1d3 Splash Fire",
-                "properties": [],
-                "saveCheck": {
-                  "type": "none",
-                  "formula": ""
-                },
-                "ability": "none",
-                "abilityCheck": {
-                  "type": "none",
-                  "formula": ""
-                },
-                "parentuuid": "Actor.zbRxI16dgSdxVZD4.Item.mHGlJC0j1hGm9OOl",
-                "id": "7cvL08TYauxVROfk",
-                "macro": {
-                  "script": ""
-                },
-                "sourceuuid": "Actor.zbRxI16dgSdxVZD4.Item.mHGlJC0j1hGm9OOl"
-              }
-            ],
-            "sourceuuid": "Actor.zbRxI16dgSdxVZD4.Item.mHGlJC0j1hGm9OOl"
-          }
-        ],
-        "migrate": false,
-        "rank": {
-          "levels": {
-            "max": 1,
-            "arcane": 1,
-            "divine": 1
-          }
-        },
-        "sourceUuid": "Compendium.osric-compendium.items.Item.ibE27x3qJTJAomnA",
-        "onHit": {
-          "script": ""
-        },
-        "onMiss": {
-          "script": ""
-        }
-      },
-      "effects": [],
-      "sort": 1400000,
-      "ownership": {
-        "default": 0,
-        "PXJxlGCNBzbPFTjR": 3,
-        "Nf3ofNhweHQ31QEU": 3,
-        "TvWo5oQ0sPDIdJsd": 3
-      },
-      "flags": {
-        "ars": {
-          "actions": {
-            "Oil, Lamp (Grenade)": {
-              "display": {
-                "collapsedState": "block"
-              }
-            },
-            "Ongoing Damage (1d6 Dmg/1 Round)": {
-              "display": {
-                "collapsedState": "block"
-              }
-            },
-            "Round 2 Dmg (1d6 Dmg/1 Round)": {
-              "display": {
-                "collapsedState": "block"
-              }
-            },
-            "Round 2 Dmg (1d6)": {
-              "display": {
-                "collapsedState": "none"
-              }
-            },
-            "Splash Damage": {
-              "display": {
-                "collapsedState": "none"
-              }
-            },
-            "9WuJkBJo7Lc0TYnZ": {
-              "display": {
-                "collapsedState": "block"
-              }
-            },
-            "Y1XYOViRviFcRXqQ": {
-              "display": {
-                "collapsedState": "none"
-              }
-            }
-          }
-        },
-        "world": {
-          "actions": {
-            "Round 2 Dmg (1d6)": {
-              "display": {
-                "collapsedState": "none"
-              }
-            },
-            "Splash Damage": {
-              "display": {
-                "collapsedState": "none"
-              }
-            }
-          }
-        }
-      },
-      "_stats": {
-        "compendiumSource": "Item.ibE27x3qJTJAomnA",
-        "duplicateSource": null,
-        "coreVersion": "12.331",
-        "systemId": "ars",
-        "systemVersion": "2025.02.03",
-        "createdTime": 1741832258339,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746585297302,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -8042,7 +7478,7 @@
       },
       "effects": [],
       "folder": null,
-      "sort": 1000000,
+      "sort": 3025000,
       "ownership": {
         "default": 0,
         "TvWo5oQ0sPDIdJsd": 3
@@ -8055,7 +7491,7 @@
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741832456960,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746585459925,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -8066,7 +7502,7 @@
       "img": "icons/sundries/gaming/dice-runed-tan.webp",
       "effects": [],
       "folder": "wekYAAoQ7ow15Ad0",
-      "sort": 1800000,
+      "sort": 3095313,
       "flags": {
         "scene-packer": {
           "hash": "18789a58e9dd86b8c77e9c4a13b38774fa0b2933",
@@ -8141,7 +7577,7 @@
         "systemId": "ars",
         "systemVersion": "2025.02.03",
         "createdTime": 1741832509639,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746585866743,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -8209,7 +7645,7 @@
         "sourceUuid": "Compendium.osric-compendium.items.Item.Ck21QDrihVegrXkL"
       },
       "effects": [],
-      "sort": 250000,
+      "sort": -100000,
       "ownership": {
         "default": 0,
         "PXJxlGCNBzbPFTjR": 3,
@@ -8224,93 +7660,7 @@
         "systemId": "ars",
         "systemVersion": "2025.04.10",
         "createdTime": 1741832634714,
-        "modifiedTime": 1745595523879,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
-      }
-    },
-    {
-      "_id": "xvJxV0waMNht3WdD",
-      "name": "Saddle and stirrups",
-      "type": "item",
-      "img": "icons/commodities/leather/leather-bolt-brown.webp",
-      "effects": [],
-      "folder": "sFIrTLJo7pjeHhEq",
-      "sort": 1900000,
-      "flags": {
-        "scene-packer": {
-          "hash": "135783ea3d5e86cdb8b73379481611486257c205",
-          "sourceId": "Item.uHcU3irftJk97jVb"
-        },
-        "core": {
-          "sourceId": "Compendium.world.osric-pc-item.uHcU3irftJk97jVb"
-        },
-        "cf": null
-      },
-      "system": {
-        "description": "<p/>",
-        "dmonlytext": "<p/>",
-        "itemList": [],
-        "alias": "",
-        "attributes": {
-          "rarity": "Common",
-          "type": "Tack and Harness",
-          "subtype": "",
-          "magic": false,
-          "properties": [],
-          "skillmods": [],
-          "conditionals": [],
-          "identified": true,
-          "infiniteammo": false,
-          "material": "leather_book",
-          "size": "medium"
-        },
-        "charges": {
-          "value": 0,
-          "min": 0,
-          "max": 0,
-          "reuse": "none"
-        },
-        "location": {
-          "state": "carried",
-          "parent": ""
-        },
-        "resource": {
-          "itemId": ""
-        },
-        "actions": [],
-        "quantity": 1,
-        "weight": 20,
-        "cost": {
-          "value": 10,
-          "currency": "gp"
-        },
-        "source": "",
-        "xp": 0,
-        "migrate": false,
-        "actionGroups": [],
-        "rank": {
-          "levels": {
-            "max": 1,
-            "arcane": 1,
-            "divine": 1
-          }
-        },
-        "sourceUuid": "Compendium.osric-compendium.items.Item.uHcU3irftJk97jVb"
-      },
-      "ownership": {
-        "default": 0,
-        "PXJxlGCNBzbPFTjR": 3,
-        "Nf3ofNhweHQ31QEU": 3,
-        "TvWo5oQ0sPDIdJsd": 3
-      },
-      "_stats": {
-        "compendiumSource": "Compendium.world.osric-pc-item.uHcU3irftJk97jVb",
-        "duplicateSource": null,
-        "coreVersion": "12.331",
-        "systemId": "ars",
-        "systemVersion": "2025.02.03",
-        "createdTime": 1741832648757,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746585921070,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -8532,7 +7882,7 @@
         }
       ],
       "folder": "u6jsNyV3n3IF0UQI",
-      "sort": 3800000,
+      "sort": 337500,
       "flags": {
         "scene-packer": {
           "hash": "42ce57c94119e7f1789d516e775163b8958772e0"
@@ -8761,7 +8111,7 @@
         "systemId": "ars",
         "systemVersion": "2025.03.10",
         "createdTime": 1742947206444,
-        "modifiedTime": 1744167315501,
+        "modifiedTime": 1746585948943,
         "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
@@ -8821,7 +8171,7 @@
       "_id": "wlIKuBE9rIJ364oY",
       "effects": [],
       "folder": null,
-      "sort": 1100000,
+      "sort": 3043750,
       "ownership": {
         "default": 0,
         "oC7GdQB1OgZIJzDm": 3
@@ -8834,8 +8184,8 @@
         "systemId": "ars",
         "systemVersion": "2025.04.10",
         "createdTime": 1742948176634,
-        "modifiedTime": 1745449874595,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746586004064,
+        "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
     {
@@ -9176,7 +8526,7 @@
       "img": "icons/commodities/gems/gem-faceted-octagon-yellow.webp",
       "effects": [],
       "folder": "F318wtEBt5GpCy7N",
-      "sort": 3050000,
+      "sort": 3062500,
       "flags": {
         "scene-packer": {
           "hash": "4ef456038a74f835718df5c990425ca5c3475a3f"
@@ -9249,8 +8599,8 @@
         "systemId": "ars",
         "systemVersion": "2025.04.10",
         "createdTime": 1745441559780,
-        "modifiedTime": 1745449852538,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746585870691,
+        "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
     {
@@ -9260,7 +8610,7 @@
       "img": "icons/commodities/gems/gem-cut-faceted-square-purple.webp",
       "effects": [],
       "folder": "F318wtEBt5GpCy7N",
-      "sort": 3150000,
+      "sort": 3075000,
       "flags": {
         "scene-packer": {
           "hash": "84d985691d24412f2dfd93b3554fb8b1fb2df203"
@@ -9333,8 +8683,8 @@
         "systemId": "ars",
         "systemVersion": "2025.04.10",
         "createdTime": 1745441601949,
-        "modifiedTime": 1745441664985,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746585731696,
+        "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
     {
@@ -9344,7 +8694,7 @@
       "img": "icons/commodities/gems/gem-rough-rectangle-red.webp",
       "effects": [],
       "folder": "pbfe5K1LOcRwh4Ea",
-      "sort": 3106250,
+      "sort": 3087500,
       "flags": {
         "scene-packer": {
           "hash": "b8b71e3713f5a652bd2614bdc98409a39b2be39d"
@@ -9417,8 +8767,8 @@
         "systemId": "ars",
         "systemVersion": "2025.04.10",
         "createdTime": 1745441857551,
-        "modifiedTime": 1745441894550,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746585739024,
+        "lastModifiedBy": "oC7GdQB1OgZIJzDm"
       }
     },
     {
@@ -9497,6 +8847,83 @@
         "modifiedTime": 1745595530622,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
+    },
+    {
+      "folder": "U2or9Ph5gQdZ1xAi",
+      "name": "Oil",
+      "type": "item",
+      "_id": "uI6uVgohDA9eMEQl",
+      "img": "icons/commodities/leather/leather-bolt-brown.webp",
+      "system": {
+        "migrate": false,
+        "description": "",
+        "dmonlytext": "",
+        "attributes": {
+          "material": "oils",
+          "rarity": "",
+          "type": "",
+          "subtype": "",
+          "magic": false,
+          "properties": [],
+          "skillmods": [],
+          "conditionals": [],
+          "identified": true,
+          "infiniteammo": false,
+          "size": "medium"
+        },
+        "charges": {
+          "value": 0,
+          "min": 0,
+          "max": 0,
+          "reuse": "none"
+        },
+        "location": {
+          "state": "carried",
+          "parent": ""
+        },
+        "resource": {
+          "itemId": ""
+        },
+        "quantity": 10,
+        "weight": 0,
+        "itemList": [],
+        "source": "",
+        "xp": 0,
+        "actions": [],
+        "actionGroups": [],
+        "cost": {
+          "value": 0,
+          "currency": "pp"
+        },
+        "alias": "",
+        "rank": {
+          "levels": {
+            "max": 1,
+            "arcane": 1,
+            "divine": 1
+          }
+        },
+        "sourceUuid": "Compendium.osric-compendium.items.Item.deOGPU5SIFcSFDzP"
+      },
+      "effects": [],
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.331",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746585160161,
+        "modifiedTime": 1746585510662,
+        "lastModifiedBy": "oC7GdQB1OgZIJzDm"
+      },
+      "sort": 1212500,
+      "ownership": {
+        "default": 0,
+        "PXJxlGCNBzbPFTjR": 3,
+        "Nf3ofNhweHQ31QEU": 3,
+        "oC7GdQB1OgZIJzDm": 3
+      }
     }
   ],
   "effects": [
@@ -9505,7 +8932,7 @@
       "img": "icons/svg/aura.svg",
       "origin": "Actor.zbRxI16dgSdxVZD4",
       "duration": {
-        "startTime": 83356497,
+        "startTime": 95342482,
         "seconds": null,
         "combat": null,
         "rounds": null,
@@ -9546,11 +8973,64 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "12.331",
+        "coreVersion": "12.343",
         "systemId": "ars",
         "systemVersion": "2025.03.10",
         "createdTime": 1744163485313,
-        "modifiedTime": 1745437491464,
+        "modifiedTime": 1746978534025,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
+    },
+    {
+      "system": {
+        "source": "Actor.bfBq9IWLXgyM5YI7"
+      },
+      "statuses": [
+        "blessed",
+        "level 1"
+      ],
+      "img": "icons/svg/d20-highlight.svg",
+      "origin": "Actor.zbRxI16dgSdxVZD4",
+      "duration": {
+        "seconds": 360,
+        "startTime": 83679857,
+        "startRound": 1,
+        "startTurn": 10,
+        "combat": null,
+        "rounds": null,
+        "turns": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "mode": 2,
+          "key": "system.mods.attack.value",
+          "value": "1",
+          "priority": null
+        },
+        {
+          "key": "special.status",
+          "mode": 0,
+          "value": "blessed, level 1",
+          "priority": null
+        }
+      ],
+      "name": "Bless",
+      "_id": "4w6NJMXcuu3rIWUl",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.331",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746579734824,
+        "modifiedTime": 1746579734824,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
     }
@@ -9636,19 +9116,62 @@
         }
       ]
     },
+    "ars-battlesystem-tab": {
+      "_activeTab": "battlesystem",
+      "heroArmyName": [
+        "",
+        ""
+      ],
+      "heroPlayerName": [
+        "",
+        ""
+      ],
+      "heroName": "Kris",
+      "heroClassLevel": " ",
+      "strength": "19",
+      "intelligence": "9",
+      "wisdom": "11",
+      "dexterity": "14",
+      "constitution": "14",
+      "charisma": "12",
+      "heroMagicResistance": "",
+      "heroAC": 10,
+      "heroRace": "Human",
+      "ppd": "8",
+      "pp": "9",
+      "rsw": "10",
+      "bw": "9",
+      "sp": "11",
+      "heroHD": "1",
+      "heroWeaponDamage": "",
+      "heroHP": "62/67",
+      "heroMV": "120",
+      "thaco": "12",
+      "heroAttackModifiers": "",
+      "heroSpecialAbilities": "",
+      "unitBrigade": [
+        "",
+        ""
+      ],
+      "unitName": "Kris",
+      "unitType": "individual",
+      "unitAC": 10,
+      "numFigures": 1,
+      "commander": ""
+    },
     "exportSource": {
       "world": "greyhawk-wars",
       "system": "ars",
-      "coreVersion": "12.331",
-      "systemVersion": "2025.04.10"
+      "coreVersion": "12.343",
+      "systemVersion": "2025.04.20"
     }
   },
   "_stats": {
-    "coreVersion": "12.331",
+    "coreVersion": "12.343",
     "systemId": "ars",
-    "systemVersion": "2025.04.10",
+    "systemVersion": "2025.04.20",
     "createdTime": 1741831094136,
-    "modifiedTime": 1745608283104,
+    "modifiedTime": 1746983446381,
     "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
   }
 }

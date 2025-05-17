@@ -13812,6 +13812,219 @@
         "modifiedTime": 1745442441029,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
+    },
+    {
+      "_id": "VttwDGH2mU4Z48Pu",
+      "name": "Bow, Long +1",
+      "type": "weapon",
+      "img": "icons/weapons/bows/longbow-leather-green.webp",
+      "effects": [],
+      "folder": "igbBq40qAeKi5ZrN",
+      "sort": 12700000,
+      "flags": {
+        "scene-packer": {
+          "hash": "042919326ff5f584c95f484a3bdeec206ad86ed6"
+        },
+        "core": {
+          "sourceId": "Compendium.world.osric-gm-item.Oil31S89WS2u9YiD"
+        },
+        "LocknKey": {
+          "IDKeysFlag": "",
+          "RemoveKeyonUseFlag": false,
+          "LPFormulaFlag": "",
+          "LPFormulaOverrideFlag": false,
+          "LBFormulaFlag": "",
+          "LBFormulaOverrideFlag": false,
+          "CCFormulaFlag": "",
+          "CCFormulaOverrideFlag": false,
+          "ReplacementItemFlag": ""
+        }
+      },
+      "system": {
+        "description": "<p><em>[Foundry Note: this weapon won't show any damage on the combat tab because the damage stats are on the ammunition it uses. - Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>Allowed Classes</h2>\n<p>AFPR</p>\n<p>&nbsp;</p>\n<h2 style=\"text-align: left;\">Details</h2>\n<p>Some specially-made bows (sold at special cost if at all&mdash;GM's discretion) permit the user to add his or her strength bonus to damage inflicted with the weapon.&nbsp;</p>\n<p>&nbsp;</p>\n<p><strong>Range Penalties</strong></p>\n<table style=\"width: 62.0609%; height: 68px;\" border=\"1\"><colgroup><col style=\"width: 51.5051%;\"><col style=\"width: 48.4949%;\"></colgroup>\n<tbody>\n<tr style=\"height: 17px;\">\n<th style=\"height: 17px;\">Range as Missile</th>\n<th style=\"height: 17px;\">To-Hit Penalty</th>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Short (1-70 ft)</td>\n<td style=\"height: 17px; text-align: center;\">None</td>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Medium (71-140 ft)</td>\n<td style=\"height: 17px; text-align: center;\">-2</td>\n</tr>\n<tr style=\"height: 17px;\">\n<td style=\"height: 17px;\">Long (141-210 ft)</td>\n<td style=\"height: 17px; text-align: center;\">-5</td>\n</tr>\n</tbody>\n</table>",
+        "dmonlytext": "<p>GPV: 2,000gp</p>",
+        "itemList": [],
+        "alias": "Bow, Long",
+        "attributes": {
+          "rarity": "Rare",
+          "type": "",
+          "subtype": "",
+          "magic": true,
+          "properties": [],
+          "skillmods": [],
+          "conditionals": [],
+          "identified": true,
+          "infiniteammo": false,
+          "size": "medium",
+          "material": "wood_thick"
+        },
+        "charges": {
+          "value": 0,
+          "min": 0,
+          "max": 0,
+          "reuse": "none"
+        },
+        "location": {
+          "state": "equipped",
+          "parent": ""
+        },
+        "resource": {
+          "itemId": "kFhlWEdz5fCrkJSA"
+        },
+        "actions": [],
+        "quantity": 0,
+        "weight": 10,
+        "cost": {
+          "value": 3500,
+          "currency": "gp"
+        },
+        "source": "",
+        "xp": 200,
+        "audio": {
+          "file": "",
+          "volume": 0.5,
+          "effect": "",
+          "success": "",
+          "failure": ""
+        },
+        "attack": {
+          "speed": 0,
+          "type": "ranged",
+          "perRound": "2/1",
+          "modifier": 0,
+          "magicBonus": 1,
+          "magicPotency": 1,
+          "range": {
+            "short": "70",
+            "medium": "140",
+            "long": "210"
+          },
+          "primary": false,
+          "speedmod": "-3"
+        },
+        "damage": {
+          "type": "piercing",
+          "normal": "",
+          "large": "",
+          "otherdmg": [],
+          "modifier": 0,
+          "magicBonus": 1
+        },
+        "weaponstyle": "bow, long",
+        "migrate": false,
+        "actionGroups": [],
+        "onHit": {
+          "script": "// Kass - Long Bow Hit Phrases\n                                                                                                                // Phrases for when Val hits with her long bow\n                                                                                                                \n                                                                                                                const bowHitPhrases = [\n                                                                                                                  \"SKREE! Sky-hunter's way! Arrow-talon flies true!\",\n                                                                                                                  \"Feather-death perfect! Prey-body accepts wood-fang!\",\n                                                                                                                  \"Wind-rider guides shaft-path! Sky-sister approves!\",\n                                                                                                                  \"Arrow-wing straight like hawk-dive! Good eye!\",\n                                                                                                                  \"Distance-death brings nest-pride! Elven-aim perfect!\",\n                                                                                                                  \"Bow-song sweet to feather-sister's heart! Prey falls!\",\n                                                                                                                  \"Magic-fingers guide arrow-talon to prey-life!\",\n                                                                                                                  \"Hunter-eye sharp like Kass-vision! Prey-pierced!\",\n                                                                                                                  \"Celene-archer honors forest-ways! Clean strike!\",\n                                                                                                                  \"Far-kill pleases wing-sister! Arrow finds blood-home!\",\n                                                                                                                  \"Thief-sister silent-kills from shadow-perch! Clever!\",\n                                                                                                                  \"KEE! Flight-stick drinks prey-life! Good hunting!\",\n                                                                                                                  \"Feather-shaft follows sky-path I showed! Perfect!\",\n                                                                                                                  \"Enstad-trained bow-skill makes prey death-dance!\",\n                                                                                                                  \"Arrow-strike quick like talon-swoop! Val-sister skilled!\"\n                                                                                                                ];\n                                                                                                                \n                                                                                                                // Select a random phrase\n                                                                                                                const randomPhrase = bowHitPhrases[Math.floor(Math.random() * bowHitPhrases.length)];\n                                                                                                                \n                                                                                                                // Create the chat message\n                                                                                                                let chatData = {\n                                                                                                                  user: game.user._id,\n                                                                                                                  speaker: ChatMessage.getSpeaker(),\n                                                                                                                  content: `<div style=\"background-color: #213631; border: 1px solid #4e7561; border-radius: 5px; padding: 10px; color: #c9e6ff; text-shadow: 0 0 5px #7abed6;\">\n                                                                                                                    <span style=\"font-weight: bold; font-style: italic; color: #7abed6;\">Kass telepathically communicates:</span><br>\n                                                                                                                    <span style=\"font-family: 'Arial', sans-serif; font-size: 14px;\">\"${randomPhrase}\"</span>\n                                                                                                                  </div>`\n                                                                                                                };\n                                                                                                                \n                                                                                                                // Send the message to chat\n                                                                                                                ChatMessage.create(chatData, {});"
+        },
+        "onMiss": {
+          "script": "// Kass - Long Bow Miss Phrases\n                                                                                                // Phrases for when Val misses with her long bow\n                                                                                                \n                                                                                                const bowMissPhrases = [\n                                                                                                  \"KEE-ARR! Wind-sister betrays arrow-path! Adjust!\",\n                                                                                                  \"Feather-death flies wrong! Sky-currents tricky!\",\n                                                                                                  \"Prey-move sudden! Even hawk-eye sometimes misjudges!\",\n                                                                                                  \"Arrow-talon finds earth not flesh! Wind-change!\",\n                                                                                                  \"Shaft-flight needs higher arc! Sky-sister sees true path!\",\n                                                                                                  \"Bow-song unfinished! Next arrow-strike better!\",\n                                                                                                  \"Elven-archer needs sky-perspective! Follow my eye-line!\",\n                                                                                                  \"Distance deceives! Prey further than appears!\",\n                                                                                                  \"Magic-user's arrow-magic needs wind-adjustment!\",\n                                                                                                  \"Celene-hunter's shaft-path blocked! Wait for clear flight!\",\n                                                                                                  \"Thief-instinct good but prey-luck better! Try again!\",\n                                                                                                  \"Feather-sister screeches guidance! Listen to wind-voice!\",\n                                                                                                  \"Tree-spirits deflect wood-fang! Nature-sister mischievous!\",\n                                                                                                  \"Enstad-training forgotten? Remember bow-teachings!\",\n                                                                                                  \"Wing-sister calls warning! Prey-movement changes! Adjust!\"\n                                                                                                ];\n                                                                                                \n                                                                                                // Select a random phrase\n                                                                                                const randomPhrase = bowMissPhrases[Math.floor(Math.random() * bowMissPhrases.length)];\n                                                                                                \n                                                                                                // Create the chat message\n                                                                                                let chatData = {\n                                                                                                  user: game.user._id,\n                                                                                                  speaker: ChatMessage.getSpeaker(),\n                                                                                                  content: `<div style=\"background-color: #181d36; border: 1px solid #3e5175; border-radius: 5px; padding: 10px; color: #c9e6ff; text-shadow: 0 0 5px #7abed6;\">\n                                                                                                    <span style=\"font-weight: bold; font-style: italic; color: #7abed6;\">Kass telepathically communicates:</span><br>\n                                                                                                    <span style=\"font-family: 'Arial', sans-serif; font-size: 14px;\">\"${randomPhrase}\"</span>\n                                                                                                  </div>`\n                                                                                                };\n                                                                                                \n                                                                                                // Send the message to chat\n                                                                                                ChatMessage.create(chatData, {});"
+        },
+        "sourceUuid": "Actor.tlSJ5WGXEhxJoPQf.Item.3Ii6tLeaOKcCwFYG",
+        "rank": {
+          "levels": {
+            "max": 1,
+            "arcane": 1,
+            "divine": 1
+          }
+        }
+      },
+      "ownership": {
+        "default": 0,
+        "PXJxlGCNBzbPFTjR": 3,
+        "TvWo5oQ0sPDIdJsd": 3
+      },
+      "_stats": {
+        "compendiumSource": "Item.n7t9fArtIQPZLL7I",
+        "duplicateSource": null,
+        "coreVersion": "12.331",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746574755621,
+        "modifiedTime": 1746580977233,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
+    },
+    {
+      "name": "Bow, Long +1",
+      "type": "proficiency",
+      "system": {
+        "proficiencies": {
+          "cost": 1
+        },
+        "appliedto": [
+          {
+            "id": "VttwDGH2mU4Z48Pu"
+          }
+        ],
+        "description": "Auto-created for Bow, Long +1",
+        "migrate": false,
+        "dmonlytext": "",
+        "attributes": {
+          "material": "leather_book",
+          "rarity": "",
+          "type": "",
+          "subtype": "",
+          "magic": false,
+          "properties": [],
+          "skillmods": [],
+          "conditionals": [],
+          "identified": true,
+          "infiniteammo": false,
+          "size": "medium"
+        },
+        "charges": {
+          "value": 0,
+          "min": 0,
+          "max": 0,
+          "reuse": "none"
+        },
+        "location": {
+          "state": "",
+          "parent": ""
+        },
+        "resource": {
+          "itemId": ""
+        },
+        "rank": {
+          "levels": {
+            "max": 1,
+            "arcane": 1,
+            "divine": 1
+          }
+        },
+        "quantity": 1,
+        "weight": 0,
+        "itemList": [],
+        "source": "",
+        "xp": 0,
+        "actions": [],
+        "actionGroups": [],
+        "speed": null,
+        "cost": null,
+        "hit": "",
+        "damage": "",
+        "attacks": ""
+      },
+      "_id": "gMVwfWL5v8vphbMb",
+      "img": "icons/weapons/swords/sword-guard-bronze.webp",
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "TvWo5oQ0sPDIdJsd": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.331",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746579235479,
+        "modifiedTime": 1746579239111,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
     }
   ],
   "effects": [
@@ -13853,48 +14066,41 @@
       }
     },
     {
-      "_id": "000000000080zbjm",
-      "img": "icons/svg/aura.svg",
-      "origin": "Actor.uhA2f7Tj1MSHkT4H",
+      "system": {
+        "source": "Actor.bfBq9IWLXgyM5YI7"
+      },
+      "statuses": [
+        "blessed",
+        "level 1"
+      ],
+      "img": "icons/svg/d20-highlight.svg",
+      "origin": "Actor.ceebvTXYmNGer118",
       "duration": {
-        "startTime": 83356497,
-        "seconds": null,
+        "seconds": 360,
+        "startTime": 83679857,
+        "startRound": 1,
+        "startTurn": 10,
         "combat": null,
         "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
+        "turns": null
       },
       "transfer": false,
       "changes": [
         {
-          "key": "attacker.alignment",
-          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
-          "mode": 0,
+          "mode": 2,
+          "key": "system.mods.attack.value",
+          "value": "1",
           "priority": null
         },
         {
-          "key": "attacker.alignment",
-          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
+          "key": "special.status",
           "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "attacker.type",
-          "value": "{\"trigger\": \"ghoul\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
-          "mode": 0,
+          "value": "blessed, level 1",
           "priority": null
         }
       ],
-      "statuses": [],
-      "system": {
-        "aura": {
-          "originUuid": "Actor.uhA2f7Tj1MSHkT4H",
-          "effectUuid": "Actor.uhA2f7Tj1MSHkT4H.Item.Ow9Gf0U2XHTzIscp.ActiveEffect.Kh0cYzTA0CUY8Nxe",
-          "isAura": true
-        }
-      },
-      "name": "Within AURA:Protection From Evil 10 ft",
+      "name": "Bless",
+      "_id": "soFWTHf7VkEyVeDB",
       "type": "base",
       "disabled": false,
       "description": "",
@@ -13906,18 +14112,18 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
-        "createdTime": 1745670513486,
-        "modifiedTime": 1745670513486,
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746579735303,
+        "modifiedTime": 1746579735303,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
     },
     {
-      "_id": "0000000000vh2wfj",
+      "_id": "0000000000np8awf",
       "img": "icons/svg/aura.svg",
-      "origin": "Actor.HEMIAxBrkxDbMaKf",
+      "origin": "Actor.zbRxI16dgSdxVZD4",
       "duration": {
-        "startTime": 83356497,
+        "startTime": 84268882,
         "seconds": null,
         "combat": null,
         "rounds": null,
@@ -13928,20 +14134,14 @@
       "transfer": false,
       "changes": [
         {
-          "key": "attacker.alignment",
-          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
-          "mode": 0,
+          "key": "system.mods.ac.value",
+          "value": "1",
+          "mode": 2,
           "priority": null
         },
         {
-          "key": "attacker.alignment",
-          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "attacker.type",
-          "value": "{\"trigger\": \"pfe\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
+          "key": "system.mods.saves.all",
+          "value": "{\"formula\":\"1\",\"properties\":\"\"}",
           "mode": 0,
           "priority": null
         }
@@ -13949,12 +14149,12 @@
       "statuses": [],
       "system": {
         "aura": {
-          "originUuid": "Actor.HEMIAxBrkxDbMaKf",
-          "effectUuid": "Actor.HEMIAxBrkxDbMaKf.Item.wW2UCMaRDemhvtWB.ActiveEffect.Kh0cYzTA0CUY8Nxe",
+          "originUuid": "Actor.zbRxI16dgSdxVZD4",
+          "effectUuid": "Actor.zbRxI16dgSdxVZD4.Item.xQqOzwTXPYZ9erMC.ActiveEffect.ArEHCdxBrogpSHkE",
           "isAura": true
         }
       },
-      "name": "Within AURA:Protection From Evil 10 ft",
+      "name": "Within AURA:5 ft Protection Aura",
       "type": "base",
       "disabled": false,
       "description": "",
@@ -13966,9 +14166,9 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
-        "createdTime": 1745713272150,
-        "modifiedTime": 1745713272150,
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746584953237,
+        "modifiedTime": 1746841409012,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
     }
@@ -14016,19 +14216,22 @@
         }
       }
     },
+    "ars-battlesystem-tab": {
+      "_activeTab": "details"
+    },
     "exportSource": {
       "world": "greyhawk-wars",
       "system": "ars",
-      "coreVersion": "12.331",
-      "systemVersion": "2025.04.10"
+      "coreVersion": "12.343",
+      "systemVersion": "2025.04.20"
     }
   },
   "_stats": {
     "coreVersion": "12.331",
     "systemId": "ars",
-    "systemVersion": "2025.04.10",
+    "systemVersion": "2025.04.20",
     "createdTime": 1744326089047,
-    "modifiedTime": 1745611335010,
+    "modifiedTime": 1746830515536,
     "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
   }
 }

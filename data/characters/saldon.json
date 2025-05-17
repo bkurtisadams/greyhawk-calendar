@@ -6901,7 +6901,7 @@
           },
           "3": {
             "0": {
-              "cast": false,
+              "cast": true,
               "spellItem": {
                 "system": {
                   "description": "<p><em>[Foundry Note: </em><em>there are different spell effects; one for the recipient and one for all those within 10 ft of the recipient, so as to differentiate the dependent invisibilities from the source invisibility.</em></p>\n<p><em>The aura is for visual representation of the AOE, only.&nbsp; It doesn't convey the invisibility effects as it is possible for a dependent actor to cancel only their invisibility by attacking, etc., while everyone else's invisibility remains intact. - Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>General</h2>\n<p>This spell operates as does the <em>Invisibility</em> spell, but affects all creatures within 10 ft of the recipient at the time the final words of the spell are uttered.</p>\n<p>All creatures affected can see each other.</p>\n<p>&nbsp;</p>\n<h2>Saves and Other Impediments</h2>\n<p>The spell <strong>cannot be cast</strong> upon an unwilling subject.</p>\n<p>In order to remain invisible, those who were made invisible by virtue of the spell's radius <strong>must remain within 10 ft of the creature upon whom the spell is centred</strong>.</p>\n<p>If <strong>the creature upon which the spell was cast</strong> makes an attack, the attack will negate the invisibility of all the others.</p>\n<p>However, <strong>if one of the creatures affected by the spell's radius</strong> (not the direct recipient) attacks, the invisibility only of that one creature is negated thereby.&nbsp;&nbsp;</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p><em><span style=\"text-decoration: underline;\">Invisible opponent:</span></em> An invisible opponent <strong>can only be attacked</strong> if the general location is known, and the attack is at &ndash;4 to hit. &nbsp;</p>\n<p>Even <strong>infravision cannot detect</strong> an invisible creature<strong>.</strong></p>\n<p>If an opponent is invisible to the attacker,<strong> he or she </strong><strong>cannot be attacked from behind (or from the flank)</strong>.</p>\n<p>Note that <strong>more powerful monsters</strong> (those with sensitive smell or hearing, or more than six hit dice) <strong>will frequently be able to detect invisible opponents</strong>; the GM should determine the chance of this according to the creature concerned and the situation.</p>\n<p>Powerful magical monsters, or those with <strong>more than 11 hit dice</strong>, <strong>will almost always be able to see</strong> invisible creatures normally.`</p>",
@@ -7514,7 +7514,7 @@
                 "img": "icons/magic/control/fear-fright-shadow-monster-green.webp",
                 "effects": [],
                 "folder": "oVDMeuObBMZtLzvv",
-                "sort": 10100000,
+                "sort": 9900000,
                 "flags": {
                   "scene-packer": {
                     "hash": "39d6dbe3521d74e3c6c8de0001cf0658d553a202",
@@ -7530,6 +7530,11 @@
                         "display": {
                           "collapsedState": "none"
                         }
+                      },
+                      "Invisibility, 10 ft Radius": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
                       }
                     }
                   },
@@ -7538,6 +7543,11 @@
                       "Fear": {
                         "display": {
                           "collapsedState": "block"
+                        }
+                      },
+                      "Invisibility, 10 ft Radius": {
+                        "display": {
+                          "collapsedState": "none"
                         }
                       }
                     }
@@ -8075,7 +8085,7 @@
                   "systemVersion": "2024.11.02",
                   "coreVersion": "12.331",
                   "createdTime": 1702861082232,
-                  "modifiedTime": 1731106607619,
+                  "modifiedTime": 1745443159974,
                   "lastModifiedBy": "TvWo5oQ0sPDIdJsd",
                   "compendiumSource": null,
                   "duplicateSource": null
@@ -9546,7 +9556,7 @@
       "background": "",
       "notes": "",
       "xp": 232896,
-      "applyxp": 3450,
+      "applyxp": 0,
       "alignment": "ng",
       "sex": "Male",
       "patron": ""
@@ -9832,7 +9842,7 @@
           }
         ],
         "active": true,
-        "xp": 114723,
+        "xp": 116448,
         "xpbonus": 0,
         "advancement": [
           {
@@ -11094,11 +11104,11 @@
       },
       "_stats": {
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
+        "systemVersion": "2025.04.20",
         "coreVersion": "12.331",
         "createdTime": 1685234357541,
-        "modifiedTime": 1745443159974,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd",
+        "modifiedTime": 1746574873024,
+        "lastModifiedBy": "ZoPuPaCODKYNhxoF",
         "compendiumSource": null,
         "duplicateSource": null
       }
@@ -11255,7 +11265,7 @@
           }
         ],
         "active": true,
-        "xp": 126195,
+        "xp": 128093,
         "xpbonus": 10,
         "advancement": [
           {
@@ -12521,11 +12531,11 @@
       },
       "_stats": {
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
+        "systemVersion": "2025.04.20",
         "coreVersion": "12.331",
         "createdTime": 1685234360746,
-        "modifiedTime": 1745443159974,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd",
+        "modifiedTime": 1746574873053,
+        "lastModifiedBy": "ZoPuPaCODKYNhxoF",
         "compendiumSource": null,
         "duplicateSource": null
       }
@@ -18893,8 +18903,11 @@
                   "type": "none",
                   "formula": ""
                 },
-                "parentuuid": "Item.FFXPny94g3KivC9T",
+                "parentuuid": "Actor.fq6ThF0ACyzRn6JM.Item.HnEdJ6mofiwjQ77A",
                 "id": "uij3ikw33bq68iql",
+                "macro": {
+                  "script": ""
+                },
                 "sourceuuid": "Actor.fq6ThF0ACyzRn6JM.Item.HnEdJ6mofiwjQ77A"
               },
               {
@@ -18966,8 +18979,11 @@
                   "type": "none",
                   "formula": ""
                 },
-                "parentuuid": "Item.FFXPny94g3KivC9T",
+                "parentuuid": "Actor.fq6ThF0ACyzRn6JM.Item.HnEdJ6mofiwjQ77A",
                 "id": "5l7GWd7BRr41n5dU",
+                "macro": {
+                  "script": ""
+                },
                 "sourceuuid": "Actor.fq6ThF0ACyzRn6JM.Item.HnEdJ6mofiwjQ77A"
               },
               {
@@ -19045,8 +19061,11 @@
                   "type": "none",
                   "formula": ""
                 },
-                "parentuuid": "Item.FFXPny94g3KivC9T",
+                "parentuuid": "Actor.fq6ThF0ACyzRn6JM.Item.HnEdJ6mofiwjQ77A",
                 "id": "tuhv1oyovaa1dqzo",
+                "macro": {
+                  "script": ""
+                },
                 "sourceuuid": "Actor.fq6ThF0ACyzRn6JM.Item.HnEdJ6mofiwjQ77A"
               }
             ],
@@ -19068,11 +19087,11 @@
       },
       "_stats": {
         "systemId": "ars",
-        "systemVersion": "2024.01.02",
+        "systemVersion": "2025.04.20",
         "coreVersion": "12.331",
         "createdTime": 1704941538096,
-        "modifiedTime": 1745443159974,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd",
+        "modifiedTime": 1746579357706,
+        "lastModifiedBy": "ZoPuPaCODKYNhxoF",
         "compendiumSource": null,
         "duplicateSource": null
       }
@@ -35970,7 +35989,7 @@
           "itemId": ""
         },
         "actions": [],
-        "quantity": 17,
+        "quantity": 32,
         "weight": 0.2,
         "cost": {
           "value": 2,
@@ -36040,10 +36059,10 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
+        "systemVersion": "2025.04.20",
         "createdTime": 1741740227233,
-        "modifiedTime": 1745443225110,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746584913042,
+        "lastModifiedBy": "ZoPuPaCODKYNhxoF"
       },
       "_id": "bmbAdvuwOhCSrDYR"
     },
@@ -36165,7 +36184,7 @@
           "parent": ""
         },
         "resource": {
-          "itemId": "yOCjjtGK8ctBsNjF"
+          "itemId": "bmbAdvuwOhCSrDYR"
         },
         "actions": [],
         "quantity": 1,
@@ -36236,10 +36255,10 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.03.10",
+        "systemVersion": "2025.04.20",
         "createdTime": 1742946364427,
-        "modifiedTime": 1745443159974,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+        "modifiedTime": 1746579247742,
+        "lastModifiedBy": "ZoPuPaCODKYNhxoF"
       }
     },
     {
@@ -37115,19 +37134,19 @@
       "statuses": [
         "invisible"
       ],
-      "_id": "MJV934atyFWJX8u2",
+      "_id": "hT1DGH7Cemvk0agd",
       "type": "base",
       "system": {},
       "changes": [],
       "disabled": false,
       "duration": {
-        "startTime": 76268311,
+        "startTime": 84260641,
         "seconds": null,
         "combat": null,
         "rounds": null,
         "turns": null,
-        "startRound": 3,
-        "startTurn": 8
+        "startRound": null,
+        "startTurn": null
       },
       "description": "",
       "origin": null,
@@ -37140,10 +37159,130 @@
         "duplicateSource": null,
         "coreVersion": "12.331",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
-        "createdTime": 1745367916049,
-        "modifiedTime": 1745367916049,
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746586672465,
+        "modifiedTime": 1746586672465,
         "lastModifiedBy": "ZoPuPaCODKYNhxoF"
+      }
+    },
+    {
+      "_id": "000000000080zbjm",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.uhA2f7Tj1MSHkT4H",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.type",
+          "value": "{\"trigger\": \"ghoul\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.uhA2f7Tj1MSHkT4H",
+          "effectUuid": "Actor.uhA2f7Tj1MSHkT4H.Item.Ow9Gf0U2XHTzIscp.ActiveEffect.Kh0cYzTA0CUY8Nxe",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:Protection From Evil 10 ft",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746874589868,
+        "modifiedTime": 1746898961280,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
+    },
+    {
+      "_id": "0000000000vh2wfj",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.HEMIAxBrkxDbMaKf",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.type",
+          "value": "{\"trigger\": \"pfe\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.HEMIAxBrkxDbMaKf",
+          "effectUuid": "Actor.HEMIAxBrkxDbMaKf.Item.wW2UCMaRDemhvtWB.ActiveEffect.Kh0cYzTA0CUY8Nxe",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:Protection From Evil 10 ft",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899417179,
+        "modifiedTime": 1746899417179,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
     }
   ],
@@ -37292,8 +37431,8 @@
     "exportSource": {
       "world": "greyhawk-wars",
       "system": "ars",
-      "coreVersion": "12.331",
-      "systemVersion": "2025.04.10"
+      "coreVersion": "12.343",
+      "systemVersion": "2025.04.20"
     },
     "adnd-2e-nwp": {
       "nwp": [
@@ -37362,14 +37501,17 @@
           "description": "This proficiency enables the character to make intelligent guesses about upcoming weather conditions. A successful proficiency check means the character has correctly guessed the general weather conditions for the next six hours. A failed check means the character read the signs wrong and forecast the weather incorrectly."
         }
       ]
+    },
+    "ars-battlesystem-tab": {
+      "_activeTab": "spells"
     }
   },
   "_stats": {
     "systemId": "ars",
-    "systemVersion": "2025.04.10",
+    "systemVersion": "2025.04.20",
     "coreVersion": "12.331",
     "createdTime": 1693286341929,
-    "modifiedTime": 1745784211028,
-    "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+    "modifiedTime": 1746585330149,
+    "lastModifiedBy": "ZoPuPaCODKYNhxoF"
   }
 }

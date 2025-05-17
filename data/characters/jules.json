@@ -6018,7 +6018,7 @@
           "itemId": ""
         },
         "actions": [],
-        "quantity": 24,
+        "quantity": 20,
         "weight": 0.1,
         "cost": {
           "value": 1000,
@@ -6043,11 +6043,11 @@
       },
       "_stats": {
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
+        "systemVersion": "2025.04.20",
         "coreVersion": "12.331",
         "createdTime": 1697063800370,
-        "modifiedTime": 1745441039531,
-        "lastModifiedBy": "TvWo5oQ0sPDIdJsd",
+        "modifiedTime": 1746574614819,
+        "lastModifiedBy": "2SELmoaST17Ppur2",
         "compendiumSource": null,
         "duplicateSource": null
       }
@@ -12001,7 +12001,7 @@
       "img": "icons/svg/aura.svg",
       "origin": "Actor.uhA2f7Tj1MSHkT4H",
       "duration": {
-        "startTime": 83356497,
+        "startTime": 95342482,
         "seconds": null,
         "combat": null,
         "rounds": null,
@@ -12048,11 +12048,11 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "12.331",
+        "coreVersion": "12.343",
         "systemId": "ars",
         "systemVersion": "2025.03.10",
         "createdTime": 1744163922757,
-        "modifiedTime": 1745437491430,
+        "modifiedTime": 1746899356610,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
     },
@@ -12061,7 +12061,7 @@
       "img": "icons/svg/aura.svg",
       "origin": "Actor.HEMIAxBrkxDbMaKf",
       "duration": {
-        "startTime": 83356497,
+        "startTime": 95342482,
         "seconds": null,
         "combat": null,
         "rounds": null,
@@ -12108,11 +12108,65 @@
       "_stats": {
         "compendiumSource": null,
         "duplicateSource": null,
-        "coreVersion": "12.331",
+        "coreVersion": "12.343",
         "systemId": "ars",
-        "systemVersion": "2025.04.10",
-        "createdTime": 1745425172117,
-        "modifiedTime": 1745437491354,
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746874590613,
+        "modifiedTime": 1746898961543,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
+    },
+    {
+      "_id": "0000000000c4twbb",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.UMPjO8EN4ztOgc9V",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "system.mods.ac.value",
+          "value": "0",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.mods.saves.all",
+          "value": "{\"formula\":\"1\",\"properties\":\"\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.UMPjO8EN4ztOgc9V",
+          "effectUuid": "Actor.UMPjO8EN4ztOgc9V.Item.Lz4CJ17MkpWSTrK6.ActiveEffect.ArEHCdxBrogpSHkE",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:5 ft Protection Aura",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899438448,
+        "modifiedTime": 1746899438448,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
     }
@@ -12282,8 +12336,8 @@
     "exportSource": {
       "world": "greyhawk-wars",
       "system": "ars",
-      "coreVersion": "12.331",
-      "systemVersion": "2025.04.10"
+      "coreVersion": "12.343",
+      "systemVersion": "2025.04.20"
     },
     "skill-tree": {
       "skillPoints": 5
@@ -12323,14 +12377,17 @@
           "description": "The character has a knowledge of the basics of farming. This includes planting, harvesting, storing crops, tending animals, butchering, and other typical farming chores."
         }
       ]
+    },
+    "ars-battlesystem-tab": {
+      "_activeTab": "effects"
     }
   },
   "_stats": {
     "systemId": "ars",
-    "systemVersion": "2025.04.10",
+    "systemVersion": "2025.04.20",
     "coreVersion": "12.331",
     "createdTime": 1687702012261,
-    "modifiedTime": 1745712953263,
+    "modifiedTime": 1746583107222,
     "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
   }
 }

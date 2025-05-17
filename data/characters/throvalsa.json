@@ -8571,7 +8571,7 @@
               }
             },
             "4": {
-              "cast": false,
+              "cast": true,
               "name": "Bless",
               "level": "1",
               "img": "icons/creatures/birds/dove-pigeon-flying-white.webp",
@@ -41411,6 +41411,180 @@
         "modifiedTime": 1742952011688,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
+    },
+    {
+      "_id": "0000000000vh2wfj",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.HEMIAxBrkxDbMaKf",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.type",
+          "value": "{\"trigger\": \"pfe\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.HEMIAxBrkxDbMaKf",
+          "effectUuid": "Actor.HEMIAxBrkxDbMaKf.Item.wW2UCMaRDemhvtWB.ActiveEffect.Kh0cYzTA0CUY8Nxe",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:Protection From Evil 10 ft",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899355929,
+        "modifiedTime": 1746899355929,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
+    },
+    {
+      "_id": "000000000080zbjm",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.uhA2f7Tj1MSHkT4H",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.type",
+          "value": "{\"trigger\": \"ghoul\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.uhA2f7Tj1MSHkT4H",
+          "effectUuid": "Actor.uhA2f7Tj1MSHkT4H.Item.Ow9Gf0U2XHTzIscp.ActiveEffect.Kh0cYzTA0CUY8Nxe",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:Protection From Evil 10 ft",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899469588,
+        "modifiedTime": 1746899469588,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
+    },
+    {
+      "_id": "0000000000c4twbb",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.UMPjO8EN4ztOgc9V",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "system.mods.ac.value",
+          "value": "0",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.mods.saves.all",
+          "value": "{\"formula\":\"1\",\"properties\":\"\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.UMPjO8EN4ztOgc9V",
+          "effectUuid": "Actor.UMPjO8EN4ztOgc9V.Item.Lz4CJ17MkpWSTrK6.ActiveEffect.ArEHCdxBrogpSHkE",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:5 ft Protection Aura",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899555556,
+        "modifiedTime": 1746899555556,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
     }
   ],
   "flags": {
@@ -41552,8 +41726,8 @@
     "exportSource": {
       "world": "greyhawk-wars",
       "system": "ars",
-      "coreVersion": "12.331",
-      "systemVersion": "2025.04.10"
+      "coreVersion": "12.343",
+      "systemVersion": "2025.04.20"
     },
     "adnd-2e-nwp": {
       "nwp": [
@@ -41649,14 +41823,17 @@
           "effectiveSlots": 1
         }
       ]
+    },
+    "ars-battlesystem-tab": {
+      "_activeTab": "spells"
     }
   },
   "_stats": {
     "systemId": "ars",
-    "systemVersion": "2025.04.10",
+    "systemVersion": "2025.04.20",
     "coreVersion": "12.331",
     "createdTime": 1693285183586,
-    "modifiedTime": 1745612966210,
+    "modifiedTime": 1746584991325,
     "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
   }
 }

@@ -1400,28 +1400,28 @@
               }
             },
             "3": {
-              "name": "Cure Light Wounds",
+              "name": "Resist Cold",
               "level": "1",
-              "img": "icons/magic/life/cross-area-circle-green-white.webp",
-              "cast": false,
-              "id": "2ZdgzL7cvK8lXe6s",
-              "uuid": "Compendium.osric-compendium.items.Item.2ZdgzL7cvK8lXe6s",
+              "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp",
+              "cast": true,
+              "id": "RfuHHc8qwd98Dfeg",
+              "uuid": "Compendium.osric-compendium.items.Item.RfuHHc8qwd98Dfeg",
               "owned": false,
               "spellItem": {
-                "_id": "2ZdgzL7cvK8lXe6s",
-                "name": "Cure Light Wounds",
+                "_id": "RfuHHc8qwd98Dfeg",
+                "name": "Resist Cold",
                 "type": "spell",
-                "img": "icons/magic/life/cross-area-circle-green-white.webp",
+                "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp",
                 "effects": [],
                 "folder": "3ItWREHiktNuad89",
-                "sort": 600000,
+                "sort": 1900000,
                 "flags": {
                   "scene-packer": {
-                    "hash": "9be71c360c30473c62bad72cd6afe8c385642dbf",
-                    "sourceId": "Item.2ZdgzL7cvK8lXe6s"
+                    "hash": "a721fb803e0914428cbe4c5ff8d079eab993834d",
+                    "sourceId": "Item.RfuHHc8qwd98Dfeg"
                   },
                   "core": {
-                    "sourceId": "Compendium.world.osric-pc-item.2ZdgzL7cvK8lXe6s"
+                    "sourceId": "Compendium.world.osric-pc-item.RfuHHc8qwd98Dfeg"
                   },
                   "cf": null,
                   "osric": {
@@ -1452,6 +1452,11 @@
                         }
                       },
                       "Cure Light Wounds": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Resist Cold": {
                         "display": {
                           "collapsedState": "none"
                         }
@@ -1499,12 +1504,22 @@
                         "display": {
                           "collapsedState": "none"
                         }
+                      },
+                      "Resist Cold": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "zvFZCjgmPVeI4vF1": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
                       }
                     }
                   }
                 },
                 "system": {
-                  "description": "<h2>General</h2>\n<p>Cure light wounds allows the cleric to lay hands upon a wounded creature, restoring [[/roll 1d8]] hit points to the spell's beneficiary.</p>\n<p><strong>This spell does not heal disease, reattach limbs, or bring back the dead, nor can it add hit points beyond a character's normal number. </strong></p>\n<p>The reverse of this spell is <em>Cause Light Wounds</em>.</p>\n<p>&nbsp;</p>\n<h2>Saves and Other Impediments</h2>\n<p>Non-corporeal creatures are not affected by this spell, nor are undead.</p>",
+                  "description": "<h2>General</h2>\n<p>By touching the spell's intended recipient and casting the spell, the cleric instills the recipient with a supernatural resistance to the effects of extreme cold. Normal cold, temperatures ranging down to zero degrees Fahrenheit, <strong>is perceived as normal temperature</strong>.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p><em>[Foundry Note: the system isn't going to automatically roll saves when a cold-based action doesn't normally allow a saving throw.&nbsp; It will be up to the player and GM to recognize this exception and roll a save manually, reversing or changing effects/damage as necessary. - Ed.]&nbsp;</em></p>\n<p>The subject also gains a saving throw bonus of +3 against magical cold, taking one half damage if the save is not successful and one quarter damage if the save is successful.</p>\n<p>The saving throw is permitted <strong>even against attacks that would not ordinarily permit a saving throw</strong> (such as a magically cold sword).</p>",
                   "dmonlytext": "",
                   "itemList": [],
                   "alias": "",
@@ -1536,7 +1551,7 @@
                   },
                   "actions": [
                     {
-                      "img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+                      "img": "icons/magic/unholy/hand-light-green.webp",
                       "ability": "none",
                       "type": "cast",
                       "targeting": "",
@@ -1552,7 +1567,7 @@
                         "changes": [],
                         "toolTip": ""
                       },
-                      "speed": 5,
+                      "speed": 99,
                       "damagetype": "slashing",
                       "resource": {
                         "type": "none",
@@ -1567,10 +1582,8 @@
                       },
                       "magicpotency": 0,
                       "properties": [
-                        "Cure Wounds",
-                        "Heal",
-                        "Necromancy",
-                        "Touch",
+                        "Resist Cold",
+                        "Transmutation Alteration",
                         "Level 1"
                       ],
                       "dmonlytext": "",
@@ -1583,29 +1596,40 @@
                         "type": "none",
                         "formula": ""
                       },
-                      "id": "85wcszckksql67dw",
+                      "id": "cs272vt79krzb55c",
                       "index": 0,
-                      "name": "Cure Light Wounds",
+                      "name": "Resist Cold",
                       "description": "",
-                      "parentuuid": "Item.2ZdgzL7cvK8lXe6s",
-                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Target the <strong>actor to be healed</strong></li>\n</ul>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (steps to this point may already have been done)</li>\n</ul>\n<ul>\n<li>Click on the <img src=\"icons/magic/life/cross-area-circle-green-white.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Heal 1d8\"</strong> action to apply it to the&nbsp;<strong>target actor</strong></li>\n</ul>"
+                      "parentuuid": "Item.RfuHHc8qwd98Dfeg",
+                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Target the intended recipient of the spell (which may be the caster)</li>\n</ul>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n</ul>\n<ul>\n<li>apply the <img src=\"icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Cold Resistance - Duration (T)\"</strong>&nbsp;action to the&nbsp;<strong>target actor</strong></li>\n</ul>"
                     },
                     {
-                      "img": "icons/magic/life/cross-area-circle-green-white.webp",
+                      "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp",
                       "ability": "none",
-                      "type": "heal",
+                      "type": "effect",
                       "targeting": "",
                       "successAction": "none",
-                      "formula": "d8",
+                      "formula": "",
                       "otherdmg": [],
                       "effectList": [],
                       "effect": {
                         "duration": {
-                          "formula": "",
-                          "type": "round"
+                          "formula": "(@rank.levels.divine)",
+                          "type": "turn"
                         },
-                        "changes": [],
-                        "toolTip": ""
+                        "changes": [
+                          {
+                            "mode": 0,
+                            "key": "system.mods.resist",
+                            "value": "cold"
+                          },
+                          {
+                            "mode": 0,
+                            "key": "system.mods.saves.all",
+                            "value": "{\"formula\": \"3\", \"properties\": \"cold\"}"
+                          }
+                        ],
+                        "toolTip": "(system.mods.resist/cold), (system.mods.saves.all/{\"formula\": \"3\", \"properties\": \"cold\"})"
                       },
                       "speed": null,
                       "damagetype": "slashing",
@@ -1632,13 +1656,32 @@
                         "type": "none",
                         "formula": ""
                       },
-                      "id": "6f24na02xjtixn9t",
+                      "id": "rj5pvqtjt2945n9r",
                       "index": 1,
-                      "name": "Cure Light Wounds",
-                      "formulaEvaluated": "1d8",
-                      "misc": "Heal 1d8",
+                      "name": "Resist Cold",
+                      "misc": "Cold Resistance - Duration (T)",
                       "description": "",
-                      "parentuuid": "Item.2ZdgzL7cvK8lXe6s"
+                      "changes": {
+                        "0": {
+                          "key": "system.mods.resist"
+                        },
+                        "1": {
+                          "key": "system.mods.saves.rod"
+                        },
+                        "2": {
+                          "key": "system.mods.saves.staff"
+                        },
+                        "3": {
+                          "key": "system.mods.saves.wand"
+                        },
+                        "4": {
+                          "key": "system.mods.saves.breath"
+                        },
+                        "5": {
+                          "key": "system.mods.saves.spell"
+                        }
+                      },
+                      "parentuuid": "Item.RfuHHc8qwd98Dfeg"
                     }
                   ],
                   "quantity": 0,
@@ -1659,29 +1702,29 @@
                   "type": "Divine",
                   "level": 1,
                   "learned": false,
-                  "school": "Necromancy",
-                  "sphere": "Clerical, Shaman",
+                  "school": "Transmutation, Alteration",
+                  "sphere": "Clerical",
                   "range": "Touch",
                   "components": {
                     "verbal": true,
                     "somatic": true,
-                    "material": false
+                    "material": true
                   },
-                  "durationText": "Instantaneous (permanent)",
-                  "castingTime": "5",
+                  "durationText": "1 turn/level",
+                  "castingTime": "1 round",
                   "areaOfEffect": "Creature touched",
                   "save": "None",
                   "actionGroups": [
                     {
-                      "id": "ibxIstduxeAdNmPZ",
-                      "name": "Cure Light Wounds",
-                      "img": "icons/magic/life/cross-area-circle-green-white.webp",
-                      "description": "<h2>General</h2>\n<p>Cure light wounds allows the cleric to lay hands upon a wounded creature, restoring [[/roll 1d8]] hit points to the spell's beneficiary.</p>\n<p><strong>This spell does not heal disease, reattach limbs, or bring back the dead, nor can it add hit points beyond a character's normal number. </strong></p>\n<p>The reverse of this spell is <em>Cause Light Wounds</em>.</p>\n<p>&nbsp;</p>\n<h2>Saves and Other Impediments</h2>\n<p>Non-corporeal creatures are not affected by this spell, nor are undead.</p>",
+                      "id": "zvFZCjgmPVeI4vF1",
+                      "name": "Resist Cold",
+                      "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp",
+                      "description": "<h2>General</h2>\n<p>By touching the spell's intended recipient and casting the spell, the cleric instills the recipient with a supernatural resistance to the effects of extreme cold. Normal cold, temperatures ranging down to zero degrees Fahrenheit, <strong>is perceived as normal temperature</strong>.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p><em>[Foundry Note: the system isn't going to automatically roll saves when a cold-based action doesn't normally allow a saving throw.&nbsp; It will be up to the player and GM to recognize this exception and roll a save manually, reversing or changing effects/damage as necessary. - Ed.]&nbsp;</em></p>\n<p>The subject also gains a saving throw bonus of +3 against magical cold, taking one half damage if the save is not successful and one quarter damage if the save is successful.</p>\n<p>The saving throw is permitted <strong>even against attacks that would not ordinarily permit a saving throw</strong> (such as a magically cold sword).</p>",
                       "actions": [
                         {
                           "sort": 0,
-                          "name": "Cure Light Wounds",
-                          "img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+                          "name": "Resist Cold",
+                          "img": "icons/magic/unholy/hand-light-green.webp",
                           "castShape": {
                             "shape": {
                               "type": "circle"
@@ -1727,7 +1770,7 @@
                             "toolTip": ""
                           },
                           "itemList": [],
-                          "speed": 5,
+                          "speed": 99,
                           "damagetype": "slashing",
                           "dmonlytext": "",
                           "resource": {
@@ -1742,12 +1785,10 @@
                             }
                           },
                           "magicpotency": 0,
-                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Target the <strong>actor to be healed</strong></li>\n</ul>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (steps to this point may already have been done)</li>\n</ul>\n<ul>\n<li>Click on the <img src=\"icons/magic/life/cross-area-circle-green-white.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Heal 1d8\"</strong> action to apply it to the&nbsp;<strong>target actor</strong></li>\n</ul>",
+                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Target the intended recipient of the spell (which may be the caster)</li>\n</ul>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n</ul>\n<ul>\n<li>apply the <img src=\"icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Cold Resistance - Duration (T)\"</strong>&nbsp;action to the&nbsp;<strong>target actor</strong></li>\n</ul>",
                           "properties": [
-                            "Cure Wounds",
-                            "Heal",
-                            "Necromancy",
-                            "Touch",
+                            "Resist Cold",
+                            "Transmutation Alteration",
                             "Level 1"
                           ],
                           "saveCheck": {
@@ -1759,14 +1800,14 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Item.2ZdgzL7cvK8lXe6s",
-                          "id": "85wcszckksql67dw",
-                          "sourceuuid": "Item.2ZdgzL7cvK8lXe6s"
+                          "parentuuid": "Item.RfuHHc8qwd98Dfeg",
+                          "id": "cs272vt79krzb55c",
+                          "sourceuuid": "Item.RfuHHc8qwd98Dfeg"
                         },
                         {
                           "sort": 1,
-                          "name": "Cure Light Wounds",
-                          "img": "icons/magic/life/cross-area-circle-green-white.webp",
+                          "name": "Resist Cold",
+                          "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp",
                           "castShape": {
                             "shape": {
                               "type": "circle"
@@ -1797,19 +1838,30 @@
                               "outOfRangeColor": "#a80000"
                             }
                           },
-                          "type": "heal",
+                          "type": "effect",
                           "targeting": "",
                           "successAction": "none",
-                          "formula": "d8",
+                          "formula": "",
                           "otherdmg": [],
                           "effectList": [],
                           "effect": {
                             "duration": {
-                              "formula": "",
-                              "type": "round"
+                              "formula": "(@rank.levels.divine)",
+                              "type": "turn"
                             },
-                            "changes": [],
-                            "toolTip": ""
+                            "changes": [
+                              {
+                                "mode": 0,
+                                "key": "system.mods.resist",
+                                "value": "cold"
+                              },
+                              {
+                                "mode": 0,
+                                "key": "system.mods.saves.all",
+                                "value": "{\"formula\": \"3\", \"properties\": \"cold\"}"
+                              }
+                            ],
+                            "toolTip": "(system.mods.resist/cold), (system.mods.saves.all/{\"formula\": \"3\", \"properties\": \"cold\"})"
                           },
                           "itemList": [],
                           "speed": 0,
@@ -1827,7 +1879,7 @@
                             }
                           },
                           "magicpotency": 0,
-                          "misc": "Heal 1d8",
+                          "misc": "Cold Resistance - Duration (T)",
                           "properties": [],
                           "saveCheck": {
                             "type": "none",
@@ -1838,12 +1890,12 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Item.2ZdgzL7cvK8lXe6s",
-                          "id": "6f24na02xjtixn9t",
-                          "sourceuuid": "Item.2ZdgzL7cvK8lXe6s"
+                          "parentuuid": "Item.RfuHHc8qwd98Dfeg",
+                          "id": "rj5pvqtjt2945n9r",
+                          "sourceuuid": "Item.RfuHHc8qwd98Dfeg"
                         }
                       ],
-                      "sourceuuid": "Item.2ZdgzL7cvK8lXe6s"
+                      "sourceuuid": "Item.RfuHHc8qwd98Dfeg"
                     }
                   ],
                   "migrate": false,
@@ -1861,7 +1913,7 @@
                   "Nf3ofNhweHQ31QEU": 3
                 },
                 "_stats": {
-                  "compendiumSource": "Compendium.world.osric-pc-item.2ZdgzL7cvK8lXe6s",
+                  "compendiumSource": "Compendium.world.osric-pc-item.RfuHHc8qwd98Dfeg",
                   "duplicateSource": null,
                   "coreVersion": "12.331",
                   "systemId": "ars",
@@ -1873,28 +1925,28 @@
               }
             },
             "4": {
-              "name": "Cure Light Wounds",
+              "name": "Resist Cold",
               "level": "1",
-              "img": "icons/magic/life/cross-area-circle-green-white.webp",
-              "cast": false,
-              "id": "2ZdgzL7cvK8lXe6s",
-              "uuid": "Compendium.osric-compendium.items.Item.2ZdgzL7cvK8lXe6s",
+              "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp",
+              "cast": true,
+              "id": "RfuHHc8qwd98Dfeg",
+              "uuid": "Compendium.osric-compendium.items.Item.RfuHHc8qwd98Dfeg",
               "owned": false,
               "spellItem": {
-                "_id": "2ZdgzL7cvK8lXe6s",
-                "name": "Cure Light Wounds",
+                "_id": "RfuHHc8qwd98Dfeg",
+                "name": "Resist Cold",
                 "type": "spell",
-                "img": "icons/magic/life/cross-area-circle-green-white.webp",
+                "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp",
                 "effects": [],
                 "folder": "3ItWREHiktNuad89",
-                "sort": 600000,
+                "sort": 1900000,
                 "flags": {
                   "scene-packer": {
-                    "hash": "9be71c360c30473c62bad72cd6afe8c385642dbf",
-                    "sourceId": "Item.2ZdgzL7cvK8lXe6s"
+                    "hash": "a721fb803e0914428cbe4c5ff8d079eab993834d",
+                    "sourceId": "Item.RfuHHc8qwd98Dfeg"
                   },
                   "core": {
-                    "sourceId": "Compendium.world.osric-pc-item.2ZdgzL7cvK8lXe6s"
+                    "sourceId": "Compendium.world.osric-pc-item.RfuHHc8qwd98Dfeg"
                   },
                   "cf": null,
                   "osric": {
@@ -1976,7 +2028,7 @@
                   }
                 },
                 "system": {
-                  "description": "<h2>General</h2>\n<p>Cure light wounds allows the cleric to lay hands upon a wounded creature, restoring [[/roll 1d8]] hit points to the spell's beneficiary.</p>\n<p><strong>This spell does not heal disease, reattach limbs, or bring back the dead, nor can it add hit points beyond a character's normal number. </strong></p>\n<p>The reverse of this spell is <em>Cause Light Wounds</em>.</p>\n<p>&nbsp;</p>\n<h2>Saves and Other Impediments</h2>\n<p>Non-corporeal creatures are not affected by this spell, nor are undead.</p>",
+                  "description": "<h2>General</h2>\n<p>By touching the spell's intended recipient and casting the spell, the cleric instills the recipient with a supernatural resistance to the effects of extreme cold. Normal cold, temperatures ranging down to zero degrees Fahrenheit, <strong>is perceived as normal temperature</strong>.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p><em>[Foundry Note: the system isn't going to automatically roll saves when a cold-based action doesn't normally allow a saving throw.&nbsp; It will be up to the player and GM to recognize this exception and roll a save manually, reversing or changing effects/damage as necessary. - Ed.]&nbsp;</em></p>\n<p>The subject also gains a saving throw bonus of +3 against magical cold, taking one half damage if the save is not successful and one quarter damage if the save is successful.</p>\n<p>The saving throw is permitted <strong>even against attacks that would not ordinarily permit a saving throw</strong> (such as a magically cold sword).</p>",
                   "dmonlytext": "",
                   "itemList": [],
                   "alias": "",
@@ -2008,7 +2060,7 @@
                   },
                   "actions": [
                     {
-                      "img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+                      "img": "icons/magic/unholy/hand-light-green.webp",
                       "ability": "none",
                       "type": "cast",
                       "targeting": "",
@@ -2024,7 +2076,7 @@
                         "changes": [],
                         "toolTip": ""
                       },
-                      "speed": 5,
+                      "speed": 99,
                       "damagetype": "slashing",
                       "resource": {
                         "type": "none",
@@ -2039,10 +2091,8 @@
                       },
                       "magicpotency": 0,
                       "properties": [
-                        "Cure Wounds",
-                        "Heal",
-                        "Necromancy",
-                        "Touch",
+                        "Resist Cold",
+                        "Transmutation Alteration",
                         "Level 1"
                       ],
                       "dmonlytext": "",
@@ -2055,29 +2105,40 @@
                         "type": "none",
                         "formula": ""
                       },
-                      "id": "85wcszckksql67dw",
+                      "id": "cs272vt79krzb55c",
                       "index": 0,
-                      "name": "Cure Light Wounds",
+                      "name": "Resist Cold",
                       "description": "",
-                      "parentuuid": "Item.2ZdgzL7cvK8lXe6s",
-                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Target the <strong>actor to be healed</strong></li>\n</ul>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (steps to this point may already have been done)</li>\n</ul>\n<ul>\n<li>Click on the <img src=\"icons/magic/life/cross-area-circle-green-white.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Heal 1d8\"</strong> action to apply it to the&nbsp;<strong>target actor</strong></li>\n</ul>"
+                      "parentuuid": "Item.RfuHHc8qwd98Dfeg",
+                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Target the intended recipient of the spell (which may be the caster)</li>\n</ul>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n</ul>\n<ul>\n<li>apply the <img src=\"icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Cold Resistance - Duration (T)\"</strong>&nbsp;action to the&nbsp;<strong>target actor</strong></li>\n</ul>"
                     },
                     {
-                      "img": "icons/magic/life/cross-area-circle-green-white.webp",
+                      "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp",
                       "ability": "none",
-                      "type": "heal",
+                      "type": "effect",
                       "targeting": "",
                       "successAction": "none",
-                      "formula": "d8",
+                      "formula": "",
                       "otherdmg": [],
                       "effectList": [],
                       "effect": {
                         "duration": {
-                          "formula": "",
-                          "type": "round"
+                          "formula": "(@rank.levels.divine)",
+                          "type": "turn"
                         },
-                        "changes": [],
-                        "toolTip": ""
+                        "changes": [
+                          {
+                            "mode": 0,
+                            "key": "system.mods.resist",
+                            "value": "cold"
+                          },
+                          {
+                            "mode": 0,
+                            "key": "system.mods.saves.all",
+                            "value": "{\"formula\": \"3\", \"properties\": \"cold\"}"
+                          }
+                        ],
+                        "toolTip": "(system.mods.resist/cold), (system.mods.saves.all/{\"formula\": \"3\", \"properties\": \"cold\"})"
                       },
                       "speed": null,
                       "damagetype": "slashing",
@@ -2104,13 +2165,32 @@
                         "type": "none",
                         "formula": ""
                       },
-                      "id": "6f24na02xjtixn9t",
+                      "id": "rj5pvqtjt2945n9r",
                       "index": 1,
-                      "name": "Cure Light Wounds",
-                      "formulaEvaluated": "1d8",
-                      "misc": "Heal 1d8",
+                      "name": "Resist Cold",
+                      "misc": "Cold Resistance - Duration (T)",
                       "description": "",
-                      "parentuuid": "Item.2ZdgzL7cvK8lXe6s"
+                      "changes": {
+                        "0": {
+                          "key": "system.mods.resist"
+                        },
+                        "1": {
+                          "key": "system.mods.saves.rod"
+                        },
+                        "2": {
+                          "key": "system.mods.saves.staff"
+                        },
+                        "3": {
+                          "key": "system.mods.saves.wand"
+                        },
+                        "4": {
+                          "key": "system.mods.saves.breath"
+                        },
+                        "5": {
+                          "key": "system.mods.saves.spell"
+                        }
+                      },
+                      "parentuuid": "Item.RfuHHc8qwd98Dfeg"
                     }
                   ],
                   "quantity": 0,
@@ -2131,29 +2211,29 @@
                   "type": "Divine",
                   "level": 1,
                   "learned": false,
-                  "school": "Necromancy",
-                  "sphere": "Clerical, Shaman",
+                  "school": "Transmutation, Alteration",
+                  "sphere": "Clerical",
                   "range": "Touch",
                   "components": {
                     "verbal": true,
                     "somatic": true,
-                    "material": false
+                    "material": true
                   },
-                  "durationText": "Instantaneous (permanent)",
-                  "castingTime": "5",
+                  "durationText": "1 turn/level",
+                  "castingTime": "1 round",
                   "areaOfEffect": "Creature touched",
                   "save": "None",
                   "actionGroups": [
                     {
-                      "id": "ibxIstduxeAdNmPZ",
-                      "name": "Cure Light Wounds",
-                      "img": "icons/magic/life/cross-area-circle-green-white.webp",
-                      "description": "<h2>General</h2>\n<p>Cure light wounds allows the cleric to lay hands upon a wounded creature, restoring [[/roll 1d8]] hit points to the spell's beneficiary.</p>\n<p><strong>This spell does not heal disease, reattach limbs, or bring back the dead, nor can it add hit points beyond a character's normal number. </strong></p>\n<p>The reverse of this spell is <em>Cause Light Wounds</em>.</p>\n<p>&nbsp;</p>\n<h2>Saves and Other Impediments</h2>\n<p>Non-corporeal creatures are not affected by this spell, nor are undead.</p>",
+                      "id": "zvFZCjgmPVeI4vF1",
+                      "name": "Resist Cold",
+                      "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp",
+                      "description": "<h2>General</h2>\n<p>By touching the spell's intended recipient and casting the spell, the cleric instills the recipient with a supernatural resistance to the effects of extreme cold. Normal cold, temperatures ranging down to zero degrees Fahrenheit, <strong>is perceived as normal temperature</strong>.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p><em>[Foundry Note: the system isn't going to automatically roll saves when a cold-based action doesn't normally allow a saving throw.&nbsp; It will be up to the player and GM to recognize this exception and roll a save manually, reversing or changing effects/damage as necessary. - Ed.]&nbsp;</em></p>\n<p>The subject also gains a saving throw bonus of +3 against magical cold, taking one half damage if the save is not successful and one quarter damage if the save is successful.</p>\n<p>The saving throw is permitted <strong>even against attacks that would not ordinarily permit a saving throw</strong> (such as a magically cold sword).</p>",
                       "actions": [
                         {
                           "sort": 0,
-                          "name": "Cure Light Wounds",
-                          "img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+                          "name": "Resist Cold",
+                          "img": "icons/magic/unholy/hand-light-green.webp",
                           "castShape": {
                             "shape": {
                               "type": "circle"
@@ -2199,7 +2279,7 @@
                             "toolTip": ""
                           },
                           "itemList": [],
-                          "speed": 5,
+                          "speed": 99,
                           "damagetype": "slashing",
                           "dmonlytext": "",
                           "resource": {
@@ -2214,12 +2294,10 @@
                             }
                           },
                           "magicpotency": 0,
-                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Target the <strong>actor to be healed</strong></li>\n</ul>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (steps to this point may already have been done)</li>\n</ul>\n<ul>\n<li>Click on the <img src=\"icons/magic/life/cross-area-circle-green-white.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Heal 1d8\"</strong> action to apply it to the&nbsp;<strong>target actor</strong></li>\n</ul>",
+                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Target the intended recipient of the spell (which may be the caster)</li>\n</ul>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n</ul>\n<ul>\n<li>apply the <img src=\"icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp\" alt=\"\" width=\"24\" height=\"24\"> <strong>\"Cold Resistance - Duration (T)\"</strong>&nbsp;action to the&nbsp;<strong>target actor</strong></li>\n</ul>",
                           "properties": [
-                            "Cure Wounds",
-                            "Heal",
-                            "Necromancy",
-                            "Touch",
+                            "Resist Cold",
+                            "Transmutation Alteration",
                             "Level 1"
                           ],
                           "saveCheck": {
@@ -2231,14 +2309,14 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Item.2ZdgzL7cvK8lXe6s",
-                          "id": "85wcszckksql67dw",
-                          "sourceuuid": "Item.2ZdgzL7cvK8lXe6s"
+                          "parentuuid": "Item.RfuHHc8qwd98Dfeg",
+                          "id": "cs272vt79krzb55c",
+                          "sourceuuid": "Item.RfuHHc8qwd98Dfeg"
                         },
                         {
                           "sort": 1,
-                          "name": "Cure Light Wounds",
-                          "img": "icons/magic/life/cross-area-circle-green-white.webp",
+                          "name": "Resist Cold",
+                          "img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue-yellow.webp",
                           "castShape": {
                             "shape": {
                               "type": "circle"
@@ -2269,19 +2347,30 @@
                               "outOfRangeColor": "#a80000"
                             }
                           },
-                          "type": "heal",
+                          "type": "effect",
                           "targeting": "",
                           "successAction": "none",
-                          "formula": "d8",
+                          "formula": "",
                           "otherdmg": [],
                           "effectList": [],
                           "effect": {
                             "duration": {
-                              "formula": "",
-                              "type": "round"
+                              "formula": "(@rank.levels.divine)",
+                              "type": "turn"
                             },
-                            "changes": [],
-                            "toolTip": ""
+                            "changes": [
+                              {
+                                "mode": 0,
+                                "key": "system.mods.resist",
+                                "value": "cold"
+                              },
+                              {
+                                "mode": 0,
+                                "key": "system.mods.saves.all",
+                                "value": "{\"formula\": \"3\", \"properties\": \"cold\"}"
+                              }
+                            ],
+                            "toolTip": "(system.mods.resist/cold), (system.mods.saves.all/{\"formula\": \"3\", \"properties\": \"cold\"})"
                           },
                           "itemList": [],
                           "speed": 0,
@@ -2299,7 +2388,7 @@
                             }
                           },
                           "magicpotency": 0,
-                          "misc": "Heal 1d8",
+                          "misc": "Cold Resistance - Duration (T)",
                           "properties": [],
                           "saveCheck": {
                             "type": "none",
@@ -2310,12 +2399,12 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Item.2ZdgzL7cvK8lXe6s",
-                          "id": "6f24na02xjtixn9t",
-                          "sourceuuid": "Item.2ZdgzL7cvK8lXe6s"
+                          "parentuuid": "Item.RfuHHc8qwd98Dfeg",
+                          "id": "rj5pvqtjt2945n9r",
+                          "sourceuuid": "Item.RfuHHc8qwd98Dfeg"
                         }
                       ],
-                      "sourceuuid": "Item.2ZdgzL7cvK8lXe6s"
+                      "sourceuuid": "Item.RfuHHc8qwd98Dfeg"
                     }
                   ],
                   "migrate": false,
@@ -2333,7 +2422,7 @@
                   "Nf3ofNhweHQ31QEU": 3
                 },
                 "_stats": {
-                  "compendiumSource": "Compendium.world.osric-pc-item.2ZdgzL7cvK8lXe6s",
+                  "compendiumSource": "Compendium.world.osric-pc-item.RfuHHc8qwd98Dfeg",
                   "duplicateSource": null,
                   "coreVersion": "12.331",
                   "systemId": "ars",
@@ -2347,28 +2436,28 @@
           },
           "2": {
             "0": {
-              "name": "Chant",
+              "name": "Resist Fire",
               "level": "2",
-              "img": "icons/magic/control/buff-luck-fortune-green-gold.webp",
+              "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
               "cast": false,
-              "id": "51WuV3jIi0Sa5ERY",
-              "uuid": "Compendium.osric-compendium.items.Item.51WuV3jIi0Sa5ERY",
+              "id": "WU0NeFjrnfp0hmVT",
+              "uuid": "Compendium.osric-compendium.items.Item.WU0NeFjrnfp0hmVT",
               "owned": false,
               "spellItem": {
-                "_id": "51WuV3jIi0Sa5ERY",
-                "name": "Chant",
+                "_id": "WU0NeFjrnfp0hmVT",
+                "name": "Resist Fire",
                 "type": "spell",
-                "img": "icons/magic/control/buff-luck-fortune-green-gold.webp",
+                "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
                 "effects": [],
                 "folder": "UI3jvQEaJfYDFoHG",
-                "sort": 200000,
+                "sort": 700000,
                 "flags": {
                   "scene-packer": {
-                    "hash": "a4bbc904cc7e343a9f0af83f567b7a931f8a2292",
-                    "sourceId": "Item.51WuV3jIi0Sa5ERY"
+                    "hash": "b63be26ddb134eb30daa512962c30cf9c9645d95",
+                    "sourceId": "Item.WU0NeFjrnfp0hmVT"
                   },
                   "core": {
-                    "sourceId": "Compendium.world.osric-pc-item.51WuV3jIi0Sa5ERY"
+                    "sourceId": "Compendium.world.osric-pc-item.WU0NeFjrnfp0hmVT"
                   },
                   "cf": null,
                   "osric": {
@@ -2455,7 +2544,7 @@
                   }
                 },
                 "system": {
-                  "description": "<p><em>[Foundry Note: two aura versions of this spell are provided (one where the benefits are provided to players and allies, and another casting for enemy actors which reverses the buff/debuff fields). The player aura version is recommended as the mechanical changes are automatically transmitted to all combatants in the caster-centered AOE via the aura. The caster need only self-apply both buff/debuff spell actions.</em></p>\n<p><em>A legacy non-aura version is also provided if auras aren't preferred.&nbsp; As \"friendlies\" and \"enemies\" is always from the POV of the players (only), enemy casters should apply the buff when targeting \"hostiles\" and debuff when targeting \"friendlies\". </em><em>- Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>General</h2>\n<p>Once the spell is cast, the cleric must maintain a sonorous chanting of holy words and prayers, which not only lend divine favour to the cleric and his or her allies but also bring disfavour to their foes.</p>\n<p>&nbsp;</p>\n<h2>Saves and Other Impediments</h2>\n<p>The cleric must <strong>remain stationary</strong> and continue to chant.</p>\n<p>If the cleric sustains damage, is grappled, or is in some way silenced, the effect of the spell will end.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p>While the spell is in effect his or her allies (<strong>within the area of effect</strong>) gain a bonus of +1 to all <strong>attack rolls, damage rolls, and saving throws</strong>.</p>\n<p>Enemies within the spell's area of effect also suffer a -1 to all such die rolls.</p>\n<p>&nbsp;</p>",
+                  "description": "<h2>General</h2>\n<p>When this spell is cast, the recipient gains resistance to fire and heat, being able to endure boiling temperatures without discomfort. A person under the influence of this spell <strong>can stand unharmed in the middle of a bonfire</strong>, and even gains a measure of resistance to magical fire.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p><em>[Foundry Note: the system isn't going to automatically roll saves when a cold-based action doesn't normally allow a saving throw.&nbsp; It will be up to the player and GM to recognize this exception and roll a save manually, reversing or changing effects/damage as necessary. - Ed.]&nbsp;</em></p>\n<p>The subject gains a saving throw bonus of +3 against magical fire, taking one half damage if the save is not successful and one quarter damage if the save is successful.&nbsp;<strong>The saving throw is permitted even against attacks that would not ordinarily allow a saving throw</strong>.</p>",
                   "dmonlytext": "",
                   "itemList": [],
                   "alias": "",
@@ -2503,7 +2592,7 @@
                         "changes": [],
                         "toolTip": ""
                       },
-                      "speed": 99,
+                      "speed": 5,
                       "damagetype": "slashing",
                       "resource": {
                         "type": "none",
@@ -2518,9 +2607,8 @@
                       },
                       "magicpotency": 0,
                       "properties": [
-                        "Chant",
-                        "Conjuration Summoning",
-                        "De/Buff",
+                        "Resist Fire",
+                        "Transmutation Alteration",
                         "Level 2"
                       ],
                       "dmonlytext": "",
@@ -2533,236 +2621,15 @@
                         "type": "none",
                         "formula": ""
                       },
-                      "id": "pqw0tktsm5gy483a",
+                      "id": "frdyyanqpcus4nmf",
                       "index": 0,
-                      "name": "Chant",
+                      "name": "Resist Fire",
                       "description": "",
-                      "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done).</li>\n</ul>\n<ul>\n<li><strong>(Optional)</strong>&nbsp;Use the&nbsp;<img src=\"icons/magic/symbols/triangle-glowing-green.webp\" alt=\"Castshape Action\" width=\"24\" height=\"24\">&nbsp;<strong>castshape</strong>&nbsp;action to visualize the area of effect (you can delete AOE templates if the Templates menu is active)</li>\n</ul>\n<ul>\n<li>Target&nbsp;<strong>friendly actors</strong> in the AOE&nbsp;and click the <img src=\"icons/svg/d20-highlight.svg\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Allied Chant Buffs - Indefinite (F)\"</strong>&nbsp;action</li>\n<li>Target&nbsp;<strong>enemy actors</strong> in the AOE and click the <img src=\"icons/svg/d20-black.svg\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Enemy Chant Buffs - Indefinite (E)\"</strong>&nbsp;action</li>\n</ul>"
+                      "parentuuid": "Item.WU0NeFjrnfp0hmVT",
+                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n<li>Target <strong>an actor</strong>&nbsp;and click the <img src=\"icons/magic/defensive/shield-barrier-glowing-triangle-red.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Fire Resistance - Duration (T)\"</strong>&nbsp;action</li>\n</ul>"
                     },
                     {
-                      "img": "icons/magic/symbols/triangle-glowing-green.webp",
-                      "ability": "none",
-                      "type": "castshape",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "round"
-                        },
-                        "changes": [],
-                        "toolTip": ""
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "castShapeLength": {
-                        "formula": ""
-                      },
-                      "castShapeWidth": {
-                        "formula": ""
-                      },
-                      "castShapeRadius": {
-                        "formula": ""
-                      },
-                      "castShapeAngle": {
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "sNSOMUv6k6qJhCHJ",
-                      "index": 1,
-                      "name": "Chant",
-                      "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                      "castShapeProperties": {
-                        "range": {
-                          "formula": ""
-                        },
-                        "fillColor": "#692afe",
-                        "castShapeRadius": {
-                          "formula": "30"
-                        },
-                        "inRangeColor": "#696df2",
-                        "outOfRangeColor": "#a80000"
-                      },
-                      "misc": "Friendly AOE",
-                      "targetShape": {
-                        "type": "circle"
-                      },
-                      "targetShapeSelection": {
-                        "type": "friendly"
-                      }
-                    },
-                    {
-                      "img": "icons/magic/symbols/triangle-glowing-green.webp",
-                      "ability": "none",
-                      "type": "castshape",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "round"
-                        },
-                        "changes": [],
-                        "toolTip": ""
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "castShapeLength": {
-                        "formula": ""
-                      },
-                      "castShapeWidth": {
-                        "formula": ""
-                      },
-                      "castShapeRadius": {
-                        "formula": ""
-                      },
-                      "castShapeAngle": {
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "VxJtHrOBtMHCGLzn",
-                      "index": 2,
-                      "name": "Chant",
-                      "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                      "targetShapeSelection": {
-                        "type": "hostile"
-                      },
-                      "castShapeProperties": {
-                        "range": {
-                          "formula": ""
-                        },
-                        "inRangeColor": "#696df2",
-                        "outOfRangeColor": "#a80000",
-                        "castShapeAngle": {
-                          "formula": ""
-                        },
-                        "castShapeLength": {
-                          "formula": ""
-                        },
-                        "castShapeWidth": {
-                          "formula": ""
-                        },
-                        "castShapeRadius": {
-                          "formula": "30"
-                        }
-                      },
-                      "misc": "Hostile AOE",
-                      "targetShape": {
-                        "type": "circle"
-                      },
-                      "targetShapeConeType": {
-                        "type": "angle"
-                      }
-                    },
-                    {
-                      "img": "icons/magic/unholy/hand-light-green.webp",
-                      "ability": "none",
-                      "type": "cast",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "round"
-                        },
-                        "changes": [],
-                        "toolTip": ""
-                      },
-                      "speed": 99,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [
-                        "Chant",
-                        "Conjuration Summoning",
-                        "De/Buff",
-                        "Level 2"
-                      ],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "IBEXQhKZPR0gLgrO",
-                      "index": 3,
-                      "name": "Chant (Aura Version - Player Cast)",
-                      "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n<li>Target <strong>the caster</strong> and click the <img src=\"icons/magic/light/explosion-star-glow-silhouette.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Allied Chant Buffs - Indefinite (F)\"</strong>&nbsp;action</li>\n<li>Target <strong>the caster</strong> and click the <img src=\"icons/magic/light/explosion-star-glow-silhouette.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Enemy Chant Debuffs - Indefinite (E)\"</strong> action</li>\n</ul>"
-                    },
-                    {
-                      "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+                      "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
                       "ability": "none",
                       "type": "effect",
                       "targeting": "",
@@ -2772,167 +2639,22 @@
                       "effectList": [],
                       "effect": {
                         "duration": {
-                          "formula": "",
-                          "type": "hour"
+                          "formula": "(@rank.levels.divine)",
+                          "type": "turn"
                         },
                         "changes": [
                           {
-                            "mode": 2,
-                            "key": "aura.system.mods.attack.value",
-                            "value": "1"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.damage.value",
-                            "value": "1"
-                          },
-                          {
-                            "key": "aura.system.mods.saves.all",
                             "mode": 0,
-                            "value": "{\"formula\":\"1\",\"properties\":\"\"}"
+                            "key": "system.mods.resist",
+                            "value": "fire"
                           },
                           {
                             "mode": 0,
-                            "key": "special.aura",
-                            "value": "{\"distance\": 30, \"color\": \"purple\", \"faction\": \"friendly\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"}"
-                          }
-                        ],
-                        "toolTip": "(aura.system.mods.attack.value/1), (aura.system.mods.damage.value/1), (aura.system.mods.saves.all/{\"formula\":\"1\",\"properties\":\"\"}), (special.aura/{\"distance\": 30, \"color\": \"purple\", \"faction\": \"friendly\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"})"
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "sxBbAetqxLFxDscR",
-                      "index": 4,
-                      "name": "Chant (Aura Version - Player Cast)",
-                      "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                      "misc": "Allied Chant Buffs - Indefinite"
-                    },
-                    {
-                      "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "hour"
-                        },
-                        "changes": [
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.attack.value",
-                            "value": "-1"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.damage.value",
-                            "value": "-1"
-                          },
-                          {
-                            "key": "aura.system.mods.saves.all",
-                            "mode": 0,
-                            "value": "{\"formula\":\"-1\",\"properties\":\"\"}"
-                          },
-                          {
-                            "mode": 0,
-                            "key": "special.aura",
-                            "value": "{\"distance\": 30, \"color\": \"purple\", \"faction\": \"enemy\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"}"
-                          }
-                        ],
-                        "toolTip": "(aura.system.mods.attack.value/-1), (aura.system.mods.damage.value/-1), (aura.system.mods.saves.all/{\"formula\":\"-1\",\"properties\":\"\"}), (special.aura/{\"distance\": 30, \"color\": \"purple\", \"faction\": \"enemy\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"})"
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "EcEzN6JwFbvB0Xq3",
-                      "index": 5,
-                      "name": "Chant (Aura Version - Player Cast)",
-                      "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                      "misc": "Enemy Chant Debuffs - Indefinite"
-                    },
-                    {
-                      "img": "icons/svg/d20-highlight.svg",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "hour"
-                        },
-                        "changes": [
-                          {
-                            "key": "system.mods.attack.value",
-                            "value": "1",
-                            "mode": 2
-                          },
-                          {
-                            "key": "system.mods.damage.value",
-                            "value": "1",
-                            "mode": 2
-                          },
-                          {
                             "key": "system.mods.saves.all",
-                            "mode": 0,
-                            "value": "{\"formula\":\"1\",\"properties\":\"\"}"
+                            "value": "{\"formula\":\"3\",\"properties\":\"fire\"}"
                           }
                         ],
-                        "toolTip": "(system.mods.attack.value/1), (system.mods.damage.value/1), (system.mods.saves.all/{\"formula\":\"1\",\"properties\":\"\"})"
+                        "toolTip": "(system.mods.resist/fire), (system.mods.saves.all/{\"formula\":\"3\",\"properties\":\"fire\"})"
                       },
                       "speed": null,
                       "damagetype": "slashing",
@@ -2959,329 +2681,32 @@
                         "type": "none",
                         "formula": ""
                       },
-                      "id": "e0emu8fqifr98j8q",
-                      "index": 6,
-                      "name": "Chant",
-                      "misc": "Allied Chant Buffs - Indefinite (F)",
+                      "id": "zeonanau4y189bc9",
+                      "index": 1,
+                      "name": "Resist Fire",
+                      "misc": "Fire Resistance - Duration (T)",
                       "description": "",
                       "changes": {
                         "0": {
-                          "key": "system.mods.attack.value"
+                          "key": "system.mods.resist"
                         },
                         "1": {
-                          "key": "system.mods.damage.value"
+                          "key": "system.mods.saves.rod"
                         },
                         "2": {
-                          "key": "system.mods.saves.all"
+                          "key": "system.mods.saves.staff"
+                        },
+                        "3": {
+                          "key": "system.mods.saves.wand"
+                        },
+                        "4": {
+                          "key": "system.mods.saves.breath"
+                        },
+                        "5": {
+                          "key": "system.mods.saves.spell"
                         }
                       },
-                      "parentuuid": "Item.51WuV3jIi0Sa5ERY"
-                    },
-                    {
-                      "img": "icons/magic/unholy/hand-light-green.webp",
-                      "ability": "none",
-                      "type": "cast",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "round"
-                        },
-                        "changes": [],
-                        "toolTip": ""
-                      },
-                      "speed": 99,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [
-                        "Chant",
-                        "Conjuration Summoning",
-                        "De/Buff",
-                        "Level 2"
-                      ],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "castShapeLength": {
-                        "formula": ""
-                      },
-                      "castShapeWidth": {
-                        "formula": ""
-                      },
-                      "castShapeRadius": {
-                        "formula": ""
-                      },
-                      "castShapeAngle": {
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "hFA5POSDrhuT0pQN",
-                      "index": 7,
-                      "name": "Chant (Aura Version - Enemy of Players Cast)",
-                      "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n<li>Target <strong>the caster</strong> and click the <img src=\"icons/magic/light/explosion-star-glow-silhouette.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Allied Chant Buffs - Indefinite (F)\"</strong>&nbsp;action</li>\n<li>Target <strong>the caster</strong> and click the <img src=\"icons/magic/light/explosion-star-glow-silhouette.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Enemy Chant Debuffs - Indefinite (E)\"</strong> action</li>\n</ul>"
-                    },
-                    {
-                      "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "hour"
-                        },
-                        "changes": [
-                          {
-                            "mode": 0,
-                            "key": "special.aura",
-                            "value": "{\"distance\": 30, \"color\": \"purple\", \"faction\": \"enemy\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"}"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.attack.value",
-                            "value": "1"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.damage.value",
-                            "value": "1"
-                          },
-                          {
-                            "key": "aura.system.mods.saves.all",
-                            "mode": 0,
-                            "value": "{\"formula\":\"1\",\"properties\":\"\"}"
-                          }
-                        ],
-                        "toolTip": "(special.aura/{\"distance\": 30, \"color\": \"purple\", \"faction\": \"enemy\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"}), (aura.system.mods.attack.value/1), (aura.system.mods.damage.value/1), (aura.system.mods.saves.all/{\"formula\":\"1\",\"properties\":\"\"})"
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "castShapeLength": {
-                        "formula": ""
-                      },
-                      "castShapeWidth": {
-                        "formula": ""
-                      },
-                      "castShapeRadius": {
-                        "formula": ""
-                      },
-                      "castShapeAngle": {
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "UdaK4UKI7AUwwzUM",
-                      "index": 8,
-                      "name": "Chant (Aura Version - Enemy of Players Cast)",
-                      "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                      "misc": "Allied Chant Buffs - Indefinite"
-                    },
-                    {
-                      "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "hour"
-                        },
-                        "changes": [
-                          {
-                            "mode": 0,
-                            "key": "special.aura",
-                            "value": "{\"distance\": 30, \"color\": \"purple\", \"faction\": \"friendly\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"}"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.attack.value",
-                            "value": "-1"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "aura.system.mods.damage.value",
-                            "value": "-1"
-                          },
-                          {
-                            "key": "aura.system.mods.saves.all",
-                            "mode": 0,
-                            "value": "{\"formula\":\"-1\",\"properties\":\"\"}"
-                          }
-                        ],
-                        "toolTip": "(special.aura/{\"distance\": 30, \"color\": \"purple\", \"faction\": \"friendly\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"}), (aura.system.mods.attack.value/-1), (aura.system.mods.damage.value/-1), (aura.system.mods.saves.all/{\"formula\":\"-1\",\"properties\":\"\"})"
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "castShapeLength": {
-                        "formula": ""
-                      },
-                      "castShapeWidth": {
-                        "formula": ""
-                      },
-                      "castShapeRadius": {
-                        "formula": ""
-                      },
-                      "castShapeAngle": {
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "2AG7AbwvVYk3TXPW",
-                      "index": 9,
-                      "name": "Chant (Aura Version - Enemy of Players Cast)",
-                      "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                      "misc": "Enemy Chant Debuffs - Indefinite"
-                    },
-                    {
-                      "img": "icons/svg/d20-black.svg",
-                      "ability": "none",
-                      "type": "effect",
-                      "targeting": "",
-                      "successAction": "none",
-                      "formula": "",
-                      "otherdmg": [],
-                      "effectList": [],
-                      "effect": {
-                        "duration": {
-                          "formula": "",
-                          "type": "hour"
-                        },
-                        "changes": [
-                          {
-                            "mode": 2,
-                            "key": "system.mods.attack.value",
-                            "value": "-1"
-                          },
-                          {
-                            "mode": 2,
-                            "key": "system.mods.damage.value",
-                            "value": "-1"
-                          },
-                          {
-                            "key": "system.mods.saves.all",
-                            "mode": 0,
-                            "value": "{\"formula\":\"-1\",\"properties\":\"\"}"
-                          }
-                        ],
-                        "toolTip": "(system.mods.attack.value/-1), (system.mods.damage.value/-1), (system.mods.saves.all/{\"formula\":\"-1\",\"properties\":\"\"})"
-                      },
-                      "speed": 0,
-                      "damagetype": "slashing",
-                      "resource": {
-                        "type": "none",
-                        "itemId": "",
-                        "reusetime": "",
-                        "count": {
-                          "cost": 1,
-                          "min": 0,
-                          "max": 1,
-                          "value": 0
-                        }
-                      },
-                      "magicpotency": 0,
-                      "properties": [],
-                      "description": "",
-                      "dmonlytext": "",
-                      "itemList": [],
-                      "saveCheck": {
-                        "type": "spell",
-                        "formula": ""
-                      },
-                      "abilityCheck": {
-                        "type": "none",
-                        "formula": ""
-                      },
-                      "id": "InMtTvpSWzsFbMih",
-                      "index": 10,
-                      "name": "Chant",
-                      "misc": "Enemy Chant Debuffs - Indefinite (E)",
-                      "changes": {
-                        "0": {
-                          "key": "system.mods.attack.value"
-                        },
-                        "1": {
-                          "key": "system.mods.damage.value"
-                        },
-                        "2": {
-                          "key": "system.mods.saves.all"
-                        }
-                      },
-                      "parentuuid": "Item.51WuV3jIi0Sa5ERY"
+                      "parentuuid": "Item.WU0NeFjrnfp0hmVT"
                     }
                   ],
                   "quantity": 0,
@@ -3302,28 +2727,28 @@
                   "type": "Divine",
                   "level": 2,
                   "learned": false,
-                  "school": "Conjuration, Summoning",
+                  "school": "Transmutation, Alteration",
                   "sphere": "Clerical, Shaman",
-                  "range": "Caster",
+                  "range": "Touch",
                   "components": {
                     "verbal": true,
                     "somatic": true,
-                    "material": false
+                    "material": true
                   },
-                  "durationText": "Indefinite (duration of chant)",
-                  "castingTime": "1 turn",
-                  "areaOfEffect": "30 ft radius centred on caster",
+                  "durationText": "1 turn/level",
+                  "castingTime": "5",
+                  "areaOfEffect": "Creature touched",
                   "save": "None",
                   "actionGroups": [
                     {
-                      "id": "kAY9LTqZu6LKAW6p",
-                      "name": "Chant",
-                      "img": "icons/magic/control/buff-luck-fortune-green-gold.webp",
-                      "description": "<p><em>[Foundry Note: two aura versions of this spell are provided (one where the benefits are provided to players and allies, and another casting for enemy actors which reverses the buff/debuff fields). The player aura version is recommended as the mechanical changes are automatically transmitted to all combatants in the caster-centered AOE via the aura. The caster need only self-apply both buff/debuff spell actions.</em></p>\n<p><em>A legacy non-aura version is also provided if auras aren't preferred.&nbsp; As \"friendlies\" and \"enemies\" is always from the POV of the players (only), enemy casters should apply the buff when targeting \"hostiles\" and debuff when targeting \"friendlies\". </em><em>- Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>General</h2>\n<p>Once the spell is cast, the cleric must maintain a sonorous chanting of holy words and prayers, which not only lend divine favour to the cleric and his or her allies but also bring disfavour to their foes.</p>\n<p>&nbsp;</p>\n<h2>Saves and Other Impediments</h2>\n<p>The cleric must <strong>remain stationary</strong> and continue to chant.</p>\n<p>If the cleric sustains damage, is grappled, or is in some way silenced, the effect of the spell will end.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p>While the spell is in effect his or her allies (<strong>within the area of effect</strong>) gain a bonus of +1 to all <strong>attack rolls, damage rolls, and saving throws</strong>.</p>\n<p>Enemies within the spell's area of effect also suffer a -1 to all such die rolls.</p>\n<p>&nbsp;</p>",
+                      "id": "2HsFIS2JS6MkzHgt",
+                      "name": "Resist Fire",
+                      "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
+                      "description": "<h2>General</h2>\n<p>When this spell is cast, the recipient gains resistance to fire and heat, being able to endure boiling temperatures without discomfort. A person under the influence of this spell <strong>can stand unharmed in the middle of a bonfire</strong>, and even gains a measure of resistance to magical fire.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p><em>[Foundry Note: the system isn't going to automatically roll saves when a cold-based action doesn't normally allow a saving throw.&nbsp; It will be up to the player and GM to recognize this exception and roll a save manually, reversing or changing effects/damage as necessary. - Ed.]&nbsp;</em></p>\n<p>The subject gains a saving throw bonus of +3 against magical fire, taking one half damage if the save is not successful and one quarter damage if the save is successful.&nbsp;<strong>The saving throw is permitted even against attacks that would not ordinarily allow a saving throw</strong>.</p>",
                       "actions": [
                         {
                           "sort": 0,
-                          "name": "Chant",
+                          "name": "Resist Fire",
                           "img": "icons/magic/unholy/hand-light-green.webp",
                           "castShape": {
                             "shape": {
@@ -3370,7 +2795,7 @@
                             "toolTip": ""
                           },
                           "itemList": [],
-                          "speed": 99,
+                          "speed": 5,
                           "damagetype": "slashing",
                           "dmonlytext": "",
                           "resource": {
@@ -3385,11 +2810,10 @@
                             }
                           },
                           "magicpotency": 0,
-                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done).</li>\n</ul>\n<ul>\n<li><strong>(Optional)</strong>&nbsp;Use the&nbsp;<img src=\"icons/magic/symbols/triangle-glowing-green.webp\" alt=\"Castshape Action\" width=\"24\" height=\"24\">&nbsp;<strong>castshape</strong>&nbsp;action to visualize the area of effect (you can delete AOE templates if the Templates menu is active)</li>\n</ul>\n<ul>\n<li>Target&nbsp;<strong>friendly actors</strong> in the AOE&nbsp;and click the <img src=\"icons/svg/d20-highlight.svg\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Allied Chant Buffs - Indefinite (F)\"</strong>&nbsp;action</li>\n<li>Target&nbsp;<strong>enemy actors</strong> in the AOE and click the <img src=\"icons/svg/d20-black.svg\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Enemy Chant Buffs - Indefinite (E)\"</strong>&nbsp;action</li>\n</ul>",
+                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n<li>Target <strong>an actor</strong>&nbsp;and click the <img src=\"icons/magic/defensive/shield-barrier-glowing-triangle-red.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Fire Resistance - Duration (T)\"</strong>&nbsp;action</li>\n</ul>",
                           "properties": [
-                            "Chant",
-                            "Conjuration Summoning",
-                            "De/Buff",
+                            "Resist Fire",
+                            "Transmutation Alteration",
                             "Level 2"
                           ],
                           "saveCheck": {
@@ -3401,164 +2825,14 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                          "id": "pqw0tktsm5gy483a",
-                          "sourceuuid": "Item.51WuV3jIi0Sa5ERY"
+                          "parentuuid": "Item.WU0NeFjrnfp0hmVT",
+                          "id": "frdyyanqpcus4nmf",
+                          "sourceuuid": "Item.WU0NeFjrnfp0hmVT"
                         },
                         {
                           "sort": 1,
-                          "name": "Chant",
-                          "img": "icons/magic/symbols/triangle-glowing-green.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {},
-                            "selection": {
-                              "type": "friendly"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": "30"
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {},
-                              "length": {},
-                              "width": {},
-                              "inRangeColor": "#696df2",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "castshape",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "",
-                              "type": "round"
-                            },
-                            "changes": [],
-                            "toolTip": ""
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Friendly AOE",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                          "id": "sNSOMUv6k6qJhCHJ",
-                          "sourceuuid": "Item.51WuV3jIi0Sa5ERY"
-                        },
-                        {
-                          "sort": 2,
-                          "name": "Chant",
-                          "img": "icons/magic/symbols/triangle-glowing-green.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "angle"
-                            },
-                            "selection": {
-                              "type": "hostile"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": "30"
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#696df2",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "castshape",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "",
-                              "type": "round"
-                            },
-                            "changes": [],
-                            "toolTip": ""
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Hostile AOE",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                          "id": "VxJtHrOBtMHCGLzn",
-                          "sourceuuid": "Item.51WuV3jIi0Sa5ERY"
-                        },
-                        {
-                          "sort": 3,
-                          "name": "Chant",
-                          "img": "icons/svg/d20-highlight.svg",
+                          "name": "Resist Fire",
+                          "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
                           "castShape": {
                             "shape": {
                               "type": "circle"
@@ -3597,27 +2871,22 @@
                           "effectList": [],
                           "effect": {
                             "duration": {
-                              "formula": "",
-                              "type": "hour"
+                              "formula": "(@rank.levels.divine)",
+                              "type": "turn"
                             },
                             "changes": [
                               {
-                                "key": "system.mods.attack.value",
-                                "value": "1",
-                                "mode": 2
-                              },
-                              {
-                                "key": "system.mods.damage.value",
-                                "value": "1",
-                                "mode": 2
-                              },
-                              {
-                                "key": "system.mods.saves.all",
                                 "mode": 0,
-                                "value": "{\"formula\":\"1\",\"properties\":\"\"}"
+                                "key": "system.mods.resist",
+                                "value": "fire"
+                              },
+                              {
+                                "mode": 0,
+                                "key": "system.mods.saves.all",
+                                "value": "{\"formula\":\"3\",\"properties\":\"fire\"}"
                               }
                             ],
-                            "toolTip": "(system.mods.attack.value/1), (system.mods.damage.value/1), (system.mods.saves.all/{\"formula\":\"1\",\"properties\":\"\"})"
+                            "toolTip": "(system.mods.resist/fire), (system.mods.saves.all/{\"formula\":\"3\",\"properties\":\"fire\"})"
                           },
                           "itemList": [],
                           "speed": 0,
@@ -3635,7 +2904,7 @@
                             }
                           },
                           "magicpotency": 0,
-                          "misc": "Allied Chant Buffs - Indefinite (F)",
+                          "misc": "Fire Resistance - Duration (T)",
                           "properties": [],
                           "saveCheck": {
                             "type": "none",
@@ -3646,400 +2915,12 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                          "id": "e0emu8fqifr98j8q",
-                          "sourceuuid": "Item.51WuV3jIi0Sa5ERY"
-                        },
-                        {
-                          "sort": 4,
-                          "name": "Chant",
-                          "img": "icons/svg/d20-black.svg",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "effect",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "",
-                              "type": "hour"
-                            },
-                            "changes": [
-                              {
-                                "mode": 2,
-                                "key": "system.mods.attack.value",
-                                "value": "-1"
-                              },
-                              {
-                                "mode": 2,
-                                "key": "system.mods.damage.value",
-                                "value": "-1"
-                              },
-                              {
-                                "key": "system.mods.saves.all",
-                                "mode": 0,
-                                "value": "{\"formula\":\"-1\",\"properties\":\"\"}"
-                              }
-                            ],
-                            "toolTip": "(system.mods.attack.value/-1), (system.mods.damage.value/-1), (system.mods.saves.all/{\"formula\":\"-1\",\"properties\":\"\"})"
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Enemy Chant Debuffs - Indefinite (E)",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "spell",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                          "id": "InMtTvpSWzsFbMih",
-                          "sourceuuid": "Item.51WuV3jIi0Sa5ERY"
+                          "parentuuid": "Item.WU0NeFjrnfp0hmVT",
+                          "id": "zeonanau4y189bc9",
+                          "sourceuuid": "Item.WU0NeFjrnfp0hmVT"
                         }
                       ],
-                      "sourceuuid": "Item.51WuV3jIi0Sa5ERY"
-                    },
-                    {
-                      "id": "3CSgbvvGopBGfuZR",
-                      "name": "Chant: Chant (Aura Version)",
-                      "img": "icons/magic/control/buff-luck-fortune-green-gold.webp",
-                      "description": "<p><em>[Foundry Note: two aura versions of this spell are provided (one where the benefits are provided to players and allies, and another casting for enemy actors which reverses the buff/debuff fields). The player aura version is recommended as the mechanical changes are automatically transmitted to all combatants in the caster-centered AOE via the aura. The caster need only self-apply both buff/debuff spell actions.</em></p>\n<p><em>A legacy non-aura version is also provided if auras aren't preferred.&nbsp; As \"friendlies\" and \"enemies\" is always from the POV of the players (only), enemy casters should apply the buff when targeting \"hostiles\" and debuff when targeting \"friendlies\". </em><em>- Ed.]</em></p>\n<p>&nbsp;</p>\n<h2>General</h2>\n<p>Once the spell is cast, the cleric must maintain a sonorous chanting of holy words and prayers, which not only lend divine favour to the cleric and his or her allies but also bring disfavour to their foes.</p>\n<p>&nbsp;</p>\n<h2>Saves and Other Impediments</h2>\n<p>The cleric must <strong>remain stationary</strong> and continue to chant.</p>\n<p>If the cleric sustains damage, is grappled, or is in some way silenced, the effect of the spell will end.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p>While the spell is in effect his or her allies (<strong>within the area of effect</strong>) gain a bonus of +1 to all <strong>attack rolls, damage rolls, and saving throws</strong>.</p>\n<p>Enemies within the spell's area of effect also suffer a -1 to all such die rolls.</p>\n<p>&nbsp;</p>",
-                      "actions": [
-                        {
-                          "sort": 0,
-                          "name": "Chant (Aura Version - Player Cast)",
-                          "img": "icons/magic/unholy/hand-light-green.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "cast",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "",
-                              "type": "round"
-                            },
-                            "changes": [],
-                            "toolTip": ""
-                          },
-                          "itemList": [],
-                          "speed": 99,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n<li>Target <strong>the caster</strong> and click the <img src=\"icons/magic/light/explosion-star-glow-silhouette.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Allied Chant Buffs - Indefinite (F)\"</strong>&nbsp;action</li>\n<li>Target <strong>the caster</strong> and click the <img src=\"icons/magic/light/explosion-star-glow-silhouette.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Enemy Chant Debuffs - Indefinite (E)\"</strong> action</li>\n</ul>",
-                          "properties": [
-                            "Chant",
-                            "Conjuration Summoning",
-                            "De/Buff",
-                            "Level 2"
-                          ],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                          "id": "IBEXQhKZPR0gLgrO",
-                          "sourceuuid": "Item.51WuV3jIi0Sa5ERY"
-                        },
-                        {
-                          "sort": 1,
-                          "name": "Chant (Aura Version - Player Cast)",
-                          "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "effect",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "1",
-                              "type": "day"
-                            },
-                            "changes": [
-                              {
-                                "mode": 2,
-                                "key": "aura.system.mods.attack.value",
-                                "value": "1"
-                              },
-                              {
-                                "mode": 2,
-                                "key": "aura.system.mods.damage.value",
-                                "value": "1"
-                              },
-                              {
-                                "key": "aura.system.mods.saves.all",
-                                "mode": 0,
-                                "value": "{\"formula\":\"1\",\"properties\":\"\"}"
-                              },
-                              {
-                                "mode": 0,
-                                "key": "special.aura",
-                                "value": "{\"distance\":30,\"color\":\"purple\",\"faction\":\"friendly\",\"permission\":\"owner\",\"opacity\":\"0.10\",\"shape\":\"round\"}"
-                              }
-                            ],
-                            "toolTip": "(aura.system.mods.attack.value/1), (aura.system.mods.damage.value/1), (aura.system.mods.saves.all/{\"formula\":\"1\",\"properties\":\"\"}), (special.aura/{\"distance\": 30, \"color\": \"purple\", \"faction\": \"friendly\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"})"
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Allied Chant Buffs - Indefinite",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                          "id": "sxBbAetqxLFxDscR",
-                          "sourceuuid": "Item.51WuV3jIi0Sa5ERY"
-                        },
-                        {
-                          "sort": 2,
-                          "name": "Chant (Aura Version - Player Cast)",
-                          "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "effect",
-                          "targeting": "",
-                          "successAction": "none",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "1",
-                              "type": "day"
-                            },
-                            "changes": [
-                              {
-                                "mode": 2,
-                                "key": "aura.system.mods.attack.value",
-                                "value": "-1"
-                              },
-                              {
-                                "mode": 2,
-                                "key": "aura.system.mods.damage.value",
-                                "value": "-1"
-                              },
-                              {
-                                "key": "aura.system.mods.saves.all",
-                                "mode": 0,
-                                "value": "{\"formula\":\"-1\",\"properties\":\"\"}"
-                              },
-                              {
-                                "mode": 0,
-                                "key": "special.aura",
-                                "value": "{\"distance\":30,\"color\":\"purple\",\"faction\":\"enemy\",\"permission\":\"owner\",\"opacity\":\"0.10\",\"shape\":\"round\"}"
-                              }
-                            ],
-                            "toolTip": "(aura.system.mods.attack.value/-1), (aura.system.mods.damage.value/-1), (aura.system.mods.saves.all/{\"formula\":\"-1\",\"properties\":\"\"}), (special.aura/{\"distance\": 30, \"color\": \"purple\", \"faction\": \"enemy\", \"permission\": \"owner\", \"opacity\": \"0.10\", \"shape\": \"square\"})"
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "Enemy Chant Debuffs - Indefinite",
-                          "properties": [],
-                          "saveCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.51WuV3jIi0Sa5ERY",
-                          "id": "EcEzN6JwFbvB0Xq3",
-                          "sourceuuid": "Item.51WuV3jIi0Sa5ERY"
-                        }
-                      ],
-                      "sourceuuid": "Item.51WuV3jIi0Sa5ERY"
+                      "sourceuuid": "Item.WU0NeFjrnfp0hmVT"
                     }
                   ],
                   "migrate": false,
@@ -4057,7 +2938,7 @@
                   "Nf3ofNhweHQ31QEU": 3
                 },
                 "_stats": {
-                  "compendiumSource": "Compendium.world.osric-pc-item.51WuV3jIi0Sa5ERY",
+                  "compendiumSource": "Compendium.world.osric-pc-item.WU0NeFjrnfp0hmVT",
                   "duplicateSource": null,
                   "coreVersion": "12.331",
                   "systemId": "ars",
@@ -5376,28 +4257,28 @@
               }
             },
             "3": {
-              "name": "Slow Poison",
+              "name": "Resist Fire",
               "level": "2",
-              "img": "icons/magic/life/heart-cross-green.webp",
+              "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
               "cast": false,
-              "id": "ejrMb16tP9YUtzPq",
-              "uuid": "Compendium.osric-compendium.items.Item.ejrMb16tP9YUtzPq",
+              "id": "WU0NeFjrnfp0hmVT",
+              "uuid": "Compendium.osric-compendium.items.Item.WU0NeFjrnfp0hmVT",
               "owned": false,
               "spellItem": {
-                "_id": "ejrMb16tP9YUtzPq",
-                "name": "Slow Poison",
+                "_id": "WU0NeFjrnfp0hmVT",
+                "name": "Resist Fire",
                 "type": "spell",
-                "img": "icons/magic/life/heart-cross-green.webp",
+                "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
                 "effects": [],
                 "folder": "UI3jvQEaJfYDFoHG",
-                "sort": 900000,
+                "sort": 700000,
                 "flags": {
                   "scene-packer": {
-                    "hash": "d2751324ed8cecc19ee539d7f236afc6d9e2820a",
-                    "sourceId": "Item.ejrMb16tP9YUtzPq"
+                    "hash": "b63be26ddb134eb30daa512962c30cf9c9645d95",
+                    "sourceId": "Item.WU0NeFjrnfp0hmVT"
                   },
                   "core": {
-                    "sourceId": "Compendium.world.osric-pc-item.ejrMb16tP9YUtzPq"
+                    "sourceId": "Compendium.world.osric-pc-item.WU0NeFjrnfp0hmVT"
                   },
                   "cf": null,
                   "osric": {
@@ -5408,6 +4289,11 @@
                         }
                       },
                       "Slow Poison": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Resist Fire": {
                         "display": {
                           "collapsedState": "none"
                         }
@@ -5435,12 +4321,17 @@
                         "display": {
                           "collapsedState": "none"
                         }
+                      },
+                      "Resist Fire": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
                       }
                     }
                   }
                 },
                 "system": {
-                  "description": "<h2>General</h2>\n<p>This spell is used to slow the progress of poison through the body. <strong>Even a person who has died from poison may be revived</strong> if he succumbed to the poison within a number of turns less than or equal to the caster's level of experience.</p>\n<p>The spell does not eliminate or neutralise poison; it merely slows it.</p>\n<p>The spell is generally used to keep someone alive until the poison can be neutralised completely by other means, such as a <em>Neutralise Poison</em> spell.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p>A poisoned creature will lose <strong>1 hit point per turn</strong> (but will not fall below 1) during the spell's duration; once the spell's protection expires, the victim will suffer the full potency of the poison.&nbsp;</p>",
+                  "description": "<h2>General</h2>\n<p>When this spell is cast, the recipient gains resistance to fire and heat, being able to endure boiling temperatures without discomfort. A person under the influence of this spell <strong>can stand unharmed in the middle of a bonfire</strong>, and even gains a measure of resistance to magical fire.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p><em>[Foundry Note: the system isn't going to automatically roll saves when a cold-based action doesn't normally allow a saving throw.&nbsp; It will be up to the player and GM to recognize this exception and roll a save manually, reversing or changing effects/damage as necessary. - Ed.]&nbsp;</em></p>\n<p>The subject gains a saving throw bonus of +3 against magical fire, taking one half damage if the save is not successful and one quarter damage if the save is successful.&nbsp;<strong>The saving throw is permitted even against attacks that would not ordinarily allow a saving throw</strong>.</p>",
                   "dmonlytext": "",
                   "itemList": [],
                   "alias": "",
@@ -5488,7 +4379,7 @@
                         "changes": [],
                         "toolTip": ""
                       },
-                      "speed": 1,
+                      "speed": 5,
                       "damagetype": "slashing",
                       "resource": {
                         "type": "none",
@@ -5503,9 +4394,8 @@
                       },
                       "magicpotency": 0,
                       "properties": [
-                        "Slow Poison",
-                        "Necromancy",
-                        "Heal",
+                        "Resist Fire",
+                        "Transmutation Alteration",
                         "Level 2"
                       ],
                       "dmonlytext": "",
@@ -5518,15 +4408,15 @@
                         "type": "none",
                         "formula": ""
                       },
-                      "id": "p06w07f5mhpn09tk",
+                      "id": "frdyyanqpcus4nmf",
                       "index": 0,
-                      "name": "Slow Poison",
+                      "name": "Resist Fire",
                       "description": "",
-                      "parentuuid": "Item.ejrMb16tP9YUtzPq",
-                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n</ul>\n<ul>\n<li>Target <strong>the poisoned actor</strong>&nbsp;and click the <img src=\"icons/magic/life/heart-cross-green.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Slow Poison - Duration (T)\"</strong>&nbsp;action</li>\n</ul>"
+                      "parentuuid": "Item.WU0NeFjrnfp0hmVT",
+                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n<li>Target <strong>an actor</strong>&nbsp;and click the <img src=\"icons/magic/defensive/shield-barrier-glowing-triangle-red.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Fire Resistance - Duration (T)\"</strong>&nbsp;action</li>\n</ul>"
                     },
                     {
-                      "img": "icons/magic/life/heart-cross-green.webp",
+                      "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
                       "ability": "none",
                       "type": "effect",
                       "targeting": "",
@@ -5536,11 +4426,22 @@
                       "effectList": [],
                       "effect": {
                         "duration": {
-                          "formula": "(@rank.levels.divine)*6",
+                          "formula": "(@rank.levels.divine)",
                           "type": "turn"
                         },
-                        "changes": [],
-                        "toolTip": ""
+                        "changes": [
+                          {
+                            "mode": 0,
+                            "key": "system.mods.resist",
+                            "value": "fire"
+                          },
+                          {
+                            "mode": 0,
+                            "key": "system.mods.saves.all",
+                            "value": "{\"formula\":\"3\",\"properties\":\"fire\"}"
+                          }
+                        ],
+                        "toolTip": "(system.mods.resist/fire), (system.mods.saves.all/{\"formula\":\"3\",\"properties\":\"fire\"})"
                       },
                       "speed": null,
                       "damagetype": "slashing",
@@ -5567,12 +4468,32 @@
                         "type": "none",
                         "formula": ""
                       },
-                      "id": "zwzbs5em4lku5l9k",
+                      "id": "zeonanau4y189bc9",
                       "index": 1,
-                      "name": "Slow Poison",
-                      "misc": "Slow Poison - Duration (T)",
+                      "name": "Resist Fire",
+                      "misc": "Fire Resistance - Duration (T)",
                       "description": "",
-                      "parentuuid": "Item.ejrMb16tP9YUtzPq"
+                      "changes": {
+                        "0": {
+                          "key": "system.mods.resist"
+                        },
+                        "1": {
+                          "key": "system.mods.saves.rod"
+                        },
+                        "2": {
+                          "key": "system.mods.saves.staff"
+                        },
+                        "3": {
+                          "key": "system.mods.saves.wand"
+                        },
+                        "4": {
+                          "key": "system.mods.saves.breath"
+                        },
+                        "5": {
+                          "key": "system.mods.saves.spell"
+                        }
+                      },
+                      "parentuuid": "Item.WU0NeFjrnfp0hmVT"
                     }
                   ],
                   "quantity": 0,
@@ -5593,28 +4514,28 @@
                   "type": "Divine",
                   "level": 2,
                   "learned": false,
-                  "school": "Necromancy",
-                  "sphere": "Clerical",
+                  "school": "Transmutation, Alteration",
+                  "sphere": "Clerical, Shaman",
                   "range": "Touch",
                   "components": {
                     "verbal": true,
                     "somatic": true,
                     "material": true
                   },
-                  "durationText": "6 turns/level",
-                  "castingTime": "1",
+                  "durationText": "1 turn/level",
+                  "castingTime": "5",
                   "areaOfEffect": "Creature touched",
                   "save": "None",
                   "actionGroups": [
                     {
-                      "id": "gZ06altDppoHwM6t",
-                      "name": "Slow Poison",
-                      "img": "icons/magic/life/heart-cross-green.webp",
-                      "description": "<h2>General</h2>\n<p>This spell is used to slow the progress of poison through the body. <strong>Even a person who has died from poison may be revived</strong> if he succumbed to the poison within a number of turns less than or equal to the caster's level of experience.</p>\n<p>The spell does not eliminate or neutralise poison; it merely slows it.</p>\n<p>The spell is generally used to keep someone alive until the poison can be neutralised completely by other means, such as a <em>Neutralise Poison</em> spell.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p>A poisoned creature will lose <strong>1 hit point per turn</strong> (but will not fall below 1) during the spell's duration; once the spell's protection expires, the victim will suffer the full potency of the poison.&nbsp;</p>",
+                      "id": "2HsFIS2JS6MkzHgt",
+                      "name": "Resist Fire",
+                      "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
+                      "description": "<h2>General</h2>\n<p>When this spell is cast, the recipient gains resistance to fire and heat, being able to endure boiling temperatures without discomfort. A person under the influence of this spell <strong>can stand unharmed in the middle of a bonfire</strong>, and even gains a measure of resistance to magical fire.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p><em>[Foundry Note: the system isn't going to automatically roll saves when a cold-based action doesn't normally allow a saving throw.&nbsp; It will be up to the player and GM to recognize this exception and roll a save manually, reversing or changing effects/damage as necessary. - Ed.]&nbsp;</em></p>\n<p>The subject gains a saving throw bonus of +3 against magical fire, taking one half damage if the save is not successful and one quarter damage if the save is successful.&nbsp;<strong>The saving throw is permitted even against attacks that would not ordinarily allow a saving throw</strong>.</p>",
                       "actions": [
                         {
                           "sort": 0,
-                          "name": "Slow Poison",
+                          "name": "Resist Fire",
                           "img": "icons/magic/unholy/hand-light-green.webp",
                           "castShape": {
                             "shape": {
@@ -5661,7 +4582,7 @@
                             "toolTip": ""
                           },
                           "itemList": [],
-                          "speed": 1,
+                          "speed": 5,
                           "damagetype": "slashing",
                           "dmonlytext": "",
                           "resource": {
@@ -5676,11 +4597,10 @@
                             }
                           },
                           "magicpotency": 0,
-                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n</ul>\n<ul>\n<li>Target <strong>the poisoned actor</strong>&nbsp;and click the <img src=\"icons/magic/life/heart-cross-green.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Slow Poison - Duration (T)\"</strong>&nbsp;action</li>\n</ul>",
+                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n<li>Target <strong>an actor</strong>&nbsp;and click the <img src=\"icons/magic/defensive/shield-barrier-glowing-triangle-red.webp\" alt=\"\" width=\"24\" height=\"24\">&nbsp;<strong>\"Fire Resistance - Duration (T)\"</strong>&nbsp;action</li>\n</ul>",
                           "properties": [
-                            "Slow Poison",
-                            "Necromancy",
-                            "Heal",
+                            "Resist Fire",
+                            "Transmutation Alteration",
                             "Level 2"
                           ],
                           "saveCheck": {
@@ -5692,14 +4612,14 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Item.ejrMb16tP9YUtzPq",
-                          "id": "p06w07f5mhpn09tk",
-                          "sourceuuid": "Item.ejrMb16tP9YUtzPq"
+                          "parentuuid": "Item.WU0NeFjrnfp0hmVT",
+                          "id": "frdyyanqpcus4nmf",
+                          "sourceuuid": "Item.WU0NeFjrnfp0hmVT"
                         },
                         {
                           "sort": 1,
-                          "name": "Slow Poison",
-                          "img": "icons/magic/life/heart-cross-green.webp",
+                          "name": "Resist Fire",
+                          "img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
                           "castShape": {
                             "shape": {
                               "type": "circle"
@@ -5738,22 +4658,22 @@
                           "effectList": [],
                           "effect": {
                             "duration": {
-                              "formula": "(@rank.levels.divine)*6",
+                              "formula": "(@rank.levels.divine)",
                               "type": "turn"
                             },
                             "changes": [
                               {
-                                "key": "system.mods.immune",
                                 "mode": 0,
-                                "value": "poison"
+                                "key": "system.mods.resist",
+                                "value": "fire"
                               },
                               {
-                                "key": "special.statusimmune",
                                 "mode": 0,
-                                "value": "poisoned"
+                                "key": "system.mods.saves.all",
+                                "value": "{\"formula\":\"3\",\"properties\":\"fire\"}"
                               }
                             ],
-                            "toolTip": ""
+                            "toolTip": "(system.mods.resist/fire), (system.mods.saves.all/{\"formula\":\"3\",\"properties\":\"fire\"})"
                           },
                           "itemList": [],
                           "speed": 0,
@@ -5771,7 +4691,7 @@
                             }
                           },
                           "magicpotency": 0,
-                          "misc": "Slow Poison - Duration (T)",
+                          "misc": "Fire Resistance - Duration (T)",
                           "properties": [],
                           "saveCheck": {
                             "type": "none",
@@ -5782,96 +4702,12 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Item.ejrMb16tP9YUtzPq",
-                          "id": "zwzbs5em4lku5l9k",
-                          "sourceuuid": "Item.ejrMb16tP9YUtzPq"
-                        },
-                        {
-                          "sort": 2,
-                          "name": "Slow Poison",
-                          "img": "icons/magic/life/heart-cross-purple-orange.webp",
-                          "castShape": {
-                            "shape": {
-                              "type": "circle"
-                            },
-                            "coneShape": {
-                              "type": "circle"
-                            },
-                            "selection": {
-                              "type": "all"
-                            },
-                            "properties": {
-                              "radius": {
-                                "formula": ""
-                              },
-                              "range": {
-                                "formula": ""
-                              },
-                              "angle": {
-                                "formula": ""
-                              },
-                              "length": {
-                                "formula": ""
-                              },
-                              "width": {
-                                "formula": ""
-                              },
-                              "inRangeColor": "#f2ed69",
-                              "outOfRangeColor": "#a80000"
-                            }
-                          },
-                          "type": "effect",
-                          "targeting": "",
-                          "successAction": "",
-                          "formula": "",
-                          "otherdmg": [],
-                          "effectList": [],
-                          "effect": {
-                            "duration": {
-                              "formula": "(@rank.levels.divine)*6",
-                              "type": "turn"
-                            },
-                            "changes": [
-                              {
-                                "key": "special.ongoing",
-                                "mode": 0,
-                                "value": "{\"type\":\"damage\", \"rate\":\"1\", \"cycle\": \"turn\", \"dmgType\": \"\", \"formula\": \"1\"}"
-                              }
-                            ]
-                          },
-                          "itemList": [],
-                          "speed": 0,
-                          "damagetype": "slashing",
-                          "dmonlytext": "",
-                          "resource": {
-                            "type": "none",
-                            "itemId": "",
-                            "reusetime": "",
-                            "count": {
-                              "cost": 1,
-                              "min": 0,
-                              "max": 1,
-                              "value": 0
-                            }
-                          },
-                          "magicpotency": 0,
-                          "misc": "1 pt damage per turn - Indefinite (T)",
-                          "properties": [],
-                          "saveCheck": {
-                            "formula": "",
-                            "type": "spell"
-                          },
-                          "ability": "none",
-                          "abilityCheck": {
-                            "type": "none",
-                            "formula": ""
-                          },
-                          "parentuuid": "Item.ejrMb16tP9YUtzPq",
-                          "id": "iShgBK2xdqw6yga4",
-                          "sourceuuid": "Item.ejrMb16tP9YUtzPq"
+                          "parentuuid": "Item.WU0NeFjrnfp0hmVT",
+                          "id": "zeonanau4y189bc9",
+                          "sourceuuid": "Item.WU0NeFjrnfp0hmVT"
                         }
                       ],
-                      "sourceuuid": "Item.ejrMb16tP9YUtzPq"
+                      "sourceuuid": "Item.WU0NeFjrnfp0hmVT"
                     }
                   ],
                   "migrate": false,
@@ -5889,7 +4725,7 @@
                   "Nf3ofNhweHQ31QEU": 3
                 },
                 "_stats": {
-                  "compendiumSource": "Compendium.world.osric-pc-item.ejrMb16tP9YUtzPq",
+                  "compendiumSource": "Compendium.world.osric-pc-item.WU0NeFjrnfp0hmVT",
                   "duplicateSource": null,
                   "coreVersion": "12.331",
                   "systemId": "ars",
@@ -5903,12 +4739,12 @@
           },
           "3": {
             "0": {
-              "name": "Prayer",
+              "name": null,
               "level": "3",
-              "img": "icons/magic/control/buff-luck-fortune-gold.webp",
+              "img": null,
               "cast": false,
-              "id": "5t4X6aNoWTtc992S",
-              "uuid": "Compendium.osric-compendium.items.Item.5t4X6aNoWTtc992S",
+              "id": null,
+              "uuid": null,
               "owned": false,
               "spellItem": {
                 "_id": "5t4X6aNoWTtc992S",
@@ -7741,33 +6577,38 @@
               }
             },
             "1": {
-              "name": "Create Food and Water",
+              "name": "Dispel Magic",
               "level": "3",
-              "img": "icons/magic/nature/cornucopia-orange.webp",
+              "img": "icons/magic/control/energy-stream-link-large-white.webp",
               "cast": false,
-              "id": "XHhl01uaf8Ni3zBi",
-              "uuid": "Compendium.osric-compendium.items.Item.XHhl01uaf8Ni3zBi",
+              "id": "9eLmGFdfKsYduEod",
+              "uuid": "Compendium.osric-compendium.items.Item.9eLmGFdfKsYduEod",
               "owned": false,
               "spellItem": {
-                "_id": "XHhl01uaf8Ni3zBi",
-                "name": "Create Food and Water",
+                "_id": "9eLmGFdfKsYduEod",
+                "name": "Dispel Magic",
                 "type": "spell",
-                "img": "icons/magic/nature/cornucopia-orange.webp",
+                "img": "icons/magic/control/energy-stream-link-large-white.webp",
                 "effects": [],
                 "folder": "uDkm9alduVSmBocz",
-                "sort": 700000,
+                "sort": 1000000,
                 "flags": {
                   "scene-packer": {
-                    "hash": "490a3b1e89fa46ce4d93c1cc85f768a4fb4950a3",
-                    "sourceId": "Item.XHhl01uaf8Ni3zBi"
+                    "hash": "6e2eeeeb2100d28ed4bdce76a8db13ae33707102",
+                    "sourceId": "Item.9eLmGFdfKsYduEod"
                   },
                   "core": {
-                    "sourceId": "Compendium.world.osric-pc-item.XHhl01uaf8Ni3zBi"
+                    "sourceId": "Compendium.world.osric-pc-item.9eLmGFdfKsYduEod"
                   },
                   "cf": null,
                   "osric": {
                     "actions": {
                       "Create Food and Water": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "Dispel Magic": {
                         "display": {
                           "collapsedState": "none"
                         }
@@ -7780,12 +6621,22 @@
                         "display": {
                           "collapsedState": "none"
                         }
+                      },
+                      "Dispel Magic": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
+                      },
+                      "mcvs01upOUYn6LSB": {
+                        "display": {
+                          "collapsedState": "none"
+                        }
                       }
                     }
                   }
                 },
                 "system": {
-                  "description": "<h2>General</h2>\n<p>Upon completion of the ritual words of this spell, food and/or water will appear from thin air. A caster of fifth level can conjure up enough food and water to sustain a person or even a horse for five full days.</p>\n<p>The volume of food and water produced by the spell is <strong>approximately one cubic ft per level</strong> of the caster.</p>",
+                  "description": "<h2>General</h2>\n<p><em>Dispel Magic</em> has a <strong>base chance of 50% </strong>to permanently negate magic - both the magical properties of potions and the ongoing effects of certain spells.</p>\n<p>All spell effects and relevant items within the stated area of effect are subject to dispelling.</p>\n<p>The spell will <strong>automatically negate the caster's own spells</strong> if it is used for this purpose or if the caster has previously cast a spell into the same area.</p>\n<p>&nbsp;</p>\n<h2>Saves and Other Impediments</h2>\n<p>With respect to each potion, casting, or ongoing spell effect, the base chance of successful dispelling is <strong>increased 5% for every level by which the caster's level exceeds the caster level</strong> of the potion, the casting, or the spell effect.</p>\n<p>The base chance is conversely <strong>reduced by 2% per level of difference if the caster is lower level</strong> than the caster of the magic to be dispelled.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p>Any spells <strong>in the process of being cast</strong> in the spell's area of effect <strong>will be lost,</strong> and any ongoing spell effects (such as invisibility) <strong>will be dispelled</strong>, presuming the adjusted % chance(s) discussed above are resolved in the favor of the caster of <em>Dispel Magic.</em></p>\n<p>Permanent magical items are not disenchanted, i.e., ruined permanently, by the spell when used as an area effect - <strong>with the exception of potions</strong>&nbsp;which are <strong>treated as 12th level</strong> for purposes of resolution.</p>\n<p>However, even a permanently enchanted item must make a saving throw vs spells (as if being rolled by its carrier) or become non-operational for one round.&nbsp; A <em>Dispel Magic</em> cast for this purpose is entirely consumed in the attempt and <strong>doesn't effect other magic in the area as previously described</strong>.&nbsp; Legendary magical items are an exception to even this possibility.</p>",
                   "dmonlytext": "",
                   "itemList": [],
                   "alias": "",
@@ -7833,7 +6684,7 @@
                         "changes": [],
                         "toolTip": ""
                       },
-                      "speed": 99,
+                      "speed": 6,
                       "damagetype": "slashing",
                       "resource": {
                         "type": "none",
@@ -7848,7 +6699,7 @@
                       },
                       "magicpotency": 0,
                       "properties": [
-                        "Create Food and Water",
+                        "Dispel Magic",
                         "Transmutation Alteration",
                         "Level 3"
                       ],
@@ -7862,11 +6713,90 @@
                         "type": "none",
                         "formula": ""
                       },
-                      "id": "1yco86dlhnwxqtre",
+                      "id": "l6umjp8jay87lwbz",
                       "index": 0,
-                      "name": "Create Food and Water",
+                      "name": "Dispel Magic",
                       "description": "",
-                      "parentuuid": "Item.XHhl01uaf8Ni3zBi"
+                      "parentuuid": "Item.9eLmGFdfKsYduEod",
+                      "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n</ul>\n<ul>\n<li><strong>(Optional)</strong>&nbsp;Use the&nbsp;<img src=\"icons/magic/symbols/triangle-glowing-green.webp\" alt=\"Castshape Action\" width=\"24\" height=\"24\">&nbsp;<strong>castshape</strong>&nbsp;action to visualize the area of effect (you can delete AOE templates if the Templates menu is active)</li>\n</ul>"
+                    },
+                    {
+                      "img": "icons/magic/symbols/triangle-glowing-green.webp",
+                      "ability": "none",
+                      "type": "castshape",
+                      "targeting": "",
+                      "successAction": "none",
+                      "formula": "",
+                      "otherdmg": [],
+                      "effectList": [],
+                      "effect": {
+                        "duration": {
+                          "formula": "",
+                          "type": "round"
+                        },
+                        "changes": [],
+                        "toolTip": ""
+                      },
+                      "speed": 0,
+                      "damagetype": "slashing",
+                      "resource": {
+                        "type": "none",
+                        "itemId": "",
+                        "reusetime": "",
+                        "count": {
+                          "cost": 1,
+                          "min": 0,
+                          "max": 1,
+                          "value": 0
+                        }
+                      },
+                      "magicpotency": 0,
+                      "properties": [],
+                      "description": "",
+                      "dmonlytext": "",
+                      "itemList": [],
+                      "saveCheck": {
+                        "type": "none",
+                        "formula": ""
+                      },
+                      "castShapeLength": {
+                        "formula": ""
+                      },
+                      "castShapeWidth": {
+                        "formula": ""
+                      },
+                      "castShapeRadius": {
+                        "formula": ""
+                      },
+                      "castShapeAngle": {
+                        "formula": ""
+                      },
+                      "abilityCheck": {
+                        "type": "none",
+                        "formula": ""
+                      },
+                      "id": "uWgsbQZ9Prz9Wfep",
+                      "index": 1,
+                      "name": "Dispel Magic",
+                      "parentuuid": "Item.9eLmGFdfKsYduEod",
+                      "castShapeProperties": {
+                        "range": {
+                          "formula": "60"
+                        },
+                        "fillColor": "#3cfa4b",
+                        "castShapeRadius": {
+                          "formula": "30"
+                        },
+                        "inRangeColor": "#696df2",
+                        "outOfRangeColor": "#a80000"
+                      },
+                      "misc": "Dispel Magic",
+                      "targetShape": {
+                        "type": "circle"
+                      },
+                      "targetShapeSelection": {
+                        "type": "none"
+                      }
                     }
                   ],
                   "quantity": 0,
@@ -7888,27 +6818,27 @@
                   "level": 3,
                   "learned": false,
                   "school": "Transmutation, Alteration",
-                  "sphere": "Clerical",
-                  "range": "10 ft",
+                  "sphere": "Clerical, Shaman",
+                  "range": "60 ft",
                   "components": {
                     "verbal": true,
                     "somatic": true,
                     "material": false
                   },
-                  "durationText": "Instantaneous (permanent)",
-                  "castingTime": "1 turn",
-                  "areaOfEffect": "A day's ration per caster level",
+                  "durationText": "Instantaneous",
+                  "castingTime": "6",
+                  "areaOfEffect": "30 ft radius sphere",
                   "save": "None",
                   "actionGroups": [
                     {
-                      "id": "kuN9n6yZT9WVP4td",
-                      "name": "Create Food and Water",
-                      "img": "icons/magic/nature/cornucopia-orange.webp",
-                      "description": "<h2>General</h2>\n<p>Upon completion of the ritual words of this spell, food and/or water will appear from thin air. A caster of fifth level can conjure up enough food and water to sustain a person or even a horse for five full days.</p>\n<p>The volume of food and water produced by the spell is <strong>approximately one cubic ft per level</strong> of the caster.</p>",
+                      "id": "mcvs01upOUYn6LSB",
+                      "name": "Dispel Magic",
+                      "img": "icons/magic/control/energy-stream-link-large-white.webp",
+                      "description": "<h2>General</h2>\n<p><em>Dispel Magic</em> has a <strong>base chance of 50% </strong>to permanently negate magic - both the magical properties of potions and the ongoing effects of certain spells.</p>\n<p>All spell effects and relevant items within the stated area of effect are subject to dispelling.</p>\n<p>The spell will <strong>automatically negate the caster's own spells</strong> if it is used for this purpose or if the caster has previously cast a spell into the same area.</p>\n<p>&nbsp;</p>\n<h2>Saves and Other Impediments</h2>\n<p>With respect to each potion, casting, or ongoing spell effect, the base chance of successful dispelling is <strong>increased 5% for every level by which the caster's level exceeds the caster level</strong> of the potion, the casting, or the spell effect.</p>\n<p>The base chance is conversely <strong>reduced by 2% per level of difference if the caster is lower level</strong> than the caster of the magic to be dispelled.</p>\n<p>&nbsp;</p>\n<h2>Combat Effects</h2>\n<p>Any spells <strong>in the process of being cast</strong> in the spell's area of effect <strong>will be lost,</strong> and any ongoing spell effects (such as invisibility) <strong>will be dispelled</strong>, presuming the adjusted % chance(s) discussed above are resolved in the favor of the caster of <em>Dispel Magic.</em></p>\n<p>Permanent magical items are not disenchanted, i.e., ruined permanently, by the spell when used as an area effect - <strong>with the exception of potions</strong>&nbsp;which are <strong>treated as 12th level</strong> for purposes of resolution.</p>\n<p>However, even a permanently enchanted item must make a saving throw vs spells (as if being rolled by its carrier) or become non-operational for one round.&nbsp; A <em>Dispel Magic</em> cast for this purpose is entirely consumed in the attempt and <strong>doesn't effect other magic in the area as previously described</strong>.&nbsp; Legendary magical items are an exception to even this possibility.</p>",
                       "actions": [
                         {
                           "sort": 0,
-                          "name": "Create Food and Water",
+                          "name": "Dispel Magic",
                           "img": "icons/magic/unholy/hand-light-green.webp",
                           "castShape": {
                             "shape": {
@@ -7955,7 +6885,7 @@
                             "toolTip": ""
                           },
                           "itemList": [],
-                          "speed": 99,
+                          "speed": 6,
                           "damagetype": "slashing",
                           "dmonlytext": "",
                           "resource": {
@@ -7970,9 +6900,9 @@
                             }
                           },
                           "magicpotency": 0,
-                          "misc": "",
+                          "misc": "<p style=\"text-align: center;\"><span style=\"text-decoration: underline;\"><strong>Casting Instructions</strong></span></p>\n<ul>\n<li>Cast the spell to burn the memory slot or item charge (this may already have been done)</li>\n</ul>\n<ul>\n<li><strong>(Optional)</strong>&nbsp;Use the&nbsp;<img src=\"icons/magic/symbols/triangle-glowing-green.webp\" alt=\"Castshape Action\" width=\"24\" height=\"24\">&nbsp;<strong>castshape</strong>&nbsp;action to visualize the area of effect (you can delete AOE templates if the Templates menu is active)</li>\n</ul>",
                           "properties": [
-                            "Create Food and Water",
+                            "Dispel Magic",
                             "Transmutation Alteration",
                             "Level 3"
                           ],
@@ -7985,12 +6915,83 @@
                             "type": "none",
                             "formula": ""
                           },
-                          "parentuuid": "Item.XHhl01uaf8Ni3zBi",
-                          "id": "1yco86dlhnwxqtre",
-                          "sourceuuid": "Item.XHhl01uaf8Ni3zBi"
+                          "parentuuid": "Item.9eLmGFdfKsYduEod",
+                          "id": "l6umjp8jay87lwbz",
+                          "sourceuuid": "Item.9eLmGFdfKsYduEod"
+                        },
+                        {
+                          "sort": 1,
+                          "name": "Dispel Magic",
+                          "img": "icons/magic/symbols/triangle-glowing-green.webp",
+                          "castShape": {
+                            "shape": {
+                              "type": "circle"
+                            },
+                            "coneShape": {},
+                            "selection": {
+                              "type": "none"
+                            },
+                            "properties": {
+                              "radius": {
+                                "formula": "30"
+                              },
+                              "range": {
+                                "formula": "60"
+                              },
+                              "angle": {},
+                              "length": {},
+                              "width": {},
+                              "inRangeColor": "#696df2",
+                              "outOfRangeColor": "#a80000"
+                            }
+                          },
+                          "type": "castshape",
+                          "targeting": "",
+                          "successAction": "none",
+                          "formula": "",
+                          "otherdmg": [],
+                          "effectList": [],
+                          "effect": {
+                            "duration": {
+                              "formula": "",
+                              "type": "round"
+                            },
+                            "changes": [],
+                            "toolTip": ""
+                          },
+                          "itemList": [],
+                          "speed": 0,
+                          "damagetype": "slashing",
+                          "dmonlytext": "",
+                          "resource": {
+                            "type": "none",
+                            "itemId": "",
+                            "reusetime": "",
+                            "count": {
+                              "cost": 1,
+                              "min": 0,
+                              "max": 1,
+                              "value": 0
+                            }
+                          },
+                          "magicpotency": 0,
+                          "misc": "Dispel Magic",
+                          "properties": [],
+                          "saveCheck": {
+                            "type": "none",
+                            "formula": ""
+                          },
+                          "ability": "none",
+                          "abilityCheck": {
+                            "type": "none",
+                            "formula": ""
+                          },
+                          "parentuuid": "Item.9eLmGFdfKsYduEod",
+                          "id": "uWgsbQZ9Prz9Wfep",
+                          "sourceuuid": "Item.9eLmGFdfKsYduEod"
                         }
                       ],
-                      "sourceuuid": "Item.XHhl01uaf8Ni3zBi"
+                      "sourceuuid": "Item.9eLmGFdfKsYduEod"
                     }
                   ],
                   "migrate": false,
@@ -8008,7 +7009,7 @@
                   "Nf3ofNhweHQ31QEU": 3
                 },
                 "_stats": {
-                  "compendiumSource": "Compendium.world.osric-pc-item.XHhl01uaf8Ni3zBi",
+                  "compendiumSource": "Compendium.world.osric-pc-item.9eLmGFdfKsYduEod",
                   "duplicateSource": null,
                   "coreVersion": "12.331",
                   "systemId": "ars",
@@ -17838,6 +16839,126 @@
         "modifiedTime": 1742244080238,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
+    },
+    {
+      "_id": "0000000000vh2wfj",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.HEMIAxBrkxDbMaKf",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.type",
+          "value": "{\"trigger\": \"pfe\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.HEMIAxBrkxDbMaKf",
+          "effectUuid": "Actor.HEMIAxBrkxDbMaKf.Item.wW2UCMaRDemhvtWB.ActiveEffect.Kh0cYzTA0CUY8Nxe",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:Protection From Evil 10 ft",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899356177,
+        "modifiedTime": 1746899356177,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
+    },
+    {
+      "_id": "000000000080zbjm",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.uhA2f7Tj1MSHkT4H",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.type",
+          "value": "{\"trigger\": \"ghoul\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.uhA2f7Tj1MSHkT4H",
+          "effectUuid": "Actor.uhA2f7Tj1MSHkT4H.Item.Ow9Gf0U2XHTzIscp.ActiveEffect.Kh0cYzTA0CUY8Nxe",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:Protection From Evil 10 ft",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899412702,
+        "modifiedTime": 1746899412702,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
     }
   ],
   "flags": {
@@ -17960,19 +17081,22 @@
       ],
       "languageToggleState": "visible"
     },
+    "ars-battlesystem-tab": {
+      "_activeTab": "spells"
+    },
     "exportSource": {
       "world": "greyhawk-wars",
       "system": "ars",
-      "coreVersion": "12.331",
-      "systemVersion": "2025.04.10"
+      "coreVersion": "12.343",
+      "systemVersion": "2025.04.20"
     }
   },
   "_stats": {
     "coreVersion": "12.331",
     "systemId": "ars",
-    "systemVersion": "2025.04.10",
+    "systemVersion": "2025.04.20",
     "createdTime": 1727308158282,
-    "modifiedTime": 1745423116187,
-    "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+    "modifiedTime": 1746585731176,
+    "lastModifiedBy": "ADGYZlaqUtxA8QxS"
   }
 }

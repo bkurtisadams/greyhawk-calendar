@@ -8284,7 +8284,7 @@
       }
     },
     "sight": {
-      "enabled": true,
+      "enabled": false,
       "range": 0,
       "angle": 360,
       "visionMode": "basic",
@@ -15775,6 +15775,126 @@
         "modifiedTime": 1729300782221,
         "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
       }
+    },
+    {
+      "_id": "0000000000vh2wfj",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.HEMIAxBrkxDbMaKf",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.type",
+          "value": "{\"trigger\": \"pfe\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.HEMIAxBrkxDbMaKf",
+          "effectUuid": "Actor.HEMIAxBrkxDbMaKf.Item.wW2UCMaRDemhvtWB.ActiveEffect.Kh0cYzTA0CUY8Nxe",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:Protection From Evil 10 ft",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899429386,
+        "modifiedTime": 1746899429386,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
+    },
+    {
+      "_id": "000000000080zbjm",
+      "img": "icons/svg/aura.svg",
+      "origin": "Actor.uhA2f7Tj1MSHkT4H",
+      "duration": {
+        "startTime": 95342482,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "transfer": false,
+      "changes": [
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"attack\",\"properties\":\"\",\"formula\":\"-2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.alignment",
+          "value": "{\"trigger\":\"le,ne,ce\",\"type\":\"save\",\"properties\":\"\",\"formula\":\"2\"}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "attacker.type",
+          "value": "{\"trigger\": \"ghoul\", \"properties\": \"\", \"type\": \"attack\", \"formula\": \"-25\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "statuses": [],
+      "system": {
+        "aura": {
+          "originUuid": "Actor.uhA2f7Tj1MSHkT4H",
+          "effectUuid": "Actor.uhA2f7Tj1MSHkT4H.Item.Ow9Gf0U2XHTzIscp.ActiveEffect.Kh0cYzTA0CUY8Nxe",
+          "isAura": true
+        }
+      },
+      "name": "Within AURA:Protection From Evil 10 ft",
+      "type": "base",
+      "disabled": false,
+      "description": "",
+      "tint": "#ffffff",
+      "sort": 0,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.343",
+        "systemId": "ars",
+        "systemVersion": "2025.04.20",
+        "createdTime": 1746899429440,
+        "modifiedTime": 1746899429440,
+        "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
+      }
     }
   ],
   "flags": {
@@ -15782,11 +15902,6 @@
       "henchman": true
     },
     "ars": {
-      "psionicCombatSegmentData": {
-        "totalPsionicStrength": 0,
-        "totalPsionicAttackStrength": 0,
-        "totalPsionicDefenseStrength": 0
-      },
       "psionicData": {
         "isPsionic": false,
         "totalPsionicStrength": 0,
@@ -15828,19 +15943,62 @@
         }
       }
     },
+    "ars-battlesystem-tab": {
+      "_activeTab": "details",
+      "heroArmyName": [
+        "",
+        ""
+      ],
+      "heroPlayerName": [
+        "",
+        ""
+      ],
+      "unitBrigade": [
+        "",
+        ""
+      ],
+      "heroName": "Entuvia",
+      "heroClassLevel": " ",
+      "strength": "13",
+      "intelligence": "10",
+      "wisdom": "15",
+      "dexterity": "15",
+      "constitution": "14",
+      "charisma": "15",
+      "heroMagicResistance": "",
+      "heroAC": 10,
+      "heroRace": "Half Elf",
+      "ppd": "7",
+      "pp": "10",
+      "rsw": "11",
+      "bw": "13",
+      "sp": "12",
+      "heroHD": "1",
+      "heroWeaponDamage": "",
+      "heroHP": "31/31",
+      "heroMV": "120",
+      "thaco": "16",
+      "heroAttackModifiers": "",
+      "heroSpecialAbilities": "",
+      "unitName": "Entuvia",
+      "unitType": "individual",
+      "unitAC": 10,
+      "numFigures": 1,
+      "commander": ""
+    },
     "exportSource": {
       "world": "greyhawk-wars",
       "system": "ars",
-      "coreVersion": "12.331",
-      "systemVersion": "2025.04.10"
+      "coreVersion": "12.343",
+      "systemVersion": "2025.04.20"
     }
   },
   "_stats": {
-    "coreVersion": "12.331",
+    "coreVersion": "12.343",
     "systemId": "ars",
-    "systemVersion": "2025.04.10",
+    "systemVersion": "2025.04.20",
     "createdTime": 1723164568107,
-    "modifiedTime": 1745713104523,
+    "modifiedTime": 1747444815876,
     "lastModifiedBy": "TvWo5oQ0sPDIdJsd"
   }
 }
