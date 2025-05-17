@@ -138,7 +138,7 @@ export function saveStoredCharacters(chars) {
   }
 
 
-  function renderContainer(containerItem, nested = false) {
+  function renderContainer(containerItem, nested = false, itemMap = new Map()) {
     const wrapper = document.createElement("div");
     wrapper.className = nested ? "nested-container" : "container";
 
@@ -164,23 +164,29 @@ export function saveStoredCharacters(chars) {
     });
     list.appendChild(header);
 
-    // Items
-    for (let subItem of items) {
-    const row = renderInventoryRow(subItem);
-    list.appendChild(row);
+    for (let itemRef of items) {
+      // Resolve actual item using id, uuid, or _id
+      const resolvedItem =
+        itemMap.get(itemRef._id || itemRef.uuid || itemRef.id) || itemRef;
 
-    if (subItem.type === "container") {
-      const nested = renderContainer(subItem, true);
-      nested.style.marginLeft = "20px";
-      list.appendChild(nested);
+      // Render the item row using full data
+      const row = renderInventoryRow(resolvedItem, itemMap);
+      list.appendChild(row);
+
+      // Handle nested containers
+      if (resolvedItem.type === "container") {
+        const nested = renderContainer(resolvedItem, true, itemMap);
+        nested.style.marginLeft = "20px";
+        list.appendChild(nested);
+      }
     }
-  }
 
     makeListDraggable(list);
     toggle.appendChild(list);
     wrapper.appendChild(toggle);
     return wrapper;
   }
+
 
   function renderLooseItemsTable(items) {
     const list = document.createElement("ul");
@@ -1615,8 +1621,9 @@ export function saveStoredCharacters(chars) {
 
     // Create item lookup map for resolving container references
     const itemMap = new Map();
-    inventoryItems.forEach(item => {
-      itemMap.set(item._id || item.uuid, item);
+    (actor.items || []).forEach(item => {
+      itemMap.set(item._id, item);
+      if (item.uuid) itemMap.set(item.uuid, item);
     });
 
     // 1. Loose top-level items (equipped or carried)
