@@ -73,6 +73,64 @@ export function saveStoredCharacters(chars) {
     });
   }
   
+  function renderInventoryRow(subItem) {
+    const li = document.createElement("li");
+    li.className = "inventory-row";
+    li.setAttribute("draggable", "true");
+    li.dataset.uuid = subItem.uuid || "";
+
+    // Icon
+    const icon = document.createElement("img");
+    icon.className = "inventory-icon";
+    icon.src = subItem.img || "greyhawk-calendar/icons/item-bag.svg";
+    icon.alt = "";
+    icon.onerror = () => (icon.src = "greyhawk-calendar/icons/item-bag.svg");
+    li.appendChild(icon);
+
+    // Name
+    const name = document.createElement("span");
+    name.className = "item-name";
+    name.textContent = subItem.name ?? "(Unnamed)";
+    if (subItem.system?.attributes?.magic) name.classList.add("magic");
+    li.appendChild(name);
+
+    // Status icons
+    const statusIcons = document.createElement("span");
+    statusIcons.className = "status-icons";
+
+    const loc = subItem.system?.location?.state;
+    const locIcon = document.createElement("span");
+    locIcon.textContent = loc === "equipped" ? "🛡️" : loc === "carried" ? "🎒" : "📦";
+    statusIcons.appendChild(locIcon);
+
+    if (subItem.system?.attributes?.magic) {
+      const mag = document.createElement("span");
+      mag.textContent = "✦";
+      statusIcons.appendChild(mag);
+    }
+
+    const id = subItem.system?.attributes?.identified;
+    const idIcon = document.createElement("span");
+    idIcon.textContent = id === false ? "👁️" : "✅";
+    statusIcons.appendChild(idIcon);
+
+    li.appendChild(statusIcons);
+
+    // Quantity
+    const qty = document.createElement("span");
+    qty.textContent = subItem.quantity ?? 1;
+    qty.className = "center-text";
+    li.appendChild(qty);
+
+    // Weight
+    const weight = document.createElement("span");
+    weight.textContent = subItem.system?.weight?.toFixed?.(2) ?? "-";
+    weight.className = "center-text";
+    li.appendChild(weight);
+
+    return li;
+  }
+
   function renderContainer(containerItem, nested = false) {
     const wrapper = document.createElement("div");
     wrapper.className = nested ? "nested-container" : "container";
@@ -101,72 +159,15 @@ export function saveStoredCharacters(chars) {
 
     // Items
     for (let subItem of items) {
-      const li = document.createElement("li");
-      li.className = "inventory-row";
-      li.setAttribute("draggable", "true");
-      li.dataset.uuid = subItem.uuid || "";
+    const row = renderInventoryRow(subItem);
+    list.appendChild(row);
 
-      // Icon
-      const icon = document.createElement("img");
-      icon.className = "inventory-icon";
-      icon.src = subItem.img || "greyhawk-calendar/icons/item-bag.svg";
-      icon.alt = "";
-      icon.onerror = () => (icon.src = "greyhawk-calendar/icons/item-bag.svg");
-      li.appendChild(icon);
-
-      // Name
-      const name = document.createElement("span");
-      name.className = "item-name";
-      if (subItem.system?.attributes?.magic) name.classList.add("magic");
-      name.textContent = subItem.name ?? "(Unnamed)";
-      li.appendChild(name);
-
-      // Status icons
-      const statusIcons = document.createElement("span");
-      statusIcons.className = "status-icons";
-
-      // Location
-      const loc = subItem.system?.location?.state;
-      const locIcon = document.createElement("span");
-      locIcon.textContent = loc === "equipped" ? "🛡️" : loc === "carried" ? "🎒" : "📦";
-      statusIcons.appendChild(locIcon);
-
-      // Magic
-      if (subItem.system?.attributes?.magic) {
-        const mag = document.createElement("span");
-        mag.textContent = "✦";
-        statusIcons.appendChild(mag);
-      }
-
-      // Identified
-      const id = subItem.system?.attributes?.identified;
-      const idIcon = document.createElement("span");
-      idIcon.textContent = id === false ? "👁️" : "✅";
-      statusIcons.appendChild(idIcon);
-
-      li.appendChild(statusIcons);
-
-      // Quantity
-      const qty = document.createElement("span");
-      qty.textContent = subItem.quantity ?? 1;
-      qty.className = "center-text";
-      li.appendChild(qty);
-
-      // Weight
-      const weight = document.createElement("span");
-      weight.textContent = subItem.system?.weight?.toFixed?.(2) ?? "-";
-      weight.className = "center-text";
-      li.appendChild(weight);
-
-      list.appendChild(li);
-
-      // Nested container
-      if (subItem.type === "container") {
-        const nested = renderContainer(subItem, true);
-        nested.style.marginLeft = "20px";
-        list.appendChild(nested);
-      }
+    if (subItem.type === "container") {
+      const nested = renderContainer(subItem, true);
+      nested.style.marginLeft = "20px";
+      list.appendChild(nested);
     }
+  }
 
     makeListDraggable(list);
     toggle.appendChild(list);
@@ -174,6 +175,26 @@ export function saveStoredCharacters(chars) {
     return wrapper;
   }
 
+  function renderLooseItemsTable(items) {
+    const list = document.createElement("ul");
+    list.className = "inventory-list";
+
+    const header = document.createElement("li");
+    header.className = "inventory-row inventory-header";
+    ["", "Name", "Status", "#", "Wt"].forEach(text => {
+      const span = document.createElement("span");
+      span.textContent = text;
+      header.appendChild(span);
+    });
+    list.appendChild(header);
+
+    for (let item of items) {
+      const row = renderInventoryRow(item);
+      list.appendChild(row);
+    }
+
+    return list;
+  }
 
   function calculateArmorClass(actor) {
     console.log(`🔎 Calculating Armor Class for: ${actor.name}`);
@@ -1574,519 +1595,47 @@ export function saveStoredCharacters(chars) {
     return entry ? `${entry.reactionAdj}` : "0%";
   }
   
-  
-  /* function getHitAdj(actor) {
-    const str = actor.system?.abilities?.str?.value || 10;
-    const pct = actor.system?.abilities?.str?.exceptional || 0;
-    
-    if (str === 3) return "-3";
-    if (str <= 5) return "-2";
-    if (str <= 7) return "-1";
-    if (str <= 15) return "0";
-    if (str === 16) return "0";
-    if (str === 17) return "+1";
-    if (str === 18) {
-      if (pct === 0) return "+1";
-      if (pct <= 50) return "+1";
-      if (pct <= 75) return "+2";
-      if (pct <= 99) return "+2";
-      return "+3"; // 18/00
-    }
-    return "+3"; // 19+
-  }
-  
-  function getDamageAdj(actor) {
-    const str = actor.system?.abilities?.str?.value || 10;
-    const pct = actor.system?.abilities?.str?.exceptional || 0;
-  
-    if (str === 3) return "-1";
-    if (str <= 5) return "-1";
-    if (str <= 7) return "0";
-    if (str <= 15) return "0";
-    if (str === 16) return "+1";
-    if (str === 17) return "+1";
-    if (str === 18) {
-      if (pct === 0) return "+2";
-      if (pct <= 50) return "+3";
-      if (pct <= 75) return "+3";
-      if (pct <= 90) return "+4";
-      if (pct <= 99) return "+5";
-      return "+6"; // 18/00
-    }
-    return "+6"; // 19+
-  }
-  
-  function getCarryWeight(actor) {
-    const str = actor.system?.abilities?.str?.value || 10;
-    const pct = actor.system?.abilities?.str?.exceptional || 0;
-  
-    if (str === 3) return "-350";
-    if (str <= 5) return "-250";
-    if (str <= 7) return "-150";
-    if (str <= 11) return "normal";
-    if (str === 12) return "+100";
-    if (str === 13) return "+100";
-    if (str === 14) return "+200";
-    if (str === 15) return "+200";
-    if (str === 16) return "+350";
-    if (str === 17) return "+500";
-    if (str === 18) {
-      if (pct === 0) return "+750";
-      if (pct <= 50) return "+1000";
-      if (pct <= 75) return "+1250";
-      if (pct <= 90) return "+1500";
-      if (pct <= 99) return "+2000";
-      return "+3000"; // 18/00
-    }
-    return "+3000"; // 19+
-  }
-  
-  function getOpenDoors(actor) {
-    const str = actor.system?.abilities?.str?.value || 10;
-    const pct = actor.system?.abilities?.str?.exceptional || 0;
-  
-    if (str <= 7) return "1";
-    if (str <= 15) return "1-2";
-    if (str === 16) return "1-2";
-    if (str === 17) return "1-3";
-    if (str === 18) {
-      if (pct === 0) return "1-3";
-      if (pct <= 75) return "1-3";
-      if (pct <= 90) return "1-4";
-      if (pct <= 99) return "1-4 (1)";
-      return "1-5 (2)"; // 18/00
-    }
-    return "1-5 (2)"; // 19+
-  }
-  
-  function getBendBars(actor) {
-    const str = actor.system?.abilities?.str?.value || 10;
-    const pct = actor.system?.abilities?.str?.exceptional || 0;
-  
-    if (str === 3) return "0%";
-    if (str <= 5) return "0%";
-    if (str === 6) return "0%";
-    if (str === 7) return "0%";
-    if (str === 8) return "1%";
-    if (str === 9) return "1%";
-    if (str === 10) return "2%";
-    if (str === 11) return "2%";
-    if (str === 12) return "4%";
-    if (str === 13) return "4%";
-    if (str === 14) return "7%";
-    if (str === 15) return "7%";
-    if (str === 16) return "10%";
-    if (str === 17) return "13%";
-    if (str === 18) {
-      if (pct === 0) return "16%";
-      if (pct <= 50) return "20%";
-      if (pct <= 75) return "25%";
-      if (pct <= 90) return "30%";
-      if (pct <= 99) return "35%";
-      return "40%"; // 18/00
-    }
-    return "40%"; // 19+
-  }
-   */
-  
-  /* // Similar helper functions for other abilities
-  function getReactionAdj(actor) {
-    const dex = actor.system?.abilities?.dex?.value || 10;
-    if (dex <= 5) return "-2";
-    if (dex <= 7) return "-1";
-    if (dex <= 12) return "0";
-    if (dex <= 14) return "1";
-    if (dex <= 16) return "2";
-    return "3"; // Dex 17+
-  }
-  
-  function getMissileAdj(actor) {
-    const dex = actor.system?.abilities?.dex?.value || 10;
-    if (dex <= 5) return "-2";
-    if (dex <= 7) return "-1";
-    if (dex <= 12) return "0";
-    if (dex <= 14) return "1";
-    if (dex <= 16) return "2";
-    return "3"; // Dex 17+
-  }
-  
-  function getDefAdj(actor) {
-    const dex = actor.system?.abilities?.dex?.value || 10;
-    if (dex === 3) return "+4";
-    if (dex === 4) return "+3";
-    if (dex === 5) return "+2";
-    if (dex === 6) return "+1";
-    if (dex <= 14) return "0";
-    if (dex === 15) return "-1";
-    if (dex === 16) return "-2";
-    if (dex === 17) return "-3";
-    return "-4"; // Dex 18+
-  }
-  
-  function getHPBonus(actor) {
-    const con = actor.system?.abilities?.con?.value || 10;
-    if (con === 3) return "-2";
-    if (con <= 6) return "-1";
-    if (con <= 12) return "0";
-    if (con <= 15) return "1";
-    if (con <= 17) return "2";
-    return "2,5"; // Con 18+
-  }
-  
-  function getSystemShock(actor) {
-    const con = actor.system?.abilities?.con?.value || 10;
-    if (con === 3) return "35%";
-    if (con === 4) return "40%";
-    if (con === 5) return "45%";
-    if (con === 6) return "50%";
-    if (con === 7) return "55%";
-    if (con === 8) return "60%";
-    if (con === 9) return "65%";
-    if (con === 10) return "70%";
-    if (con === 11) return "75%";
-    if (con === 12) return "80%";
-    if (con === 13) return "85%";
-    if (con === 14) return "88%";
-    if (con === 15) return "90%";
-    if (con === 16) return "95%";
-    if (con === 17) return "97%";
-    return "99%"; // Con 18+
-  }
-  
-  function getResurrection(actor) {
-    const con = actor.system?.abilities?.con?.value || 10;
-    if (con === 3) return "40%";
-    if (con === 4) return "45%";
-    if (con === 5) return "50%";
-    if (con === 6) return "55%";
-    if (con === 7) return "60%";
-    if (con === 8) return "65%";
-    if (con === 9) return "70%";
-    if (con === 10) return "75%";
-    if (con === 11) return "80%";
-    if (con === 12) return "85%";
-    if (con === 13) return "90%";
-    if (con === 14) return "92%";
-    if (con === 15) return "94%";
-    if (con === 16) return "96%";
-    if (con === 17) return "98%";
-    return "100%"; // Con 18+
-  }
-  
-  function getPoisonAdj(actor) {
-    const con = actor.system?.abilities?.con?.value || 10;
-    if (con <= 12) return "0";
-    if (con <= 17) return "0";
-    return "1"; // Con 18+
-  }
-  
-  function getRegeneration(actor) {
-    const con = actor.system?.abilities?.con?.value || 10;
-    if (con <= 18) return "None";
-    return "1/6 turns"; // Con 19+
-  }
-  
-  function getLanguages(actor) {
-    const int = actor.system?.abilities?.int?.value || 10;
-    if (int <= 7) return "1";
-    if (int <= 10) return "2";
-    if (int <= 14) return "3";
-    if (int <= 16) return "4";
-    return "2"; // Default
-  }
-  
-  function getSpellLevel(actor) {
-    const int = actor.system?.abilities?.int?.value || 10;
-    if (int <= 12) return "5";
-    if (int <= 14) return "6";
-    if (int <= 16) return "7";
-    return "5"; // Default
-  }
-  
-  function getLearnChance(actor) {
-    const int = actor.system?.abilities?.int?.value || 10;
-    if (int <= 8) return "0%";
-    if (int === 9) return "35%";
-    if (int === 10) return "40%";
-    if (int === 11) return "45%";
-    if (int === 12) return "50%";
-    if (int === 13) return "55%";
-    if (int === 14) return "60%";
-    if (int === 15) return "65%";
-    if (int === 16) return "70%";
-    if (int === 17) return "75%";
-    return "40%"; // Default
-  }
-  
-  function getMaxSpells(actor) {
-    const int = actor.system?.abilities?.int?.value || 10;
-    if (int <= 9) return "6";
-    if (int <= 12) return "7";
-    if (int <= 14) return "9";
-    if (int <= 16) return "11";
-    return "7"; // Default
-  }
-  
-  function getSpellImmunity(actor) {
-    const int = actor.system?.abilities?.int?.value || 10;
-    return "None"; // Default
-  }
-  
-  function getMagicAdj(actor) {
-    const wis = actor.system?.abilities?.wis?.value || 10;
-    if (wis === 3) return "-3";
-    if (wis <= 5) return "-2";
-    if (wis <= 7) return "-1";
-    if (wis <= 14) return "0";
-    if (wis === 15) return "+1";
-    if (wis === 16) return "+2";
-    if (wis === 17) return "+3";
-    return "3"; // Default
-  }
-  
-  function getSpellBonuses(actor) {
-    const wis = actor.system?.abilities?.wis?.value || 10;
-    if (wis <= 12) return "None";
-    if (wis === 13) return "None";
-    if (wis === 14) return "1 x 1st";
-    if (wis === 15) return "1 x 2nd";
-    if (wis === 16) return "1 x 2nd + 1 x 1st";
-    if (wis === 17) return "1 x 3rd + 1 x 2nd";
-    return "Various"; // Default for high wisdom
-  }
-  
-  function getSpellFailure(actor) {
-    const wis = actor.system?.abilities?.wis?.value || 10;
-    if (wis === 3) return "80%";
-    if (wis === 4) return "60%";
-    if (wis === 5) return "50%";
-    if (wis === 6) return "40%";
-    if (wis === 7) return "30%";
-    if (wis <= 9) return "20%";
-    if (wis === 10) return "15%";
-    if (wis === 11) return "10%";
-    if (wis === 12) return "5%";
-    return "0%"; // Wis 13+
-  }
-  
-  function getWisImmunity(actor) {
-    return "None"; // Default
-  }
-  
-  function getMaxHenchmen(actor) {
-    const cha = actor.system?.abilities?.cha?.value || 10;
-    if (cha === 3) return "1";
-    if (cha <= 6) return "2";
-    if (cha === 7) return "3";
-    if (cha <= 11) return "4";
-    if (cha <= 12) return "5";
-    if (cha === 13) return "5";
-    if (cha === 14) return "6";
-    if (cha === 15) return "7";
-    if (cha === 16) return "8";
-    if (cha === 17) return "10";
-    return "4"; // Default
-  }
-  
-  function getLoyaltyBase(actor) {
-    const cha = actor.system?.abilities?.cha?.value || 10;
-    if (cha === 3) return "-8";
-    if (cha === 4) return "-7";
-    if (cha === 5) return "-6";
-    if (cha === 6) return "-5";
-    if (cha === 7) return "-4";
-    if (cha === 8) return "-3";
-    if (cha === 9) return "-2";
-    if (cha === 10) return "-1";
-    if (cha === 11) return "0";
-    if (cha === 12) return "0";
-    if (cha === 13) return "+1";
-    if (cha === 14) return "+2";
-    if (cha === 15) return "+3";
-    if (cha === 16) return "+4";
-    if (cha === 17) return "+5";
-    return "0"; // Default
-  }
-  
-  function getChaReactionAdj(actor) {
-    const cha = actor.system?.abilities?.cha?.value || 10;
-    if (cha === 3) return "-7";
-    if (cha === 4) return "-6";
-    if (cha === 5) return "-5";
-    if (cha === 6) return "-4";
-    if (cha === 7) return "-3";
-    if (cha === 8) return "-2";
-    if (cha === 9) return "-1";
-    if (cha <= 11) return "0";
-    if (cha === 12) return "+1";
-    if (cha === 13) return "+1";
-    if (cha === 14) return "+2";
-    if (cha === 15) return "+3";
-    if (cha === 16) return "+4";
-    if (cha === 17) return "+5";
-    return "0"; // Default
-  } */
-  
   // Then add the createItemsTab function
   function createItemsTab(actor) {
     const tab = document.createElement("div");
     tab.className = "tab-content";
     tab.dataset.tab = "items";
     tab.style.display = "none";
-    
-    // Items header with purple background
-    const header = document.createElement("div");
-    header.className = "section-header";
-    header.textContent = "Items";
-    header.style.backgroundColor = "#271744";
-    header.style.color = "white";
-    header.style.padding = "5px 10px";
-    header.style.fontWeight = "bold";
-    header.style.borderRadius = "3px";
-    header.style.marginBottom = "10px";
-    
-    tab.appendChild(header);
-    
-    // 💰 MONEY SECTION
-    const currencies = actor.items?.filter((i) => i.type === "currency") || [];
-    if (currencies.length > 0) {
-      const moneyHeader = document.createElement("h4");
-      moneyHeader.textContent = "Money";
-      tab.appendChild(moneyHeader);
-      
-      const moneyList = document.createElement("ul");
-      currencies.forEach((coin) => {
-        const li = document.createElement("li");
-        li.textContent = `${coin.name}: ${coin.system?.quantity ?? 0}`;
-        moneyList.appendChild(li);
-      });
-      
-      tab.appendChild(moneyList);
+
+    const allItems = actor.items || [];
+
+    // 1. Loose top-level items (equipped or carried)
+    const topLevelLooseItems = allItems.filter(i =>
+      i.type !== "container" &&
+      (!i.system?.containerId || i.system?.containerId === "") &&
+      (i.system?.location?.state === "equipped" || i.system?.location?.state === "carried")
+    );
+
+    // 2. Top-level containers
+    const topLevelContainers = allItems.filter(i =>
+      i.type === "container" &&
+      (!i.system?.containerId || i.system?.containerId === "")
+    );
+
+    // 3. Render loose items as table
+    if (topLevelLooseItems.length > 0) {
+      const looseLabel = document.createElement("h4");
+      looseLabel.textContent = "Loose Items";
+      tab.appendChild(looseLabel);
+
+      const looseTable = renderLooseItemsTable(topLevelLooseItems);
+      tab.appendChild(looseTable);
     }
 
-    // CONTAINERS SECTION
-    const containers = actor.items?.filter(i => i.type === "container") || [];
-    
-    if (containers.length > 0) {
-      const containersHeader = document.createElement("h4");
-      containersHeader.textContent = "Containers";
-      tab.appendChild(containersHeader);
-      
-      containers.forEach(container => {
-        const containerElement = renderContainer(container);
-        tab.appendChild(containerElement);
-      });
-
+    // 4. Render top-level containers (each with nested contents)
+    for (const container of topLevelContainers) {
+      const containerBlock = renderContainer(container);
+      tab.appendChild(containerBlock);
     }
-    
-    // INVENTORY SECTION
-    const inventoryTypes = [
-      "weapon", "armor", "equipment", "item",
-      "consumable", "treasure", "potion"
-    ];
-    
-    const looseItems = actor.items?.filter(i => 
-      inventoryTypes.includes(i.type) && 
-      !i.system?.location?.parent
-    ) || [];
-    
-    if (looseItems.length > 0) {
-      const looseHeader = document.createElement("h4");
-      looseHeader.textContent = "Loose Items";
-      tab.appendChild(document.createElement("hr"));
-      tab.appendChild(looseHeader);
-      
-      const table = document.createElement("table");
-      table.className = "inventory-grid";
-      table.style.width = "100%";
-      table.style.borderCollapse = "collapse";
-      
-      const thead = document.createElement("thead");
-      const headerRow = document.createElement("tr");
-      
-      const headers = ["", "Name", "Status", "Qty", "Weight"];
-      
-      headers.forEach(header => {
-        const th = document.createElement("th");
-        th.textContent = header;
-        th.style.padding = "5px";
-        th.style.textAlign = header === "" ? "center" : "left";
-        headerRow.appendChild(th);
-      });
-      
-      thead.appendChild(headerRow);
-      table.appendChild(thead);
-      
-      const tbody = document.createElement("tbody");
-      
-      looseItems.forEach(item => {
-        const tr = document.createElement("tr");
-        tr.style.backgroundColor = "#f0f0e0";
-        tr.style.borderBottom = "1px solid #ddd";
-        
-        // Icon
-        const iconTd = document.createElement("td");
-        iconTd.style.textAlign = "center";
 
-        const img = document.createElement("img");
-        img.src = item.img || "icons/svg/item-bag.svg"; // default if missing
-        img.alt = "";
-        img.style.width = "20px";
-        img.style.height = "20px";
-
-        // 🛡️ fallback if loading fails (404)
-        img.onerror = function() {
-            this.onerror = null; // Prevent infinite loop if backup fails
-            this.src = "icons/svg/item-bag.svg"; // fallback image
-        };
-
-        iconTd.appendChild(img);
-        tr.appendChild(iconTd);
-
-        
-        // Name
-        const nameTd = document.createElement("td");
-        nameTd.textContent = item.name;
-        
-        // Add magical styling if needed
-        if (item.system?.attributes?.magic) {
-          nameTd.style.color = "blue";
-        }
-        
-        tr.appendChild(nameTd);
-        
-        // Status (Carried/Equipped/Not Carried)
-        const statusTd = document.createElement("td");
-        let status = "Carried";
-        
-        if (item.system?.location?.state === "equipped") {
-          status = "Equipped";
-        } else if (item.system?.location?.state === "nocarried") {
-          status = "Not Carried";
-        }
-        
-        statusTd.textContent = status;
-        tr.appendChild(statusTd);
-        
-        // Quantity
-        const qtyTd = document.createElement("td");
-        qtyTd.textContent = item.system?.quantity || 1;
-        tr.appendChild(qtyTd);
-        
-        // Weight
-        const weightTd = document.createElement("td");
-        weightTd.textContent = item.system?.weight || 0;
-        tr.appendChild(weightTd);
-        
-        tbody.appendChild(tr);
-      });
-      
-      table.appendChild(tbody);
-      tab.appendChild(table);
-    }
-    
     return tab;
   }
+
 
   // Make sure to create and append the items tab in the main render function
   //const itemsTab = createItemsTab(actor);
