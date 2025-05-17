@@ -76,67 +76,32 @@ export function saveStoredCharacters(chars) {
   function renderContainer(containerItem, nested = false) {
     const wrapper = document.createElement("div");
     wrapper.className = nested ? "nested-container" : "container";
+
     const toggle = document.createElement("details");
     toggle.open = true;
+
     const summary = document.createElement("summary");
     summary.textContent = containerItem.name;
     toggle.appendChild(summary);
-  
+
     const list = document.createElement("ul");
     const items = containerItem.system?.itemList || [];
-    // Header row
+
+    // Correct: only one header
     const header = document.createElement("li");
     header.style.display = "flex";
     header.style.alignItems = "center";
     header.style.fontWeight = "bold";
     header.style.borderBottom = "1px solid #ccc";
     header.style.padding = "4px 0";
-    header.style.marginBottom = "4px";
-
-    const colName = document.createElement("span");
-    colName.textContent = "Name";
-    colName.style.flex = "1";
-    header.appendChild(colName);
-
-    const colType = document.createElement("span");
-    colType.textContent = "Type";
-    colType.style.width = "40px";
-    colType.style.textAlign = "center";
-    header.appendChild(colType);
-
-    const colIdent = document.createElement("span");
-    colIdent.textContent = "ID";
-    colIdent.style.width = "30px";
-    colIdent.style.textAlign = "center";
-    header.appendChild(colIdent);
-
-    const colQty = document.createElement("span");
-    colQty.textContent = "#";
-    colQty.style.width = "2em";
-    colQty.style.textAlign = "center";
-    header.appendChild(colQty);
-
-    const colWeight = document.createElement("span");
-    colWeight.textContent = "Wt";
-    colWeight.style.width = "2.5em";
-    colWeight.style.textAlign = "right";
-    header.appendChild(colWeight);
-
-    list.appendChild(header);
-
-    // Add column headers
-    const columnHeader  = document.createElement("li");
-    columnHeader.style.display = "flex";
-    columnHeader.style.alignItems = "center";
-    columnHeader.style.fontWeight = "bold";
-    columnHeader.style.borderBottom = "1px solid #ccc";
-    columnHeader.style.padding = "4px 0";
 
     ["", "Name", "Status", "ID", "#", "Wt"].forEach((label, i) => {
       const span = document.createElement("span");
       span.textContent = label;
+
       if (i === 1) span.style.flex = "1";
       else span.style.width = i === 0 ? "26px" : i === 2 ? "80px" : i === 3 ? "30px" : "40px";
+
       span.style.textAlign = i === 0 ? "left" : "center";
       header.appendChild(span);
     });
@@ -169,17 +134,15 @@ export function saveStoredCharacters(chars) {
       const name = document.createElement("span");
       name.textContent = subItem.name || "(Unnamed)";
       name.style.flex = "1";
-      const isMagical = subItem.system?.attributes?.magic;
-      if (isMagical) name.style.color = "blue";
+      if (subItem.system?.attributes?.magic) name.style.color = "blue";
       li.appendChild(name);
 
-      // Status: carried / equipped / not carried
+      // Status
       const location = subItem.system?.location?.state || "none";
       const status = document.createElement("span");
       status.textContent =
         location === "equipped" ? "Equipped" :
-        location === "carried" ? "Carried" :
-        "Stored";
+        location === "carried" ? "Carried" : "Stored";
       status.style.width = "80px";
       status.style.textAlign = "center";
       li.appendChild(status);
@@ -207,7 +170,7 @@ export function saveStoredCharacters(chars) {
       weight.style.textAlign = "right";
       li.appendChild(weight);
 
-      // Handle nested containers
+      // Nested container
       if (subItem.type === "container") {
         const nestedBlock = renderContainer(subItem, true);
         nestedBlock.style.marginLeft = "24px";
@@ -216,7 +179,6 @@ export function saveStoredCharacters(chars) {
 
       list.appendChild(li);
     }
-
 
     makeListDraggable(list);
     toggle.appendChild(list);
