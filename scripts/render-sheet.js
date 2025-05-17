@@ -1602,17 +1602,19 @@ export function saveStoredCharacters(chars) {
     tab.dataset.tab = "items";
     tab.style.display = "none";
 
-    const allItems = actor.items || [];
+    const inventoryItems = (actor.items || []).filter(i =>
+      ["weapon", "armor", "equipment", "consumable", "container"].includes(i.type)
+    );
 
     // 1. Loose top-level items (equipped or carried)
-    const topLevelLooseItems = allItems.filter(i =>
+    const topLevelLooseItems = inventoryItems.filter(i =>
       i.type !== "container" &&
       (!i.system?.containerId || i.system?.containerId === "") &&
       (i.system?.location?.state === "equipped" || i.system?.location?.state === "carried")
     );
 
     // 2. Top-level containers
-    const topLevelContainers = allItems.filter(i =>
+    const topLevelContainers = inventoryItems.filter(i =>
       i.type === "container" &&
       (!i.system?.containerId || i.system?.containerId === "")
     );
