@@ -1899,66 +1899,10 @@ export function saveStoredCharacters(chars) {
       tab.appendChild(containersHeader);
       
       containers.forEach(container => {
-        const containerDiv = document.createElement("div");
-        containerDiv.className = "container-item";
-        containerDiv.style.marginBottom = "15px";
-        
-        // Container header
-        const contHeader = document.createElement("div");
-        contHeader.style.display = "flex";
-        contHeader.style.alignItems = "center";
-        contHeader.style.padding = "5px";
-        contHeader.style.backgroundColor = "#e0e0d0";
-        contHeader.style.borderRadius = "3px";
-        
-        const contIcon = document.createElement("img");
-        contIcon.src = container.img || "icons/svg/item-bag.svg"; // fallback if missing initially
-        contIcon.alt = container.name || "";
-        contIcon.style.width = "24px";
-        contIcon.style.height = "24px";
-        contIcon.style.marginRight = "10px";
-
-        // Add fallback for broken container images
-        contIcon.onerror = function() {
-            this.onerror = null;
-            this.src = "icons/svg/item-bag.svg";
-        };
-        
-        const contName = document.createElement("strong");
-        contName.textContent = container.name;
-        
-        contHeader.appendChild(contIcon);
-        contHeader.appendChild(contName);
-        containerDiv.appendChild(contHeader);
-        
-        // Container contents
-        const contentsList = document.createElement("ul");
-        contentsList.style.marginLeft = "30px";
-        
-        const contents = container.system?.itemList || [];
-        contents.forEach(item => {
-          const li = document.createElement("li");
-          const img = document.createElement("img");
-          img.src = item.img || "icons/svg/item-bag.svg";
-          img.alt = item.name || "";
-          img.style.width = "16px";
-          img.style.height = "16px";
-          img.style.marginRight = "5px";
-
-          // fallback if image fails
-          img.onerror = function() {
-              this.onerror = null;
-              this.src = "icons/svg/item-bag.svg";
-          };
-
-          li.appendChild(img);
-          li.appendChild(document.createTextNode(` ${item.name} (${item.quantity || 1})`));
-          contentsList.appendChild(li);
-        });
-        
-        containerDiv.appendChild(contentsList);
-        tab.appendChild(containerDiv);
+        const containerElement = renderContainer(container);
+        tab.appendChild(containerElement);
       });
+
     }
     
     // INVENTORY SECTION
