@@ -85,101 +85,87 @@ export function saveStoredCharacters(chars) {
     toggle.appendChild(summary);
 
     const list = document.createElement("ul");
+    list.className = "inventory-list";
+
     const items = containerItem.system?.itemList || [];
 
-    // Correct: only one header
+    // Header row
     const header = document.createElement("li");
-    header.style.display = "flex";
-    header.style.alignItems = "center";
-    header.style.fontWeight = "bold";
-    header.style.borderBottom = "1px solid #ccc";
-    header.style.padding = "4px 0";
-
-    ["", "Name", "Status", "ID", "#", "Wt"].forEach((label, i) => {
+    header.className = "inventory-row inventory-header";
+    ["", "Name", "Status", "#", "Wt"].forEach(text => {
       const span = document.createElement("span");
-      span.textContent = label;
-
-      if (i === 1) span.style.flex = "1";
-      else span.style.width = i === 0 ? "26px" : i === 2 ? "80px" : i === 3 ? "30px" : "40px";
-
-      span.style.textAlign = i === 0 ? "left" : "center";
+      span.textContent = text;
       header.appendChild(span);
     });
-
     list.appendChild(header);
 
-    // Render each item
+    // Items
     for (let subItem of items) {
       const li = document.createElement("li");
+      li.className = "inventory-row";
       li.setAttribute("draggable", "true");
       li.dataset.uuid = subItem.uuid || "";
-      li.style.display = "flex";
-      li.style.alignItems = "center";
-      li.style.gap = "6px";
-      li.style.padding = "4px 0";
 
       // Icon
-      const img = document.createElement("img");
-      img.src = subItem.img || "greyhawk-calendar/icons/item-bag.svg";
-      img.alt = subItem.name || "";
-      img.style.width = "24px";
-      img.style.height = "24px";
-      img.onerror = function () {
-        this.onerror = null;
-        this.src = "greyhawk-calendar/icons/item-bag.svg";
-      };
-      li.appendChild(img);
+      const icon = document.createElement("img");
+      icon.className = "inventory-icon";
+      icon.src = subItem.img || "greyhawk-calendar/icons/item-bag.svg";
+      icon.alt = "";
+      icon.onerror = () => (icon.src = "greyhawk-calendar/icons/item-bag.svg");
+      li.appendChild(icon);
 
-      // Name (blue if magical)
+      // Name
       const name = document.createElement("span");
-      name.textContent = subItem.name || "(Unnamed)";
-      name.style.flex = "1";
-      if (subItem.system?.attributes?.magic) name.style.color = "blue";
+      name.className = "item-name";
+      if (subItem.system?.attributes?.magic) name.classList.add("magic");
+      name.textContent = subItem.name ?? "(Unnamed)";
       li.appendChild(name);
 
-      // Status
-      const location = subItem.system?.location?.state || "none";
-      const status = document.createElement("span");
-      status.textContent =
-        location === "equipped" ? "Equipped" :
-        location === "carried" ? "Carried" : "Stored";
-      status.style.width = "80px";
-      status.style.textAlign = "center";
-      li.appendChild(status);
+      // Status icons
+      const statusIcons = document.createElement("span");
+      statusIcons.className = "status-icons";
+
+      // Location
+      const loc = subItem.system?.location?.state;
+      const locIcon = document.createElement("span");
+      locIcon.textContent = loc === "equipped" ? "🛡️" : loc === "carried" ? "🎒" : "📦";
+      statusIcons.appendChild(locIcon);
+
+      // Magic
+      if (subItem.system?.attributes?.magic) {
+        const mag = document.createElement("span");
+        mag.textContent = "✦";
+        statusIcons.appendChild(mag);
+      }
 
       // Identified
-      const identified = subItem.system?.attributes?.identified;
+      const id = subItem.system?.attributes?.identified;
       const idIcon = document.createElement("span");
-      idIcon.textContent = identified === false ? "👁️" : "✅";
-      idIcon.title = identified === false ? "Unidentified" : "Identified";
-      idIcon.style.width = "30px";
-      idIcon.style.textAlign = "center";
-      li.appendChild(idIcon);
+      idIcon.textContent = id === false ? "👁️" : "✅";
+      statusIcons.appendChild(idIcon);
+
+      li.appendChild(statusIcons);
 
       // Quantity
       const qty = document.createElement("span");
       qty.textContent = subItem.quantity ?? 1;
-      qty.style.width = "40px";
-      qty.style.textAlign = "center";
+      qty.className = "center-text";
       li.appendChild(qty);
 
       // Weight
       const weight = document.createElement("span");
       weight.textContent = subItem.system?.weight?.toFixed?.(2) ?? "-";
-      weight.style.width = "40px";
-      weight.style.textAlign = "right";
+      weight.className = "center-text";
       li.appendChild(weight);
 
-      // Nested container
-      list.appendChild(li);  // Add the row first
-
-      if (subItem.type === "container") {
-        const nestedBlock = renderContainer(subItem, true);
-        nestedBlock.style.marginLeft = `${nested ? 48 : 32}px`;
-        list.appendChild(nestedBlock);  // Add the nested container as a separate row
-      }
-
       list.appendChild(li);
+
+      // Nested container
+      if (subItem.type === "container") {
+        const nested = renderContainer(subItem, true);
+        nested.style.marginLeft = "20px";
+        list.appendChild(nested);
+      }
     }
 
     makeListDraggable(list);
@@ -187,6 +173,7 @@ export function saveStoredCharacters(chars) {
     wrapper.appendChild(toggle);
     return wrapper;
   }
+
 
   function calculateArmorClass(actor) {
     console.log(`🔎 Calculating Armor Class for: ${actor.name}`);

@@ -592,3 +592,57 @@ footer {
     font-weight: bold;
     color: #007bff;
 }
+
+.inventory-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.inventory-row {
+  display: grid;
+  grid-template-columns: 32px 1fr 100px 40px 40px;
+  align-items: center;
+  padding: 4px 6px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+  font-size: 13px;
+}
+
+.inventory-row:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+.inventory-header {
+  font-weight: bold;
+  background-color: #e0e0e0;
+  border-top: 1px solid #bbb;
+  border-bottom: 2px solid #bbb;
+}
+
+.inventory-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.item-name {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.item-name.magic {
+  color: #3390ff;
+  font-weight: 500;
+}
+
+.status-icons {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.center-text {
+  text-align: center;
+}
