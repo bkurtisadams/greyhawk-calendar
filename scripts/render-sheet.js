@@ -121,10 +121,28 @@ export function saveStoredCharacters(chars) {
     li.appendChild(statusIcons);
 
     // Quantity
-    const qtyVal = Number(fullItem.system?.quantity ?? 1);
+    console.log(`Item ${fullItem.name} raw quantity:`, fullItem.system?.quantity);
+
+    // Quantity - Extract and convert with validation
+    let qtyVal;
+    if (fullItem.system && 'quantity' in fullItem.system) {
+      qtyVal = Number(fullItem.system.quantity);
+    } else if (fullItem.quantity) {
+      qtyVal = Number(fullItem.quantity);
+    } else {
+      qtyVal = 1;
+    }
+
+    // Ensure it's a valid number
+    qtyVal = !isNaN(qtyVal) && qtyVal > 0 ? qtyVal : 1;
+    console.log(`Item ${fullItem.name} final quantity:`, qtyVal);
+
+    // Create the quantity element
     const qty = document.createElement("span");
-    qty.textContent = !isNaN(qtyVal) && qtyVal > 0 ? qtyVal : 1;
+    qty.textContent = qtyVal;
     qty.className = "center-text";
+    qty.style.display = "inline-block"; // Ensure visibility
+    qty.style.minWidth = "30px"; // Ensure minimum width
     li.appendChild(qty);
 
     // Total weight = quantity * unit weight
