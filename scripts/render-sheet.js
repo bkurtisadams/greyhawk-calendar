@@ -171,10 +171,12 @@ export function saveStoredCharacters(chars) {
       li.appendChild(weight);
 
       // Nested container
+      list.appendChild(li);  // Add the row first
+
       if (subItem.type === "container") {
         const nestedBlock = renderContainer(subItem, true);
-        nestedBlock.style.marginLeft = "24px";
-        li.appendChild(nestedBlock);
+        nestedBlock.style.marginLeft = `${nested ? 48 : 32}px`;
+        list.appendChild(nestedBlock);  // Add the nested container as a separate row
       }
 
       list.appendChild(li);
