@@ -124,71 +124,90 @@ export function saveStoredCharacters(chars) {
 
     list.appendChild(header);
 
+    // Add column headers
+    const columnHeader  = document.createElement("li");
+    columnHeader.style.display = "flex";
+    columnHeader.style.alignItems = "center";
+    columnHeader.style.fontWeight = "bold";
+    columnHeader.style.borderBottom = "1px solid #ccc";
+    columnHeader.style.padding = "4px 0";
+
+    ["", "Name", "Status", "ID", "#", "Wt"].forEach((label, i) => {
+      const span = document.createElement("span");
+      span.textContent = label;
+      if (i === 1) span.style.flex = "1";
+      else span.style.width = i === 0 ? "26px" : i === 2 ? "80px" : i === 3 ? "30px" : "40px";
+      span.style.textAlign = i === 0 ? "left" : "center";
+      header.appendChild(span);
+    });
+
+    list.appendChild(header);
+
+    // Render each item
     for (let subItem of items) {
       const li = document.createElement("li");
       li.setAttribute("draggable", "true");
       li.dataset.uuid = subItem.uuid || "";
       li.style.display = "flex";
       li.style.alignItems = "center";
-      li.style.gap = "8px";
+      li.style.gap = "6px";
       li.style.padding = "4px 0";
 
       // Icon
       const img = document.createElement("img");
-      img.src = subItem.img || "icons/svg/item-bag.svg";
+      img.src = subItem.img || "greyhawk-calendar/icons/item-bag.svg";
       img.alt = subItem.name || "";
       img.style.width = "24px";
       img.style.height = "24px";
       img.onerror = function () {
         this.onerror = null;
-        this.src = "icons/svg/item-bag.svg";
+        this.src = "greyhawk-calendar/icons/item-bag.svg";
       };
       li.appendChild(img);
 
-      // Name (with container toggle if needed)
+      // Name (blue if magical)
       const name = document.createElement("span");
       name.textContent = subItem.name || "(Unnamed)";
       name.style.flex = "1";
-      name.style.color = subItem.type === "container" ? "#3b4cc0" : "#000";
-      name.style.cursor = "default";
+      const isMagical = subItem.system?.attributes?.magic;
+      if (isMagical) name.style.color = "blue";
       li.appendChild(name);
 
-      // Type icon
-      // Type icon (from icons folder, fallback if not found)
-      const typeIcon = document.createElement("img");
-      typeIcon.src = subItem.img || "greyhawk-calendar/icons/item-bag.svg";
-      typeIcon.alt = subItem.type || "item";
-      typeIcon.style.width = "20px";
-      typeIcon.style.height = "20px";
-      typeIcon.onerror = function () {
-        this.onerror = null;
-        this.src = "greyhawk-calendar/icons/item-bag.svg"; // fallback icon
-      };
-      li.appendChild(typeIcon);
+      // Status: carried / equipped / not carried
+      const location = subItem.system?.location?.state || "none";
+      const status = document.createElement("span");
+      status.textContent =
+        location === "equipped" ? "Equipped" :
+        location === "carried" ? "Carried" :
+        "Stored";
+      status.style.width = "80px";
+      status.style.textAlign = "center";
+      li.appendChild(status);
 
-
-      // Identified status
+      // Identified
       const identified = subItem.system?.attributes?.identified;
       const idIcon = document.createElement("span");
       idIcon.textContent = identified === false ? "👁️" : "✅";
       idIcon.title = identified === false ? "Unidentified" : "Identified";
+      idIcon.style.width = "30px";
+      idIcon.style.textAlign = "center";
       li.appendChild(idIcon);
 
       // Quantity
       const qty = document.createElement("span");
       qty.textContent = subItem.quantity ?? 1;
-      qty.style.width = "2em";
+      qty.style.width = "40px";
       qty.style.textAlign = "center";
       li.appendChild(qty);
 
       // Weight
       const weight = document.createElement("span");
-      weight.textContent = subItem.system?.weight ?? "-";
-      weight.style.width = "2.5em";
+      weight.textContent = subItem.system?.weight?.toFixed?.(2) ?? "-";
+      weight.style.width = "40px";
       weight.style.textAlign = "right";
       li.appendChild(weight);
 
-      // Nested container support
+      // Handle nested containers
       if (subItem.type === "container") {
         const nestedBlock = renderContainer(subItem, true);
         nestedBlock.style.marginLeft = "24px";
@@ -197,6 +216,7 @@ export function saveStoredCharacters(chars) {
 
       list.appendChild(li);
     }
+
 
     makeListDraggable(list);
     toggle.appendChild(list);
