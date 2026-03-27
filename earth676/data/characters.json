@@ -116,19 +116,20 @@
     "powers": [
       {
         "name": "Ultimate Skill",
-        "rank": "—",
+        "rank": "Shift 0",
         "value": null
       },
       {
         "name": "Nullify Power",
-        "rank": "—",
+        "rank": "Shift 0",
         "value": null
       }
     ],
     "talents": [
       "Martial Arts B",
       "Heir to Fortune"
-    ]
+    ],
+    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/counter_strike.png"
   },
   {
     "id": "screamwave",
@@ -138,7 +139,6 @@
     "gender": "Male",
     "origin": "Mutant",
     "status": "active",
-    "joined": "Mid-January 1977",
     "stats": {
       "F": {
         "rank": "Incredible",
@@ -201,7 +201,9 @@
     "talents": [
       "Guns",
       "Martial Arts D"
-    ]
+    ],
+    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/screamwave.png",
+    "joined": "Mid-January 1977"
   },
   {
     "id": "wartorn",
@@ -211,7 +213,6 @@
     "gender": "Male",
     "origin": "Alien (Celtic War God Avatar)",
     "status": "active",
-    "joined": "Mid-January 1977",
     "stats": {
       "F": {
         "rank": "Amazing",
@@ -269,7 +270,9 @@
     "talents": [
       "Thrown Objects",
       "Sharp Weapons"
-    ]
+    ],
+    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/wartorn.png",
+    "joined": "Mid-January 1977"
   },
   {
     "id": "psyren",
@@ -330,7 +333,8 @@
     ],
     "talents": [
       "Performer (Singer)"
-    ]
+    ],
+    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/psyren.png"
   },
   {
     "id": "crosswise",
@@ -401,7 +405,8 @@
     ],
     "talents": [
       "Martial Arts B"
-    ]
+    ],
+    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/crosswise.png"
   },
   {
     "id": "resilient",
