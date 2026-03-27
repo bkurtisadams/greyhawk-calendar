@@ -1,0 +1,9 @@
+# Local editor tools - do not commit
+earth676-editor.html
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
