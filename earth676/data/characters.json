@@ -416,7 +416,6 @@
     "gender": "Male",
     "origin": "Altered Human",
     "status": "reserve",
-    "note": "Two appearances",
     "stats": {
       "F": {
         "rank": "Amazing",
@@ -475,6 +474,8 @@
       "Acrobatics",
       "Blunt Weapons",
       "Detective/Espionage"
-    ]
+    ],
+    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/resilient.png",
+    "note": "Two appearances"
   }
 ]
