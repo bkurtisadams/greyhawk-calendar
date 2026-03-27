@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earth-676 — The Vigilants</title>
+  <link rel="stylesheet" href="styles/earth676.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="header-title">
+        <span class="header-earth">EARTH-676</span>
+        <span class="header-sub">New York City · Nov 1976</span>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-btn active" data-view="characters">Characters</button>
+        <button class="nav-btn" data-view="team">The Vigilants</button>
+        <button class="nav-btn" data-view="sessions">Sessions</button>
+        <button class="nav-btn" data-view="timeline">Timeline</button>
+        <button class="nav-btn" data-view="npcs">NPCs &amp; Villains</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CHARACTERS -->
+  <section id="view-characters" class="view active">
+    <div class="view-header">
+      <h2>Player Characters</h2>
+      <div class="roster-filter">
+        <button class="filter-btn active" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="reserve">Reserve</button>
+        <button class="filter-btn" data-filter="all">All</button>
+      </div>
+    </div>
+    <div id="character-grid" class="character-grid"></div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="view-team" class="view">
+    <div id="team-content"></div>
+  </section>
+
+  <!-- SESSIONS -->
+  <section id="view-sessions" class="view">
+    <div class="view-header"><h2>Session Recaps</h2></div>
+    <div id="sessions-list" class="sessions-list"></div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="view-timeline" class="view">
+    <div class="view-header"><h2>Campaign Timeline</h2></div>
+    <div id="timeline-calendar" class="timeline-calendar"></div>
+    <div id="timeline-list" class="timeline-list"></div>
+  </section>
+
+  <!-- NPCS -->
+  <section id="view-npcs" class="view">
+    <div class="view-header">
+      <h2>NPCs &amp; Villains</h2>
+      <div class="roster-filter">
+        <button class="filter-btn active" data-npc-filter="all">All</button>
+        <button class="filter-btn" data-npc-filter="villain">Villains</button>
+        <button class="filter-btn" data-npc-filter="organization">Organizations</button>
+        <button class="filter-btn" data-npc-filter="ally">Allies</button>
+      </div>
+    </div>
+    <div id="npc-content"></div>
+  </section>
+
+  <!-- CHARACTER DETAIL MODAL -->
+  <div id="char-modal" class="modal">
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <div id="char-modal-content"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Earth-676 Campaign &mdash; Marvel Super Heroes FASERIP System &mdash; Based on characters created by Marvel Comics</p>
+  </footer>
+
+  <script src="scripts/earth676.js"></script>
+</body>
+</html>

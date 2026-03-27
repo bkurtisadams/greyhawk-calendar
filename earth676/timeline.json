@@ -1,0 +1,40 @@
+[
+  {
+    "id": "t001",
+    "session_date": "2024-11-12",
+    "world_date": "1976-11-12",
+    "world_date_display": "Nov 12, 1976",
+    "title": "Blackout and Break-In",
+    "type": "mission",
+    "participants": ["astrid-stormbringer", "counter-strike", "resilient"],
+    "summary": "A rolling blackout swept Lower Manhattan at 10:47 PM, plunging sixteen blocks into darkness. Three armed men used the chaos to smash into Castellano's Fine Jewelry on Bleecker Street.",
+    "body": "Tess Winters (Astrid), Ram Pau (Counter-Strike), and Resilient converged from different directions — Astrid walking home from her repair shop, Ram leaving a foundation meeting, and Resilient already on patrol. The impromptu team stopped the robbery, subdued the criminals, and parted ways with mutual respect. The team-to-be won its first victory together."
+  },
+  {
+    "id": "t002",
+    "session_date": "2024-11-26",
+    "world_date": "1976-11-13",
+    "world_date_display": "Nov 13, 1976",
+    "title": "ESU Break-In: Mercs and Masks",
+    "type": "mission",
+    "participants": ["astrid-stormbringer", "counter-strike"],
+    "summary": "Whiplash and Boomerang led a squad of A.I.M. agents through a breached wall at ESU's physics building, targeting specialized resonance scanners and harmonic frequency equipment.",
+    "body": "Ram Pau was attending a late-evening foundation meeting at ESU considering a grant proposal for dimensional research equipment. Tess Winters was finishing a contract repair job in the same building. Both were leaving around 10:30 PM when security alarms screamed and an explosion blew out a side wall. Ram and Tess separately slipped away to change — this was only their second encounter as heroes, and the recognition was immediate. A running battle erupted across the lab. The villains were systematically defeated and arrested. As they parted ways, Counter-Strike suggested they exchange contact information: \"We work well together.\" Astrid agreed. The team-up was becoming something more.",
+    "sections": [
+      { "heading": "Civilian Setup", "text": "Ram Pau attended a late-evening meeting at ESU's physics building — his foundation was considering a grant proposal for dimensional research equipment. Meanwhile, Tess Winters was wrapping up a contract repair job in the same building, fixing damaged oscilloscopes and power regulators for the physics department. Both were leaving around 10:30 PM when the building's security alarms screamed and an explosion blew out a side wall." },
+      { "heading": "The Attack",     "text": "Whiplash and Boomerang led a squad of A.I.M. agents through the breach, hauling equipment toward a waiting truck. Ram and Tess separately slipped away to change. A running battle erupted across the lab — but the villains were systematically defeated and then arrested." },
+      { "heading": "Aftermath",      "text": "Campus security and police secured the scene. An exhausted physics professor confirmed the thieves had targeted \"specialized resonance scanners and harmonic frequency equipment.\" As they parted ways, Counter-Strike suggested they exchange contact information — \"We work well together.\" Astrid agreed. The team-up was becoming something more." }
+    ]
+  },
+  {
+    "id": "t003",
+    "session_date": "2024-11-26",
+    "world_date": "1976-11-15",
+    "world_date_display": "Nov 15, 1976",
+    "title": "Ram Pau Acquires the Silver Star",
+    "type": "downtime",
+    "participants": ["counter-strike"],
+    "summary": "Ram Pau rents the Silver Star gas station from Sam Dugan, establishing what will become the Vigilants' base of operations.",
+    "body": "Ram Pau rents the Silver Star gas station from Sam Dugan, establishing what will become the Vigilants' base of operations."
+  }
+]

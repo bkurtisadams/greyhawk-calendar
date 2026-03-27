@@ -1,0 +1,194 @@
+[
+  {
+    "id": "astrid-stormbringer",
+    "hero": "Astrid Stormbringer",
+    "real": "Tess Winters",
+    "age": 25,
+    "gender": "Female",
+    "origin": "Asgardian (Alien)",
+    "status": "active",
+    "stats": {
+      "F": { "rank": "Remarkable", "value": 30 },
+      "A": { "rank": "Excellent", "value": 18 },
+      "S": { "rank": "Amazing",   "value": 50 },
+      "E": { "rank": "Remarkable","value": 30 },
+      "R": { "rank": "Remarkable","value": 30 },
+      "I": { "rank": "Excellent", "value": 20 },
+      "P": { "rank": "Feeble",    "value": 4  }
+    },
+    "health": 128,
+    "karma": 54,
+    "powers": [
+      { "name": "Flight",                    "rank": "Incredible", "value": 40 },
+      { "name": "Air Control",               "rank": "Incredible", "value": 40 },
+      { "name": "Body Armor",                "rank": "Excellent",  "value": 19 },
+      { "name": "Resistance to Age & Disease","rank": "Monstrous", "value": 100 },
+      { "name": "Lightning (power stunt)",   "rank": "Incredible", "value": 40 }
+    ],
+    "talents": ["Electronics", "Wrestling"]
+  },
+  {
+    "id": "counter-strike",
+    "hero": "Counter-Strike",
+    "real": "Ram Pau",
+    "age": 50,
+    "gender": "Male",
+    "origin": "Mutant",
+    "status": "active",
+    "stats": {
+      "F": { "rank": "Remarkable", "value": 30 },
+      "A": { "rank": "Good",       "value": 14 },
+      "S": { "rank": "Remarkable", "value": 30 },
+      "E": { "rank": "Amazing",    "value": 49 },
+      "R": { "rank": "Feeble",     "value": 6  },
+      "I": { "rank": "Remarkable", "value": 30 },
+      "P": { "rank": "Feeble",     "value": 6  }
+    },
+    "health": 123,
+    "karma": 42,
+    "powers": [
+      { "name": "Ultimate Skill",   "rank": "—", "value": null },
+      { "name": "Nullify Power",    "rank": "—", "value": null }
+    ],
+    "talents": ["Martial Arts B", "Heir to Fortune"]
+  },
+  {
+    "id": "screamwave",
+    "hero": "Screamwave",
+    "real": "Kel Tharpe",
+    "age": 16,
+    "gender": "Male",
+    "origin": "Mutant",
+    "status": "active",
+    "joined": "Mid-January 1977",
+    "stats": {
+      "F": { "rank": "Incredible", "value": 40 },
+      "A": { "rank": "Remarkable", "value": 26 },
+      "S": { "rank": "Poor",       "value": 10 },
+      "E": { "rank": "Excellent",  "value": 20 },
+      "R": { "rank": "Poor",       "value": 10 },
+      "I": { "rank": "Remarkable", "value": 30 },
+      "P": { "rank": "Typical",    "value": 8  }
+    },
+    "health": 96,
+    "karma": 48,
+    "powers": [
+      { "name": "Absorption",        "rank": "Incredible", "value": 40 },
+      { "name": "Energy Touch",      "rank": "Remarkable", "value": 30 },
+      { "name": "Sound Manipulation","rank": "Remarkable", "value": 30 },
+      { "name": "Flight",            "rank": "Remarkable", "value": 30 },
+      { "name": "Sound Generation",  "rank": "Incredible", "value": 40 }
+    ],
+    "talents": ["Guns", "Martial Arts D"]
+  },
+  {
+    "id": "wartorn",
+    "hero": "Wartorn",
+    "real": "Unknown",
+    "age": null,
+    "gender": "Male",
+    "origin": "Alien (Celtic War God Avatar)",
+    "status": "active",
+    "joined": "Mid-January 1977",
+    "stats": {
+      "F": { "rank": "Amazing",    "value": 50 },
+      "A": { "rank": "Amazing",    "value": 50 },
+      "S": { "rank": "Remarkable", "value": 33 },
+      "E": { "rank": "Remarkable", "value": 30 },
+      "R": { "rank": "Feeble",     "value": 6  },
+      "I": { "rank": "Poor",       "value": 10 },
+      "P": { "rank": "Remarkable", "value": 30 }
+    },
+    "health": 163,
+    "karma": 46,
+    "powers": [
+      { "name": "Regeneration",          "rank": "Poor",      "value": 10 },
+      { "name": "Electrical Manipulation","rank": "Remarkable","value": 30 },
+      { "name": "Body Armor",            "rank": "Typical",   "value": 7  },
+      { "name": "Shocking Touch",        "rank": "Remarkable","value": 30 }
+    ],
+    "talents": ["Thrown Objects", "Sharp Weapons"]
+  },
+  {
+    "id": "psyren",
+    "hero": "Psyren",
+    "real": "Felicia Frost",
+    "age": 18,
+    "gender": "Female",
+    "origin": "Mutant",
+    "status": "active",
+    "stats": {
+      "F": { "rank": "Feeble",    "value": 6  },
+      "A": { "rank": "Poor",      "value": 10 },
+      "S": { "rank": "Feeble",    "value": 6  },
+      "E": { "rank": "Poor",      "value": 10 },
+      "R": { "rank": "Poor",      "value": 10 },
+      "I": { "rank": "Remarkable","value": 30 },
+      "P": { "rank": "Incredible","value": 40 }
+    },
+    "health": 32,
+    "karma": 80,
+    "powers": [
+      { "name": "Psionic Attack",          "rank": "Excellent", "value": 20 },
+      { "name": "Telepathy",               "rank": "Remarkable","value": 30 },
+      { "name": "Resistance to Radiation", "rank": "Amazing",   "value": 50 }
+    ],
+    "talents": ["Performer (Singer)"]
+  },
+  {
+    "id": "crosswise",
+    "hero": "Crosswise",
+    "real": "Johnny Frost",
+    "age": 18,
+    "gender": "Male",
+    "origin": "Mutant",
+    "status": "active",
+    "stats": {
+      "F": { "rank": "Excellent", "value": 20 },
+      "A": { "rank": "Poor",      "value": 10 },
+      "S": { "rank": "Feeble",    "value": 6  },
+      "E": { "rank": "Poor",      "value": 10 },
+      "R": { "rank": "Feeble",    "value": 6  },
+      "I": { "rank": "Feeble",    "value": 6  },
+      "P": { "rank": "Feeble",    "value": 6  }
+    },
+    "health": 46,
+    "karma": 18,
+    "powers": [
+      { "name": "Protected Senses",        "rank": "Amazing", "value": 50 },
+      { "name": "IR Vision",               "rank": "Amazing", "value": 50 },
+      { "name": "Absorption Power",        "rank": "Amazing", "value": 50 },
+      { "name": "Resistance to Radiation", "rank": "Amazing", "value": 50 },
+      { "name": "Light Emission",          "rank": "Amazing", "value": 50 }
+    ],
+    "talents": ["Martial Arts B"]
+  },
+  {
+    "id": "resilient",
+    "hero": "Resilient",
+    "real": "Unknown",
+    "age": 30,
+    "gender": "Male",
+    "origin": "Altered Human",
+    "status": "reserve",
+    "note": "Two appearances",
+    "stats": {
+      "F": { "rank": "Amazing",    "value": 50 },
+      "A": { "rank": "Incredible", "value": 40 },
+      "S": { "rank": "Excellent",  "value": 20 },
+      "E": { "rank": "Excellent",  "value": 20 },
+      "R": { "rank": "Poor",       "value": 10 },
+      "I": { "rank": "Excellent",  "value": 20 },
+      "P": { "rank": "Shift 0",    "value": 2  }
+    },
+    "health": 130,
+    "karma": 32,
+    "powers": [
+      { "name": "Plasticity",       "rank": "Incredible", "value": 40 },
+      { "name": "Absorption Power", "rank": "Remarkable", "value": 20 },
+      { "name": "Body Armor",       "rank": "Incredible", "value": 40 },
+      { "name": "Leaping",          "rank": "Remarkable", "value": 30 }
+    ],
+    "talents": ["Acrobatics", "Blunt Weapons", "Detective/Espionage"]
+  }
+]

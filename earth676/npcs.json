@@ -1,0 +1,41 @@
+[
+  {
+    "id": "whiplash",
+    "name": "Whiplash",
+    "type": "villain",
+    "affiliation": "A.I.M.",
+    "threat": 3,
+    "status": "arrested",
+    "first_appearance": "1976-11-13",
+    "notes": "Led the A.I.M. raid on ESU physics building. Defeated by the Vigilants."
+  },
+  {
+    "id": "boomerang",
+    "name": "Boomerang",
+    "type": "villain",
+    "affiliation": "A.I.M.",
+    "threat": 3,
+    "status": "arrested",
+    "first_appearance": "1976-11-13",
+    "notes": "Co-led the A.I.M. raid on ESU. Defeated and arrested."
+  },
+  {
+    "id": "aim",
+    "name": "A.I.M.",
+    "type": "organization",
+    "affiliation": "Independent",
+    "threat": 4,
+    "status": "active",
+    "first_appearance": "1976-11-13",
+    "notes": "Targeted ESU dimensional research equipment — resonance scanners and harmonic frequency gear. Motives unclear."
+  },
+  {
+    "id": "sam-dugan",
+    "name": "Sam Dugan",
+    "type": "ally",
+    "affiliation": "Civilian",
+    "status": "active",
+    "first_appearance": "1976-11-15",
+    "notes": "Former owner of the Silver Star gas station. Rented to Ram Pau."
+  }
+]
