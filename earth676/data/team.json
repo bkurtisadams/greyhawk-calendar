@@ -4,21 +4,81 @@
   "status": "active",
   "history": "The Vigilants formed organically in November 1976 when Tess Winters (Astrid Stormbringer) and Ram Pau (Counter-Strike) independently responded to the same jewelry store robbery during a Lower Manhattan blackout. Their effective improvised teamwork led Counter-Strike to suggest they exchange contact information. Two nights later they fought side-by-side again against Whiplash, Boomerang, and A.I.M. agents at ESU. By mid-January 1977 the roster had grown to include Screamwave, Wartorn, Psyren, and Crosswise.",
   "hq": {
-    "name": "Silver Star",
+    "name": "The Warehouse",
     "location": "New York City",
-    "description": "A converted gas station purchased by Ram Pau from Sam Dugan in November 1976, repurposed as the team's base of operations.",
+    "description": "",
     "resources": "Remarkable",
     "rooms": [
-      { "id": 1,  "name": "Hypnoporter Chamber",    "package": "Unique Device",          "rank": null,        "notes": "Plot-level teleport/transport. Fixed-Rank Teleportation/Gateway accessible from base only." },
-      { "id": 2,  "name": "Laboratory",              "package": "Laboratory Package",      "rank": "Remarkable","notes": "Scales, sinks, chemicals, microscope. +1CS on Scientific/Earth/Life Sciences FEATs." },
-      { "id": 3,  "name": "Communications Room",     "package": "Communications Package",  "rank": "Remarkable","notes": "Short-wave monitor, police band, computer network tap-in." },
-      { "id": 4,  "name": "Electronics Lab",         "package": "Workshop Package",        "rank": "Remarkable","notes": "Lathes, drills, precision tools. Enhanced Reason FEATs for Electronics/Repair/Engineering." },
-      { "id": 5,  "name": "Crime Files Room",        "package": "Crime Files Package",     "rank": "Excellent", "notes": "Remarkable-ability database. Cross-references M.O.s, villains, locations." },
-      { "id": 6,  "name": "Gym",                     "package": "Gym Package",             "rank": "Excellent", "notes": "+1CS on one physical FEAT per session with downtime training." },
-      { "id": 7,  "name": "Garage",                  "package": "Garage Package",          "rank": "Good",      "notes": "Vehicle service and repair. Supports Reason/Repair FEATs for vehicle mods." },
-      { "id": 8,  "name": "Meeting Room",            "package": "Conference Room Package", "rank": "Remarkable","notes": "Large table + 10 chairs. Supports Popularity FEATs and Leadership actions." },
-      { "id": 9,  "name": "Kitchen / Common Area",   "package": "Kitchen + Living Room",   "rank": "Good",      "notes": "Supports Endurance/Recovery FEATs for healing with rest and nourishment." },
-      { "id": 10, "name": "Bedrooms (2nd Floor)",    "package": "Bedroom Packages",        "rank": "Good",      "notes": "Required for full Health/Karma recovery between adventures." }
+      {
+        "id": 1,
+        "name": "Hypnoporter Chamber",
+        "package": "Unique Device",
+        "rank": null,
+        "notes": "Plot-level teleport/transport. Fixed-Rank Teleportation/Gateway accessible from base only."
+      },
+      {
+        "id": 2,
+        "name": "Laboratory",
+        "package": "Laboratory Package",
+        "rank": "Remarkable",
+        "notes": "Scales, sinks, chemicals, microscope. +1CS on Scientific/Earth/Life Sciences FEATs."
+      },
+      {
+        "id": 3,
+        "name": "Communications Room",
+        "package": "Communications Package",
+        "rank": "Remarkable",
+        "notes": "Short-wave monitor, police band, computer network tap-in."
+      },
+      {
+        "id": 4,
+        "name": "Electronics Lab",
+        "package": "Workshop Package",
+        "rank": "Remarkable",
+        "notes": "Lathes, drills, precision tools. Enhanced Reason FEATs for Electronics/Repair/Engineering."
+      },
+      {
+        "id": 5,
+        "name": "Crime Files Room",
+        "package": "Crime Files Package",
+        "rank": "Excellent",
+        "notes": "Remarkable-ability database. Cross-references M.O.s, villains, locations."
+      },
+      {
+        "id": 6,
+        "name": "Gym",
+        "package": "Gym Package",
+        "rank": "Excellent",
+        "notes": "+1CS on one physical FEAT per session with downtime training."
+      },
+      {
+        "id": 7,
+        "name": "Garage",
+        "package": "Garage Package",
+        "rank": "Good",
+        "notes": "Vehicle service and repair. Supports Reason/Repair FEATs for vehicle mods."
+      },
+      {
+        "id": 8,
+        "name": "Meeting Room",
+        "package": "Conference Room Package",
+        "rank": "Remarkable",
+        "notes": "Large table + 10 chairs. Supports Popularity FEATs and Leadership actions."
+      },
+      {
+        "id": 9,
+        "name": "Kitchen / Common Area",
+        "package": "Kitchen + Living Room",
+        "rank": "Good",
+        "notes": "Supports Endurance/Recovery FEATs for healing with rest and nourishment."
+      },
+      {
+        "id": 10,
+        "name": "Bedrooms (2nd Floor)",
+        "package": "Bedroom Packages",
+        "rank": "Good",
+        "notes": "Required for full Health/Karma recovery between adventures."
+      }
     ]
   },
   "missions": [
@@ -38,11 +98,34 @@
     }
   ],
   "allies": [
-    { "name": "Sam Dugan",   "type": "Civilian Contact", "status": "active", "notes": "Former owner of the Silver Star garage" }
+    {
+      "name": "Sam Dugan",
+      "type": "Civilian Contact",
+      "status": "active",
+      "notes": "Former owner of the Silver Star garage"
+    }
   ],
   "enemies": [
-    { "name": "Whiplash",  "affiliation": "A.I.M.",       "threat": 3, "status": "arrested", "notes": "Led ESU raid" },
-    { "name": "Boomerang", "affiliation": "A.I.M.",       "threat": 3, "status": "arrested", "notes": "Led ESU raid" },
-    { "name": "A.I.M.",    "affiliation": "Independent",  "threat": 4, "status": "active",   "notes": "Targeted ESU dimensional research equipment" }
+    {
+      "name": "Whiplash",
+      "affiliation": "A.I.M.",
+      "threat": 3,
+      "status": "arrested",
+      "notes": "Led ESU raid"
+    },
+    {
+      "name": "Boomerang",
+      "affiliation": "A.I.M.",
+      "threat": 3,
+      "status": "arrested",
+      "notes": "Led ESU raid"
+    },
+    {
+      "name": "A.I.M.",
+      "affiliation": "Independent",
+      "threat": 4,
+      "status": "active",
+      "notes": "Targeted ESU dimensional research equipment"
+    }
   ]
 }
