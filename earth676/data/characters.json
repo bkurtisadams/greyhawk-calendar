@@ -70,8 +70,7 @@
       "Electronics",
       "Wrestling"
     ],
-    "portrait": "\"C:\\FoundryV13Data\\data\\faserip\\tokens\\PCs\\astrid_02.png\"",
-    "note": "Foundry portrait: faserip/tokens/PCs/astrid_01.png"
+    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/astrid_02.png"
   },
   {
     "id": "counter-strike",
@@ -79,7 +78,8 @@
     "real": "Ram Pau",
     "age": 50,
     "gender": "Male",
-    "origin": "Mutant",
+    "origin": "Human (Mutant)",
+    "identityType": "secret",
     "status": "active",
     "stats": {
       "F": {
@@ -96,10 +96,10 @@
       },
       "E": {
         "rank": "Amazing",
-        "value": 49
+        "value": 50
       },
       "R": {
-        "rank": "Feeble",
+        "rank": "Typical",
         "value": 6
       },
       "I": {
@@ -107,29 +107,1926 @@
         "value": 30
       },
       "P": {
-        "rank": "Feeble",
-        "value": 6
+        "rank": "Poor",
+        "value": 4
       }
     },
-    "health": 123,
-    "karma": 42,
+    "health": 124,
+    "karma": 448,
     "powers": [
       {
-        "name": "Ultimate Skill",
-        "rank": "Shift 0",
-        "value": null
+        "name": "Body Armor",
+        "rank": "Good",
+        "value": 10
       },
       {
-        "name": "Nullify Power",
-        "rank": "Shift 0",
-        "value": null
+        "name": "Nullifying Power",
+        "rank": "Incredible",
+        "value": 40
+      },
+      {
+        "name": "Ultimate Skill",
+        "rank": "Unearthly",
+        "value": 100
       }
     ],
     "talents": [
       "Martial Arts B",
       "Heir to Fortune"
     ],
-    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/counter_strike.png"
+    "contacts": [
+      {
+        "name": "Hero Group",
+        "type": "Professional",
+        "disposition": "Friendly",
+        "location": "",
+        "notes": ""
+      }
+    ],
+    "karmaHistory": [
+      {
+        "date": "3/5/2026",
+        "gameDate": "10/27/1944",
+        "amount": 40,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "10/27/1944",
+        "amount": 15,
+        "type": "Encounter Award",
+        "description": "Foe: Hydra Prototype Trooper(30) (base 30 ×3 ÷6)"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "",
+        "amount": -100,
+        "type": "Power Stunt",
+        "description": "Nullify: Tech - Success"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "",
+        "amount": -100,
+        "type": "Power Stunt",
+        "description": "Nullify: Tech - Success"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "3/14/1977",
+        "amount": 42,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "",
+        "amount": -16,
+        "type": "Die Roll",
+        "description": "Spent karma on Leap Across"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "3/14/1977",
+        "amount": 300,
+        "type": "Custom",
+        "description": "Nightlife Ch 26 rewards."
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "",
+        "amount": 42,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "",
+        "amount": 0,
+        "type": "Popularity FEAT",
+        "description": "convince cameron (neutral) - FAILED"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 30,
+        "type": "Custom",
+        "description": "Rescuing Cameron Seaver"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Ending Cameron's asthma"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 50,
+        "type": "Custom",
+        "description": "Rescuing the injured zoo worker: +20"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 60,
+        "type": "Custom",
+        "description": "Defeating Gator: +40"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 35,
+        "type": "Custom",
+        "description": "Capturing Hound Dog and Pals: +15"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 50,
+        "type": "Custom",
+        "description": "Defeating the monster: +30"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 20,
+        "type": "Custom",
+        "description": "Escaping Roxxon Plaza trap"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Following up on Hiram's ad (giving him a 2nd chance)"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 20,
+        "type": "Custom",
+        "description": "Surrendering to protect the priest"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Not attacking Kingpin"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 30,
+        "type": "Custom",
+        "description": "Successful crate infiltration"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Astrid cracking the elevator"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": 42,
+        "type": "Session Award",
+        "description": "Episode #17 karma award"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": -490,
+        "type": "Die Roll",
+        "description": "Ability Advancement \nEN 49 -> 50"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": -260,
+        "type": "Die Roll",
+        "description": "Talent Advancement: Resources 27-28"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": -270,
+        "type": "Die Roll",
+        "description": "Resource 27-28"
+      },
+      {
+        "date": "12/11/2025",
+        "gameDate": "3/9/1977",
+        "amount": 20,
+        "type": "Stop Destructive Crime",
+        "description": "Destroyed Project: TODE machine"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 75,
+        "type": "Defeating Monstrous Foe",
+        "description": "Defeated Robot Hulk 2.0"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Awesome Android"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Robot Mad Thinker"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Freed Bruce Banner"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Prevent national conspiracy"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Restored Jim Hammond, the Original Human Torch, to life."
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Robot Man-Ape"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated Gorilla Robot #1"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated Gorilla Robot #2"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 100,
+        "type": "Multiple Rescues",
+        "description": "Freed 10+ Wakandan prisoners (Joshua, Khanata, others)"
+      },
+      {
+        "date": "11/8/2025",
+        "gameDate": "",
+        "amount": 37,
+        "type": "Violent Crime (Stop)",
+        "description": "Team award: 37 of 150 total (5x)"
+      },
+      {
+        "date": "11/8/2025",
+        "gameDate": "",
+        "amount": 25,
+        "type": "Rescue",
+        "description": "test"
+      },
+      {
+        "date": "10/30/2025",
+        "gameDate": "3/6/1977",
+        "amount": 20,
+        "type": "Custom",
+        "description": "CH 11: Swaying the crowed on a later attempt."
+      },
+      {
+        "date": "10/16/2025",
+        "gameDate": "3/5/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Prevent Roxxon truck from exploding"
+      },
+      {
+        "date": "10/16/2025",
+        "gameDate": "3/5/1977",
+        "amount": 10,
+        "type": "Gaming Award: Role-Playing",
+        "description": ""
+      },
+      {
+        "date": "10/16/2025",
+        "gameDate": "3/5/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Defeat The Fly"
+      },
+      {
+        "date": "10/16/2025",
+        "gameDate": "3/5/1977",
+        "amount": 40,
+        "type": "Defeated Foe",
+        "description": "Defeat Mad-Dog"
+      },
+      {
+        "date": "10/16/2025",
+        "gameDate": "3/5/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Defeat Rhino"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Act of charity - kid's pizza party."
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "",
+        "amount": -480,
+        "type": "Ability Advancement",
+        "description": "Endurance 48 to 49"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 10,
+        "type": "Making comittment",
+        "description": "Promise to find Cameron"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 10,
+        "type": "Making comittment",
+        "description": "Taking aspirator"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 15,
+        "type": "Violent Crime -- Arrest",
+        "description": "Defeat Si-Fan assassins at Sammy's"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Violent Crime -- Stop/Prevent",
+        "description": "Prevent Sammy from being kidnapped"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Saving the parachutist"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 100,
+        "type": "Defeating Unearthly Foe",
+        "description": "Capturing Mongoose"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 45,
+        "type": "",
+        "description": "Capturing 5 maggia thugs"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 10,
+        "type": "Gaming Award: Role-Playing",
+        "description": ""
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "",
+        "amount": -460,
+        "type": "Ability Advancement",
+        "description": "Endurance"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "",
+        "amount": -470,
+        "type": "Ability Advancement",
+        "description": "Endurance"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "",
+        "amount": -42,
+        "type": "Daily Roll",
+        "description": "Spent daily karma on Intuition FEAT roll"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 10,
+        "type": "Weekly Reward",
+        "description": "Weekly reward"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 100,
+        "type": "Defeated Foe",
+        "description": "Defeat 10 skeletal ghosts"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Heroic role-playing"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 5,
+        "type": "Role-Playing",
+        "description": "speech by Astrid"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Defeat Lee Min"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 50,
+        "type": "Arrest Foe",
+        "description": "Arrest Lee Min"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 100,
+        "type": "Defeated Foe",
+        "description": "Defeat Silver Samurai"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 30,
+        "type": "Stop Local Conspiracy",
+        "description": ""
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 10,
+        "type": "Local Conspiracy Arrest",
+        "description": ""
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 30,
+        "type": "Defeated Foe",
+        "description": "Capture Si Fan Assassins"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 50,
+        "type": "Defeating Amazing foe",
+        "description": "Defeat Deathlok simulacrum"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeat Batboy gang members"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 40,
+        "type": "Rescue",
+        "description": "Rescue Tak's parents"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 10,
+        "type": "Reward",
+        "description": "Return stolen money"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 10,
+        "type": "Reward",
+        "description": "Return stolen weapons"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/19/1977",
+        "amount": 10,
+        "type": "Weekly Reward",
+        "description": "Weekly reward"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/19/1977",
+        "amount": 50,
+        "type": "Defeating Amazing foe",
+        "description": "Capturing White Dragon"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/19/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Capturing Dragonlords"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/19/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Capturing a Si-Fan assassin"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Chapter 21"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 60,
+        "type": "Rescue",
+        "description": "Save 3 workmen from falling to their death"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Extinguish burning car"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 40,
+        "type": "Rescue",
+        "description": "Rescue 2 people from electrified car"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 50,
+        "type": "Defeat Amazing foe",
+        "description": "Defeating Capt. America w/out injuring him"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 100,
+        "type": "Defeat Monstrous foe",
+        "description": "Defeating Iron Man w/out injuring him"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable foe",
+        "description": "Defeat Beetle"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 50,
+        "type": "Defeating Amazing foe",
+        "description": "Defeat Blizzard"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 75,
+        "type": "Defeating Monstrous foe",
+        "description": "Defeat Constrictor"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "Resuce",
+        "description": "Rescue Tak"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "Stop destructive crime",
+        "description": "Prevent Property destruction"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 5,
+        "type": "Making a commitment",
+        "description": "Promising to rescue Tak's parents"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 25,
+        "type": "",
+        "description": "Defeat Frankenstein robot"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "",
+        "description": "Defeat Werewolf robot"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "",
+        "description": "Defeat clown robot"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 10,
+        "type": "",
+        "description": "Defeat robot children"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "",
+        "description": "Defeat robot vampire"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "",
+        "description": "Defeat robot mummy"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 30,
+        "type": "",
+        "description": "Defeat robot dragons"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "",
+        "amount": -460,
+        "type": "Ability Advancement",
+        "description": "Advanced agility from Good 10 14"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Chapter 18"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 15,
+        "type": "",
+        "description": "Capturing the tongs:"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 50,
+        "type": "",
+        "description": "Forcing Silver Samurai to teleport w/o Thors help"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 15,
+        "type": "",
+        "description": "Defeating thugs"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 30,
+        "type": "",
+        "description": "Freeing teenagers"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 75,
+        "type": "",
+        "description": "Defeating robots"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 60,
+        "type": "",
+        "description": "Reviving Avengers"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 100,
+        "type": "",
+        "description": "Confiscating drugs"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/29/1977",
+        "amount": 15,
+        "type": "Arrest for other crimes (drug dealing)",
+        "description": "Capturing the Dragonlords"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/29/1977",
+        "amount": 20,
+        "type": "Rescue (saving life indirectly)",
+        "description": "Convincing Harry to go to rehab"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/29/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable-level foe",
+        "description": "Defeating the Beetle"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/29/1977",
+        "amount": 15,
+        "type": "Arrest for other crimes",
+        "description": "Defeating the Dragonlords"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/30/1977",
+        "amount": 50,
+        "type": "Stopped major disaster and prevented harm to civilians and property",
+        "description": "Preventing garbage truck from moving at all"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/30/1977",
+        "amount": 20,
+        "type": "Lives saved by preventing situation from occurring",
+        "description": "Rescuing mother and baby (preemptively)"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/30/1977",
+        "amount": 20,
+        "type": "Vendor rescued by halting the truck before threat arose",
+        "description": "Rescuing newsstand vendor (preemptively)"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/30/1977",
+        "amount": 10,
+        "type": "Arresting criminals involved in other crimes",
+        "description": "Capturing Dragonlords on or near truck"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/31/1977",
+        "amount": 50,
+        "type": "Defeating Amazing-level foe",
+        "description": "Defeating the Blizzard"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/31/1977",
+        "amount": 15,
+        "type": "Arrest for other crimes",
+        "description": "Defeating the Dragonlords"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/31/1977",
+        "amount": 20,
+        "type": "Saving a life from imminent threat",
+        "description": "Rescuing Tak"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/29/1977",
+        "amount": -410,
+        "type": "Ability Advancement",
+        "description": "Advanced endurance to 42"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/29/1977",
+        "amount": -420,
+        "type": "Ability Advancement",
+        "description": "42 EN to 43"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "",
+        "amount": -430,
+        "type": "Ability Advancement",
+        "description": "EN 43 to 44"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "",
+        "amount": -440,
+        "type": "Ability Advancement",
+        "description": "EN 44 to 45"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "",
+        "amount": -850,
+        "type": "Ability Advancement",
+        "description": "EN 45 to 46 (450+400 for cresting to 46)"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeating the Si Fan assassins"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 100,
+        "type": "Rescue",
+        "description": "Rescuing looters from falling sign"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Defeating Constrictor"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Arrest Violent Criminal",
+        "description": "Arrest Constrictor"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop Violent Crime",
+        "description": "Dragonlords/Batboys at Imperial Theater"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Arrest Violent Criminal",
+        "description": "Dragonlords/Batboys at Imperial Theater"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeating the Dragonlords"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeating the Faces of Fear:"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 60,
+        "type": "Arrest 6 Dragonlords ",
+        "description": "8. Fireworks Trap"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Put out fire in warehouse",
+        "description": "Avoided significant property damage"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Killer Shrike as Amazing foe ",
+        "description": "8. Fireworks Trap"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 25,
+        "type": "Stop destructive crime ",
+        "description": "8. Fireworks Trap"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Rescue Mei Li ",
+        "description": "9. Mei Li Takes a Plunge"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Arrest 3 thugs ",
+        "description": "9. Mei Li Takes a Plunge"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Give Wong family money ",
+        "description": "9. Mei Li Takes a Plunge"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop local conspiracy ",
+        "description": "9. Mei Li Takes a Plunge"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Protect Linda Fong ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Arrest 4 thugs ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 75,
+        "type": "Defeat Dreadnought ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Promise to help Tigers' Claw ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 25,
+        "type": "Stop destructive crime ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop local conspiracy ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Prevention of Robot bomb blowing up",
+        "description": "Avoided significant property damage"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Heroic roleplaying"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 25,
+        "type": "Stop destructive crime (robot bomb)",
+        "description": ""
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": -400,
+        "type": "Ability Advancement",
+        "description": "Advanced endurance to 41"
+      },
+      {
+        "date": "6/22/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Daily Karma Reset",
+        "description": "Daily karma reset by GM"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 0,
+        "type": "No Karma awards",
+        "description": "3. Do Ghosts Get Hungry?"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Arrest 6 Dragonlords ",
+        "description": "4. The China Star"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop violent crime ",
+        "description": "4. The China Star"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Rescue Mei Li ",
+        "description": "4. The China Star"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 35,
+        "type": "Arrest 7 assassins ",
+        "description": "5. What's in the Box?"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop violent crime ",
+        "description": "5. What's in the Box?"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Rescue Oliver ",
+        "description": "5. What's in the Box?"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 5,
+        "type": "Promise to stop White Dragon ",
+        "description": "6. Oriental Curiosities"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Heroic roleplaying"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 120,
+        "type": "Arrest",
+        "description": "12 villains"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 40,
+        "type": "Defeated Foe",
+        "description": "Defeated Harpoon"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 100,
+        "type": "Defeated Foe",
+        "description": "Defeated Vertigo"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Rescued Callisto"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Captured Black Talon"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Captured Frankenstein's Monster"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 30,
+        "type": "Defeated Foe",
+        "description": "Catpured Gypsy Moth"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 30,
+        "type": "Defeated Foe",
+        "description": "Catpured Scarecrow"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Captured Shroud"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 30,
+        "type": "Defeated Foe",
+        "description": "Captured Tatterdemalion"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Captured Werewolf"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Defeated \"Lady Anguish\""
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Captured Mr. Fear"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 5,
+        "type": "Make Comitment",
+        "description": "Accept Batholomew's offer"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 5,
+        "type": "Make Comitment",
+        "description": "Follow to sewer"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 10,
+        "type": "Sewers",
+        "description": "Aid to vagrants"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 20,
+        "type": "Sewers",
+        "description": "Destroy drug lab"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Captured dealers"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 180,
+        "type": "Defeated Foe",
+        "description": "Defeated alligators"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Defeated Arclight"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Rescue",
+        "description": "Saved Skids"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 20,
+        "type": "Charities (Appearance)",
+        "description": "Grand Hotel Charity Ball"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 50,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated major villain (Scorpion)"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 25,
+        "type": "Violent Crime Arrest",
+        "description": "Arrested Scorpion and handed over to authorities"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 20,
+        "type": "Multiple Rescues (5+)",
+        "description": "Prevented injuries to guests/civilians"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 20,
+        "type": "Violent Crime Stop/Prevent",
+        "description": "Defeated Maggia thugs"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 10,
+        "type": "Destructive Crime Stop/Prevent",
+        "description": "Avoided significant property damage"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Heroic roleplaying"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/14/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "3/18/2025",
+        "gameDate": "1/7/1977",
+        "amount": -50,
+        "type": "Advancement",
+        "description": "Psyche 5 to 6"
+      },
+      {
+        "date": "3/16/2025",
+        "gameDate": "1/7/1977",
+        "amount": -420,
+        "type": "Advancement",
+        "description": "Psyche 2 to 3 (20+400 cresting penalty)"
+      },
+      {
+        "date": "3/16/2025",
+        "gameDate": "1/7/1977",
+        "amount": -30,
+        "type": "Advancement",
+        "description": "Psyche 3 to 4"
+      },
+      {
+        "date": "3/16/2025",
+        "gameDate": "1/7/1977",
+        "amount": -40,
+        "type": "Advancement",
+        "description": "Psyche 4 to 5"
+      },
+      {
+        "date": "2/25/2025",
+        "gameDate": "1/7/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "2/20/2025",
+        "gameDate": "1/1/1977",
+        "amount": 20,
+        "type": "Destructive Crime Stop/Prevent",
+        "description": "Prevented enthrallment device activation"
+      },
+      {
+        "date": "2/20/2025",
+        "gameDate": "1/1/1977",
+        "amount": 60,
+        "type": "Violent Crime Arrest",
+        "description": "Arrested 4 Roxxon Commandos (15 Karma each)"
+      },
+      {
+        "date": "2/20/2025",
+        "gameDate": "1/1/1977",
+        "amount": 15,
+        "type": "Violent Crime Arrest",
+        "description": "Arrested Techno-Viper DJ"
+      },
+      {
+        "date": "2/20/2025",
+        "gameDate": "1/1/1977",
+        "amount": 100,
+        "type": "Multiple Rescues (5+)",
+        "description": "Rescued large group of civilians from sonic attack"
+      },
+      {
+        "date": "1/31/2025",
+        "gameDate": "1/1/1977",
+        "amount": 20,
+        "type": "Charities (Appearance)",
+        "description": "Charity event"
+      },
+      {
+        "date": "1/28/2025",
+        "gameDate": "1/1/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "1/20/2025",
+        "gameDate": "12/31/1976",
+        "amount": 15,
+        "type": "Violent Crime Arrest",
+        "description": "Arresting thugs"
+      },
+      {
+        "date": "1/20/2025",
+        "gameDate": "12/31/1976",
+        "amount": 10,
+        "type": "Rescue",
+        "description": "Protected Johnny Frost"
+      },
+      {
+        "date": "1/20/2025",
+        "gameDate": "12/31/1976",
+        "amount": 20,
+        "type": "Theft Stop/Prevent",
+        "description": "Recovered rifles (chapter 15)"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "11/27/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly award"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/3/1976",
+        "amount": 90,
+        "type": "Defeating Incredible Foe",
+        "description": "Defeating Shroud & Frankenstein's Monster"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/3/1976",
+        "amount": 10,
+        "type": "Permit Other Crimes (Penalty)",
+        "description": "Not fighting Razors"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/3/1976",
+        "amount": -20,
+        "type": "Permit Other Crimes (Penalty)",
+        "description": "Illegal approach penalty"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/3/1976",
+        "amount": 10,
+        "type": "Other Crimes (Stop/Prevent)",
+        "description": "Winning boxing match"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/3/1976",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Roleplayed"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/4/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/11/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/17/1976",
+        "amount": 40,
+        "type": "Rescue",
+        "description": "Rescued teen lovers"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/17/1976",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeated Scarecrow"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/17/1976",
+        "amount": 20,
+        "type": "Defeated Foe",
+        "description": "Defeated Gypsy Moth"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/17/1976",
+        "amount": 35,
+        "type": "Defeated Foe",
+        "description": "Defeated Black Talon"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/17/1976",
+        "amount": 40,
+        "type": "Defeated Foe",
+        "description": "Defeated Brothers Grimm"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/18/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/18/1976",
+        "amount": 20,
+        "type": "Charities (Appearance)",
+        "description": "Toy Drive Gala (Astrid 30, Counterstrike 20)"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/18/1976",
+        "amount": 10,
+        "type": "Charities (Appearance)",
+        "description": "Food Drive (Astrid 10, Counterstrike 20)"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/18/1976",
+        "amount": 10,
+        "type": "Charities (Appearance)",
+        "description": "Tree Lighting (Astrid 10, Counterstrike 20)"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/18/1976",
+        "amount": 50,
+        "type": "Defeating Remarkable Foe",
+        "description": "Electro defeated (but he escaped)"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/25/1976",
+        "amount": 100,
+        "type": "",
+        "description": "Merry Christmas!"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/25/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/16/1976",
+        "amount": 50,
+        "type": "Crime Prevention",
+        "description": "Stopped 'Hulk' robot rampage"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/16/1976",
+        "amount": 20,
+        "type": "Prevention",
+        "description": "Prevented property damage"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/17/1976",
+        "amount": 10,
+        "type": "Commitment",
+        "description": "Job"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/17/1976",
+        "amount": 100,
+        "type": "Multiple Rescues (5+)",
+        "description": "Saved 5+ people"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/19/1976",
+        "amount": 10,
+        "type": "Charities (Donation/Appearance)",
+        "description": "Charity"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/19/1976",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Roleplayed"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/19/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly award"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/19/1976",
+        "amount": 10,
+        "type": "Personal Commitment",
+        "description": "Befriend Felicia Frost"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/19/1976",
+        "amount": 35,
+        "type": "Violent Crime Stop/Prevent",
+        "description": "Stopped 4 Maggia gunners"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/19/1976",
+        "amount": 30,
+        "type": "Violent Crime Stop/Prevent",
+        "description": "Prevented thugs shooting innocents"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/19/1976",
+        "amount": 15,
+        "type": "Violent Crime Arrest",
+        "description": "Violent crime arrest"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/19/1976",
+        "amount": 75,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated Werewolf"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/19/1976",
+        "amount": 30,
+        "type": "Violent Crime Stop/Prevent",
+        "description": "Prevented Werewolf from killing"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/19/1976",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Rescued Johnny Frost"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/19/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly award"
+      },
+      {
+        "date": "11/26/2024",
+        "gameDate": "11/13/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly award"
+      },
+      {
+        "date": "11/26/2024",
+        "gameDate": "11/13/1976",
+        "amount": 80,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated Whiplash, Boomerang, AIM agents"
+      },
+      {
+        "date": "11/26/2024",
+        "gameDate": "11/13/1976",
+        "amount": 20,
+        "type": "Robbery Stop/Prevent",
+        "description": "Stopped robbery"
+      },
+      {
+        "date": "11/26/2024",
+        "gameDate": "11/13/1976",
+        "amount": 10,
+        "type": "Robbery Arrest",
+        "description": "Arrested robbers"
+      },
+      {
+        "date": "11/26/2024",
+        "gameDate": "11/13/1976",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Roleplayed"
+      },
+      {
+        "date": "11/26/2024",
+        "gameDate": "11/14/1976",
+        "amount": 10,
+        "type": "Charity",
+        "description": "Charity"
+      },
+      {
+        "date": "11/26/2024",
+        "gameDate": "11/14/1976",
+        "amount": 100,
+        "type": "Rescue",
+        "description": "Saved 5+ people"
+      },
+      {
+        "date": "11/12/2024",
+        "gameDate": "11/12/1976",
+        "amount": 20,
+        "type": "Robbery Stop/Prevent",
+        "description": "Stopped jewel store robbers"
+      },
+      {
+        "date": "11/12/2024",
+        "gameDate": "11/12/1976",
+        "amount": 10,
+        "type": "Robbery Arrest",
+        "description": "Arrested robbers"
+      },
+      {
+        "date": "11/12/2024",
+        "gameDate": "11/12/1976",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Roleplayed"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -17,
+        "type": "Die Roll",
+        "description": "Spent karma on Charging"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -11,
+        "type": "Die Roll",
+        "description": "Spent karma on Blunt Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -37,
+        "type": "Die Roll",
+        "description": "Spent karma on Blunt Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Blunt Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -16,
+        "type": "Die Roll",
+        "description": "Spent karma on Blunt Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Blunt Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -81,
+        "type": "Die Roll",
+        "description": "Spent karma on Charging"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Blunt Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Blunt Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Blunt Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Dodging"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -70,
+        "type": "Die Roll",
+        "description": "Spent karma on Blunt Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Blunt Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 40,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": -290,
+        "type": "Die Roll",
+        "description": "Resource Upgrade"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": 0,
+        "type": "Resource FEAT",
+        "description": "Charity for (Hospital Name) (Shift-0) - SUCCESS"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 55,
+        "type": "Event Award",
+        "description": "Hillside Ambush, Stop Destructive Crime, Arrest Destructive Crime, Rescue ×4 (base 110 ×3 ÷6)"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 25,
+        "type": "Encounter Award",
+        "description": "Castle Tower, Foe: Hydra Prototype Trooper(30), Stop Destructive Crime (base 50 ×3 ÷6)"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 130,
+        "type": "Encounter Award",
+        "description": "Boss Fight at Time Machine, Foe: Hydra Prototype Trooper(30)+Baron Wolfgang von Strucker(40)+Warrior Woman(50), Stop Global Conspiracy (base 260 ×3 ÷6)"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Rescue Pvt. Ram Pau"
+      }
+    ],
+    "movement": {
+      "run": 3,
+      "swim": 1
+    },
+    "physical": {
+      "height": "6'",
+      "weight": "175",
+      "eyeColor": "Lite Grey",
+      "hairColor": "Dark & Silver",
+      "nationality": "Nepal"
+    },
+    "resources": {
+      "rank": "Remarkable",
+      "value": 29
+    },
+    "popularity": {
+      "value": 10
+    },
+    "bio": "<p>Civilian ID Pic:<br><img src=\"faserip/tokens/PCs/counter-strike%20(ram%20pau).png\" alt=\"\" width=\"101\" height=\"188\"></p>",
+    "foundryImg": "faserip/tokens/PCs/counter_strike_03.png"
   },
   {
     "id": "screamwave",
@@ -137,7 +2034,8 @@
     "real": "Kel Tharpe",
     "age": 16,
     "gender": "Male",
-    "origin": "Mutant",
+    "origin": "Caucasian (Mutant)",
+    "identityType": "secret",
     "status": "active",
     "stats": {
       "F": {
@@ -149,7 +2047,7 @@
         "value": 26
       },
       "S": {
-        "rank": "Poor",
+        "rank": "Good",
         "value": 10
       },
       "E": {
@@ -157,23 +2055,23 @@
         "value": 20
       },
       "R": {
-        "rank": "Poor",
-        "value": 10
+        "rank": "Good",
+        "value": 11
       },
       "I": {
         "rank": "Remarkable",
         "value": 30
       },
       "P": {
-        "rank": "Typical",
-        "value": 8
+        "rank": "Good",
+        "value": 16
       }
     },
     "health": 96,
-    "karma": 48,
+    "karma": 687,
     "powers": [
       {
-        "name": "Absorption",
+        "name": "Absorption Power",
         "rank": "Incredible",
         "value": 40
       },
@@ -202,40 +2100,1477 @@
       "Guns",
       "Martial Arts D"
     ],
-    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/screamwave.png",
-    "joined": "Mid-January 1977"
+    "contacts": [
+      {
+        "name": "Skids",
+        "type": "Other",
+        "disposition": "Friendly",
+        "location": "NYC underground tunnels/Morlock tunnels",
+        "notes": "Skids is a mutant who lives in the Morlock tunnels. "
+      },
+      {
+        "name": "Avengers",
+        "type": "Professional",
+        "disposition": "Friendly",
+        "location": "",
+        "notes": ""
+      },
+      {
+        "name": "Lieutenant Lamont",
+        "type": "Professional",
+        "disposition": "Friendly",
+        "location": "",
+        "notes": ""
+      }
+    ],
+    "karmaHistory": [
+      {
+        "date": "3/5/2026",
+        "gameDate": "10/27/1944",
+        "amount": 57,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "10/27/1944",
+        "amount": 15,
+        "type": "Encounter Award",
+        "description": "Foe: Hydra Prototype Trooper(30) (base 30 ×3 ÷6)"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "10/27/1944",
+        "amount": -100,
+        "type": "Ability Advancement",
+        "description": "Reason Gd 10 -> 11"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "",
+        "amount": -100,
+        "type": "Power Stunt",
+        "description": "Sonic Stun (Sound Generation) - Success"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "",
+        "amount": -100,
+        "type": "Power Stunt",
+        "description": "Sonic Stun (Sound Generation) - Success"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "",
+        "amount": 56,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "",
+        "amount": -56,
+        "type": "Die Roll",
+        "description": "Spent karma on Endurance FEAT"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "3/14/1977",
+        "amount": 300,
+        "type": "Custom",
+        "description": "Nightlife Ch 26 rewards"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "",
+        "amount": -116,
+        "type": "Power Stunt",
+        "description": "Sonic Stun (Sound Generation) - Success"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "",
+        "amount": 56,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "",
+        "amount": 0,
+        "type": "Popularity FEAT",
+        "description": "convince Cameron (neutral) - FAILED"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 30,
+        "type": "Custom",
+        "description": "Rescuing Cameron Seaver"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Ending Cameron's asthma"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 50,
+        "type": "Custom",
+        "description": "Rescuing the injured zoo worker: +20"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 60,
+        "type": "Custom",
+        "description": "Defeating Gator: +40"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 35,
+        "type": "Custom",
+        "description": "Capturing Hound Dog and Pals: +15"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 50,
+        "type": "Custom",
+        "description": "Defeating the monster: +30"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 20,
+        "type": "Custom",
+        "description": "Escaping Roxxon Plaza trap"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Following up on Hiram's ad (giving him a 2nd chance)"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 20,
+        "type": "Custom",
+        "description": "Surrendering to protect the priest"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Not attacking Kingpin"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 30,
+        "type": "Custom",
+        "description": "Successful crate infiltration"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Astrid cracking the elevator"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": 56,
+        "type": "Session Award",
+        "description": "Episode #17 karma award"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Crime Files addition"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": -1470,
+        "type": "Ability Advancement",
+        "description": "Advanced psyche to 16"
+      },
+      {
+        "date": "12/11/2025",
+        "gameDate": "",
+        "amount": -20,
+        "type": "Daily Roll",
+        "description": "Spent daily karma on Force Attack"
+      },
+      {
+        "date": "12/11/2025",
+        "gameDate": "3/9/1977",
+        "amount": 20,
+        "type": "Stop Destructive Crime",
+        "description": "Destroyed Project: TODE machine"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 75,
+        "type": "Defeating Monstrous Foe",
+        "description": "Defeated Robot Hulk 2.0"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Awesome Android"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Robot Mad Thinker"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Freed Bruce Banner"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Prevent national conspiracy"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Restored Jim Hammond, the Original Human Torch, to life."
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Robot Man-Ape"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated Gorilla Robot #1"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated Gorilla Robot #2"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 100,
+        "type": "Multiple Rescues",
+        "description": "Freed 10+ Wakandan prisoners (Joshua, Khanata, others)"
+      },
+      {
+        "date": "10/30/2025",
+        "gameDate": "",
+        "amount": -151,
+        "type": "Power Stunt",
+        "description": "Sonic Stun - Success"
+      },
+      {
+        "date": "10/30/2025",
+        "gameDate": "3/6/1977",
+        "amount": 20,
+        "type": "Custom",
+        "description": "CH11: Swaying the crowed on a later attempt\n"
+      },
+      {
+        "date": "10/17/2025",
+        "gameDate": "3/5/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Defeat Rhino"
+      },
+      {
+        "date": "10/17/2025",
+        "gameDate": "3/5/1977",
+        "amount": 40,
+        "type": "Defeated Foe",
+        "description": "Defeat Mad-Dog"
+      },
+      {
+        "date": "10/17/2025",
+        "gameDate": "3/5/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Defeat The Fly"
+      },
+      {
+        "date": "10/17/2025",
+        "gameDate": "3/5/1977",
+        "amount": 10,
+        "type": "Gaming Award: Role-Playing",
+        "description": ""
+      },
+      {
+        "date": "10/17/2025",
+        "gameDate": "3/5/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Prevent Roxxon truck from exploding"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 20,
+        "type": "Custom",
+        "description": "act of charity - taking records/record player to the Morlocks"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 10,
+        "type": "Making comittment",
+        "description": "Promise to find Cameron"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 10,
+        "type": "Making comittment",
+        "description": "Taking aspirator"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 15,
+        "type": "Violent Crime -- Arrest",
+        "description": "Defeat Si-Fan assassins at Sammy's"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Violent Crime -- Stop/Prevent",
+        "description": "Prevent Sammy from being kidnapped"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Saving the parachutist"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 100,
+        "type": "Defeating Unearthly Foe",
+        "description": "Capturing Mongoose"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 45,
+        "type": "",
+        "description": "Capturing 5 maggia thugs"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 10,
+        "type": "Gaming Award: Role-Playing",
+        "description": ""
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "",
+        "amount": -20,
+        "type": "Daily Roll",
+        "description": "Spent daily karma on Sound Generation"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "",
+        "amount": -2000,
+        "type": "Ability Advancement",
+        "description": "Agility: 20 increased to 26"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "",
+        "amount": -48,
+        "type": "Daily Roll",
+        "description": "Spent daily karma on Sound Generation"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 10,
+        "type": "Weekly Reward",
+        "description": "Weekly reward"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 100,
+        "type": "Defeated Foe",
+        "description": "Defeat 10 skeletal ghosts"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Heroic role-playing"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 5,
+        "type": "Role-Playing",
+        "description": "speech by Astrid"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Defeat Lee Min"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 50,
+        "type": "Arrest Foe",
+        "description": "Arrest Lee Min"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 100,
+        "type": "Defeated Foe",
+        "description": "Defeat Silver Samurai"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 30,
+        "type": "Stop Local Conspiracy",
+        "description": ""
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 10,
+        "type": "Local Conspiracy Arrest",
+        "description": ""
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 30,
+        "type": "Defeated Foe",
+        "description": "Capture Si Fan Assassins"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 50,
+        "type": "Defeating Amazing foe",
+        "description": "Defeat Deathlok simulacrum"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeat Batboy gang members"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 40,
+        "type": "Rescue",
+        "description": "Rescue Tak's parents"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 10,
+        "type": "Reward",
+        "description": "Return stolen money"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 10,
+        "type": "Reward",
+        "description": "Return stolen weapons"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/19/1977",
+        "amount": 10,
+        "type": "Weekly Reward",
+        "description": "Weekly reward"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/19/1977",
+        "amount": 50,
+        "type": "Defeating Amazing foe",
+        "description": "Capturing White Dragon"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/19/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Capturing Dragonlords"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/19/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Capturing a Si-Fan assassin"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Chapter 21"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 60,
+        "type": "Rescue",
+        "description": "Save 3 workmen from falling to their death"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Extinguish burning car"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 40,
+        "type": "Rescue",
+        "description": "Rescue 2 people from electrified car"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 50,
+        "type": "Defeat Amazing foe",
+        "description": "Defeating Capt. America w/out injuring him"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 100,
+        "type": "Defeat Monstrous foe",
+        "description": "Defeating Iron Man w/out injuring him"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 0,
+        "type": "",
+        "description": "Ch 22: "
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable foe",
+        "description": "Defeat Beetle"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 50,
+        "type": "Defeating Amazing foe",
+        "description": "Defeat Blizzard"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 75,
+        "type": "Defeating Monstrous foe",
+        "description": "Defeat Constrictor"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "Resuce",
+        "description": "Rescue Tak"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "Stop destructive crime",
+        "description": "Prevent Property destruction"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 5,
+        "type": "Making a commitment",
+        "description": "Promising to rescue Tak's parents"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 25,
+        "type": "",
+        "description": "Defeat Frankenstein robot"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "",
+        "description": "Defeat Werewolf robot"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "",
+        "description": "Defeat clown robot"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 10,
+        "type": "",
+        "description": "Defeat robot children"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "",
+        "description": "Defeat robot vampire"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "",
+        "description": "Defeat robot mummy"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 30,
+        "type": "",
+        "description": "Defeat robot dragons"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "",
+        "amount": -20,
+        "type": "Daily Roll",
+        "description": "Spent daily karma on Sound Generation"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "",
+        "amount": -20,
+        "type": "Daily Roll",
+        "description": "Spent daily karma on Sound Generation"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Chapter 18"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 15,
+        "type": "",
+        "description": "Capturing the tongs:"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 50,
+        "type": "",
+        "description": "Forcing Silver Samurai to teleport w/o Thors help"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 15,
+        "type": "",
+        "description": "Defeating thugs"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 30,
+        "type": "",
+        "description": "Freeing teenagers"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 75,
+        "type": "",
+        "description": "Defeating robots"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 60,
+        "type": "",
+        "description": "Reviving Avengers"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 100,
+        "type": "",
+        "description": "Confiscating drugs"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/29/1977",
+        "amount": 15,
+        "type": "Arrest for other crimes (drug dealing)",
+        "description": "Capturing the Dragonlords"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/29/1977",
+        "amount": 20,
+        "type": "Rescue (saving life indirectly)",
+        "description": "Convincing Harry to go to rehab"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/29/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable-level foe",
+        "description": "Defeating the Beetle"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/29/1977",
+        "amount": 15,
+        "type": "Arrest for other crimes",
+        "description": "Defeating the Dragonlords"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/30/1977",
+        "amount": 50,
+        "type": "Stopped major disaster and prevented harm to civilians and property",
+        "description": "Preventing garbage truck from moving at all"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/30/1977",
+        "amount": 20,
+        "type": "Lives saved by preventing situation from occurring",
+        "description": "Rescuing mother and baby (preemptively)"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/30/1977",
+        "amount": 20,
+        "type": "Vendor rescued by halting the truck before threat arose",
+        "description": "Rescuing newsstand vendor (preemptively)"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/30/1977",
+        "amount": 10,
+        "type": "Arresting criminals involved in other crimes",
+        "description": "Capturing Dragonlords on or near truck"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/31/1977",
+        "amount": 50,
+        "type": "Defeating Amazing-level foe",
+        "description": "Defeating the Blizzard"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/31/1977",
+        "amount": 15,
+        "type": "Arrest for other crimes",
+        "description": "Defeating the Dragonlords"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/31/1977",
+        "amount": 20,
+        "type": "Saving a life from imminent threat",
+        "description": "Rescuing Tak"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "",
+        "amount": -50,
+        "type": "Ability Advancement",
+        "description": "Advanced psyche to 6"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "",
+        "amount": -60,
+        "type": "Ability Advancement",
+        "description": "Advanced psyche to 7"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "",
+        "amount": -570,
+        "type": "Ability Advancement",
+        "description": "Advanced psyche to 8"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeating the Si Fan assassins"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 100,
+        "type": "Rescue",
+        "description": "Rescuing looters from falling sign"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Defeating Constrictor"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Arrest Violent Criminal",
+        "description": "Arrest Constrictor"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop Violent Crime",
+        "description": "Dragonlords/Batboys at Imperial Theater"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Arrest Violent Criminal",
+        "description": "Dragonlords/Batboys at Imperial Theater"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeating the Dragonlords"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeating the Faces of Fear:"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": -190,
+        "type": "Power Stunt",
+        "description": "Sonic Wall #1"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 60,
+        "type": "Arrest 6 Dragonlords ",
+        "description": "8. Fireworks Trap"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Put out fire in warehouse",
+        "description": "Avoided significant property damage"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Killer Shrike as Amazing foe ",
+        "description": "8. Fireworks Trap"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 25,
+        "type": "Stop destructive crime ",
+        "description": "8. Fireworks Trap"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Rescue Mei Li ",
+        "description": "9. Mei Li Takes a Plunge"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Arrest 3 thugs ",
+        "description": "9. Mei Li Takes a Plunge"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Give Wong family money ",
+        "description": "9. Mei Li Takes a Plunge"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop local conspiracy ",
+        "description": "9. Mei Li Takes a Plunge"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Protect Linda Fong ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Arrest 4 thugs ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 75,
+        "type": "Defeat Dreadnought ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Promise to help Tigers' Claw ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 25,
+        "type": "Stop destructive crime ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop local conspiracy ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Avoid Robot bomb blowing up Gardens",
+        "description": "Avoided significant property damage"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Heroic roleplaying"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 25,
+        "type": "Stop destructive crime (robot bomb)",
+        "description": ""
+      },
+      {
+        "date": "6/22/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Daily Karma Reset",
+        "description": "Daily karma reset by GM"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 0,
+        "type": "No Karma awards",
+        "description": "3. Do Ghosts Get Hungry?"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Arrest 6 Dragonlords ",
+        "description": "4. The China Star"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop violent crime ",
+        "description": "4. The China Star"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Rescue Mei Li ",
+        "description": "4. The China Star"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 35,
+        "type": "Arrest 7 assassins ",
+        "description": "5. What's in the Box?"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop violent crime ",
+        "description": "5. What's in the Box?"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Rescue Oliver ",
+        "description": "5. What's in the Box?"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 5,
+        "type": "Promise to stop White Dragon ",
+        "description": "6. Oriental Curiosities"
+      },
+      {
+        "date": "6/12/2025",
+        "gameDate": "1/28/1977",
+        "amount": -440,
+        "type": "Advancement Allocation",
+        "description": "Allocated for ability (psyche) 4 to 5"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Heroic roleplaying"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 120,
+        "type": "Arrest",
+        "description": "12 villains"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 40,
+        "type": "Defeated Foe",
+        "description": "Defeated Harpoon"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 100,
+        "type": "Defeated Foe",
+        "description": "Defeated Vertigo"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Rescued Callisto"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Captured Black Talon"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Captured Frankenstein's Monster"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 30,
+        "type": "Defeated Foe",
+        "description": "Catpured Gypsy Moth"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 30,
+        "type": "Defeated Foe",
+        "description": "Catpured Scarecrow"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Captured Shroud"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 30,
+        "type": "Defeated Foe",
+        "description": "Captured Tatterdemalion"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Captured Werewolf"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Defeated \"Lady Anguish\""
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Captured Mr. Fear"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 5,
+        "type": "Make Comitment",
+        "description": "Accept Batholomew's offer"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 5,
+        "type": "Make Comitment",
+        "description": "Follow to sewer"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 10,
+        "type": "Sewers",
+        "description": "Aid to vagrants"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 20,
+        "type": "Sewers",
+        "description": "Destroy drug lab"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Captured dealers"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 180,
+        "type": "Defeated Foe",
+        "description": "Defeated alligators"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Defeated Arclight"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Rescue",
+        "description": "Saved Skids"
+      },
+      {
+        "date": "5/15/2025",
+        "gameDate": "1/14/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Rescue Felicia at Ellis Island"
+      },
+      {
+        "date": "5/15/2025",
+        "gameDate": "",
+        "amount": 200,
+        "type": "Custom",
+        "description": "Ch 27"
+      },
+      {
+        "date": "5/14/2025",
+        "gameDate": "1/14/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "5/1/2025",
+        "gameDate": "1/13/1977",
+        "amount": 5,
+        "type": "Investigation",
+        "description": "investigating Bellevue \"walking dead\""
+      },
+      {
+        "date": "5/1/2025",
+        "gameDate": "1/13/1977",
+        "amount": 10,
+        "type": "Investigation",
+        "description": "talking to Dr. List"
+      },
+      {
+        "date": "5/1/2025",
+        "gameDate": "1/13/1977",
+        "amount": 10,
+        "type": "Make Commitment",
+        "description": "met Felicia Frost, promised to find Johnny"
+      },
+      {
+        "date": "5/1/2025",
+        "gameDate": "1/13/1977",
+        "amount": 20,
+        "type": "",
+        "description": "surviving bomb at Johnny's apartment"
+      },
+      {
+        "date": "5/1/2025",
+        "gameDate": "1/13/1977",
+        "amount": 180,
+        "type": "Defeated Foe",
+        "description": "defeated 6 zombies at factory"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -58,
+        "type": "Die Roll",
+        "description": "Spent karma on Force Attack (2 targets)"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -37,
+        "type": "Die Roll",
+        "description": "Spent karma on Force Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Force Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Force Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Force Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 57,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": 0,
+        "type": "Resource FEAT",
+        "description": "Flak Jacket (Excellent) - FAILED [Bank Loan]"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -100,
+        "type": "Power Stunt",
+        "description": "Sonic Stun (Sound Generation) - Success"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 55,
+        "type": "Event Award",
+        "description": "Hillside Ambush, Stop Destructive Crime, Arrest Destructive Crime, Rescue ×4 (base 110 ×3 ÷6)"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 25,
+        "type": "Encounter Award",
+        "description": "Castle Tower, Foe: Hydra Prototype Trooper(30), Stop Destructive Crime (base 50 ×3 ÷6)"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 130,
+        "type": "Encounter Award",
+        "description": "Boss Fight at Time Machine, Foe: Hydra Prototype Trooper(30)+Baron Wolfgang von Strucker(40)+Warrior Woman(50), Stop Global Conspiracy (base 260 ×3 ÷6)"
+      }
+    ],
+    "movement": {
+      "fly": 15,
+      "run": 2,
+      "swim": 1
+    },
+    "physical": {
+      "height": "5'9\"",
+      "weight": "165",
+      "eyeColor": "blue-gray",
+      "hairColor": "Dark red"
+    },
+    "resources": {
+      "rank": "Excellent",
+      "value": 20
+    },
+    "popularity": {
+      "value": 0
+    },
+    "bio": "<p>The son of earthquake researchers, Kel Tharpe develops mutant powers that enable him to be a walking sound machine.</p>\n<p>Civilian ID Pic:<br><img src=\"faserip/tokens/PCs/robot%20kel%20tharpe.png\" alt=\"\" width=\"83\" height=\"125\"></p>",
+    "foundryImg": "faserip/tokens/PCs/screamwave%2002.png"
   },
   {
     "id": "wartorn",
     "hero": "Wartorn",
-    "real": "Unknown",
+    "real": "",
     "age": null,
     "gender": "Male",
-    "origin": "Alien (Celtic War God Avatar)",
+    "origin": "Altered Human",
+    "identityType": "secret",
     "status": "active",
     "stats": {
       "F": {
         "rank": "Amazing",
-        "value": 50
+        "value": 51
       },
       "A": {
         "rank": "Amazing",
-        "value": 50
+        "value": 51
       },
       "S": {
         "rank": "Remarkable",
-        "value": 33
+        "value": 36
       },
       "E": {
         "rank": "Remarkable",
         "value": 30
       },
       "R": {
-        "rank": "Feeble",
+        "rank": "Typical",
         "value": 6
       },
       "I": {
-        "rank": "Poor",
+        "rank": "Good",
         "value": 10
       },
       "P": {
@@ -243,12 +3578,12 @@
         "value": 30
       }
     },
-    "health": 163,
-    "karma": 46,
+    "health": 168,
+    "karma": 433,
     "powers": [
       {
         "name": "Regeneration",
-        "rank": "Poor",
+        "rank": "Good",
         "value": 10
       },
       {
@@ -258,8 +3593,8 @@
       },
       {
         "name": "Body Armor",
-        "rank": "Typical",
-        "value": 7
+        "rank": "Good",
+        "value": 13
       },
       {
         "name": "Shocking Touch",
@@ -271,8 +3606,1389 @@
       "Thrown Objects",
       "Sharp Weapons"
     ],
-    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/wartorn.png",
-    "joined": "Mid-January 1977"
+    "contacts": [
+      {
+        "name": "Lt. LaMont",
+        "type": "Professional",
+        "disposition": "Friendly",
+        "location": "Precinct",
+        "notes": ""
+      }
+    ],
+    "karmaHistory": [
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -15,
+        "type": "Die Roll",
+        "description": "Spent karma on Dodging"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -23,
+        "type": "Die Roll",
+        "description": "Spent karma on Edged Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Dodging"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Charging"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Edged Attack"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "10/27/1944",
+        "amount": 46,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "10/27/1944",
+        "amount": 15,
+        "type": "Encounter Award",
+        "description": "Foe: Hydra Prototype Trooper(30) (base 30 ×3 ÷6)"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "10/27/1944",
+        "amount": -240,
+        "type": "Power Advancement",
+        "description": "+1 body armor"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "",
+        "amount": 46,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "",
+        "amount": -100,
+        "type": "Power Stunt",
+        "description": "Lightning Teleportation (Electrical Manipulation) - Success"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "",
+        "amount": -100,
+        "type": "Power Stunt",
+        "description": "Lightning Teleportation (Electrical Manipulation) - Success"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "",
+        "amount": -410,
+        "type": "Power Advancement",
+        "description": "Armor"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "3/14/1977",
+        "amount": 300,
+        "type": "Custom",
+        "description": "Nightlife Ch 26 rewards."
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Grabbing"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "",
+        "amount": 46,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 0,
+        "type": "Popularity FEAT",
+        "description": "Help us defeat Fu Manchu (neutral) - FAILED"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 30,
+        "type": "Custom",
+        "description": "Rescuing Cameron Seaver"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Ending Cameron's asthma"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 50,
+        "type": "Custom",
+        "description": "Rescuing the injured zoo worker: +20"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 60,
+        "type": "Custom",
+        "description": "Defeating Gator: +40"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 35,
+        "type": "Custom",
+        "description": "Capturing Hound Dog and Pals: +15"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 50,
+        "type": "Custom",
+        "description": "Defeating the monster: +30"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 20,
+        "type": "Custom",
+        "description": "Escaping Roxxon Plaza trap"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Following up on Hiram's ad (giving him a 2nd chance)"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 20,
+        "type": "Custom",
+        "description": "Surrendering to protect the priest"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Not attacking Kingpin"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 30,
+        "type": "Custom",
+        "description": "Successful crate infiltration"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Astrid cracking the elevator"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": 46,
+        "type": "Session Award",
+        "description": "Episode #17 karma award"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": -100,
+        "type": "Power Stunt",
+        "description": "Lightning Teleportation (Electrical Manipulation) - Success"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": -400,
+        "type": "Power Advancement",
+        "description": "Body Armor -> Good"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": -240,
+        "type": "Power Advancement",
+        "description": "Body Armor -. Good"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": -1030,
+        "type": "Ability Advancement",
+        "description": "Strength -> 36"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": -300,
+        "type": "Ability Advancement",
+        "description": "End -> 31"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": -500,
+        "type": "Ability Advancement",
+        "description": "F -> 51"
+      },
+      {
+        "date": "1/8/2026",
+        "gameDate": "",
+        "amount": -500,
+        "type": "Ability Advancement",
+        "description": "A -> 51"
+      },
+      {
+        "date": "12/11/2025",
+        "gameDate": "",
+        "amount": -120,
+        "type": "Power Stunt",
+        "description": "Lightning Teleportation (Electrical Manipulation) - Success"
+      },
+      {
+        "date": "12/11/2025",
+        "gameDate": "3/9/1977",
+        "amount": 20,
+        "type": "Stop Destructive Crime",
+        "description": "Destroyed Project: TODE machine"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 75,
+        "type": "Defeating Monstrous Foe",
+        "description": "Defeated Robot Hulk 2.0"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Awesome Android"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Robot Mad Thinker"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Freed Bruce Banner"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Prevent national conspiracy"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Restored Jim Hammond, the Original Human Torch, to life."
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Robot Man-Ape"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated Gorilla Robot #1"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated Gorilla Robot #2"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 100,
+        "type": "Multiple Rescues",
+        "description": "Freed 10+ Wakandan prisoners (Joshua, Khanata, others)"
+      },
+      {
+        "date": "10/30/2025",
+        "gameDate": "",
+        "amount": -118,
+        "type": "Power Stunt",
+        "description": "Lightning Teleportation (Electrical Manipulation) - Success"
+      },
+      {
+        "date": "10/30/2025",
+        "gameDate": "",
+        "amount": -132,
+        "type": "Power Stunt",
+        "description": "Lightning Teleportation (Electrical Manipulation) - Success"
+      },
+      {
+        "date": "10/30/2025",
+        "gameDate": "3/6/1977",
+        "amount": 20,
+        "type": "Custom",
+        "description": "CH11: Swaying the crowed on a later attempt\n"
+      },
+      {
+        "date": "10/17/2025",
+        "gameDate": "3/5/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Defeat Rhino"
+      },
+      {
+        "date": "10/17/2025",
+        "gameDate": "3/5/1977",
+        "amount": 40,
+        "type": "Defeated Foe",
+        "description": "Defeat Mad-Dog"
+      },
+      {
+        "date": "10/17/2025",
+        "gameDate": "3/5/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Defeat The Fly"
+      },
+      {
+        "date": "10/17/2025",
+        "gameDate": "3/5/1977",
+        "amount": 10,
+        "type": "Gaming Award: Role-Playing",
+        "description": ""
+      },
+      {
+        "date": "10/17/2025",
+        "gameDate": "3/5/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Prevent Roxxon truck from exploding"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 20,
+        "type": "Custom",
+        "description": "Act of Charity - helping with repairs at a food bank."
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 10,
+        "type": "Making comittment",
+        "description": "Promise to find Cameron"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 10,
+        "type": "Making comittment",
+        "description": "Taking aspirator"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 15,
+        "type": "Violent Crime -- Arrest",
+        "description": "Defeat Si-Fan assassins at Sammy's"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Violent Crime -- Stop/Prevent",
+        "description": "Prevent Sammy from being kidnapped"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Saving the parachutist"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 100,
+        "type": "Defeating Unearthly Foe",
+        "description": "Capturing Mongoose"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 45,
+        "type": "",
+        "description": "Capturing 5 maggia thugs"
+      },
+      {
+        "date": "10/2/2025",
+        "gameDate": "3/7/1977",
+        "amount": 10,
+        "type": "Gaming Award: Role-Playing",
+        "description": ""
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "",
+        "amount": -40,
+        "type": "Daily Roll",
+        "description": "Spent daily karma on Vibranium Spear (Equipment)"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Daily Roll",
+        "description": "Spent daily karma on Vibranium Spear"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 10,
+        "type": "Weekly Reward",
+        "description": "Weekly reward"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 100,
+        "type": "Defeated Foe",
+        "description": "Defeat 10 skeletal ghosts"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Heroic role-playing"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 5,
+        "type": "Role-Playing",
+        "description": "speech by Astrid"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Defeat Lee Min"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 50,
+        "type": "Arrest Foe",
+        "description": "Arrest Lee Min"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 100,
+        "type": "Defeated Foe",
+        "description": "Defeat Silver Samurai"
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 30,
+        "type": "Stop Local Conspiracy",
+        "description": ""
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 10,
+        "type": "Local Conspiracy Arrest",
+        "description": ""
+      },
+      {
+        "date": "9/18/2025",
+        "gameDate": "2/26/1977",
+        "amount": 30,
+        "type": "Defeated Foe",
+        "description": "Capture Si Fan Assassins"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 50,
+        "type": "Defeating Amazing foe",
+        "description": "Defeat Deathlok simulacrum"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeat Batboy gang members"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 40,
+        "type": "Rescue",
+        "description": "Rescue Tak's parents"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 10,
+        "type": "Reward",
+        "description": "Return stolen money"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/12/1977",
+        "amount": 10,
+        "type": "Reward",
+        "description": "Return stolen weapons"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/19/1977",
+        "amount": 10,
+        "type": "Weekly Reward",
+        "description": "Weekly reward"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/19/1977",
+        "amount": 50,
+        "type": "Defeating Amazing foe",
+        "description": "Capturing White Dragon"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/19/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Capturing Dragonlords"
+      },
+      {
+        "date": "9/4/2025",
+        "gameDate": "2/19/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Capturing a Si-Fan assassin"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Chapter 21"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 60,
+        "type": "Rescue",
+        "description": "Save 3 workmen from falling to their death"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Extinguish burning car"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 40,
+        "type": "Rescue",
+        "description": "Rescue 2 people from electrified car"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 50,
+        "type": "Defeat Amazing foe",
+        "description": "Defeating Capt. America w/out injuring him"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 100,
+        "type": "Defeat Monstrous foe",
+        "description": "Defeating Iron Man w/out injuring him"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 0,
+        "type": "",
+        "description": "Ch 22: "
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable foe",
+        "description": "Defeat Beetle"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 50,
+        "type": "Defeating Amazing foe",
+        "description": "Defeat Blizzard"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 75,
+        "type": "Defeating Monstrous foe",
+        "description": "Defeat Constrictor"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "Resuce",
+        "description": "Rescue Tak"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "Stop destructive crime",
+        "description": "Prevent Property destruction"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 5,
+        "type": "Making a commitment",
+        "description": "Promising to rescue Tak's parents"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 25,
+        "type": "",
+        "description": "Defeat Frankenstein robot"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "",
+        "description": "Defeat Werewolf robot"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "",
+        "description": "Defeat clown robot"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 10,
+        "type": "",
+        "description": "Defeat robot children"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "",
+        "description": "Defeat robot vampire"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 20,
+        "type": "",
+        "description": "Defeat robot mummy"
+      },
+      {
+        "date": "8/21/2025",
+        "gameDate": "2/12/1977",
+        "amount": 30,
+        "type": "",
+        "description": "Defeat robot dragons"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Daily Roll",
+        "description": "Spent daily karma on Sharp Weapons (Talent)"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Daily Roll",
+        "description": "Spent daily karma on Sharp Weapons (Talent)"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Chapter 18"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 15,
+        "type": "",
+        "description": "Capturing the tongs:"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 50,
+        "type": "",
+        "description": "Forcing Silver Samurai to teleport w/o Thors help"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 15,
+        "type": "",
+        "description": "Defeating thugs"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 30,
+        "type": "",
+        "description": "Freeing teenagers"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 75,
+        "type": "",
+        "description": "Defeating robots"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 60,
+        "type": "",
+        "description": "Reviving Avengers"
+      },
+      {
+        "date": "8/7/2025",
+        "gameDate": "2/5/1977",
+        "amount": 100,
+        "type": "",
+        "description": "Confiscating drugs"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "",
+        "amount": -194,
+        "type": "Power Stunt",
+        "description": "Electrical TP"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/29/1977",
+        "amount": 15,
+        "type": "Arrest for other crimes (drug dealing)",
+        "description": "Capturing the Dragonlords"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/29/1977",
+        "amount": 20,
+        "type": "Rescue (saving life indirectly)",
+        "description": "Convincing Harry to go to rehab"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/29/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable-level foe",
+        "description": "Defeating the Beetle"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/29/1977",
+        "amount": 15,
+        "type": "Arrest for other crimes",
+        "description": "Defeating the Dragonlords"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/30/1977",
+        "amount": 50,
+        "type": "Stopped major disaster and prevented harm to civilians and property",
+        "description": "Preventing garbage truck from moving at all"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/30/1977",
+        "amount": 20,
+        "type": "Lives saved by preventing situation from occurring",
+        "description": "Rescuing mother and baby (preemptively)"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/30/1977",
+        "amount": 20,
+        "type": "Vendor rescued by halting the truck before threat arose",
+        "description": "Rescuing newsstand vendor (preemptively)"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/30/1977",
+        "amount": 10,
+        "type": "Arresting criminals involved in other crimes",
+        "description": "Capturing Dragonlords on or near truck"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/31/1977",
+        "amount": 50,
+        "type": "Defeating Amazing-level foe",
+        "description": "Defeating the Blizzard"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/31/1977",
+        "amount": 15,
+        "type": "Arrest for other crimes",
+        "description": "Defeating the Dragonlords"
+      },
+      {
+        "date": "7/24/2025",
+        "gameDate": "1/31/1977",
+        "amount": 20,
+        "type": "Saving a life from imminent threat",
+        "description": "Rescuing Tak"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeating the Si Fan assassins"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 100,
+        "type": "Rescue",
+        "description": "Rescuing looters from falling sign"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Defeating Constrictor"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Arrest Violent Criminal",
+        "description": "Arrest Constrictor"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop Violent Crime",
+        "description": "Dragonlords/Batboys at Imperial Theater"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Arrest Violent Criminal",
+        "description": "Dragonlords/Batboys at Imperial Theater"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeating the Dragonlords"
+      },
+      {
+        "date": "7/10/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Defeating the Faces of Fear:"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Rescue Eddie Wong (module)",
+        "description": "7. Eddie Takes a Dive"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Capture Killer Shrike (module)",
+        "description": "8. Fireworks Trap"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 60,
+        "type": "Arrest 6 Dragonlords ",
+        "description": "8. Fireworks Trap"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Put out fire in warehouse",
+        "description": "Avoided significant property damage"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Killer Shrike as Amazing foe ",
+        "description": "8. Fireworks Trap"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 25,
+        "type": "Stop destructive crime ",
+        "description": "8. Fireworks Trap"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Rescue Mei Li ",
+        "description": "9. Mei Li Takes a Plunge"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 15,
+        "type": "Arrest 3 thugs ",
+        "description": "9. Mei Li Takes a Plunge"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Give Wong family money ",
+        "description": "9. Mei Li Takes a Plunge"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop local conspiracy ",
+        "description": "9. Mei Li Takes a Plunge"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Protect Linda Fong ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Arrest 4 thugs ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 75,
+        "type": "Defeat Dreadnought ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Promise to help Tigers' Claw ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 25,
+        "type": "Stop destructive crime ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop local conspiracy ",
+        "description": "11. The Oriental Garden"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": -120,
+        "type": "Power Advancement",
+        "description": "Body Armor 6 to 7"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": -300,
+        "type": "Ability Advancement",
+        "description": "Advanced strength to 31"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": -310,
+        "type": "Ability Advancement",
+        "description": "Advanced strength to 32"
+      },
+      {
+        "date": "6/26/2025",
+        "gameDate": "1/28/1977",
+        "amount": -320,
+        "type": "Ability Advancement",
+        "description": "Advanced strength to 33"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 0,
+        "type": "No Karma awards",
+        "description": "3. Do Ghosts Get Hungry?"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Arrest 6 Dragonlords ",
+        "description": "4. The China Star"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop violent crime ",
+        "description": "4. The China Star"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 20,
+        "type": "Rescue Mei Li ",
+        "description": "4. The China Star"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 35,
+        "type": "Arrest 7 assassins ",
+        "description": "5. What's in the Box?"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 30,
+        "type": "Stop violent crime ",
+        "description": "5. What's in the Box?"
+      },
+      {
+        "date": "6/13/2025",
+        "gameDate": "1/28/1977",
+        "amount": 5,
+        "type": "Promise to stop White Dragon ",
+        "description": "6. Oriental Curiosities"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Heroic roleplaying"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 120,
+        "type": "Arrest",
+        "description": "12 villains"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 40,
+        "type": "Defeated Foe",
+        "description": "Defeated Harpoon"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 100,
+        "type": "Defeated Foe",
+        "description": "Defeated Vertigo"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Rescued Callisto"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Captured Black Talon"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Captured Frankenstein's Monster"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 30,
+        "type": "Defeated Foe",
+        "description": "Catpured Gypsy Moth"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 30,
+        "type": "Defeated Foe",
+        "description": "Catpured Scarecrow"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Captured Shroud"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 30,
+        "type": "Defeated Foe",
+        "description": "Captured Tatterdemalion"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 75,
+        "type": "Defeated Foe",
+        "description": "Captured Werewolf"
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Defeated \"Lady Anguish\""
+      },
+      {
+        "date": "6/6/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Captured Mr. Fear"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 5,
+        "type": "Make Commitment",
+        "description": "Accept Batholomew's offer"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 5,
+        "type": "Make Commitment",
+        "description": "Follow to sewer"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 10,
+        "type": "Sewers",
+        "description": "Aid to vagrants"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 20,
+        "type": "Sewers",
+        "description": "Destroy drug lab"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 15,
+        "type": "Defeated Foe",
+        "description": "Captured drug dealers"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 180,
+        "type": "Defeated Foe",
+        "description": "Defeated alligators"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Defeated Arclight"
+      },
+      {
+        "date": "5/29/2025",
+        "gameDate": "1/21/1977",
+        "amount": 50,
+        "type": "Rescue",
+        "description": "Saved Skids"
+      },
+      {
+        "date": "5/17/2025",
+        "gameDate": "1/21/1977",
+        "amount": 200,
+        "type": "Custom",
+        "description": "Fight w/Sentinels on Ellis Island."
+      },
+      {
+        "date": "5/15/2025",
+        "gameDate": "1/21/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Edged Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Edged Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 46,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 55,
+        "type": "Event Award",
+        "description": "Hillside Ambush, Stop Destructive Crime, Arrest Destructive Crime, Rescue ×4 (base 110 ×3 ÷6)"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 25,
+        "type": "Encounter Award",
+        "description": "Castle Tower, Foe: Hydra Prototype Trooper(30), Stop Destructive Crime (base 50 ×3 ÷6)"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 130,
+        "type": "Encounter Award",
+        "description": "Boss Fight at Time Machine, Foe: Hydra Prototype Trooper(30)+Baron Wolfgang von Strucker(40)+Warrior Woman(50), Stop Global Conspiracy (base 260 ×3 ÷6)"
+      }
+    ],
+    "movement": {
+      "run": 3,
+      "swim": 1,
+      "teleport": 15
+    },
+    "resources": {
+      "rank": "Typical",
+      "value": 6
+    },
+    "popularity": {
+      "value": 10
+    },
+    "bio": "<p>civilian ID pic:<br><img src=\"faserip/tokens/PCs/war-torn%20secret%20id.png\" alt=\"\" width=\"73\" height=\"137\"></p>",
+    "foundryImg": "faserip/tokens/PCs/wartorn_01.png"
   },
   {
     "id": "psyren",
@@ -280,27 +4996,28 @@
     "real": "Felicia Frost",
     "age": 18,
     "gender": "Female",
-    "origin": "Mutant",
+    "origin": "Human (Mutant)",
+    "identityType": "secret",
     "status": "active",
     "stats": {
       "F": {
-        "rank": "Feeble",
+        "rank": "Typical",
         "value": 6
       },
       "A": {
-        "rank": "Poor",
+        "rank": "Good",
         "value": 10
       },
       "S": {
-        "rank": "Feeble",
+        "rank": "Typical",
         "value": 6
       },
       "E": {
-        "rank": "Poor",
+        "rank": "Good",
         "value": 10
       },
       "R": {
-        "rank": "Poor",
+        "rank": "Good",
         "value": 10
       },
       "I": {
@@ -313,7 +5030,7 @@
       }
     },
     "health": 32,
-    "karma": 80,
+    "karma": 1201,
     "powers": [
       {
         "name": "Psionic Attack",
@@ -321,20 +5038,324 @@
         "value": 20
       },
       {
-        "name": "Telepathy",
-        "rank": "Remarkable",
-        "value": 30
-      },
-      {
         "name": "Resistance to Radiation",
         "rank": "Amazing",
         "value": 50
+      },
+      {
+        "name": "Telepathy",
+        "rank": "Remarkable",
+        "value": 30
       }
     ],
     "talents": [
-      "Performer (Singer)"
+      "Performer"
     ],
-    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/psyren.png"
+    "karmaHistory": [
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": -146,
+        "type": "Power Stunt",
+        "description": "Find Mind - Success"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 80,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 0,
+        "type": "Popularity FEAT",
+        "description": "convince cameron (neutral) - SUCCESS"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 30,
+        "type": "Custom",
+        "description": "Rescuing Cameron Seaver"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Ending Cameron's asthma"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 50,
+        "type": "Custom",
+        "description": "Rescuing the injured zoo worker: +20"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 60,
+        "type": "Custom",
+        "description": "Defeating Gator: +40"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 35,
+        "type": "Custom",
+        "description": "Capturing Hound Dog and Pals: +15"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 50,
+        "type": "Custom",
+        "description": "Defeating the monster: +30"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 20,
+        "type": "Custom",
+        "description": "Escaping Roxxon Plaza trap"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Following up on Hiram's ad (giving him a 2nd chance)"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 20,
+        "type": "Custom",
+        "description": "Surrendering to protect the priest"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Not attacking Kingpin"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 30,
+        "type": "Custom",
+        "description": "Successful crate infiltration"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Astrid cracking the elevator"
+      },
+      {
+        "date": "12/11/2025",
+        "gameDate": "3/9/1977",
+        "amount": 20,
+        "type": "Stop Destructive Crime",
+        "description": "Destroyed Project: TODE machine"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 75,
+        "type": "Defeating Monstrous Foe",
+        "description": "Defeated Robot Hulk 2.0"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Awesome Android"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Robot Mad Thinker"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Freed Bruce Banner"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Prevent national conspiracy"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Restored Jim Hammond, the Original Human Torch, to life."
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "",
+        "amount": 150,
+        "type": "Custom",
+        "description": ""
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "",
+        "amount": -139,
+        "type": "Power Stunt",
+        "description": "Link Minds - Success"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Robot Man-Ape"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated Gorilla Robot #1"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated Gorilla Robot #2"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 100,
+        "type": "Multiple Rescues",
+        "description": "Freed 10+ Wakandan prisoners (Joshua, Khanata, others)"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "",
+        "amount": -69,
+        "type": "Die Roll",
+        "description": "Spent karma on Psyche FEAT"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "",
+        "amount": -100,
+        "type": "Power Stunt",
+        "description": "Find Mind - Success"
+      },
+      {
+        "date": "2/20/2026",
+        "gameDate": "",
+        "amount": 80,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "2/19/2026",
+        "gameDate": "3/14/1977",
+        "amount": 300,
+        "type": "Custom",
+        "description": "Nightlife Ch 26 rewards."
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "",
+        "amount": -110,
+        "type": "Power Stunt",
+        "description": "Link Minds - Success"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "10/27/1944",
+        "amount": 15,
+        "type": "Encounter Award",
+        "description": "Foe: Hydra Prototype Trooper(30) (base 30 ×3 ÷6)"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "10/27/1944",
+        "amount": 80,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -100,
+        "type": "Power Stunt",
+        "description": "Find Mind - Success"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 80,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "3/21/2026",
+        "gameDate": "10/27/1944",
+        "amount": 55,
+        "type": "Event Award",
+        "description": "Hillside Ambush, Stop Destructive Crime, Arrest Destructive Crime, Rescue ×4 (base 110 ×3 ÷6)"
+      },
+      {
+        "date": "3/21/2026",
+        "gameDate": "10/27/1944",
+        "amount": 25,
+        "type": "Encounter Award",
+        "description": "Castle Tower, Foe: Hydra Prototype Trooper(30), Stop Destructive Crime (base 50 ×3 ÷6)"
+      },
+      {
+        "date": "3/21/2026",
+        "gameDate": "10/27/1944",
+        "amount": 130,
+        "type": "Encounter Award",
+        "description": "Boss Fight at Time Machine, Foe: Hydra Prototype Trooper(30)+Baron Wolfgang von Strucker(40)+Warrior Woman(50), Stop Global Conspiracy (base 260 ×3 ÷6)"
+      }
+    ],
+    "movement": {
+      "run": 2,
+      "swim": 1
+    },
+    "physical": {
+      "height": "5' 4\"",
+      "weight": "110 lbs.",
+      "eyeColor": "Blue",
+      "hairColor": "Black",
+      "nationality": "American",
+      "occupation": "Waitress",
+      "maritalStatus": "Single",
+      "legalStatus": "No Criminal Record"
+    },
+    "resources": {
+      "rank": "Typical",
+      "value": 6
+    },
+    "popularity": {
+      "value": 0
+    },
+    "bio": "Felicia Frost and her twin brother, Johnny, were born in 1959 in a secret laboratory as part of an experiment designed to inhibit the powers of mutant humans. By infecting their bodies with a new strain of virus, their DNA structures were altered, effectively subduing their powers before they could develop for five years they lived in the hidden science complex. Without the love of their parents, they had only each other. They grew up under the close observation of impassive scientists, and they were subjected to countless experiments, many of which were cruel and inhumane.\nAs the final stage of the experiment, all memories of their lives at the institute were concealed by mental blocks. False memories were implanted within them, and they were adopted by a couple living in Manhattan.\nTheir stepparents knew of the experiments. They received $50,000 to raise the twins and to maintain the secret of the twins past lives.\nAs part of the agreement, a scientist posing as the family doctor was allowed to see the children monthly. If the doctor discovered any signs of developing powers, he was instructed to inform the institute immediately.\nUnfortunately, the scientists had not chosen the children's parents well. By the time the twins were teenagers, their stepfather had died, but not before gambling and drinking all of their money away.\nKnowing they were mutants, their stepfather had always loathed them, and he secretly feared them. Their stepmother was exactly the opposite. She cared for the twins deeply, but she could not support them.\nFelicia and Johnny were forced to take to the streets in order to survive. Felicia found employment as a singer in a sleazy night club. Much to her regret, Johnny joined a gang called the Flashing Blades, and he made money by selling drugs and stealing cars.\nFelicia was unaware that she became the love interest of Alan Fagan (Mister Fear), who saw one of her performances. As part of the deal between Mister Fear and the Fixer and Mentallo, Felicia was captured and subjected to the Mind Control Power of the hypnoporter.\nDuring the process, the Fixer and Mentallo penetrated the mental blocks placed in her mind by the scientists. They exposed her to a strong dose of radiation in order to allow her mutant powers to develop. After fashioning a costume for her, they dubbed her Lady Anguish. They have been using her in their nefarious schemes.\nBecause of the effects of Mind Control, Felicia is unaware of her alternate identity as Lady Anguish. Although her personality remains intact, she has no memory of Mister Fear and the Faces of Fear.\nRecently, the Fixer and Mentallo secretly arranged for Felicia to be hired as a waitress at the Metropolitan Museum of Art. Her job brings her into contact with the player characters.\nScientists from the secret institute have been attempting to locate the twins for some time. Felicia is abducted by them during the adventure.\n",
+    "foundryImg": "faserip/tokens/PCs/felicia_frost_02.png"
   },
   {
     "id": "crosswise",
@@ -342,7 +5363,8 @@
     "real": "Johnny Frost",
     "age": 18,
     "gender": "Male",
-    "origin": "Mutant",
+    "origin": "Human (Mutant)",
+    "identityType": "secret",
     "status": "active",
     "stats": {
       "F": {
@@ -350,32 +5372,32 @@
         "value": 20
       },
       "A": {
-        "rank": "Poor",
+        "rank": "Good",
         "value": 10
       },
       "S": {
-        "rank": "Feeble",
+        "rank": "Typical",
         "value": 6
       },
       "E": {
-        "rank": "Poor",
+        "rank": "Good",
         "value": 10
       },
       "R": {
-        "rank": "Feeble",
+        "rank": "Typical",
         "value": 6
       },
       "I": {
-        "rank": "Feeble",
+        "rank": "Typical",
         "value": 6
       },
       "P": {
-        "rank": "Feeble",
+        "rank": "Typical",
         "value": 6
       }
     },
     "health": 46,
-    "karma": 18,
+    "karma": 1110,
     "powers": [
       {
         "name": "Protected Senses",
@@ -388,7 +5410,7 @@
         "value": 50
       },
       {
-        "name": "Absorption Power",
+        "name": "Energy Reflection",
         "rank": "Amazing",
         "value": 50
       },
@@ -398,24 +5420,303 @@
         "value": 50
       },
       {
-        "name": "Light Emission",
-        "rank": "Amazing",
-        "value": 50
+        "name": "Light Emision",
+        "rank": "Remarkable",
+        "value": 30
       }
     ],
     "talents": [
       "Martial Arts B"
     ],
-    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/crosswise.png"
+    "karmaHistory": [
+      {
+        "date": "3/5/2026",
+        "gameDate": "10/27/1944",
+        "amount": 18,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "3/5/2026",
+        "gameDate": "10/27/1944",
+        "amount": 15,
+        "type": "Encounter Award",
+        "description": "Foe: Hydra Prototype Trooper(30) (base 30 ×3 ÷6)"
+      },
+      {
+        "date": "2/20/2026",
+        "gameDate": "",
+        "amount": 18,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": -23,
+        "type": "Die Roll",
+        "description": "Spent karma on Energy Attack"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 0,
+        "type": "Popularity FEAT",
+        "description": "request (neutral) - SUCCESS"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 18,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 0,
+        "type": "Popularity FEAT",
+        "description": "convince Cameron (neutral) - FAILED"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 30,
+        "type": "Custom",
+        "description": "Rescuing Cameron Seaver"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Ending Cameron's asthma"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 50,
+        "type": "Custom",
+        "description": "Rescuing the injured zoo worker: +20"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 60,
+        "type": "Custom",
+        "description": "Defeating Gator: +40"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 35,
+        "type": "Custom",
+        "description": "Capturing Hound Dog and Pals: +15"
+      },
+      {
+        "date": "1/22/2026",
+        "gameDate": "3/13/1977",
+        "amount": 50,
+        "type": "Custom",
+        "description": "Defeating the monster: +30"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 20,
+        "type": "Custom",
+        "description": "Escaping Roxxon Plaza trap"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Following up on Hiram's ad (giving him a 2nd chance)"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 20,
+        "type": "Custom",
+        "description": "Surrendering to protect the priest"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Not attacking Kingpin"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 30,
+        "type": "Custom",
+        "description": "Successful crate infiltration"
+      },
+      {
+        "date": "1/18/2026",
+        "gameDate": "",
+        "amount": 10,
+        "type": "Custom",
+        "description": "Astrid cracking the elevator"
+      },
+      {
+        "date": "12/11/2025",
+        "gameDate": "3/9/1977",
+        "amount": 20,
+        "type": "Stop Destructive Crime",
+        "description": "Destroyed Project: TODE machine"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 75,
+        "type": "Defeating Monstrous Foe",
+        "description": "Defeated Robot Hulk 2.0"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Awesome Android"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Robot Mad Thinker"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 20,
+        "type": "Rescue",
+        "description": "Freed Bruce Banner"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Prevent national conspiracy"
+      },
+      {
+        "date": "11/27/2025",
+        "gameDate": "3/8/1977",
+        "amount": 40,
+        "type": "Custom",
+        "description": "Restored Jim Hammond, the Original Human Torch, to life."
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 50,
+        "type": "Defeating Amazing Foe",
+        "description": "Defeated Robot Man-Ape"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated Gorilla Robot #1"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 30,
+        "type": "Defeating Remarkable Foe",
+        "description": "Defeated Gorilla Robot #2"
+      },
+      {
+        "date": "11/13/2025",
+        "gameDate": "3/7/1977",
+        "amount": 100,
+        "type": "Multiple Rescues",
+        "description": "Freed 10+ Wakandan prisoners (Joshua, Khanata, others)"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -24,
+        "type": "Die Roll",
+        "description": "Spent karma on Evading"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "",
+        "amount": -10,
+        "type": "Die Roll",
+        "description": "Spent karma on Energy Attack"
+      },
+      {
+        "date": "3/19/2026",
+        "gameDate": "10/27/1944",
+        "amount": 18,
+        "type": "Session Award",
+        "description": "Session Award"
+      },
+      {
+        "date": "3/21/2026",
+        "gameDate": "10/27/1944",
+        "amount": 55,
+        "type": "Event Award",
+        "description": "Hillside Ambush, Stop Destructive Crime, Arrest Destructive Crime, Rescue ×4 (base 110 ×3 ÷6)"
+      },
+      {
+        "date": "3/21/2026",
+        "gameDate": "10/27/1944",
+        "amount": 25,
+        "type": "Encounter Award",
+        "description": "Castle Tower, Foe: Hydra Prototype Trooper(30), Stop Destructive Crime (base 50 ×3 ÷6)"
+      },
+      {
+        "date": "3/21/2026",
+        "gameDate": "10/27/1944",
+        "amount": 130,
+        "type": "Encounter Award",
+        "description": "Boss Fight at Time Machine, Foe: Hydra Prototype Trooper(30)+Baron Wolfgang von Strucker(40)+Warrior Woman(50), Stop Global Conspiracy (base 260 ×3 ÷6)"
+      },
+      {
+        "date": "3/21/2026",
+        "gameDate": "",
+        "amount": -40,
+        "type": "Die Roll",
+        "description": "Spent karma on Energy Attack"
+      }
+    ],
+    "movement": {
+      "swim": 1
+    },
+    "physical": {
+      "eyeColor": "Blue",
+      "hairColor": "Black",
+      "nationality": "American",
+      "occupation": "None",
+      "maritalStatus": "Single"
+    },
+    "resources": {
+      "rank": "Poor",
+      "value": 4
+    },
+    "popularity": {
+      "value": 0
+    },
+    "foundryImg": "faserip/tokens/PCs/johnny%20frost%2006.png"
   },
   {
     "id": "resilient",
     "hero": "Resilient",
-    "real": "Unknown",
+    "real": "",
     "age": 30,
     "gender": "Male",
-    "origin": "Altered Human",
-    "status": "reserve",
+    "origin": "Human (Altered Human)",
+    "identityType": "secret",
+    "status": "active",
     "stats": {
       "F": {
         "rank": "Amazing",
@@ -434,7 +5735,7 @@
         "value": 20
       },
       "R": {
-        "rank": "Poor",
+        "rank": "Good",
         "value": 10
       },
       "I": {
@@ -442,7 +5743,7 @@
         "value": 20
       },
       "P": {
-        "rank": "Shift 0",
+        "rank": "Feeble",
         "value": 2
       }
     },
@@ -455,14 +5756,14 @@
         "value": 40
       },
       {
-        "name": "Absorption Power",
-        "rank": "Remarkable",
-        "value": 20
-      },
-      {
         "name": "Body Armor",
         "rank": "Incredible",
         "value": 40
+      },
+      {
+        "name": "Absorption Power",
+        "rank": "Excellent",
+        "value": 20
       },
       {
         "name": "Leaping",
@@ -473,9 +5774,160 @@
     "talents": [
       "Acrobatics",
       "Blunt Weapons",
-      "Detective/Espionage"
+      "Detective Espionage"
     ],
-    "portrait": "https://github.com/bkurtisadams/greyhawk-calendar/blob/main/earth676/images/resilient.png",
-    "note": "Two appearances"
+    "contacts": [
+      {
+        "name": "Detective Contact",
+        "type": "",
+        "disposition": "Friendly",
+        "location": "",
+        "notes": ""
+      }
+    ],
+    "karmaHistory": [
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 20,
+        "type": "Charity",
+        "description": "Grand Hotel Charity Ball"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 50,
+        "type": "Defeated Foe",
+        "description": "Defeated major villain (Scorpion)"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 25,
+        "type": "Arrest",
+        "description": "Arrested Scorpion and handed over to authorities"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 20,
+        "type": "Prevention",
+        "description": "Prevented injuries to guests/civilians"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 20,
+        "type": "Defeated Foe",
+        "description": "Defeated Maggia thugs"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 10,
+        "type": "Prevention",
+        "description": "Avoided significant property damage"
+      },
+      {
+        "date": "3/19/2025",
+        "gameDate": "1/7/1977",
+        "amount": 10,
+        "type": "Role-Playing",
+        "description": "Heroic roleplaying"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/7/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly award"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/14/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly award"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/21/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly award"
+      },
+      {
+        "date": "12/20/2024",
+        "gameDate": "12/28/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly award"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/19/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly award"
+      },
+      {
+        "date": "11/29/2024",
+        "gameDate": "11/28/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly award"
+      },
+      {
+        "date": "11/26/2024",
+        "gameDate": "11/14/1976",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly award"
+      },
+      {
+        "date": "11/12/2024",
+        "gameDate": "11/12/1976",
+        "amount": 20,
+        "type": "Robbery – Stop/Prevent",
+        "description": "Stopped jewel store robbers"
+      },
+      {
+        "date": "11/12/2024",
+        "gameDate": "11/12/1976",
+        "amount": 10,
+        "type": "Robbery – Arrest",
+        "description": "Arrested robbers"
+      },
+      {
+        "date": "11/12/2024",
+        "gameDate": "11/12/1976",
+        "amount": 10,
+        "type": "Role-Playing (Gaming Award)",
+        "description": "Roleplayed"
+      },
+      {
+        "date": "",
+        "gameDate": "1/7/1977",
+        "amount": 10,
+        "type": "Weekly Award",
+        "description": "Weekly Reward"
+      }
+    ],
+    "movement": {
+      "run": 2,
+      "swim": 1
+    },
+    "physical": {
+      "height": "6' 2\"",
+      "weight": "200"
+    },
+    "resources": {
+      "rank": "Remarkable",
+      "value": 30
+    },
+    "popularity": {
+      "value": 10
+    },
+    "foundryImg": "faserip/tokens/PCs/resilient%20token.png"
   }
 ]
