@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": "t001",
     "session_date": "2024-11-12",
@@ -6,9 +6,13 @@
     "world_date_display": "Nov 12, 1976",
     "title": "Blackout and Break-In",
     "type": "mission",
-    "participants": ["astrid-stormbringer", "counter-strike", "resilient"],
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "resilient"
+    ],
     "summary": "A rolling blackout swept Lower Manhattan at 10:47 PM, plunging sixteen blocks into darkness. Three armed men used the chaos to smash into Castellano's Fine Jewelry on Bleecker Street.",
-    "body": "Tess Winters (Astrid), Ram Pau (Counter-Strike), and Resilient converged from different directions — Astrid walking home from her repair shop, Ram leaving a foundation meeting, and Resilient already on patrol. The impromptu team stopped the robbery, subdued the criminals, and parted ways with mutual respect. The team-to-be won its first victory together."
+    "body": "Tess Winters (Astrid), Ram Pau (Counter-Strike), and Resilient converged from different directions \u2014 Astrid walking home from her repair shop, Ram leaving a foundation meeting, and Resilient already on patrol. The impromptu team stopped the robbery, subdued the criminals, and parted ways with mutual respect. The team-to-be won its first victory together."
   },
   {
     "id": "t002",
@@ -17,13 +21,24 @@
     "world_date_display": "Nov 13, 1976",
     "title": "ESU Break-In: Mercs and Masks",
     "type": "mission",
-    "participants": ["astrid-stormbringer", "counter-strike"],
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike"
+    ],
     "summary": "Whiplash and Boomerang led a squad of A.I.M. agents through a breached wall at ESU's physics building, targeting specialized resonance scanners and harmonic frequency equipment.",
-    "body": "Ram Pau was attending a late-evening foundation meeting at ESU considering a grant proposal for dimensional research equipment. Tess Winters was finishing a contract repair job in the same building. Both were leaving around 10:30 PM when security alarms screamed and an explosion blew out a side wall. Ram and Tess separately slipped away to change — this was only their second encounter as heroes, and the recognition was immediate. A running battle erupted across the lab. The villains were systematically defeated and arrested. As they parted ways, Counter-Strike suggested they exchange contact information: \"We work well together.\" Astrid agreed. The team-up was becoming something more.",
     "sections": [
-      { "heading": "Civilian Setup", "text": "Ram Pau attended a late-evening meeting at ESU's physics building — his foundation was considering a grant proposal for dimensional research equipment. Meanwhile, Tess Winters was wrapping up a contract repair job in the same building, fixing damaged oscilloscopes and power regulators for the physics department. Both were leaving around 10:30 PM when the building's security alarms screamed and an explosion blew out a side wall." },
-      { "heading": "The Attack",     "text": "Whiplash and Boomerang led a squad of A.I.M. agents through the breach, hauling equipment toward a waiting truck. Ram and Tess separately slipped away to change. A running battle erupted across the lab — but the villains were systematically defeated and then arrested." },
-      { "heading": "Aftermath",      "text": "Campus security and police secured the scene. An exhausted physics professor confirmed the thieves had targeted \"specialized resonance scanners and harmonic frequency equipment.\" As they parted ways, Counter-Strike suggested they exchange contact information — \"We work well together.\" Astrid agreed. The team-up was becoming something more." }
+      {
+        "heading": "Civilian Setup",
+        "text": "Ram Pau attended a late-evening meeting at ESU's physics building \u2014 his foundation was considering a grant proposal for dimensional research equipment. Meanwhile, Tess Winters was wrapping up a contract repair job in the same building, fixing damaged oscilloscopes and power regulators for the physics department. Both were leaving around 10:30 PM when the building's security alarms screamed and an explosion blew out a side wall."
+      },
+      {
+        "heading": "The Attack",
+        "text": "Whiplash and Boomerang led a squad of A.I.M. agents through the breach, hauling equipment toward a waiting truck. Ram and Tess separately slipped away to change. A running battle erupted across the lab \u2014 but the villains were systematically defeated and then arrested."
+      },
+      {
+        "heading": "Aftermath",
+        "text": "Campus security and police secured the scene. An exhausted physics professor confirmed the thieves had targeted \"specialized resonance scanners and harmonic frequency equipment.\" As they parted ways, Counter-Strike suggested they exchange contact information \u2014 \"We work well together.\" Astrid agreed. The team-up was becoming something more."
+      }
     ]
   },
   {
@@ -33,8 +48,1348 @@
     "world_date_display": "Nov 15, 1976",
     "title": "Ram Pau Acquires the Silver Star",
     "type": "downtime",
-    "participants": ["counter-strike"],
+    "participants": [
+      "counter-strike"
+    ],
     "summary": "Ram Pau rents the Silver Star gas station from Sam Dugan, establishing what will become the Vigilants' base of operations.",
     "body": "Ram Pau rents the Silver Star gas station from Sam Dugan, establishing what will become the Vigilants' base of operations."
+  },
+  {
+    "id": "t004",
+    "world_date": "1976-11-16",
+    "world_date_display": "Nov 16, 1976",
+    "title": "\"Hulk\" on the News",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike"
+    ],
+    "summary": "Reports of the Hulk rampaging through Midtown pulled Astrid and Counter-Strike into action \u2014 but the creature turned out to be a robot duplicate, too tough to damage directly.",
+    "body": "Spider-Man swung in to assist, and together the trio realized it was a mechanical impostor. Unable to hurt it directly, they lured it to a Martinez Construction site where concrete had just been poured. The robot charged after them and sank into the wet concrete up to its neck \u2014 immobilized and deactivated. With only its head visible above the hardening concrete, Astrid located a concealed panel and removed a peculiar custom chip: advanced circuitry with strange markers she didn't recognize. Spider-Man quipped about \"mad scientists and their toys\" before webbing off."
+  },
+  {
+    "id": "t005",
+    "world_date": "1976-11-19",
+    "world_date_display": "Nov 19, 1976",
+    "title": "The Met Robbery",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike"
+    ],
+    "summary": "Curator Maximilian Pride summons costumed heroes to the Metropolitan Museum of Art to investigate the theft of a 17th-century grimoire \u2014 and a nervous caf\u00e9 waitress may know more than she lets on.",
+    "sections": [
+      {
+        "heading": "The Theft",
+        "text": "A priceless book had been stolen from the Metropolitan Museum of Art, dominating front pages and TV coverage. The artifact, \"A Madman's Mutterings\" (1690, by Bartholomew Jacobs), was a several-hundred-year-old grimoire rumored to contain ciphers for conjuring supernatural entities. Curator Maximilian Pride placed ads in major newspapers urging costumed heroes to meet him at the Met at 4:55 PM on November 19th."
+      },
+      {
+        "heading": "The Briefing",
+        "text": "A night watchman named Harry guided Astrid and Counter-Strike through the Great Hall \u2014 decorated with medieval tapestries and weaponry \u2014 into the museum's library. Curator Pride, an elderly man in a fine suit, briefed them on the theft: a locked display case had been smashed under an unnatural shroud of darkness with no signs of forced entry \u2014 only a triggered alarm and a 1920s fedora left behind bearing the note \"Hammerhead's puttin' the hammer down!\""
+      },
+      {
+        "heading": "Felicia Frost",
+        "text": "During the meeting, nervous caf\u00e9 waitress Felicia Frost arrived with coffee service. Clearly anxious, she spilled a cup while serving, then quickly cleaned it up and retreated. Pride explained the stolen grimoire was rumored to contain instructions for conjuring monstrous entities, and recent uncanny incidents made him fear the legend was real. He offered up to $50,000 for the book's safe return and asked for the team's contact information. The heroes agreed to investigate."
+      }
+    ]
+  },
+  {
+    "id": "t006",
+    "world_date": "1976-11-19",
+    "world_date_display": "Nov 19, 1976 (Evening)",
+    "title": "Dusk in the Park / Screams in the Dark",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike"
+    ],
+    "summary": "Felicia Frost confides that her twin brother Johnny stole the grimoire for the Flashing Blades \u2014 and a beaten gang member in Central Park warns of an imminent attack at Hank's Tavern.",
+    "sections": [
+      {
+        "heading": "Felicia's Confession",
+        "text": "As Astrid and Counter-Strike left the Met, they found Felicia Frost sitting on a park bench outside, clearly distressed. She finally broke down and confided that her twin brother Johnny Frost, a member of the Flashing Blades street gang, had stolen the grimoire. She overheard him discussing \"a job at the Met\" by phone the previous night. Felicia begged the heroes not to arrest Johnny but instead help convince him to leave the gang. The heroes agreed, and she revealed the Flashing Blades were meeting tonight around midnight at Hank's Tavern in Times Square."
+      },
+      {
+        "heading": "Screams in the Dark",
+        "text": "As darkness fell over Central Park, the heroes heard screams and found Mark, a young Flashing Blades member, beaten and lying on the ground. Struggling to stay conscious, Mark warned them that Hammerhead was targeting the Flashing Blades and an attack would happen at Hank's Tavern tonight. Before collapsing, he pleaded with them to go to Hank's and help his friends. The heroes rushed Mark to a hospital, then headed for Times Square."
+      }
+    ]
+  },
+  {
+    "id": "t007",
+    "world_date": "1976-11-19",
+    "world_date_display": "Nov 19, 1976 (Midnight)",
+    "title": "Midnight at Hank's Bar",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike"
+    ],
+    "summary": "The Vigilants thwart a drive-by outside Hank's Bar in Times Square, then fight a rampaging Werewolf inside \u2014 and learn from Johnny Frost that Hammerhead's Maggia is using monsters against rival gangs.",
+    "sections": [
+      {
+        "heading": "Outside",
+        "text": "Outside Hank's in Times Square, the Vigilants thwarted a drive-by by four gunmen \u2014 actually former Batboys disguised as Hammerhead's crew \u2014 stopping them before they could shoot bystanders or take hostages."
+      },
+      {
+        "heading": "Inside",
+        "text": "Inside, a Werewolf suddenly appeared and rampaged through the bar. The team surged in immediately, defeated the monster, and prevented any fatalities. When knocked out, the creature vanished in a crackling teleport."
+      },
+      {
+        "heading": "Aftermath",
+        "text": "Johnny Frost and the Flashing Blades confirmed they didn't steal \"A Madman's Mutterings\" and said street rumor blamed Hammerhead's Maggia for using monsters against rival gangs \u2014 the Crimson Smiles the night before, the Blades tonight, and likely the Buzz Cuts at Starky's next. They also suggested Tommy Kent, Buzz Cuts leader and ex-Maggia, may know Hammerhead's hideout. Police and media arrived as the dust settled."
+      }
+    ]
+  },
+  {
+    "id": "t008",
+    "world_date": "1976-12-03",
+    "world_date_display": "Dec 3, 1976",
+    "title": "Headlines and Nightmares",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike"
+    ],
+    "summary": "The Vigilants hit Starky's Pool Hall to find Tommy Kent, triggering a brawl with the Buzz Cuts \u2014 and an uninvited appearance by Shroud and a Frankenstein's Monster automaton.",
+    "body": "The Vigilants hit Starky's Pool Hall in full costume, instantly putting the Buzz Cuts on edge. The gang refused to talk and swung first with pool cues and knives, turning the room into a brawl \u2014 right as Shroud and a Frankenstein's Monster automaton teleported in and plunged the hall into chaos. The team fought through both the gang and the monsters, forcing the teleporting attackers to withdraw before anyone was killed or serious damage spread. With the room secured, a rattled and now cooperative Tommy Kent spilled what he knew: Hammerhead frequents the Roarin' Twenties speakeasy on the Lower East Side, and street rumor ties him to the stolen book and the monster strikes on rival gangs. About thirty minutes later, cops and news crews rolled in, and the Buzz Cuts \u2014 eager to save face \u2014 backed the Vigilants' story while barking threats at Hammerhead."
+  },
+  {
+    "id": "t009",
+    "world_date": "1976-12-17",
+    "world_date_display": "Dec 17, 1976",
+    "title": "Midnight at the Arch!",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike"
+    ],
+    "summary": "The Vigilants arrive at Washington Square Park at midnight expecting to confront Mister Fear \u2014 and instead face Scarecrow, Gypsy Moth, the Brothers Grimm, and 80 skeletons raised from the park's ancient burial ground.",
+    "sections": [
+      {
+        "heading": "The Setup",
+        "text": "The iconic 86-foot white marble arch stood under renovation with scaffolding on one side. Two young lovers sat on a park bench beneath a streetlamp as fog rolled through the park. A figure in a long coat and hat \u2014 appearing to be Hammerhead \u2014 stood beneath the arch. It was actually one of Hammerhead's thugs acting as bait, armed with a submachine gun."
+      },
+      {
+        "heading": "The Ambush",
+        "text": "Suddenly, Scarecrow, Gypsy Moth, and the Brothers Grimm materialized in crackling teleportation energy, surrounding the thug with orders to kill everyone present, including the innocent lovers. Unknown to anyone below, Black Talon had been teleported to the top of the arch. Using occult knowledge gained from the stolen book, he raised 80 skeletons from the ancient burial ground beneath the park."
+      },
+      {
+        "heading": "The Battle",
+        "text": "The undead horde burst from the soil three turns into the battle, attacking everyone. The teen lovers panicked as skeletons erupted around them. The Vigilants rescued the young couple, who fled to safety. After intense combat, the heroes defeated the villains. Black Talon and the Night Shift crew teleported away before the heroes could react, and the skeletons crumbled to dust. The arch sustained no damage during the chaotic battle."
+      }
+    ]
+  },
+  {
+    "id": "t010",
+    "world_date": "1976-12-18",
+    "world_date_display": "Dec 18, 1976",
+    "title": "Giving Season",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike"
+    ],
+    "summary": "A whirlwind of charity appearances \u2014 a toy drive, a food drive, and a tree-lighting \u2014 ends with Electro attempting to rob the crowd. He is thwarted but slips away.",
+    "body": "A whirlwind of charity appearances \u2014 a toy drive, a food drive, and a tree-lighting \u2014 ends with Electro attempting to rob the crowd. He is thwarted but slips away. Eel and Scorpion, hired by Hammerhead to kill Mister Fear, emerge from the fog to assist the thug from the previous night's Washington Square battle. When they realize Mister Fear isn't present and the heroes have arrived, they flee the scene."
+  },
+  {
+    "id": "t011",
+    "world_date": "1976-12-31",
+    "world_date_display": "Dec 31, 1976",
+    "title": "Cleopatra's Needle",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike"
+    ],
+    "summary": "The Vigilants meet Johnny Frost at Cleopatra's Needle in Central Park and are jumped by Flashing Blades sent to silence him \u2014 but Johnny survives and reveals a major gang conclave is set for midnight.",
+    "body": "The Vigilants met Johnny Frost at Cleopatra's Needle in Central Park and were jumped by a squad of Flashing Blades sent to silence him. The team put the gang down fast and clean \u2014 no civilians harmed, and Johnny walked away without a scratch. Grateful, Johnny shared why they were after him: at 1:00 AM a massive gang conclave was set for a warehouse near Pier 44 on the Lower East Side, organized by someone calling himself Mister Fear. Johnny refused to attend but agreed to call in the police to collect the captured Blades, leaving the Vigilants free to intercept the meeting."
+  },
+  {
+    "id": "t012",
+    "world_date": "1976-12-31",
+    "world_date_display": "Dec 31, 1976 (1:00 AM)",
+    "title": "On the Waterfront",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike"
+    ],
+    "summary": "The Vigilants infiltrate a waterfront warehouse where Mister Fear is rallying street gangs with assault rifles \u2014 and their attempt to turn the gangs against him fails spectacularly.",
+    "sections": [
+      {
+        "heading": "The Infiltration",
+        "text": "The Vigilants traced the meeting to a waterfront warehouse near Pier 44 and chose a stealthy approach, successfully sneaking inside undetected and hiding behind rows of wooden crates. From their concealment, they observed Mister Fear \u2014 wearing his green costume and skull-like mask \u2014 rallying the Flashing Blades and Buzz Cuts with an inflammatory speech. Beside him were crates containing assault rifles he planned to distribute."
+      },
+      {
+        "heading": "The Confrontation",
+        "text": "The heroes emerged from hiding and attempted to persuade the gangsters that Mister Fear \u2014 not Hammerhead \u2014 was truly behind the monster attacks plaguing the gangs. The persuasion failed. Mister Fear immediately ordered the thugs to attack and kicked open the weapons crate, scattering assault rifles among the mob."
+      },
+      {
+        "heading": "The Brawl",
+        "text": "The heroes knocked Mister Fear out \u2014 but he was immediately teleported away in crackling energy, abandoning his followers. A massive warehouse brawl erupted with the Vigilants fighting dozens of gang members armed with knives, while trying to prevent them from reaching the assault rifles scattered across the floor."
+      }
+    ]
+  },
+  {
+    "id": "t013",
+    "session_date": "2025-01-31",
+    "world_date": "1977-01-01",
+    "world_date_display": "Jan 1, 1977",
+    "title": "Martinez Construction \u2014 The Crane Incident",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer"
+    ],
+    "summary": "A failing tower crane threatens dozens at the Martinez Construction Site. Astrid stabilizes the swing and evacuates civilians before anything catastrophic can happen.",
+    "body": "A failing tower crane threatens dozens at the Martinez Construction Site. Astrid stabilizes the swing and evacuates civilians before anything catastrophic can happen."
+  },
+  {
+    "id": "t014",
+    "session_date": "2025-02-20",
+    "world_date": "1977-01-01",
+    "world_date_display": "Jan 1, 1977 (Evening)",
+    "title": "Night Moves at the Disco",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike"
+    ],
+    "summary": "Ram Pau and Astrid go undercover at a Midtown disco \u2014 and discover Roxxon operatives running experimental crowd-control technology through the club's sound system.",
+    "sections": [
+      {
+        "heading": "The Setup",
+        "text": "Ram Pau quietly handed Astrid his gold credit card, telling her to get a proper disco dress and full hair and makeup. By the time Ram's limo arrived, she looked every inch a Midtown glitter queen, even if she still felt like an outsider in borrowed glam. At the club, an obnoxious man zeroed in on Astrid and tried to drag her toward the dance floor. She shut him down hard."
+      },
+      {
+        "heading": "Something Wrong",
+        "text": "As the DJ launched into an extended mix, a heavy bass pulse rolled through the room and the music began to feel wrong. Dancers started to sway for the wrong reasons \u2014 clutching their heads, leaning on each other, looking suddenly drained. Ram felt a wave of dizziness and weakness, his Endurance buckling under the strain, while Astrid grit her teeth and rode it out."
+      },
+      {
+        "heading": "The DJ Booth",
+        "text": "Ram bribed the security guard with a thick roll of cash and a lazy, entitled smile. Inside the booth, the 'DJ' was more Roxxon operative than artist \u2014 experimental Roxxon gear wired into the normal audio rack, humming with a subtle, unpleasant energy. Astrid played drunk, staggering just enough to look sloppy as she 'accidentally' splashed wine across the controls. The liquid hit the circuitry, there was a burst of sparks, and the music died mid-beat."
+      },
+      {
+        "heading": "Aftermath",
+        "text": "Ram delivered a precise strike that knocked out the fake DJ. Astrid grabbed a handful of the strange electronics \u2014 small custom modules and a sealed black component stamped with a cryptic Roxxon code \u2014 and shoved them into her bag. The disco closed early for 'technical difficulties.' The stolen Roxxon gear ended up in the Vigilants' stash as unexplained evidence."
+      }
+    ]
+  },
+  {
+    "id": "t015",
+    "session_date": "2025-03-14",
+    "world_date": "1977-01-03",
+    "world_date_display": "Jan 3\u20135, 1977",
+    "title": "An Old Flame / Family Debt",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer"
+    ],
+    "summary": "Tess learns Frank Morelli's brother owes $5,000 to Maggia loan shark Calvin 'The Calculator' Calabrese \u2014 and discovers the inert body of the Original Human Torch in the basement of Morelli's Electronics Repair.",
+    "sections": [
+      {
+        "heading": "The Debt",
+        "text": "Tess learned Frank Morelli's brother Joey owed $5,000 to Maggia loan shark Calvin 'The Calculator' Calabrese, who was threatening to seize Frank's repair shop. Astrid found the inert body of the Original Human Torch under a tarp in the basement of Morelli's Electronics Repair and began work on him."
+      },
+      {
+        "heading": "The Winner's Circle",
+        "text": "While Tess by day analyzed the android and identified missing components, Astrid by night tracked Calvin to the Winner's Circle near the racetrack and uncovered his real game: a race-fixing ring that rigs outcomes and traps debtors like Joey. Tess tailed Calvin's black sedan to a brownstone, waited until the lights went dark, and slipped in through an open second-story window. She retrieved computer files, ledgers, and floppies \u2014 names, dates, amounts \u2014 enough to map out the entire operation."
+      },
+      {
+        "heading": "Aftermath",
+        "text": "Rather than blow her cover with a direct confrontation, Tess quietly leaked the evidence to reporter Linda Vasquez, who passed it to Brooklyn DA Patrick O'Malley. The handoff set the stage for a coordinated crackdown on Calvin's operation \u2014 wiping Joey's debt \u2014 while Tess continued working, by day, on restoring the Original Human Torch in Morelli's shop."
+      }
+    ]
+  },
+  {
+    "id": "t016",
+    "session_date": "2025-03-19",
+    "world_date": "1977-01-07",
+    "world_date_display": "Jan 7, 1977",
+    "title": "Grand Hotel Charity Ball",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "resilient"
+    ],
+    "summary": "Socialite Veronica St. James hosts a glittering charity gala at the Grand Hotel \u2014 Mister Fear triggers a fear gas attack, Scorpion seizes the legendary Starfire Necklace, and Astrid pursues him into a mid-air brawl above the hotel facade.",
+    "sections": [
+      {
+        "heading": "The Gala",
+        "text": "Veronica St. James personally invited Ram Pau and Resilient's civilian identity, maneuvering Tess Winters into her charity date auction. The star lot of the night was the legendary Starfire Necklace, unveiled to gasps from New York's elite. The bidding for Tess spiraled: Preston Wentworth III opened with a smug $10,000, a Maggia lieutenant pushed to $15,000, and finally nervous heir Nathaniel 'Nate' Ambrose IV blurted out 'Fifty thousand! For charity!' to the ballroom's delight."
+      },
+      {
+        "heading": "Mister Fear's Attack",
+        "text": "As bidding for the Starfire heated up, Mister Fear triggered a concealed fear gas device. Counter-Strike caught a faceful of gas and had to dig deep to keep from bolting. Astrid snapped into action, whipping up controlled gusts with her air control powers to knock most of the gas upward and away from the densest cluster of guests. Resilient threw himself between fleeing donors and panicked gunmen."
+      },
+      {
+        "heading": "The Chase",
+        "text": "In that engineered chaos, Scorpion smashed the Starfire case, grabbed the Necklace, and clawed his way through the ballroom windows and onto the hotel facade. Astrid launched after him. She caught him just beyond the hotel, vaulted into a mid-air grappling hold, and the fight became a brutal tumbling brawl above the Grand Hotel's glowing marquee. Scorpion slashed, tail lashing, Starfire still clutched in one hand \u2014 until Astrid locked in a choke and squeezed him unconscious mid-air. The Necklace was recovered; Scorpion dropped into police custody. Mister Fear slipped away under cover of his own gas."
+      }
+    ]
+  },
+  {
+    "id": "t017",
+    "session_date": "2025-05-01",
+    "world_date": "1977-01-13",
+    "world_date_display": "Jan 13, 1977",
+    "title": "Investigating Bellevue Hospital",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "screamwave"
+    ],
+    "summary": "After a Daily Bugle headline about corpses walking out of Bellevue's morgue, Astrid and Screamwave investigate \u2014 and piece together a picture of cadavers marching in lockstep to a loading dock and boarding a white van reeking of industrial chemicals.",
+    "body": "The sight of two costumed heroes in the lobby caused a minor stir before the head nurse reluctantly called in Dr. List. The eccentric doctor escorted them upstairs, chattering about Bellevue's psychiatric reputation and insisting that 'zombies' were just mass hysteria. Interviewing heavily sedated witnesses like Jimmy Biggles, the pair pieced together a strange picture: cadavers climbing out of their drawers, marching in eerie lockstep to a loading dock, and boarding a white van that reeked of industrial chemicals. The repeated references to chemical smells and a nondescript van nudged the investigation toward a more grounded \u2014 and more dangerous \u2014 industrial explanation."
+  },
+  {
+    "id": "t018",
+    "session_date": "2025-05-01",
+    "world_date": "1977-01-13",
+    "world_date_display": "Jan 13, 1977 (Evening)",
+    "title": "The Obelisk",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "screamwave"
+    ],
+    "summary": "A cryptic personals ad leads Astrid and Screamwave to the Obelisk outside the Met, where Felicia Frost waits alone \u2014 tearfully explaining that her twin brother Johnny has gone missing while trying to help the Vigilants.",
+    "body": "Felicia was waiting alone on a bench, staring into the gathering dusk with red-rimmed eyes and a brittle calm that didn't match her words. She insisted she was all right, but her oddly flat affect suggested something was badly off. She tearfully explained that Johnny had gone missing while trying to help the Vigilants track down a mysterious book. Felicia pressed a slip of paper with Johnny's address into their hands and begged them to find him. The whole encounter felt rehearsed \u2014 like lines fed to her from somewhere else \u2014 but the heroes chose to follow the lead."
+  },
+  {
+    "id": "t019",
+    "session_date": "2025-05-01",
+    "world_date": "1977-01-13",
+    "world_date_display": "Jan 13, 1977 (Night)",
+    "title": "Johnny's Apartment \u2014 The Bomb",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "screamwave"
+    ],
+    "summary": "The address leads to Johnny's apartment \u2014 too neat, clearly staged. A bomb detonates as Astrid and Screamwave search the place. Astrid's wind barrier shields them both.",
+    "body": "Inside, the place was too neat, as if staged \u2014 lights off, shades drawn, no sign of a struggle or hurried departure. While they searched for clues, Astrid's instincts and Screamwave's sharp eye uncovered subtle tampering: a suspicious device wired into the apartment's fixtures. The discovery came seconds too late. The bomb detonated in a roar of fire and splintered plaster. Astrid threw up a barrier of wind and power, cushioning the blast and shielding Screamwave from the worst of it. The two heroes staggered out battered and singed but alive, with their suspicions confirmed that someone was using Johnny \u2014 and Felicia \u2014 as bait."
+  },
+  {
+    "id": "t020",
+    "session_date": "2025-05-01",
+    "world_date": "1977-01-13",
+    "world_date_display": "Jan 13, 1977 (Late Night)",
+    "title": "Chemical Factory Rescue",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "screamwave"
+    ],
+    "summary": "Tracking industrial-chemical clues from Bellevue and the bombing, the heroes trace the morgue van to a decaying chemical plant on the waterfront \u2014 where Johnny hangs upside down above a churning toxic vat.",
+    "body": "Inside, they picked their way through rusted catwalks, towering vats, and rows of chemical drums, the place lit only by flickering emergency lights. They uncovered the grisly truth: reanimated workers and corpses shuffling through the plant under unseen control, and Johnny hanging upside down above a churning toxic vat, clearly marked as the next victim. A brutal fight erupted as zombies swarmed from every direction. Astrid tore into them with lightning and steel while Screamwave blasted concussive sonic rings to clear space. Working in tight tandem, they broke the undead mob, freed Johnny from his deadly perch, and escaped before the plant \u2014 and its hidden master \u2014 could claim any more lives."
+  },
+  {
+    "id": "t021",
+    "session_date": "2025-05-15",
+    "world_date": "1977-01-14",
+    "world_date_display": "Jan 14, 1977",
+    "title": "A Message in the Personals",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Johnny Frost leaves a cryptic ad in the Daily Bugle personals arranging a meet behind Hank's Tavern \u2014 he's been receiving psychic visions of Felicia chained on Ellis Island. The Black Panther watches from the rooftops.",
+    "body": "Johnny waited in a cold, foggy alley in a long leather coat and mirrored shades that hid his crystalline eyes. Clearly rattled, he explained that since the chemical plant incident he had been plagued by psychic 'postcards' from Felicia \u2014 a recurring vision of the Statue of Liberty with Felicia's face, wrapped in chains and ropes, seen from a mile to the north. He was sure she was alive, sure she was in danger, and just as sure Mister Fear was behind it. Together they studied a map of the harbor until the geography clicked: the vantage point in the vision lined up not with Liberty Island itself, but with Ellis Island just to the north. Unbeknownst to the team, the Black Panther was shadowing the meeting from the rooftops, tracking the path of the stolen Starfire Necklace and quietly sizing up these strange New York heroes."
+  },
+  {
+    "id": "t022",
+    "session_date": "2025-05-15",
+    "world_date": "1977-01-14",
+    "world_date_display": "Jan 14, 1977 (Night)",
+    "title": "Ellis Island, Part I",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "The Vigilants infiltrate Ellis Island and walk straight into Project Wideawake \u2014 a secret mutant-hunting program. Three Mark IV Sentinels rise from the helipad. The Black Panther extracts them in a hot evac.",
+    "sections": [
+      {
+        "heading": "The Infiltration",
+        "text": "Following Johnny's chained-Liberty vision, the team accompanied him out to Ellis Island under cover of darkness. The public half felt like an eerie, empty museum until they slipped through the 'construction site' fencing into the restricted zone. Hidden security cameras tracked their every move even though the heroes never saw a single guard."
+      },
+      {
+        "heading": "The Sentinels",
+        "text": "Once the Vigilants began probing around the shack and helipad, the disguised helipad split open and three towering Mark IV Sentinels rose into the night, programmed to capture rather than kill. The robots hit hard and fast, adapting to the team's powers, shrugging off most attacks, and deliberately herding them away from the historic buildings while hammering them with capture beams. One Sentinel managed to seize Screamwave, only for Astrid to blast it with lightning and tear her teammate free."
+      },
+      {
+        "heading": "Extraction",
+        "text": "Outgunned and boxed in, the Vigilants were on the brink of being overwhelmed when a sleek Wakandan stealth jet knifed over the island. The Black Panther, secretly tracking both the team and the Starfire Necklace, executed a daring low pass that staggered the Sentinels, then opened his ramp for a hot extraction. Battered and frustrated, the heroes fled aboard the jet \u2014 leaving Felicia still imprisoned somewhere beneath Ellis Island."
+      }
+    ]
+  },
+  {
+    "id": "t023",
+    "session_date": "2025-05-15",
+    "world_date": "1977-01-14",
+    "world_date_display": "Jan 14, 1977 (Late Night)",
+    "title": "Ellis Island, Part II \u2014 Wide Awake",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "The Black Panther fabricates an EMP device tuned to the Sentinels' systems. The Vigilants return for a second strike, neutralize all three robots, breach the Project Wideawake lab, and free Felicia.",
+    "body": "Aboard the Panther's aircraft, T'Challa analyzed Sentinel telemetry and fabricated a compact EMP device tuned specifically to their systems. Dropped near the restricted zone, the team drew the robots out and triggered the EMP at point-blank range, stunning all three Sentinels and leaving them motionless. With the heavy hitters neutralized, the team breached the fake 'explosives' shack, rode the hidden elevator down into the Project Wideawake lab, and plowed through gun-toting guards and panicked scientists. They found Felicia strapped into experimental machinery in obvious pain, freed her, and evacuated with Johnny and Felicia aboard the Panther's jet, racing back toward Manhattan with more questions than answers about what the U.S. government had been doing beneath Ellis Island."
+  },
+  {
+    "id": "t024",
+    "session_date": "2025-05-29",
+    "world_date": "1977-01-21",
+    "world_date_display": "Jan 21, 1977",
+    "title": "A Message from Max",
+    "type": "downtime",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "A discreet Daily Bugle personals ad from 'Mr. P' summons the Vigilants back to the Met \u2014 Curator Maximilian Pride has turned up something important on the trail of A Madman's Mutterings.",
+    "body": "Recognizing both the initials and the phrasing, the team realized that Maximilian Pride had turned up something important on the trail of A Madman's Mutterings. With no better leads on Felicia and the book, they agreed to the meeting and prepared to return to the museum after hours."
+  },
+  {
+    "id": "t025",
+    "session_date": "2025-05-29",
+    "world_date": "1977-01-21",
+    "world_date_display": "Jan 21, 1977 (Evening)",
+    "title": "To the Met Once More",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Curator Pride reveals his new findings on Bartholomew Jacobs \u2014 the condemned witch swore to return for his book, and a burning ghost has been spotted beneath the Washington Square Arch.",
+    "body": "Arriving at the Met after closing, the heroes found Pride hunched over a long table buried in ancient volumes and notes, clearly exhausted but excited. He laid out his new findings: Bartholomew Jacobs had sworn to return for his book if any other magician ever used it, and a recent article in an occult rag called The Spirit Tracker described a burning ghost beneath the Washington Square Arch, calling for his book. Convinced this apparition was Jacobs himself, Pride urged the Vigilants to stake out the arch at midnight, believing the ghost might reveal the book's location. With the curator's research pointing squarely at Washington Square and the lingering memory of the skeleton horde, the team left the Met resolved to confront whatever waited beneath the arch."
+  },
+  {
+    "id": "t026",
+    "session_date": "2025-05-29",
+    "world_date": "1977-01-21",
+    "world_date_display": "Jan 21, 1977 (Midnight)",
+    "title": "The Burning Ghost",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "The ghost of Bartholomew Jacobs haunts the arch \u2014 trapped in spectral flames, unable to venture more than one area away. He offers to guide the heroes to his book if one of them accepts his spirit. Astrid accepts. Jacobs lies.",
+    "body": "Bartholomew Jacobs had returned to haunt the arch because it was here that Black Talon had used the book to raise the dead from their graves. Trapped in the spectral flames, he could not venture more than one area away from the arch. He informed the heroes that he had come to reclaim his book \u2014 but could not leave the flames unless his spirit entered a mortal body. If one of the heroes accepted his spirit, Bartholomew promised to guide them to the book. Bartholomew was a liar. When Astrid accepted the offer and approached the ghost, he extended his hand from the spectral flames and touched her. The spirits transferred \u2014 Astrid's soul was fixed to the burning pole, and Bartholomew's soul was in possession of her body."
+  },
+  {
+    "id": "t027",
+    "session_date": "2025-05-29",
+    "world_date": "1977-01-21",
+    "world_date_display": "Jan 21, 1977 (Late Night)",
+    "title": "The World Below",
+    "type": "mission",
+    "participants": [
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Bartholomew Jacobs \u2014 possessing Astrid's body \u2014 leads the team into Manhattan's sewers. Alligators, a Maggia drug lab, and a descent toward the Morlock tunnels.",
+    "sections": [
+      {
+        "heading": "Into the Sewers",
+        "text": "Bartholomew Jacobs seized control of Astrid's body and led the team to a manhole and down into Manhattan's sewers \u2014 a reeking maze of round concrete tunnels, ankle-to-waist-deep sewage, dripping pipes, and patches of ghostly phosphorescent slime. With 'Astrid' walking ahead and Jacobs' voice coming out of her mouth, the others had to trust a dead man's guidance."
+      },
+      {
+        "heading": "Alligators",
+        "text": "In a wide main tunnel they were ambushed when alligators surged from side pipes and the black water, forcing the team into a brutal close-quarters brawl on slick stone ledges \u2014 Wartorn and Counter-Strike taking the front line while Screamwave blasted from behind."
+      },
+      {
+        "heading": "The Drug Lab",
+        "text": "Later they stumbled into a dry side chamber where a street gang had turned an old processing tank into a makeshift drug lab. The heroes tore through the operation, destroyed the narcotics, and marked the lab's location for the police. The Vigilants followed Bartholomew's borrowed body still deeper, toward the forgotten Morlock tunnels."
+      }
+    ]
+  },
+  {
+    "id": "t028",
+    "session_date": "2025-05-29",
+    "world_date": "1977-01-21",
+    "world_date_display": "Jan 21, 1977 (Late Night, cont.)",
+    "title": "Morlocks and Marauders",
+    "type": "mission",
+    "participants": [
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Deep in the Morlock tunnels, the Vigilants find Skids holding out against the Marauder Arclight \u2014 then Jacobs turns on his own allies as a fiery rift opens and tries to claim their souls.",
+    "sections": [
+      {
+        "heading": "The Alley",
+        "text": "The team pushed down past the sewers into the forgotten Morlock tunnels, eventually emerging into the Alley \u2014 a vast, man-made cavern meant to shelter half of New York in a nuclear war. The place was a wreck: shattered supply pods, looted rations, pipes and conduits everywhere. Ahead, teenage Skids desperately held a thin force field while the Marauder Arclight hammered her with shockwaves, trying to finish the last survivors of the Morlocks. The heroes waded in and forced Arclight to retreat."
+      },
+      {
+        "heading": "The Rift",
+        "text": "A thunderclap split the tunnel and a fiery rift opened, raising a black pillar out of the floor with Astrid's disembodied spirit bound to it. A booming voice from the nether realms denounced Bartholomew Jacobs for trying to cheat his infernal bargain and demanded payment in souls. With Jacobs now fully in control of Astrid's powers, he turned on his own allies, trying to hurl the heroes into the chasm to save himself. The Vigilants fought their own teammate on a crumbling ledge over damnation. In the end they broke Jacobs' hold \u2014 but at least some of the team felt their spirits torn away, chained to that same pillar in the darkness."
+      }
+    ]
+  },
+  {
+    "id": "t029",
+    "session_date": "2025-05-29",
+    "world_date": "1977-01-21",
+    "world_date_display": "Jan 21, 1977 (Nether Realm)",
+    "title": "This Isn't Kansas Anymore",
+    "type": "mission",
+    "participants": [
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Those whose souls were taken find themselves chained to a black pillar in the nether realm. An unseen entity offers them a way out \u2014 destroy A Madman's Mutterings when they find it, or suffer eternal torment.",
+    "body": "They found themselves shackled to a colossal black pillar in the nether realm, surrounded by tens of thousands of screaming spirits, lashed by crimson fire that didn't burn flesh but scorched the soul itself. Time meant nothing; agony stretched into what felt like an eternity before the unseen ruler of this domain finally spoke. The same mocking, booming voice that had echoed in the Morlock tunnels offered them a 'way out': in exchange for their souls, they would swear to destroy Bartholomew's book if and when it came into their hands. There was no room for clever legalese or heroic speeches. The entity made it clear that refusal meant endless torment. Eventually the trapped heroes accepted the bargain. In an instant the chains vanished, the flames fell away, and their awareness snapped back into their bodies in the Alley \u2014 gasping and at full Health but visibly shaken."
+  },
+  {
+    "id": "t030",
+    "session_date": "2025-05-29",
+    "world_date": "1977-01-21",
+    "world_date_display": "Jan 21, 1977 (Post-Rift)",
+    "title": "The Rescue of Callisto",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Skids offers a deal: help free Callisto from the Marauders, and she and Callisto will guide the team straight to Mister Fear's hideout.",
+    "body": "Once Skids came around and heard what had happened, she made the Vigilants a deal. Her former leader Callisto had been captured by the Marauders. If the heroes would help free her, Skids and Callisto would guide them straight to what they believed was Mister Fear's current hideout. The team followed Skids to a heavy, submarine-style hatch. Behind it was one of the Marauders' lairs \u2014 rising water churning around a half-dozen alligators, and Callisto chained on a concrete platform in the center, inches closer to the waterline every turn. Arclight, Harpoon, and Vertigo guarded the chamber from the shadows. The Vigilants juggled everything at once: shutting off the flooding pipe, wrestling alligators and shockwaves, and hammering down the Marauders before Callisto was dragged under. In the end they smashed the ambush, freed Callisto, and spared the beasts by killing the water instead of them."
+  },
+  {
+    "id": "t031",
+    "session_date": "2025-05-29",
+    "world_date": "1977-01-21",
+    "world_date_display": "Jan 21, 1977 (Dawn)",
+    "title": "The Defeat of Mister Fear",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Guided by Skids and Callisto, the Vigilants storm an abandoned S.H.I.E.L.D. foxhole \u2014 now Mister Fear's lair. They defeat Fear, the Night Shift, and recover the Starfire Necklace. Felicia is revealed as Lady Anguish.",
+    "sections": [
+      {
+        "heading": "The Assault",
+        "text": "Rather than tiptoe around the disguised blast door and its traps, Astrid simply smashed the steel barrier down, leading the team straight into the heart of the bunker. Inside, they found Mister Fear, Lady Anguish (Felicia under hypnoporter control), and the full Night Shift roster arrayed around the humming hypnoporter. Mister Fear opened all the confinement cells and sent his 'monsters' against the team."
+      },
+      {
+        "heading": "The Melee",
+        "text": "The cramped concrete chamber erupted into a sprawling melee. Screamwave's sonic blasts scattered villains, Wartorn and Counter-Strike battered through the Night Shift in brutal close combat, and Astrid drove directly for Mister Fear and Lady Anguish. One by one the controlled villains went down. Mister Fear's fear-gas and tricks were finally beaten. The Fixer, Mentallo, and A Madman's Mutterings were nowhere to be found \u2014 they had already moved on."
+      },
+      {
+        "heading": "Aftermath",
+        "text": "The heroes stripped the foxhole of its prizes: the recovered Starfire Necklace. Mister Fear could only mumble about an unknown 'Big Boss.' The Vigilants were victorious but faced the unsettling knowledge that the real mastermind \u2014 and the cursed book \u2014 were still out there. New contacts gained: Black Panther (friendly, for returning the Starfire Necklace), Callisto and Skids (friendly, for the rescue). Felicia Frost, unmasked as Lady Anguish, had no memory of her time as Fear's agent. The heroes decided to train both Felicia and Johnny in the use of their powers."
+      }
+    ]
+  },
+  {
+    "id": "t032",
+    "session_date": "2025-06-13",
+    "world_date": "1977-01-28",
+    "world_date_display": "Jan 28, 1977",
+    "title": "Do Ghosts Get Hungry?",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "At the China Star restaurant in Chinatown, owner Eddie Wong describes a gaunt 'ghost' muttering about old empires. Dragonlord gang members show up and harass the family, and the heroes learn something important is moving through the piers at night.",
+    "body": "At the China Star restaurant in Chinatown, owner Eddie Wong described to the heroes a gaunt, long-nailed 'ghost' muttering about old empires and destiny. Tension spiked when local toughs \u2014 Dragonlord gang members \u2014 showed up. The heroes kept the peace and left with names and places to watch. Pressure on the Wongs intensified as the heroes helped the family against Dragonlords harassing Mei Li. They learned that something important was supposed to move through the piers at night."
+  },
+  {
+    "id": "t033",
+    "session_date": "2025-06-13",
+    "world_date": "1977-01-28",
+    "world_date_display": "Jan 28, 1977 (Evening)",
+    "title": "What's in the Box?",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "The Vigilants arrive at Pier 36 to find the cargo ship Celestial China already pulling away \u2014 and a battered customs official reporting a stolen crate of 'religious statuettes' destined for a Chinatown antiques shop.",
+    "sections": [
+      {
+        "heading": "The Pier",
+        "text": "The Vigilants arrived at the East River waterfront and made their way toward Pier 36. They spotted the cargo ship CELESTIAL CHINA already pulling away from the dock \u2014 too far and too fast to intercept. Before they could decide what to do, they heard someone shouting 'Help! Police!' from a nearby warehouse."
+      },
+      {
+        "heading": "Oliver Crumb",
+        "text": "Outside the warehouse they found a battered customs official, Oliver Crumb, and two unconscious security guards. Oliver explained that a crate labeled 'RELIGIOUS STATUETTES,' bound for Mr. Lee Min at Oriental Antiques and Curiosities in Chinatown, had just been stolen by Asian street punks wearing jackets marked with an S-shaped serpent, who had loaded the crate into a black van."
+      },
+      {
+        "heading": "The Ambush",
+        "text": "While the team was talking with Oliver, they were ambushed by seven masked attackers in dark green tong-style outfits, armed with knives and swords. One of them leapt in with a flying kick and shouted, 'WHAT HAS BECOME OF THE CELESTIAL ONE?!' The Vigilants battled the assassins; any taken alive refused to answer questions, staring straight ahead and giving nothing away."
+      }
+    ]
+  },
+  {
+    "id": "t034",
+    "session_date": "2025-06-13",
+    "world_date": "1977-01-28",
+    "world_date_display": "Jan 28, 1977 (Night)",
+    "title": "Oriental Curiosities",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "The Vigilants visit Lee Min's antique shop in Chinatown. The elderly blind fortune teller claims the White Dragon is behind both the stolen crate and A Madman's Mutterings \u2014 then a breaking news report sends the team racing back into the streets.",
+    "body": "A squeaking metal sign and a cluttered window full of fake jewelry and stuffed animals made the place feel more like a curiosity cabinet than a respectable store. Elderly blind Lee Min invited the heroes to sit around his low table, where he laid out fortune-telling cards. He explained the shipment was supposed to contain cheap clay Buddha figurines and suggested smugglers were using the hollow statues to hide drugs. Reading his cards, he told the Vigilants that a criminal known as the White Dragon was behind both the stolen crate and A Madman's Mutterings. As the team left, Lee Min urged them to 'find the White Dragon, for he is your true enemy.' On their way out, a breaking news report on the clerk's TV showed Eddie Wong dangling from a ledge only a few blocks away."
+  },
+  {
+    "id": "t035",
+    "session_date": "2025-06-13",
+    "world_date": "1977-01-28",
+    "world_date_display": "Jan 28, 1977 (Night, cont.)",
+    "title": "Eddie Takes a Dive",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Racing through Chinatown, the Vigilants catch Eddie Wong as he falls from a flagpole. A crumpled note in his hand demands $10,000 for Mei Li's safe return \u2014 midnight at the old Chiang warehouse on Canal Street.",
+    "body": "Racing through Chinatown, the Vigilants came upon a packed city street cordoned off by police. High above, Eddie Wong was clinging desperately to a flagpole. Before anyone on the ground could react, Eddie lost his grip and plunged toward the pavement. The heroes scrambled to act in seconds and broke his fall. Before being rushed away by paramedics, Eddie managed to press a crumpled note into the team's hands. It read: 'If you want to see your daughter alive, bring $10,000 to the old Chiang warehouse on Canal Street at midnight. No cops! Or she gets it!' Eddie lashed out at the Vigilants, blaming them: the Dragonlords had taken his daughter, he argued, because the heroes had fought them in his restaurant."
+  },
+  {
+    "id": "t036",
+    "session_date": "2025-06-26",
+    "world_date": "1977-01-28",
+    "world_date_display": "Jan 28, 1977 (Midnight)",
+    "title": "Zoom! Bang! \u2014 Fireworks!",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "The heroes scout a warehouse that has a trap waiting \u2014 a dummy posing as Mei Li, a large group of Dragonlords, and the supervillain Killer Shrike hired to kill the Vigilants. They defeat all of them and prevent the warehouse from burning.",
+    "body": "The heroes scouted out the warehouse to find a trap waiting for them. A dummy had been made to look like Mei Li \u2014 though the heroes were fooled initially, they easily defeated a large group of Dragonlord gang members and the supervillain Killer Shrike, who had been hired to kill them. They also prevented the warehouse from burning."
+  },
+  {
+    "id": "t037",
+    "session_date": "2025-06-26",
+    "world_date": "1977-01-28",
+    "world_date_display": "Jan 28, 1977 (Late Night)",
+    "title": "Mei Li Takes a Plunge",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "The heroes track Mei Li's kidnappers to Pier 38 \u2014 arriving just in time to see Hammerhead's gunmen shove her chained in a burlap sack into the East River. She survives and reveals Hammerhead plans to assassinate Wu Fong of the Tiger's Claw.",
+    "body": "The heroes arrived at Pier 38 just in time to see three of Hammerhead's gunmen shove a chained, struggling figure in a burlap sack into the dark waters of the East River. While trading fire with the thugs, the team plunged into the murky river and frantically searched for her, knowing they had only moments before she drowned. Once Mei Li was dragged to safety, she told the heroes that her captors worked for Hammerhead, who planned to assassinate Wu Fong of the Tiger's Claw as a favor to the White Dragon. She also explained that Wu Fong led a citizen defense society in Chinatown dedicated to opposing gangs, and that he could be found at a place called the Oriental Garden. The couple spoke of fleeing to relatives in San Francisco, too frightened of the White Dragon to remain in New York."
+  },
+  {
+    "id": "t038",
+    "session_date": "2025-06-26",
+    "world_date": "1977-01-29",
+    "world_date_display": "Jan 29, 1977",
+    "title": "A Day Off",
+    "type": "downtime",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "A brief lull. The Daily Bugle trumpets the Vigilants' recent exploits \u2014 saving Eddie Wong, rescuing Mei Li, containing the Canal Street blaze.",
+    "body": "The next day offered a brief lull. As the heroes tended to their civilian obligations or quietly hunted for more clues, the Daily Bugle trumpeted their recent exploits: saving Eddie Wong from the ledge, rescuing Mei Li from her abductors, and helping firefighters contain the spectacular blaze and 'fireworks' over Chinatown. Favorable headlines burnished their reputations even as gang tensions mounted in the shadows."
+  },
+  {
+    "id": "t039",
+    "session_date": "2025-06-26",
+    "world_date": "1977-01-29",
+    "world_date_display": "Jan 29, 1977 (Afternoon)",
+    "title": "The Oriental Garden",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "The team goes to warn Wu Fong \u2014 and walks straight into a Maggia drive-by, a Dreadnought attack, and an open gang war. Astrid flies the damaged Dreadnought out over the river as its concealed bomb detonates harmlessly.",
+    "sections": [
+      {
+        "heading": "The Drive-By",
+        "text": "At the quiet bonsai-filled shop, they met Wu's daughter, Linda Fong \u2014 only for a black limousine of Maggia thugs to roar past and rake the storefront with gunfire. Linda was shot in the drive-by, but the heroes saved her life before Hammerhead's car vanished into Chinatown."
+      },
+      {
+        "heading": "The Dreadnought",
+        "text": "Almost immediately, a van of more gunmen and a towering Dreadnought robot struck from front and rear. While the heroes fought the armed thugs, the robot smashed through the garden wall and slaughtered members of the Tiger's Claw. Rushing to intervene, the team engaged the Dreadnought in a brutal battle. In the end, Astrid seized the damaged robot and flew it out over the river, where its concealed bomb detonated harmlessly away from bystanders."
+      },
+      {
+        "heading": "Wu Fong's Intel",
+        "text": "Wu Fong explained that Hammerhead had allied with the White Dragon and his Dragonlords, putting a hit on Wu as part of their deal. He suspected the Hammerhead\u2013White Dragon alliance was aimed at crushing the Faces of Fear, led by a mysterious 'Boss.' Wu pleaded for the heroes' aid, asking them to patrol Chinatown at night, and equipped them with 2-mile-range walkie-talkies so the Tiger's Claw could call on them when trouble struck."
+      }
+    ]
+  },
+  {
+    "id": "t040",
+    "session_date": "2025-07-10",
+    "world_date": "1977-01-29",
+    "world_date_display": "Jan 29, 1977 (Night)",
+    "title": "Night Moves",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Wu Fong radios in: the Silver Samurai has raided a Chinatown amusement shop, stealing rare serpents needed for a ritual to resurrect Fu Manchu \u2014 the 'Celestial One.' The Samurai teleports away, leaving six assassins behind.",
+    "body": "Green-clad Si Fan assassins poured from the shop, weapons drawn, followed by the Silver Samurai carrying a wriggling sack. Inside were the shopkeeper's 'children' \u2014 rare serpents stolen for a ritual to help resurrect Fu Manchu, the 'Celestial One.' Declaring his mission too urgent for a full fight, the Samurai taunted the heroes, promised they would meet again, and teleported away to a Si Fan hideout, leaving six assassins to delay the team. After defeating or driving off the tongs, the shopkeeper explained that the snakes had been carefully chosen and that the Samurai said they would 'warm the dead heart of the Celestial One.'"
+  },
+  {
+    "id": "t041",
+    "session_date": "2025-07-10",
+    "world_date": "1977-01-29",
+    "world_date_display": "Jan 29, 1977 (Night, cont.)",
+    "title": "Coils of the Constrictor",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Screams draw the heroes to the Imperial Theater where Constrictor and six Dragonlords are pursuing Batboys gang members through a panicked crowd. A crashing taxi and a falling electric sign add to the chaos.",
+    "body": "Screams of terror drew the patrolling heroes to the Imperial Theater, where Enter the Dragon was playing. A taxi swerved to avoid fleeing moviegoers, crushed a fire hydrant, and slammed into a jewelry store. A crowd of ten opportunists immediately began looting the shattered display window, unaware that an 800-pound 'EGG ROLL EMPEROR' electric sign, loosened by the crash, was about to fall \u2014 until a keen-eyed Astrid stopped it. Constrictor and six Dragonlords had pursued four Batboy gang members to the packed theater. With the failing marquee and panicked crowd, the heroes battled villains and protected civilians at the same time."
+  },
+  {
+    "id": "t042",
+    "session_date": "2025-07-24",
+    "world_date": "1977-01-29",
+    "world_date_display": "Jan 29, 1977 (Late Night)",
+    "title": "A City's Poison",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Three Dragonlords selling crack to an addict named Harry Yoram. The heroes intervene \u2014 but can't save Harry's younger brother Luke, who dies of an overdose. A devastating moment in the campaign.",
+    "body": "The team came across three Dragonlords selling crack to an addict named Harry Yoram. Seeing the heroes coming, they scattered but were caught. Hearing cries for help, the heroes then found another young man \u2014 Harry's younger brother Luke \u2014 dying from an overdose. There was nothing that could be done to save the boy and he died. The heroes convinced a devastated Harry to check into a rehabilitation clinic."
+  },
+  {
+    "id": "t043",
+    "session_date": "2025-07-24",
+    "world_date": "1977-01-29",
+    "world_date_display": "Jan 29, 1977 (Late Night, cont.)",
+    "title": "Bite of the Beetle",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Alerted by walkie-talkie, the heroes arrive at Misha Restaurant to find an old man defending himself with a broom against knife-wielding gang members \u2014 and the Beetle lurking on a nearby rooftop.",
+    "body": "The heroes arrived at Misha Restaurant to find an old man with a broom defending himself from knife-wielding gang members. The heroes saved the old man and won a quick fight with two gang factions and the Beetle, who had been lurking on a nearby rooftop. The gang members were captured but refused to answer questions. The Beetle admitted he had been hired to help the Dragonlords but would not reveal the identity of his employer."
+  },
+  {
+    "id": "t044",
+    "session_date": "2025-07-24",
+    "world_date": "1977-01-30",
+    "world_date_display": "Jan 30, 1977",
+    "title": "Runaway Garbage",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Dragonlords use a city garbage truck to trash a souvenir shop and intimidate non-payers. Astrid drops in and lifts the garbage truck to halt the assault.",
+    "body": "While patrolling Chinatown, the heroes found Dragonlords using a city garbage truck to trash a souvenir shop and publicly intimidate non-payers for White Dragon's 'protection.' They pelted the owner, toppled him with a tossed tire, and heaped refuse over him as a crowd looked on. Astrid intervened \u2014 dropping in and lifting the garbage truck to halt the assault."
+  },
+  {
+    "id": "t045",
+    "session_date": "2025-07-24",
+    "world_date": "1977-01-31",
+    "world_date_display": "Jan 31, 1977",
+    "title": "Ice of the Blizzard",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Blizzard and four Dragonlords are about to execute graffiti artist Tak when the heroes intervene. Tak reveals the Dragonlords run a crack house under the South Street Elevated near the Brooklyn Bridge.",
+    "body": "On a late-night Chinatown patrol, the heroes interrupted Blizzard and four Dragonlords as they froze and prepared to execute a graffiti artist named Tak. A fight broke out; the heroes defeated Blizzard and the thugs and freed Tak. Grateful but wary, Tak shared that he was a Konger (Hong Kong immigrant gang), that the Kongers had allied with the Faces of Fear against the Dragonlords, and that he suspected the Dragonlords ran a crack house under the South Street Elevated near the Brooklyn Bridge. Tak was whisked away by fellow Kongers, setting up future trouble."
+  },
+  {
+    "id": "t046",
+    "session_date": "2025-08-07",
+    "world_date": "1977-02-05",
+    "world_date_display": "Feb 5, 1977",
+    "title": "A Crack House Crumbles",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "The heroes raid the Dragonlords' crack house beneath the Brooklyn Bridge and run into the Silver Samurai with a squad of Si Fan assassins searching for Fu Manchu's remains. Three kidnapped teens and a tunnel lead deeper.",
+    "body": "The heroes raided the Dragonlords' crack house beneath the Brooklyn Bridge and ran into the Silver Samurai with a squad of 10 Si Fan assassins searching for Fu Manchu's remains. A street fight erupted: the heroes defeated and captured the tongs and pressured the Silver Samurai into teleporting away. Inside, the building was trashed and drug-free, but three kidnapped teens were found tied up in a basement beside a mole-like tunneling vehicle and a freshly bored shaft. The teens said the Dragonlords \u2014 working for a 'Chemist' behind a new crack formula \u2014 had hauled more captives away through the tunnel."
+  },
+  {
+    "id": "t047",
+    "session_date": "2025-08-07",
+    "world_date": "1977-02-05",
+    "world_date_display": "Feb 5, 1977 (Underground)",
+    "title": "Smugglers' Blues",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Following the tunnel beneath the crack house, the heroes discover the abandoned Avengers UGABS shuttle line co-opted by the Maggia as a covert smuggling route. They free kidnapped teenagers and secure stashed narcotics.",
+    "body": "Following the tunnel beneath the crack house, the heroes discovered the abandoned Avengers UGABS shuttle line co-opted by the Maggia as a covert smuggling route for the Chemist's drug operation. They found a platform with two operational shuttle tubes and another borer parked below, plus a recently melted breach toward Manhattan \u2014 evidence of recent activity. After defeating the remaining thugs, the team freed several kidnapped teenagers from a borer's cargo hold and secured the stashed narcotics. The setup revealed how drugs were ferried from a sea platform through the tunnel to the Brooklyn crack house."
+  },
+  {
+    "id": "t048",
+    "session_date": "2025-08-21",
+    "world_date": "1977-02-12",
+    "world_date_display": "Feb 12, 1977",
+    "title": "Avengers Assemble!",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Riding the abandoned Avengers shuttle, the team reaches the Chemist's tunnel lab \u2014 and finds Iron Man and Captain America seemingly dead while two Dreadnoughts attack and a mind-ripper drops Thor.",
+    "body": "Riding the abandoned Avengers shuttle, the team reached the Chemist's tunnel lab and found Iron Man and Captain America seemingly dead while two Dreadnoughts attacked and a mind-ripper dropped Thor. The heroes defeated the robots, determined the Avengers were in a telepathic stasis, breached the lab, freed test subjects, and used the Avenger-Killer console to carefully reverse the effect \u2014 reviving Cap, Iron Man, and Thor. Meanwhile, the Chemist fled toward a storm-tossed ocean platform by hydrofoil."
+  },
+  {
+    "id": "t049",
+    "session_date": "2025-08-21",
+    "world_date": "1977-02-12",
+    "world_date_display": "Feb 12, 1977 (Avengers Mansion)",
+    "title": "Rest and Relaxation?",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "At Avengers Mansion, the team debriefs with the Vision \u2014 then mind-controlled Captain America and Iron Man attack Thor outside, triggering citywide hazards the Vigilants must contain.",
+    "body": "At Avengers Mansion, the team debriefed with the Vision, who issued them wrist communicators. Suddenly, mind-controlled Captain America and Iron Man attacked Thor outside, triggering citywide hazards. The heroes prioritized civilians: saved three dangling workmen, extinguished a car fire, and safely rescued two passengers from an electrified vehicle. They then non-lethally subdued Cap and Iron Man; Sersi removed the Chemist's implanted mind control, reviving both with no injuries. Grateful but alarmed, the Avengers urged the heroes to continue dismantling the Chemist's backers and prepared for a midnight rendezvous with Tak in Chinatown."
+  },
+  {
+    "id": "t050",
+    "session_date": "2025-08-21",
+    "world_date": "1977-02-12",
+    "world_date_display": "Feb 12, 1977 (Night)",
+    "title": "Breakout!",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "On the way to meet Tak, the team stumbles onto a Maggia jailbreak. The Beetle, Blizzard, and Constrictor burst out of a flipped prison transport. All three are defeated and re-arrested.",
+    "body": "On the way to meet Tak, the team stumbled onto a Maggia jailbreak: a little person operative flipped an armored prison transport with an explosive 'ball.' As the heroes subdued him, the Beetle, Blizzard, and Constrictor burst out to finish what Hammerhead had promised \u2014 freedom for Maggia-hired supers. After an easy fight, the heroes defeated all three. The crooks were arrested and the car righted. The mute thugs offered nothing, though the operative screeched that Hammerhead would retaliate."
+  },
+  {
+    "id": "t051",
+    "session_date": "2025-08-21",
+    "world_date": "1977-02-12",
+    "world_date_display": "Feb 12, 1977 (Midnight)",
+    "title": "Tak's in Trouble",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Tak staggers into the midnight meeting wired with ten sticks of dynamite by the Faces of Fear. The team talks him down. His parents are imprisoned at the House of Madness arcade on Oliver Street.",
+    "body": "At the midnight meet, Tak staggered in \u2014 beaten and wired with ten sticks of dynamite by the Faces of Fear, who threatened to kill his parents unless he suicide-bombed the heroes. The team talked him down and safely dealt with the explosives. Grateful and scared, Tak explained his parents were imprisoned at the 'House of Madness' amusement arcade near the Chinatown Museum on Oliver Street, run by the Faces of Fear. Their enforcer, a Deathlok Simulacrum, had strapped the bomb on him. The heroes promised to rescue Tak's parents immediately."
+  },
+  {
+    "id": "t052",
+    "session_date": "2025-09-04",
+    "world_date": "1977-02-12",
+    "world_date_display": "Feb 12, 1977 (Late Night)",
+    "title": "The Face of Fear",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "At the House of Madness arcade, the heroes fight through weaponized exhibits, defeat a Deathlok Simulacrum, rescue Tak's parents, and recover $50,000 in stolen cash and jewelry.",
+    "body": "At the House of Madness arcade, the heroes pushed through a gauntlet of weaponized exhibits \u2014 Frankenstein's monster, werewolf, clown, vampire, skeleton horde, and a mummy \u2014 then neutralized the three dragon heads by smashing them in straight combat. In the hidden workshop, they crashed through the mirror, endured gas, and defeated the Deathlok Simulacrum and its masked Faces of Fear members while a kill-laser counted down. Tak's parents were pulled to safety, the gang was routed, and the team recovered approximately $50,000 in stolen cash and jewelry plus a cache of stolen arms. Clues hinted at a bigger 'Boss F.' and a growing army of robot 'tin soldiers.'"
+  },
+  {
+    "id": "t053",
+    "session_date": "2025-09-04",
+    "world_date": "1977-02-12",
+    "world_date_display": "Feb 12, 1977 (Late Night, cont.)",
+    "title": "The Informant",
+    "type": "mission",
+    "participants": [
+      "counter-strike"
+    ],
+    "summary": "Counter-Strike receives a midnight call from an unknown man with a faint British accent \u2014 the Silver Samurai will meet the White Dragon at a warehouse near Pier 35 tomorrow at midnight. The caller is secretly Shang-Chi.",
+    "body": "After a short lull, Counter-Strike received a midnight call from an unknown man with a faint British accent: the Silver Samurai would meet the White Dragon at a warehouse near Pier 35 tomorrow at midnight. The caller hung up before identifying himself \u2014 secretly Shang-Chi, though Counter-Strike didn't know. Tracing the call led only to a Chinatown payphone near Lee Min's closed shop."
+  },
+  {
+    "id": "t054",
+    "session_date": "2025-09-04",
+    "world_date": "1977-02-12",
+    "world_date_display": "Feb 12, 1977 (Midnight, Pier 35)",
+    "title": "Midnight Meetings",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "The heroes crash the White Dragon's summit with the Silver Samurai at a Pier 35 warehouse. The White Dragon is captured. The Silver Samurai is driven off. Wu Fong and the Tiger's Claw arrive to backstop the cleanup.",
+    "body": "Near midnight at a Pier 35 warehouse, the heroes crashed the White Dragon's summit with the Silver Samurai. They took out the door guards, ambushed the meeting, and won the melee \u2014 subduing the Dragonlords and Si Fan on site and capturing the White Dragon. When the White Dragon tried to torch the parade-float-filled warehouse, the team shut it down fast, preventing a blaze. The Silver Samurai was driven off and the scene secured. Wu Fong and Tiger's Claw arrived to backstop the cleanup and invited the heroes to a celebration."
+  },
+  {
+    "id": "t055",
+    "session_date": "2025-09-18",
+    "world_date": "1977-02-26",
+    "world_date_display": "Feb 26, 1977",
+    "title": "A Celebration",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Wu Fong honors the Vigilants at the Oriental Garden \u2014 but the celebration is interrupted by a towering spectral figure who vomits ten skeletal wraiths onto the crowd.",
+    "body": "At Wu Fong's restored Oriental Garden, the Vigilants were honored by grateful Chinatown residents: Eddie and Mei Li, Tak and his parents, and shopkeepers they had saved brought gifts, food, and praise. Wu unveiled a bronze plaque bearing heroic silhouettes of the team. But as the heroes finished their brief remarks, the air turned cold and a swirling cloud of ghostly mist erupted at the garden's center. A towering spectral figure proclaimed the coming 'Imperial Dawn' and vomited forth ten skeletal wraiths onto the terrified crowd. While panicked guests fled, the Vigilants stood their ground, shielding civilians and shattering each spirit. When the last ghost dissolved, the team headed for Oriental Antiques and Curiosities to hear Hsih Feng's promised 'important news.'"
+  },
+  {
+    "id": "t056",
+    "session_date": "2025-09-18",
+    "world_date": "1977-02-26",
+    "world_date_display": "Feb 26, 1977 (Midnight)",
+    "title": "Lee Min's Treachery",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Behind Lee Min's shop, the blind curio dealer springs a trap \u2014 stunning the team with a Stasis Gun and trapping each hero in a force-field bubble that nullifies powers. Hsih Feng watches helplessly as Lee Min hauls the heroes toward the Si Fan's hidden lair.",
+    "body": "At a midnight meet with 'Hsih Feng' behind Lee Min's shop, the blind curio dealer sprang a trap: he stunned the team with a handheld Stasis Gun, locking each hero in an Unearthly force-field bubble that nullified powers and speech. Hsih Feng \u2014 secretly Shang-Chi \u2014 could only watch as Lee Min strung the weightless, immobilized heroes together and hauled them to the basement, then into the sewers. Attempts to brute-force the fields or short them with the gifted silver dragon statuettes failed. The team remained captured as Lee Min escorted them toward the Si Fan's hidden lair."
+  },
+  {
+    "id": "t057",
+    "session_date": "2025-09-18",
+    "world_date": "1977-02-26",
+    "world_date_display": "Feb 26, 1977 (Dawn)",
+    "title": "Fu Manchu Lives!",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Deep in the Si Fan's subterranean lair, the heroes witness Fu Manchu's resurrection. Shang-Chi reveals himself, frees the team, and a sprawling melee erupts. Fu Manchu, the Fixer, and Mentallo escape with A Madman's Mutterings.",
+    "sections": [
+      {
+        "heading": "The Resurrection",
+        "text": "Led into the Si Fan's subterranean lair, the heroes witnessed the Fixer and Mentallo complete Fu Manchu's resurrection as global sects hailed the 'Imperial Dawn.' Hsih Feng revealed himself as Shang-Chi, smashed Lee Min's Stasis Gun, and freed the team."
+      },
+      {
+        "heading": "The Battle",
+        "text": "A sprawling melee erupted. The heroes, with Shang-Chi's aid, defeated the Silver Samurai, Lee Min, and the Si Fan assassins, rescuing any captives. The Fixer, Mentallo, and Fu Manchu escaped through the sewers with A Madman's Mutterings. Everyone else was taken down."
+      },
+      {
+        "heading": "Aftermath",
+        "text": "The team found harmless stolen snakes around a shorted-out resurrection rig, an empty ornate coffin from the 'RELIGIOUS STATUETTES' crate, a dead sister of Shang-Chi used for the elixir, and untraceable broadcast gear. The gang war ebbed for now, but the big three fled to set up the finale."
+      }
+    ]
+  },
+  {
+    "id": "t058",
+    "session_date": "2025-10-02",
+    "world_date": "1977-03-05",
+    "world_date_display": "Mar 5, 1977",
+    "title": "The Evening News",
+    "type": "downtime",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "The evening news reports that Cameron Seaver, a 15-year-old prodigy employed by Roxxon Oil, was abducted from his Upper East Side home by 'ghostly ninjas who could walk through walls.'",
+    "body": "The evening news broke the story: unknown assailants had entered the home of Cameron Seaver, a 15-year-old prodigy employed by Roxxon Oil, shortly after midnight. With no valuables taken, investigators believed the intruders came solely for Seaver. Mr. and Mrs. Seaver were unharmed and declining interviews. Roxxon representatives had no comment. With the broadcast also hinting the Chinatown gang war was reigniting, the heroes chose to visit the Seavers directly."
+  },
+  {
+    "id": "t059",
+    "session_date": "2025-10-02",
+    "world_date": "1977-03-05",
+    "world_date_display": "Mar 5, 1977 (Morning)",
+    "title": "Cameron Come Home",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "The team visits the Seavers' Upper East Side home. The exhausted parents recount 'ghostly ninjas' led by a stern Chinese man taking Cameron, declaring the boy crucial to a coming 'Golden Empire.' Next lead: Cameron's assistant Sammy Sung in Chinatown.",
+    "body": "After persuading Officer Hanlon, the team met the exhausted parents, who recounted 'ghostly ninjas' led by a stern, mustached Chinese man taking Cameron and declaring the boy crucial to a coming 'Golden Empire.' They added that earlier that night Cameron had gotten a disturbing call about being forced to read a stolen book; he refused. The Seavers didn't know Cameron's secret Roxxon project, only that he worked closely with an assistant, Sammy Sung in Chinatown. Before leaving, Mrs. Seaver begged them to help. They promised to find Cameron and took his asthma aspirator for him."
+  },
+  {
+    "id": "t060",
+    "session_date": "2025-10-02",
+    "world_date": "1977-03-05",
+    "world_date_display": "Mar 5, 1977 (Afternoon)",
+    "title": "Trouble at Sammy's",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Sammy Sung is being chased across her Chinatown rooftop by Si Fan assassins when the heroes arrive. They protect her and learn Cameron left a hidden note hinting that Roxxon coordinator Hiram Jones may be involved.",
+    "body": "When the team emerged onto the rooftop, they saw Sammy sprinting in panic from her pigeon coop, pursued by a squad of Si Fan assassins. The fight turned into a deadly balancing act above Chinatown's neon streets as the martial artists tried to slam the heroes right off the ten-story ledge. The Vigilants protected Sammy and defeated the assassins. Once convinced they were there to help, Sammy produced a hidden note from Cameron, who warned that unnamed 'they' were threatening his parents and hinted that Hiram Jones, the Roxxon project coordinator, might be involved. She confirmed Hiram was almost always at Roxxon Plaza in Midtown."
+  },
+  {
+    "id": "t061",
+    "session_date": "2025-10-17",
+    "world_date": "1977-03-05",
+    "world_date_display": "Mar 5, 1977 (Evening)",
+    "title": "Mongoose Wants Blood",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Outside police HQ, the notorious assassin Mongoose triggers a jailbreak ambush with stunning gas, dropping his Vault Guardsmen escort. The Vigilants contain the chaos and hand Mongoose back to authorities.",
+    "body": "Outside HQ, cameras rolled as an armored van arrived carrying the assassin Mongoose. The moment the armored doors opened, five 'bystanders' revealed themselves as Maggia gunmen, donning gas masks and drawing machine pistols. Mongoose triggered stunning gas from hidden gauntlets, dropping his armored escort and most nearby civilians. Diving into the chaos, the Vigilants fought through gunfire and gas to keep bystanders alive and prevent Mongoose's escape. They neutralized the thugs and beat the villain down before he could disappear. Inside HQ, Lieutenant Lamont debriefed them \u2014 he suspected a brewing turf battle between Hammerhead's Maggia and the Faces of Fear, and believed the kidnapping of Cameron Seaver might be tied to industrial terrorism aimed at Roxxon."
+  },
+  {
+    "id": "t062",
+    "session_date": "2025-10-02",
+    "world_date": "1977-03-05",
+    "world_date_display": "Mar 5, 1977 (Evening, cont.)",
+    "title": "Roxxon Oil",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "At Roxxon Plaza, an anti-pollution protest and a ledge jumper complicate the team's meeting with Hiram Jones. Wartorn pulls off a teleport power stunt to intercept the jumper mid-fall. Hiram admits Project: TODE involves tapping 'limitless energy' \u2014 but says little else.",
+    "body": "Outside the towering glass-and-steel Roxxon Plaza in Rockefeller Center, the team found the plaza packed with an anti-pollution protest. Before the standoff could boil over, a protester was spotted on a 40th-floor ledge, poised to jump. Wartorn pushed a desperate teleport power stunt, vanishing from the street and reappearing high above to intercept the jumper. The rescue defused the moment. Within Roxxon's chilly lobby, the exhausted, rumpled Hiram Jones admitted the project involved tapping 'limitless energy' but dodged anything classified, clearly hiding more than he could safely say while unseen security cameras watched from the walls."
+  },
+  {
+    "id": "t063",
+    "session_date": "2025-10-17",
+    "world_date": "1977-03-05",
+    "world_date_display": "Mar 5, 1977 (Night)",
+    "title": "Mayhem in Midtown",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Two blocks from Roxxon Plaza, the Fly draws the team into an ambush while Rhino and Mad-Dog wait in cover. A damaged Roxxon fuel tanker threatens to ignite. Astrid uses Air Control to smother the blaze without moving the truck.",
+    "body": "Two blocks from Roxxon Plaza, the team plunged straight into a staged ambush \u2014 the Fly hovering over a street of burning wreckage while Rhino and Mad-Dog waited in cover. As panicked civilians, jammed patrol cars, and a damaged Roxxon fuel tanker turned the block into a potential war zone, the villains charged. Wartorn and Counter-Strike tied up Rhino and Mad-Dog while Screamwave used focused sonic bursts to knock the Fly out of his aerial advantage. With the heat threatening to set off the tanker, Astrid switched to finesse \u2014 using Air Control to blast the flames outward, smother the blaze, and draw off the heat without ever moving the damaged truck. All three villains lay defeated in police custody. Under questioning they grudgingly admitted only that they had been paid to kill the Vigilants."
+  },
+  {
+    "id": "t064",
+    "session_date": "2025-10-30",
+    "world_date": "1977-03-06",
+    "world_date_display": "Mar 6, 1977",
+    "title": "Some Time Off",
+    "type": "downtime",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "A quiet interlude. Astrid heads to the electronics lab to begin building a robot duplicate of Screamwave for his school obligations. The Zoinks Protocol is born.",
+    "body": "With Midtown quiet for the moment, the team split duties. Astrid headed to the electronics lab in the team's secret warehouse base to start building a robot duplicate of Screamwave's teenage self \u2014 he was still juggling high school. News cycles replayed the Roxxon street battle. Between scenes, heroes handled civilian obligations, sifted for clues, and lined up contacts before continuing the investigation with Lamont."
+  },
+  {
+    "id": "t065",
+    "session_date": "2025-10-30",
+    "world_date": "1977-03-06",
+    "world_date_display": "Mar 6, 1977 (Afternoon)",
+    "title": "The Dead Shall Rise",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "A volatile anti-toxic waste protest around a Roxxon convoy turns dangerous when a panicked street preacher forces the lead truck to jackknife and rupture, releasing an acidic plume. Linda Vasquez interviews Astrid on camera.",
+    "body": "The Vigilants walked straight into an anti-toxic waste protest swirling around a Roxxon convoy hauling drums of hazardous sludge. A panicked street preacher darted into traffic, forcing the lead truck to jackknife and rupture. A sharp acidic plume rolled down the street while corrosive runoff spread across the asphalt. With protesters on the edge, cops in riot gear, and news cameras everywhere, the team had to juggle disaster control and crowd control at once. After a couple of failed attempts to talk the mob down, they finally managed to calm and disperse the crowd and prevent any additional trucks from overturning. Linda Vasquez of Action 6 News interviewed Astrid on camera about the escalating gang war and Roxxon's role."
+  },
+  {
+    "id": "t066",
+    "session_date": "2025-10-30",
+    "world_date": "1977-03-06",
+    "world_date_display": "Mar 6, 1977 (Evening)",
+    "title": "A Hot Tip",
+    "type": "downtime",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn"
+    ],
+    "summary": "Lt. Lamont gives the team a crucial lead: an informant warns of a major gang showdown in Chinatown tonight. Cameron Seaver still missing, no ransom demands.",
+    "body": "The team met Lt. Lamont at precinct headquarters and got a crucial lead: an informant warned of a major gang showdown in Chinatown tonight. Lamont had requested extra patrols but doubted they would prevent the rumble, so he asked the heroes to monitor and intervene. He saw no link between the recent oil spill and the war, and there was still no ransom or update on Cameron Seaver."
+  },
+  {
+    "id": "t067",
+    "session_date": "2025-10-30",
+    "world_date": "1977-03-06",
+    "world_date_display": "Mar 6, 1977 (Night)",
+    "title": "The Zoinks Protocol",
+    "type": "downtime",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn",
+      "psyren",
+      "crosswise"
+    ],
+    "summary": "The full team departs for Wakanda aboard the Black Panther's jet to complete Jim Hammond's revival. Screamwave's robot duplicate \u2014 the 'Zoinks Protocol' \u2014 is left behind to cover his school obligations.",
+    "body": "Following up on Astrid's contact with T'Challa three weeks prior, the Vigilants departed for Wakanda to complete Jim Hammond's revival. Joshua Itobo had been building a vibranium frequency stabilizer to regulate Hammond's fire generation, with only four days left until completion. The team \u2014 Astrid, Counter-Strike, Wartorn, Screamwave, Psyren, and Crosswise \u2014 took Black Panther's advanced jet, with Screamwave's robot duplicate ('Zoinks Protocol') covering his school obligations back in NYC. Before departure, Astrid nailed her FEAT to build a robot stand-in of Screamwave: a pre-programmed, teen-sized duplicate that chirped canned lines like 'Zoinks.' The decoy's job was to attend school and pass casual checks with classmates and parents for a few days, buying the real Screamwave and the team time to work with Wakanda on Hammond's revival."
+  },
+  {
+    "id": "t068",
+    "session_date": "2025-11-13",
+    "world_date": "1977-03-07",
+    "world_date_display": "Mar 7, 1977",
+    "title": "The Wakanda Gambit",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn",
+      "psyren",
+      "crosswise"
+    ],
+    "summary": "Near midnight in the Wakandan royal palace, a shrieking alarm brings the team to the throne room \u2014 where the Man-Ape stands over a fallen Black Panther. Both the Man-Ape and the palace guards turn out to be combat robots. Dr. Itobo and Khanata have been kidnapped; the trail leads to Kiber Island.",
+    "sections": [
+      {
+        "heading": "The Throne Room",
+        "text": "Near midnight, a shrieking alarm tore through the quiet halls. The team raced to the Panther throne room, where the massive Man-Ape stood over a fallen Black Panther, raising his weapon for the killing blow while six ornate Wakandan palace guards ringed the chamber with drawn energy-rifles. The heroes had only seconds to react, unaware that those stoic guards were actually advanced combat robots. Once the team focused their attacks, the guards began to short out and collapse, and when Astrid and Wartorn finally dropped Man-Ape himself, the defeated villain's body broke apart in a shower of circuits: he, too, was a robot."
+      },
+      {
+        "heading": "Kiber Island",
+        "text": "Black Panther brought the heroes up to speed. During the assault, his cousin Khanata and Dr. Joshua Itobo had both been kidnapped. Pulling secure reports from his command staff, T'Challa learned that an unidentified jet had been tracked leaving Wakandan airspace toward Kiber Island \u2014 a volcanic fortress the Black Panther had battled over before. The Vigilants boarded a sleek Wakandan aircraft and streaked out over the ocean."
+      },
+      {
+        "heading": "The Lair",
+        "text": "Automated twin cannon emplacements opened fire from the rocky beach. The team disabled the guns and forced open a hidden entrance in the cliffside, descending into an underground complex beneath the island. After a running battle through narrow corridors against disc-shaped drones, Astrid shattered a massive steel blast door with a combination of lightning and brute force, revealing a sprawling high-tech facility built around the throat of an active volcano."
+      },
+      {
+        "heading": "The Mad Thinker",
+        "text": "Two hulking gorilla robots were defeated in fierce close-quarters combat. As Counter-Strike scanned the control consoles, the screens flickered to life with the mocking face of the Mad Thinker, who calmly informed Counter-Strike that there had been a 94.7% probability he would stand in that exact spot. A moment later, the floor beneath him dropped away. Only a desperate Agility FEAT kept him from plunging into the lava below. Astrid seized control of the systems using her Electronics talent, located the detention block, and the team freed Khanata, Dr. Itobo, and the other Wakandan captives."
+      }
+    ]
+  },
+  {
+    "id": "t069",
+    "session_date": "2026-01-08",
+    "world_date": "1977-03-11",
+    "world_date_display": "Mar 11, 1977",
+    "title": "Forgiveness",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn",
+      "psyren",
+      "crosswise"
+    ],
+    "summary": "Hiram Jones meets the Vigilants at the New York Public Library at midnight \u2014 begging forgiveness for the Project: TODE ambush and offering to smuggle them into Fu Manchu's hideout in shipping crates.",
+    "body": "Hiram Jones was waiting at the New York Public Library at midnight, just as his personal ad promised. The nervous Roxxon scientist looked like he hadn't slept in days. He begged the Vigilants' forgiveness for the Project: TODE ambush and offered everything he knew about Fu Manchu's operation \u2014 including a way inside. Hiram could smuggle them into the Celestial One's hideout hidden in shipping crates on his next delivery run. The team agreed to give him a chance at redemption."
+  },
+  {
+    "id": "t070",
+    "session_date": "2026-01-08",
+    "world_date": "1977-03-11",
+    "world_date_display": "Mar 11, 1977 (Night)",
+    "title": "Sacred Trinity",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn",
+      "psyren",
+      "crosswise"
+    ],
+    "summary": "A woman runs screaming toward Sacred Trinity Cathedral \u2014 but the monks in the pews are Wildboys, the priest is Ammo, and the girl is Typhoid Mary. After a quick fight, Ammo emerges with a gun to the real priest's head and demands the team surrender.",
+    "body": "A young woman in torn clothes ran screaming toward Sacred Trinity Cathedral, begging for help. Inside, hooded monks sat in candlelit pews while a priest comforted the frightened girl at the altar. It was all a setup. The monks were Wildboys. The priest was Ammo. And the girl was Typhoid Mary. The Wildboys sprang from the pews with switchblades and chains while Typhoid Mary drew twin machetes. The fight was short \u2014 the Vigilants tore through the gang with ease. But when the dust settled, Ammo emerged from a confessional with a pistol pressed to the real priest's head: 'Surrender or the priest gets it. My boss has words for ya.' The team stood down."
+  },
+  {
+    "id": "t071",
+    "session_date": "2026-01-08",
+    "world_date": "1977-03-11",
+    "world_date_display": "Mar 11, 1977 (Late Night)",
+    "title": "A Meeting of the Minds",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn",
+      "psyren",
+      "crosswise"
+    ],
+    "summary": "Ammo's van delivers the team to Kingpin Tower. Wilson Fisk proposes a deal: the Vigilants raid Fu Manchu's hideout, capture the Celestial One, and the gang war ends quietly. He reveals the location \u2014 the Lifelike Manikin Factory in Chinatown.",
+    "body": "Ammo's van delivered them to Kingpin Tower in Midtown Manhattan. Wilson Fisk was waiting in his darkened office, his massive bulk barely visible behind his desk. The gang war between Hammerhead's Maggia and Fu Manchu's Faces of Fear threatened to spill into Kingpin's territory. Fisk proposed a solution: the Vigilants would raid Fu Manchu's hideout and capture the Celestial One. The Maggia avoids bad press, the war ends quietly, and the heroes get the credit. Hammerhead joined via video link \u2014 his flat steel skull filling the screen \u2014 and agreed to the terms grudgingly. Kingpin revealed the location: the Lifelike Manikin Factory in Chinatown. The Vigilants took the intel but chose their own approach \u2014 Hiram's crate smuggling plan to get inside undetected."
+  },
+  {
+    "id": "t072",
+    "session_date": "2026-01-22",
+    "world_date": "1977-03-13",
+    "world_date_display": "Mar 13, 1977",
+    "title": "Dancing Manikins",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer",
+      "counter-strike",
+      "screamwave",
+      "wartorn",
+      "psyren",
+      "crosswise"
+    ],
+    "summary": "The Vigilants infiltrate the Lifelike Manikin Factory and find Cameron Seaver in an underground lab, clutching an energy weapon in a panic. After subduing him, he reveals four Spirit Bombs planted across the city \u2014 Bronx Zoo, UN sewers, Coney Island, Statue of Liberty.",
+    "sections": [
+      {
+        "heading": "The Infiltration",
+        "text": "The Vigilants infiltrated the Lifelike Manikin Factory, Fu Manchu's hidden base of operations. Inside the creepy warehouse filled with disembodied mannequin parts, they found their way down a cargo elevator to an underground laboratory \u2014 and came face-to-face with Cameron Seaver, the kidnapped teenager who had been forced to help the Celestial One build his doomsday devices."
+      },
+      {
+        "heading": "Cameron",
+        "text": "Terrified and clutching an eldritch energy weapon, Cameron threatened to fire. Every Popularity roll failed. It came down to initiative. The Vigilants won. Astrid lunged forward and grabbed Cameron's arm while Wartorn wrenched the weapon away. Once calmed, Cameron led the heroes to a wall map showing four blinking lights \u2014 Spirit Bombs, interdimensional gateway devices powered by his stolen Project: TODE research. The bombs were planted at the Bronx Zoo, in the sewers beneath the United Nations, at Coney Island, and atop the Statue of Liberty. A fifth bomb remained with Fu Manchu himself."
+      },
+      {
+        "heading": "The Aspirator",
+        "text": "Cameron collapsed, clawing at his throat \u2014 the worst asthma attack of his life. Astrid pulled out the aspirator recovered from his parents weeks earlier. The boy inhaled the medicine and quickly recovered. He finished the briefing and handed over a football-shaped failsafe he had secretly built \u2014 a one-shot gateway closer, just in case. With no time to waste, the team split up."
+      }
+    ]
+  },
+  {
+    "id": "t073",
+    "session_date": "2026-01-22",
+    "world_date": "1977-03-13",
+    "world_date_display": "Mar 13, 1977 (Bronx Zoo)",
+    "title": "A Barrel of Monkeys",
+    "type": "mission",
+    "participants": [
+      "astrid-stormbringer"
+    ],
+    "summary": "Astrid flies solo to the Bronx Zoo. A Spirit Bomb hidden in a tree is driving pregnant gorilla Bertha into a frenzy. Astrid rescues an injured zookeeper, calms Bertha, and disarms the bomb before the zookeeper's tranq rifle fires.",
+    "body": "Astrid arrived at the Great Ape House to find chaos \u2014 zookeepers in a standoff over a gorilla compound where most of the apes lay tranquilized, an injured worker named John bleeding among them, and pregnant gorilla Bertha raging against a large tree in the center of the enclosure. One zookeeper had his tranq rifle trained on Bertha, ready to dart her despite the risk to her unborn baby. The Spirit Bomb was hidden in the tree, its ultrasonic transmitter driving Bertha into a frenzy. Astrid had to work fast \u2014 rescue John, calm or avoid Bertha, and disarm the bomb before the zookeeper took matters into his own hands. She succeeded on all counts, switching off the transmitter and returning Bertha to her gentle self before safely extracting the device."
+  },
+  {
+    "id": "t074",
+    "session_date": "2026-01-22",
+    "world_date": "1977-03-13",
+    "world_date_display": "Mar 13, 1977 (UN Sewers)",
+    "title": "Gator Lays an Egg",
+    "type": "mission",
+    "participants": [
+      "wartorn",
+      "psyren"
+    ],
+    "summary": "Wartorn and Psyren descend into the sewers beneath the United Nations. Gator \u2014 a man mutated by Fu Manchu into a hulking reptilian brute \u2014 clutches the Spirit Bomb like a precious egg, convinced it will transform the city.",
+    "body": "Wartorn and Psyren descended into the sewer tunnels beneath the United Nations. The maze of pipes eventually led them to a massive processing tank \u2014 the lair of Gator, a man mutated by Fu Manchu into a hulking reptilian brute. Gator clutched the Spirit Bomb like a precious egg, convinced it would hatch and transform the city's population into creatures like himself. Six alligators circled the refuse heap he called a nest. The fight was brutal and filthy, but Wartorn's divine fury and Psyren's psionic assault overwhelmed the deluded monster. They pried the bomb from his clawed grip and disarmed it."
+  },
+  {
+    "id": "t075",
+    "session_date": "2026-01-22",
+    "world_date": "1977-03-13",
+    "world_date_display": "Mar 13, 1977 (Statue of Liberty)",
+    "title": "Lady Liberty",
+    "type": "mission",
+    "participants": [
+      "counter-strike",
+      "crosswise"
+    ],
+    "summary": "Counter-Strike and Crosswise swim to Liberty Island, climb to the crown, and find the Spirit Bomb hidden in the drinking fountain \u2014 guarded by a dimensional horror summoned by Fu Manchu.",
+    "body": "Counter-Strike and Crosswise had no ferry, no time, and no patience. They swam to Liberty Island, emerging soaked at the base of the monument. Inside, they talked their way past nervous night watchman Herb and climbed the endless spiral staircase to the crown. The Spirit Bomb was hidden in the drinking fountain. When they approached, a creature from another dimension billowed out of the water \u2014 a scaly, clawed horror summoned by Fu Manchu to guard the device. The monster fought savagely, but Counter-Strike's martial precision and Crosswise's light-based powers dismantled it. The beast dissipated into foul smoke, and the two heroes disarmed the bomb with Lady Liberty intact."
+  },
+  {
+    "id": "t076",
+    "session_date": "2026-01-22",
+    "world_date": "1977-03-13",
+    "world_date_display": "Mar 13, 1977 (Coney Island)",
+    "title": "A Test of Strength",
+    "type": "mission",
+    "participants": [
+      "screamwave"
+    ],
+    "summary": "Screamwave flies solo to Coney Island. The Spirit Bomb is disguised as the gong on a 'Test of Strength' carnival game \u2014 and bruiser Hound Dog keeps trying to ring it.",
+    "body": "Screamwave flew to Coney Island alone. The boardwalk was dark and empty \u2014 except for a gang of street punks clustered around a 'Test of Strength' carnival game shaped like a bobble-headed clown. Their leader, a bruiser named Hound Dog, was working himself into a fury trying to ring the gong at the top. The gong was a Spirit Bomb. Screamwave had to stop Hound Dog from hitting it again while dealing with his armed buddies \u2014 one of whom had stolen a security guard's pistol. The teenage mutant's sonic powers made short work of the gang, and he disarmed the bomb before Hound Dog could take another swing. All four bombs neutralized. The team regrouped, battered but victorious \u2014 knowing Fu Manchu still had the fifth device, and that the real confrontation was yet to come."
   }
 ]
